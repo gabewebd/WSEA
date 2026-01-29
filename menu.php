@@ -1,40 +1,117 @@
-<?php include 'includes/db_connect.php'; ?>
-<!DOCTYPE html>
-<html>
+<?php
+$pageTitle = "Our Menu - Danono's";
+$metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brownies, and refreshing drinks.";
+include 'includes/db_connect.php';
+?>
+<?php include 'includes/header.php'; ?>
 
-<head>
-    <title>Menu</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <?php include 'includes/header.php'; ?>
-
-    <div class="container">
-        <h1 class="page-title">Most Loved <span>TREATS</span></h1>
-
-        <div class="grid">
-            <?php
-            $sql = "SELECT * FROM menu_items";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="card">';
-                    // Using placeholder if no image exists
-                    echo '<img src="https://via.placeholder.com/150" style="border-radius:50%;">';
-                    echo '<h3>' . $row["name"] . '</h3>';
-                    echo '<p style="font-weight:bold; color:#F28C28;">P ' . $row["price"] . '</p>';
-                    echo '</div>';
-                }
-            } else {
-                echo "<p>No items available.</p>";
-            }
-            ?>
-        </div>
+<div class="container">
+    <!-- Page Header -->
+    <div class="section-header">
+        <span class="section-label">Fresh Daily</span>
+        <h1 class="page-title">Most Loved <span>Treats</span></h1>
     </div>
 
-    <?php include 'includes/footer.php'; ?>
-</body>
+    <!-- Menu Filters -->
+    <div class="menu-filters">
+        <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
+        <button class="filter-btn" onclick="filterMenu('doughnuts', this)">Doughnuts</button>
+        <button class="filter-btn" onclick="filterMenu('brownies', this)">Brownies</button>
+        <button class="filter-btn" onclick="filterMenu('coffee', this)">Beverages</button>
+    </div>
 
-</html>
+    <!-- Menu Grid -->
+    <div class="grid" id="menuGrid">
+        <?php
+        $sql = "SELECT * FROM menu_items WHERE (is_visible = 1 OR is_visible IS NULL) ORDER BY category, name";
+        $result = $conn->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $name = htmlspecialchars($row["name"]);
+                $price = number_format($row["price"], 2);
+                $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : "A delicious treat made fresh daily.";
+                $image = isset($row["image"]) && !empty($row["image"]) ? "uploads/" . $row["image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop";
+                $cat = strtolower($row["category"]);
+                ?>
+                <div class="card" data-category="<?php echo $cat; ?>">
+                    <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>"
+                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop'">
+                    <h3><?php echo $name; ?></h3>
+                    <p><?php echo $description; ?></p>
+                    <p class="price"><i class="ph ph-tag"></i> ₱<?php echo $price; ?></p>
+                </div>
+                <?php
+            }
+        } else {
+            // Fallback static menu items if database is empty
+            $menuItems = [
+                ["name" => "Classic Glazed", "category" => "doughnuts", "price" => "45.00", "desc" => "Our signature brioche doughnut with vanilla glaze."],
+                ["name" => "Chocolate Dream", "category" => "doughnuts", "price" => "55.00", "desc" => "Rich chocolate ganache on fluffy brioche."],
+                ["name" => "Ube Delight", "category" => "doughnuts", "price" => "60.00", "desc" => "Filipino favorite purple yam with cheese crumble."],
+                ["name" => "Matcha Bliss", "category" => "doughnuts", "price" => "65.00", "desc" => "Premium Japanese matcha glaze with white chocolate."],
+                ["name" => "Fudge Brownie", "category" => "brownies", "price" => "45.00", "desc" => "Dense, chewy brownie with chocolate chunks."],
+                ["name" => "Iced Coffee", "category" => "coffee", "price" => "85.00", "desc" => "Cold brew coffee, perfect with any doughnut."],
+            ];
+
+            foreach ($menuItems as $item) {
+                ?>
+                <div class="card" data-category="<?php echo $item['category']; ?>">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop"
+                        alt="<?php echo $item['name']; ?>">
+                    <h3><?php echo $item['name']; ?></h3>
+                    <p><?php echo $item['desc']; ?></p>
+                    <p class="price"><i class="ph ph-tag"></i> ₱<?php echo $item['price']; ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+
+    <!-- Filter Script -->
+    <script>
+        function filterMenu(cat, btn) {
+            // Remove active class
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardCat = card.dataset.category;
+                const isMatch = (cat === 'all') ||
+                    (cat === cardCat) ||
+                    (cat === 'coffee' && (cardCat === 'coffee' || cardCat === 'beverages'));
+
+                if (isMatch) {
+                    card.style.display = 'block';
+                    // Re-trigger animation if any
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = 'fadeIn 0.5s';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</div>
+
+
+
+
+<?php include 'includes/footer.php'; ?>

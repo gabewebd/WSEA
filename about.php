@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html>
+<?php
+$pageTitle = "About Us - Danono's";
+$metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to Angeles City's favorite doughnut destination.";
+?>
+<?php include 'includes/header.php'; ?>
 
-<head>
-    <title>About Us</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+<!-- Story Section -->
+<section class="story-section" style="background-color: transparent;">
+    <div class="story-content">
+        <!-- Image with Year Badge -->
+        <div class="story-image">
+            <img src="uploads/about-story.jpg" alt="Danono's humble beginnings"
+                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
+            <div class="story-badge">
+                <span class="story-badge-label">SINCE</span>
+                <span class="story-badge-year">2019</span>
+            </div>
+        </div>
 
-<body>
-    <?php include 'includes/header.php'; ?>
+        <!-- Story Text -->
+        <div class="story-text">
+            <span class="section-label">Our Story</span>
+            <h2>From Nono's to <span class="highlight-orange">Danono's</span></h2>
 
-    <div class="container">
-        <h1 class="page-title">From Nono's to <span>DANONO'S</span></h1>
-        <div style="background: white; padding: 40px; border-radius: 20px;">
-            <p>What started as a small home kitchen project in 2019 has grown into Angeles City's beloved doughnut
-                destination.</p>
-            <p>Our commitment is simple: <strong>Quality ingredients, fresh daily.</strong></p>
-            <h3>Our Mission</h3>
-            <p>To spread happiness, one doughnut at a time.</p>
         </div>
     </div>
+</section>
 
-    <?php include 'includes/footer.php'; ?>
-</body>
 
-</html>
+<?php include 'includes/footer.php'; ?>

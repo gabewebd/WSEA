@@ -1,37 +1,97 @@
-<!DOCTYPE html>
-<html>
+<?php
+$pageTitle = "Locations - Danono's";
+$metaDesc = "Find a Danono's branch near you. Visit us in Angeles City, Magalang, and San Fernando.";
+?>
+<?php include 'includes/header.php'; ?>
 
-<head>
-    <title>Locations</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+<style>
+    /* Locations Page Styles */
+    .locations-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+        padding: 60px 0;
+    }
 
-<body>
-    <?php include 'includes/header.php'; ?>
+    /* 3-Column Grid on Desktop */
+    .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0;
+    }
 
-    <div class="container">
-        <h1 class="page-title">Find a <span>BRANCH</span></h1>
+    @media (max-width: 1024px) {
+        .locations-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
-        <div class="grid">
-            <div class="card">
-                <h3>Angeles City (Main)</h3>
-                <p>123 Sto. Rosario St.</p>
-                <p>Open: 8am - 8pm</p>
-            </div>
-            <div class="card">
-                <h3>Magalang Branch</h3>
-                <p>San Pedro 1, Magalang</p>
-                <p>Open: 9am - 6pm</p>
-            </div>
-            <div class="card">
-                <h3>San Fernando</h3>
-                <p>Intersection, SF</p>
-                <p>Open: 10am - 9pm</p>
-            </div>
-        </div>
+    @media (max-width: 768px) {
+        .locations-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Location Card */
+    .location-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(67, 20, 7, 0.08);
+        border: 1px solid var(--cream, #FFEDD4);
+        transition: all 0.3s ease;
+    }
+
+    .location-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(67, 20, 7, 0.12);
+    }
+
+    .location-card .icon {
+        font-size: 40px;
+        color: #EF7D32;
+        margin-bottom: 15px;
+    }
+
+    .location-card h3 {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 22px;
+        color: #431407;
+        margin-bottom: 15px;
+    }
+
+    .location-card p {
+        font-family: 'Barlow', sans-serif;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .location-card p i {
+        color: #EF7D32;
+        margin-right: 5px;
+    }
+
+    .location-card .btn {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="locations-container">
+    <!-- Page Header -->
+    <div class="section-header">
+        <span class="section-label">Visit Us</span>
+        <h1 class="page-title">Find a <span>Branch</span></h1>
     </div>
 
-    <?php include 'includes/footer.php'; ?>
-</body>
+    <!-- Locations Grid -->
+    <div class="locations-grid">
 
-</html>
+    </div>
+</div>
+
+<?php include 'includes/footer.php'; ?>

@@ -15,6 +15,15 @@ if (session_status() === PHP_SESSION_NONE) {
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day. Order online or visit us!"; ?>">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="/danonos/assets/css/style.css">
 
   <script type="application/ld+json">
@@ -33,7 +42,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <body>
   <header>
-    <div class="logo">danono's</div>
+    <div class="logo">
+      <img src="/danonos/assets/img/danonos-logo.jpg" alt="Danono's" style="height: 50px; border-radius: 50%;">
+    </div>
     <nav>
       <a href="/danonos/index.php">Home</a>
       <a href="/danonos/about.php">About</a>

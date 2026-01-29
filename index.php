@@ -12,17 +12,19 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-text">
-            <h1>More Choices,<br><span>MORE VALUE.</span></h1>
+            <h1>More Choices,<br><span class="pop-out-text">MORE VALUE.</span></h1>
             <p>Indulge in our famous Glazed Donuts and refreshing Spanish Latte. Crafted fresh daily in Los Angeles.</p>
             <div class="hero-buttons">
-                <a href="menu.php" class="btn btn-orange">Order Delivery</a>
-                <a href="locations.php" class="btn btn-outline">Find a branch</a>
+                <a href="menu.php" class="btn btn-orange"><i class="ph ph-bicycle"></i> Order Delivery</a>
+                <a href="locations.php" class="btn btn-outline"><i class="ph ph-map-pin"></i> Find a branch</a>
             </div>
-            <p class="tagline"><span class="tagline-gold">BALLER'S IN</span> <span
-                    class="tagline-orange">GOODFOOD</span></p>
+            <p class="tagline"
+                style="margin-top: 20px; font-weight: 600; font-size: 13px; color: #9ca3af; letter-spacing: 1px;">
+                AVAILABLE ON: <span style="color: #00B14F; font-weight: 800;">GrabFood</span>
+            </p>
         </div>
         <div class="hero-image">
-            <img src="https://via.placeholder.com/500x400" style="border-radius: 20px;">
+            <img src="assets/img/danonos-image.png" style="border-radius: 20px;" alt="Danono's Donuts Box">
         </div>
     </section>
 
@@ -30,30 +32,34 @@
     <section class="treats-section">
         <div class="section-header">
             <span class="section-label">FEATURED FAVORITES</span>
-            <h2>Most Loved <span class="highlight-orange">TREATS</span></h2>
+            <h2>Most Loved <span class="pop-out-text-sm">TREATS</span></h2>
             <a href="menu.php" class="view-all">View full menu <span>→</span></a>
         </div>
         <div class="treats-carousel">
             <div class="treat-card">
-                <img src="https://via.placeholder.com/200x200" alt="Choco Heaven Supreme">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop"
+                    alt="Choco Heaven Supreme">
                 <h3>Choco Heaven Supreme</h3>
                 <p>Indulge in our decadent chocolate glazed creation</p>
                 <a href="menu.php" class="btn btn-small">PKG</a>
             </div>
             <div class="treat-card">
-                <img src="https://via.placeholder.com/200x200" alt="Biscoff Bite">
+                <img src="https://images.unsplash.com/photo-1631397834789-32263f357564?w=300&h=300&fit=crop"
+                    alt="Biscoff Bite">
                 <h3>Biscoff Bite</h3>
                 <p>Sweet treat with delightful Biscoff crunch</p>
                 <a href="menu.php" class="btn btn-small">PKG</a>
             </div>
             <div class="treat-card">
-                <img src="https://via.placeholder.com/200x200" alt="Molly Marshmallow">
+                <img src="https://images.unsplash.com/photo-1534940568018-05b1062b53eb?w=300&h=300&fit=crop"
+                    alt="Molly Marshmallow">
                 <h3>Molly Marshmallow</h3>
                 <p>Fluffy and light with a sweet marshmallow center</p>
                 <a href="menu.php" class="btn btn-small">PKG</a>
             </div>
             <div class="treat-card">
-                <img src="https://via.placeholder.com/200x200" alt="Pistachio C">
+                <img src="https://images.unsplash.com/photo-1558500204-7a1ae5d33306?w=300&h=300&fit=crop"
+                    alt="Pistachio C">
                 <h3>Pistachio C</h3>
                 <p>Nutty flavor with creamy pistachio filling</p>
                 <a href="menu.php" class="btn btn-small">PKG</a>
@@ -65,17 +71,19 @@
     <section class="drinks-brownies">
         <div class="drinks-content">
             <div class="drinks-image">
-                <img src="https://via.placeholder.com/300x400" alt="Spanish Latte Drinks">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop"
+                    alt="Spanish Latte Drinks">
             </div>
             <div class="drinks-text">
                 <span class="section-label">PERFECT PAIRING</span>
-                <h2>Drinks and Brownies That<br><span class="highlight-orange">COMPLEMENT</span></h2>
+                <h2>Drinks and Brownies That<br><span class="pop-out-text-sm">COMPLEMENT</span></h2>
                 <p>From our signature Spanish Latte to classic Filipino hot coffee, every sip is crafted to pair
                     perfectly with our favorite doughnuts.</p>
-                <a href="menu.php" class="btn btn-dark">See Full Menu</a>
+                <a href="menu.php" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
             </div>
             <div class="brownies-image">
-                <img src="https://via.placeholder.com/300x350" alt="Brownies">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476d?w=400&h=450&fit=crop"
+                    alt="Brownies">
             </div>
         </div>
     </section>
@@ -84,7 +92,8 @@
     <section class="story-section">
         <div class="story-content">
             <div class="story-image">
-                <img src="https://via.placeholder.com/350x400" alt="Spanish Latte">
+                <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=400&h=500&fit=crop"
+                    alt="Danono's Kitchen">
                 <div class="story-badge">
                     <div class="story-badge-label">SINCE</div>
                     <div class="story-badge-year">2018</div>
@@ -92,7 +101,7 @@
             </div>
             <div class="story-text">
                 <span class="section-label">OUR STORY</span>
-                <h2>From Nono's to<br><span class="highlight-orange">DANONO'S</span></h2>
+                <h2>From Nono's to<br><span class="pop-out-text-sm">DANONO'S</span></h2>
                 <p>What started as a small home kitchen project in 2018 has grown into Danono's Doughnuts. Our mission:
                     to create treats that bring happiness and sweetness in every bite.</p>
                 <p>Every morning at 6AM we'll be baking hand-cut donuts with pride, using, filling, and frying in small
@@ -102,10 +111,32 @@
         </div>
     </section>
 
+    <!-- LOCATIONS AND BLOGS SECTION -->
+    <section class="nav-cards-section">
+        <div class="nav-cards-container">
+            <div class="nav-card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f40388085?w=600&h=400&fit=crop"
+                    alt="Our Locations">
+                <div class="nav-card-overlay">
+                    <h3>Our Locations</h3>
+                    <a href="locations.php" class="btn btn-orange"><i class="ph ph-map-pin"></i> Find a Branch</a>
+                </div>
+            </div>
+            <div class="nav-card">
+                <img src="https://images.unsplash.com/photo-1483389127517-711bc0d54b2c?w=600&h=400&fit=crop"
+                    alt="Our Blogs">
+                <div class="nav-card-overlay">
+                    <h3>Our Blogs</h3>
+                    <a href="blogs.php" class="btn btn-orange"><i class="ph ph-read-cv-logo"></i> Read Blogs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- JOIN OUR FAMILY SECTION -->
     <section class="family-section">
         <div class="family-content">
-            <h2>BE PART OF OUR<br><span class="highlight-white">GROWING FAMILY</span></h2>
+            <h2>BE PART OF OUR<br><span class="double-stroke" data-text="GROWING FAMILY">GROWING FAMILY</span></h2>
             <p>Ready to taste the handmade? Join a box today and make your day a little sweeter.</p>
             <div class="family-buttons">
                 <a href="franchise.php" class="btn btn-white">Partner With Us</a>
@@ -113,7 +144,8 @@
             </div>
         </div>
         <div class="family-image">
-            <img src="https://via.placeholder.com/400x500" alt="Family of Donuts">
+            <img src="https://images.unsplash.com/photo-1517486430290-356570d17c92?w=500&h=600&fit=crop"
+                alt="Family of Donuts">
         </div>
     </section>
 
