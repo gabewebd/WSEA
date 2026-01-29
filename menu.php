@@ -1,20 +1,25 @@
-<?php include 'db_connect.php'; ?>
+<?php include 'includes/db_connect.php'; ?>
 <!DOCTYPE html>
 <html>
-<head><title>Menu</title><link rel="stylesheet" href="style.css"></head>
+
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container">
         <h1 class="page-title">Most Loved <span>TREATS</span></h1>
-        
+
         <div class="grid">
             <?php
             $sql = "SELECT * FROM menu_items";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                     echo '<div class="card">';
                     // Using placeholder if no image exists
                     echo '<img src="https://via.placeholder.com/150" style="border-radius:50%;">';
@@ -29,6 +34,7 @@
         </div>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>

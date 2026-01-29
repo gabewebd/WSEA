@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Danono's | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <?php include 'header.php'; ?>
-    
+    <?php include 'includes/header.php'; ?>
+
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-text">
@@ -16,7 +18,8 @@
                 <a href="menu.php" class="btn btn-orange">Order Delivery</a>
                 <a href="locations.php" class="btn btn-outline">Find a branch</a>
             </div>
-            <p class="tagline"><span class="tagline-gold">BALLER'S IN</span> <span class="tagline-orange">GOODFOOD</span></p>
+            <p class="tagline"><span class="tagline-gold">BALLER'S IN</span> <span
+                    class="tagline-orange">GOODFOOD</span></p>
         </div>
         <div class="hero-image">
             <img src="https://via.placeholder.com/500x400" style="border-radius: 20px;">
@@ -67,7 +70,8 @@
             <div class="drinks-text">
                 <span class="section-label">PERFECT PAIRING</span>
                 <h2>Drinks and Brownies That<br><span class="highlight-orange">COMPLEMENT</span></h2>
-                <p>From our signature Spanish Latte to classic Filipino hot coffee, every sip is crafted to pair perfectly with our favorite doughnuts.</p>
+                <p>From our signature Spanish Latte to classic Filipino hot coffee, every sip is crafted to pair
+                    perfectly with our favorite doughnuts.</p>
                 <a href="menu.php" class="btn btn-dark">See Full Menu</a>
             </div>
             <div class="brownies-image">
@@ -89,8 +93,10 @@
             <div class="story-text">
                 <span class="section-label">OUR STORY</span>
                 <h2>From Nono's to<br><span class="highlight-orange">DANONO'S</span></h2>
-                <p>What started as a small home kitchen project in 2018 has grown into Danono's Doughnuts. Our mission: to create treats that bring happiness and sweetness in every bite.</p>
-                <p>Every morning at 6AM we'll be baking hand-cut donuts with pride, using, filling, and frying in small batches to ensure perfection in every bite.</p>
+                <p>What started as a small home kitchen project in 2018 has grown into Danono's Doughnuts. Our mission:
+                    to create treats that bring happiness and sweetness in every bite.</p>
+                <p>Every morning at 6AM we'll be baking hand-cut donuts with pride, using, filling, and frying in small
+                    batches to ensure perfection in every bite.</p>
                 <a href="about.php" class="btn btn-orange">Read Our Full Story <span>→</span></a>
             </div>
         </div>
@@ -111,6 +117,7 @@
         </div>
     </section>
 
-    <?php include 'footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>
