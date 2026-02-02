@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Danono's | Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <?php include 'includes/header.php'; ?>
+<?php
+$pageTitle = "Danono's | Home";
+$customCss = "index.css";
+include 'includes/db_connect.php'; // Optional, but consistent
+?>
+<?php include 'includes/header.php'; ?>
 
     <!-- HERO SECTION -->
     <section class="hero">
@@ -18,13 +14,12 @@
                 <a href="menu.php" class="btn btn-orange"><i class="ph ph-bicycle"></i> Order Delivery</a>
                 <a href="locations.php" class="btn btn-outline"><i class="ph ph-map-pin"></i> Find a branch</a>
             </div>
-            <p class="tagline"
-                style="margin-top: 20px; font-weight: 600; font-size: 13px; color: #9ca3af; letter-spacing: 1px;">
-                AVAILABLE ON: <span style="color: #00B14F; font-weight: 800;">GrabFood</span>
+            <p class="tagline">
+                AVAILABLE ON: <span class="tagline-available">GrabFood</span>
             </p>
         </div>
         <div class="hero-image">
-            <img src="assets/img/danonos-image.png" style="border-radius: 20px;" alt="Danono's Donuts Box">
+            <img src="assets/img/danonos-image.png" alt="Danono's Donuts Box">
         </div>
     </section>
 

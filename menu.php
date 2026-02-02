@@ -1,6 +1,7 @@
 <?php
 $pageTitle = "Our Menu - Danono's";
 $metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brownies, and refreshing drinks.";
+$customCss = "menu.css";
 include 'includes/db_connect.php';
 ?>
 <?php include 'includes/header.php'; ?>
@@ -69,7 +70,6 @@ include 'includes/db_connect.php';
         ?>
     </div>
 
-    <!-- Filter Script -->
     <script>
         function filterMenu(cat, btn) {
             // Remove active class
@@ -95,20 +95,6 @@ include 'includes/db_connect.php';
             });
         }
     </script>
-
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
 </div>
 
 

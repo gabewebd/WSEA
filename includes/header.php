@@ -26,6 +26,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
   <link rel="stylesheet" href="/danonos/assets/css/style.css">
 
+  <?php if (isset($customCss)): ?>
+    <link rel="stylesheet" href="/danonos/assets/css/<?php echo $customCss; ?>">
+  <?php endif; ?>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
