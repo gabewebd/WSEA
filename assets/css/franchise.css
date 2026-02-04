@@ -1,11 +1,112 @@
 /* Franchise Page Styles */
 
-/* Hero Section */
+/* --- HERO SECTION (FIXED) --- */
 .franchise-hero {
     background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%) !important;
+
+    /* Layout Logic */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    /* Spacing & Sizing */
+    min-height: 80vh;
+    padding: 120px 5% 80px;
+    /* Top padding clears navbar */
+    max-width: 1250px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Why Franchise Section */
+/* Hero Text Side */
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #431407;
+    /* Dark Brown */
+}
+
+.hero-text h1 span {
+    color: #EF7D32;
+    /* Orange Highlight */
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-orange {
+    background-color: #EF7D32;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-outline {
+    border: 2px solid #EF7D32;
+    color: #EF7D32;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-orange:hover {
+    background-color: #d66a22;
+}
+
+.btn-outline:hover {
+    background-color: #EF7D32;
+    color: white;
+}
+
+/* Hero Image Side */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 30px;
+    box-shadow: 20px 20px 0px rgba(239, 125, 50, 0.15);
+    /* Orange shadow */
+    object-fit: cover;
+}
+
+/* --- WHY FRANCHISE SECTION --- */
 .why-franchise-section {
     background: white;
     padding: 100px 20px;
@@ -83,7 +184,7 @@
     line-height: 1.6;
 }
 
-/* Franchise Form Section */
+/* --- FRANCHISE FORM SECTION --- */
 .franchise-form-section {
     background: #FFFDF9;
     padding: 100px 20px;
@@ -243,8 +344,34 @@
     margin-right: 5px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* --- RESPONSIVE STYLES --- */
+@media (max-width: 968px) {
+
+    /* Hero Section Mobile */
+    .franchise-hero {
+        flex-direction: column-reverse;
+        /* Stack image on top */
+        text-align: center;
+        padding: 120px 20px 60px;
+        height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 42px;
+        /* Smaller text on mobile */
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        margin-bottom: 40px;
+        box-shadow: 10px 10px 0px rgba(239, 125, 50, 0.15);
+    }
+
+    /* Why Section Mobile */
     .why-franchise-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -263,5 +390,19 @@
     .why-franchise-section,
     .franchise-form-section {
         padding: 60px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn-orange,
+    .btn-outline {
+        width: 100%;
+        justify-content: center;
     }
 }

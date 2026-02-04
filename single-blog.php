@@ -24,11 +24,12 @@ if (!$post) {
 $word_count = str_word_count(strip_tags($post['content']));
 $read_time = max(1, ceil($word_count / 200)) . ' min read';
 
-// Meta Description (First 150 chars of content)
+// Meta Description (Use DB field if available, else auto-generate)
 $clean_content = strip_tags($post['content']);
-$metaDesc = substr($clean_content, 0, 150) . '...';
+$auto_desc = substr($clean_content, 0, 150) . '...';
+$metaDesc = !empty($post['meta_description']) ? $post['meta_description'] : $auto_desc;
 
-$page_title = $post['title'] . " | Danono's Blog";
+$pageTitle = $post['title'] . " | Danono's Blog";
 $customCss = "single-blog.css";
 include 'includes/header.php';
 
@@ -41,7 +42,7 @@ if ($post['featured_image']) {
 }
 
 // Author Name with fallback
-$author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danono Team';
+$author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 ?>
 
 <div class="blog-wrapper">

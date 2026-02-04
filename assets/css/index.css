@@ -1,12 +1,10 @@
-/* Index Page Styles - Moved from style.css */
+/* Index Page Styles */
 
-/* --- HERO --- */
+/* --- HERO SECTION --- */
 .hero {
     display: flex;
     padding: 0;
-    /* Full bleed */
     align-items: stretch;
-    /* Full height */
     min-height: 85vh;
     background: #FFEDD4;
     /* Cream Root */
@@ -30,7 +28,6 @@
     flex: 1;
     z-index: 1;
     padding: 0 40px 0 80px;
-    /* Internal padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,13 +37,15 @@
     font-size: 68px;
     line-height: 1.15;
     margin: 0 0 25px 0;
-    color: var(--dark-brown);
+    color: #431407;
+    /* Dark Brown */
     font-weight: 700;
     letter-spacing: -1px;
 }
 
 .hero-text h1 span {
-    color: var(--primary-orange);
+    color: #EF7D32;
+    /* Primary Orange */
     font-weight: 900;
 }
 
@@ -69,17 +68,14 @@
     letter-spacing: 1.5px;
 }
 
-.tagline-gold {
-    color: #C68E5D;
-}
-
-.tagline-orange {
-    color: var(--primary-orange);
+.tagline-available {
+    color: #00B14F;
+    /* GrabFood Green */
+    font-weight: 700;
 }
 
 .hero-image {
     flex: 0 0 50%;
-    /* Half width */
     z-index: 1;
     position: relative;
     padding: 0;
@@ -94,31 +90,48 @@
     border: none;
 }
 
-/* --- TREATS (CARDS) --- */
+/* --- TREATS SECTION (CARDS) --- */
 .treats-section {
     padding: 80px 20px;
-    background-color: var(--warm-white);
-    /* #FFFDF9 */
+    background-color: #FFFDF9;
+    /* Warm White */
     text-align: center;
     position: relative;
 }
 
+.section-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #EF7D32;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    color: #431407;
+    margin-bottom: 40px;
+}
+
 .view-all {
     position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--primary-orange);
+    top: 80px;
+    /* Aligns with header */
+    right: 5%;
+    color: #EF7D32;
     font-weight: 700;
     text-decoration: none;
     font-size: 14px;
-    margin-top: 15px;
-    /* Adjust alignment with header */
 }
 
 .treats-carousel {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .treat-card {
@@ -127,13 +140,13 @@
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(67, 20, 7, 0.05);
-    border: 2px solid var(--cream);
+    border: 2px solid #FFF8F0;
     transition: all 0.3s ease;
 }
 
 .treat-card:hover {
     transform: translateY(-8px);
-    border-color: var(--primary-orange);
+    border-color: #EF7D32;
     box-shadow: 0 15px 30px rgba(67, 20, 7, 0.1);
 }
 
@@ -148,7 +161,7 @@
 .treat-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: var(--dark-brown);
+    color: #431407;
 }
 
 .treat-card p {
@@ -158,10 +171,27 @@
     line-height: 1.5;
 }
 
-/* --- DRINKS & BROWNIES --- */
+.btn-small {
+    padding: 8px 16px;
+    font-size: 12px;
+    border: 1px solid #EF7D32;
+    color: #EF7D32;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-small:hover {
+    background: #EF7D32;
+    color: white;
+}
+
+/* --- DRINKS & BROWNIES SECTION --- */
 .drinks-brownies {
-    padding: 100px 60px;
-    background-color: var(--cream);
+    padding: 100px 5%;
+    background-color: #FFF8F0;
+    /* Cream */
 }
 
 .drinks-content {
@@ -174,11 +204,10 @@
 
 .drinks-image,
 .brownies-image {
-    flex: 0 0 22%;
-    /* Reduced from 28% to give text more space */
+    flex: 0 0 25%;
     border-radius: 30px;
     overflow: hidden;
-    border: 8px solid var(--dark-brown);
+    border: 8px solid #431407;
     box-shadow: 0 10px 25px rgba(67, 20, 7, 0.15);
 }
 
@@ -186,6 +215,7 @@
 .brownies-image img {
     width: 100%;
     display: block;
+    height: auto;
 }
 
 .drinks-text {
@@ -197,59 +227,114 @@
     font-size: 48px;
     line-height: 1.2;
     margin-bottom: 20px;
+    color: #431407;
 }
 
-/* --- FAMILY --- */
-.family-section {
-    background: linear-gradient(135deg, var(--primary-orange) 0%, #D8651E 100%);
+.btn-dark {
+    background: #431407;
     color: white;
-    padding: 100px 60px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* --- OUR STORY SECTION (FIXED) --- */
+.story-section {
+    padding: 100px 5%;
+    background-color: transparent;
+    position: relative;
+}
+
+.story-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.family-content {
+/* Image Side */
+.story-image {
     flex: 1;
-    z-index: 1;
+    max-width: 450px;
+    position: relative;
+    border-radius: 30px;
+    border: 8px solid #431407;
+    /* Dark Brown */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.family-content h2 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 58px;
-}
-
-.family-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.95;
-}
-
-.family-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.family-image {
-    flex: 0 0 40%;
-    z-index: 1;
-}
-
-.family-image img {
+.story-image img {
     width: 100%;
-    border-radius: 25px;
-    border: 5px solid var(--white);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* The "Since 2018" Badge */
+.story-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFC107;
+    /* Gold */
+    border: 5px solid #431407;
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #431407;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.story-badge-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: -2px;
+}
+
+.story-badge-year {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* Text Side */
+.story-text {
+    flex: 1.2;
+}
+
+.story-text h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #431407;
+}
+
+.story-text p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 25px;
 }
 
 /* --- NAV CARDS SECTION (Locations & Blogs) --- */
 .nav-cards-section {
-    padding: 80px 60px;
-    background-color: var(--warm-white);
+    padding: 80px 5%;
+    background-color: #FFFDF9;
+    /* Warm White */
 }
 
 .nav-cards-container {
@@ -266,7 +351,7 @@
     overflow: hidden;
     height: 350px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 5px solid var(--white);
+    border: 5px solid white;
 }
 
 .nav-card img {
@@ -298,61 +383,110 @@
 .nav-card h3 {
     color: white;
     font-size: 32px;
-    font-family: "Fredoka One", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    -webkit-text-stroke: 1px transparent;
-    /* No stroke for these, clean look */
 }
 
-/* Double Stroke Effect and Pop-Out Text */
-.double-stroke {
-    font-family: "Fredoka One", sans-serif;
+/* --- JOIN OUR FAMILY SECTION --- */
+.family-section {
+    background: linear-gradient(135deg, #EF7D32 0%, #D8651E 100%);
     color: white;
-    -webkit-text-stroke: 0;
+    padding: 100px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
     position: relative;
+    overflow: hidden;
+}
+
+.family-content {
+    flex: 1;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.family-content h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 58px;
+    line-height: 1;
+}
+
+.family-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.family-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-white {
+    background: white;
+    color: #EF7D32;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.btn-white:hover {
+    background: #FFF8F0;
+}
+
+.family-image {
+    flex: 0 0 40%;
     z-index: 1;
 }
 
-.double-stroke::before {
-    content: none;
+.family-image img {
+    width: 100%;
+    border-radius: 25px;
+    border: 5px solid white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TYPOGRAPHY EFFECTS --- */
+.double-stroke {
+    /* Simulating stroke if font supports it, or just bold white */
+    color: white;
+    font-weight: 900;
 }
 
 .pop-out-text {
-    font-family: "Fredoka One", sans-serif;
     font-size: 70px;
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1em;
     margin: 0;
-    color: var(--primary-orange);
-    -webkit-text-stroke-width: 20px;
-    -webkit-text-stroke-color: var(--dark-brown);
-    paint-order: stroke fill;
-    letter-spacing: normal;
+    color: #EF7D32;
+    -webkit-text-stroke: 2px #431407;
+    /* Dark Brown Outline */
 }
 
 .pop-out-text-sm {
-    font-family: "Fredoka One", sans-serif;
     font-size: 48px;
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1em;
     margin: 0;
-    color: var(--primary-orange);
-    -webkit-text-stroke-width: 13px;
-    -webkit-text-stroke-color: var(--dark-brown);
-    paint-order: stroke fill;
+    color: #EF7D32;
+    -webkit-text-stroke: 1.5px #431407;
 }
 
-/* RESPONSIVE adjustment specific to index */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
 
     .hero,
     .treats-section,
     .drinks-brownies,
+    .story-section,
     .family-section {
         padding: 60px 30px;
     }
@@ -360,13 +494,24 @@
     .hero h1 {
         font-size: 50px;
     }
+
+    .story-content {
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
+
+    /* Hero */
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 40px;
+        padding-top: 100px;
+        /* Space for navbar */
+    }
+
+    .hero-text {
+        padding: 0 20px;
     }
 
     .hero-buttons {
@@ -378,23 +523,44 @@
         margin-bottom: 30px;
     }
 
-    .drinks-content,
-    .family-section {
+    /* Drinks & Brownies */
+    .drinks-content {
         flex-direction: column;
     }
 
     .drinks-image,
-    .brownies-image,
-    .family-image {
-        flex: 1;
-        width: 100%;
+    .brownies-image {
+        width: 80%;
+        max-width: 300px;
     }
 
+    /* Story */
+    .story-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .story-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Nav Cards */
     .nav-cards-container {
         flex-direction: column;
     }
 
     .nav-card {
         height: 250px;
+    }
+
+    /* Family */
+    .family-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .family-buttons {
+        justify-content: center;
     }
 }

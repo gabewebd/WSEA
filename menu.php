@@ -34,9 +34,11 @@ include 'includes/db_connect.php';
                 $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : "A delicious treat made fresh daily.";
                 $image = isset($row["image"]) && !empty($row["image"]) ? "uploads/" . $row["image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop";
                 $cat = strtolower($row["category"]);
+                // Use DB alt_text if available, otherwise fallback to name
+                $altText = !empty($row["alt_text"]) ? htmlspecialchars($row["alt_text"]) : $name;
                 ?>
                 <div class="card" data-category="<?php echo $cat; ?>">
-                    <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>"
+                    <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>"
                         onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop'">
                     <h3><?php echo $name; ?></h3>
                     <p><?php echo $description; ?></p>
