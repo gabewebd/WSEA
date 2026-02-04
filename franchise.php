@@ -6,7 +6,7 @@ $customCss = "franchise.css";
 <?php include 'includes/header.php'; ?>
 
 <!-- Hero Section for Franchise -->
-<section class="hero franchise-hero">
+<section class="franchise-hero">
     <div class="hero-text">
         <p class="tagline tagline-orange">Partner With Us</p>
         <h1>Be Part of Our <span>Family</span></h1>

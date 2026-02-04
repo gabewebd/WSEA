@@ -1,56 +1,46 @@
 /* Franchise Page Styles */
 
-/* --- HERO SECTION (FIXED) --- */
+/* --- FRANCHISE HERO (Fixed Layout) --- */
 .franchise-hero {
     background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%) !important;
-
-    /* Layout Logic */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-
-    /* Spacing & Sizing */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
     min-height: 80vh;
     padding: 120px 5% 80px;
-    /* Top padding clears navbar */
     max-width: 1250px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
 }
 
-/* Hero Text Side */
-.hero-text {
-    flex: 1;
+/* Ensure children respect flex */
+.franchise-hero .hero-text {
+    flex: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
     max-width: 600px;
     z-index: 2;
 }
 
-.hero-text h1 {
-    font-size: 56px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    color: #431407;
-    /* Dark Brown */
+.franchise-hero .hero-image {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
-.hero-text h1 span {
-    color: #EF7D32;
-    /* Orange Highlight */
-}
-
-.hero-text p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 35px;
-    line-height: 1.6;
-}
-
-/* Hero Buttons */
-.hero-buttons {
-    display: flex;
-    gap: 15px;
+.franchise-hero .hero-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 30px;
+    box-shadow: 20px 20px 0px rgba(239, 125, 50, 0.15);
+    object-fit: cover;
 }
 
 .btn-orange {
@@ -91,6 +81,8 @@
 /* Hero Image Side */
 .hero-image {
     flex: 1;
+    min-width: 0;
+    /* Prevent flex overflow */
     display: flex;
     justify-content: center;
     position: relative;
