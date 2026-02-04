@@ -5,6 +5,83 @@ $customCss = "menu.css";
 include 'includes/db_connect.php';
 ?>
 <?php include 'includes/header.php'; ?>
+<style>
+    /* --- CARD STYLING --- */
+    .card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #FFF8F0;
+        /* Very light cream border */
+        box-shadow: 0 10px 30px rgba(67, 20, 7, 0.03);
+        /* Soft shadow */
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /* Ensures all cards in a row are same height */
+        position: relative;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08);
+        border-color: #EF7D32;
+        /* Orange border on hover */
+    }
+
+    /* Image */
+    .card img {
+        width: 100%;
+        height: 260px;
+        /* Fixed height for uniformity */
+        object-fit: cover;
+        background-color: #FFF8F0;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.05);
+        /* Subtle zoom effect */
+    }
+
+    /* Text Content */
+    .card h3 {
+        font-size: 22px;
+        margin: 20px 25px 10px;
+        color: #431407;
+        font-weight: 700;
+    }
+
+    .card p {
+        font-size: 15px;
+        color: #666;
+        margin: 0 25px 20px;
+        line-height: 1.6;
+        flex-grow: 1;
+        /* Pushes the price to the bottom */
+    }
+
+    /* Price Tag */
+    .price {
+        margin-top: auto;
+        /* Forces to bottom */
+        padding: 20px 25px;
+        background-color: #FFFDF9;
+        border-top: 1px solid #FFF0E0;
+        color: #EF7D32 !important;
+        /* Force Orange */
+        font-weight: 800;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .price i {
+        font-size: 20px;
+    }
+</style>
 
 <div class="container">
     <!-- Page Header -->

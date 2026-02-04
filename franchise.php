@@ -4,11 +4,156 @@ $metaDesc = "Join the Danono's family! Learn about franchise opportunities and h
 $customCss = "franchise.css";
 ?>
 <?php include 'includes/header.php'; ?>
+<style>
+    /* --- FRANCHISE HERO (Fixed Layout) - FAILSAFE --- */
+    .franchise-hero {
+        /* 1. Full Width Background */
+        background: linear-gradient(135deg, #FFEDD4 0%, #FFF8F0 100%) !important;
+        width: 100%;
+        min-height: 85vh;
+        /* Occupy vertical space */
+
+        /* 2. Flex Layout */
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+        /* Space between text and image */
+        padding: 100px 8%;
+        /* Dynamic spacing on sides */
+
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Fix Text Side */
+    .franchise-hero .hero-text {
+        flex: 1;
+        max-width: 600px;
+        /* Prevents text from stretching too wide */
+        z-index: 2;
+    }
+
+    .franchise-hero .hero-text .tagline-orange {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #EF7D32;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .franchise-hero .hero-text h1 {
+        font-size: 64px;
+        /* Big & Bold */
+        line-height: 1.1;
+        color: #431407;
+        /* Dark Brown */
+        margin-bottom: 24px;
+        font-weight: 800;
+    }
+
+    .franchise-hero .hero-text h1 span {
+        color: #EF7D32;
+        /* Orange Accent */
+    }
+
+    .franchise-hero .hero-text p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 35px;
+    }
+
+    /* Fix Buttons */
+    .franchise-hero .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .franchise-hero .btn {
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .franchise-hero .btn-orange {
+        background-color: #EF7D32;
+        color: white;
+        border: 2px solid #EF7D32;
+    }
+
+    .franchise-hero .btn-orange:hover {
+        background-color: #d96a23;
+        transform: translateY(-2px);
+    }
+
+    .franchise-hero .btn-outline {
+        background-color: transparent;
+        color: #431407;
+        border: 2px solid #431407;
+    }
+
+    .franchise-hero .btn-outline:hover {
+        background-color: var(--gold);
+        border-color: var(--gold);
+    }
+
+    /* Fix Image Side */
+    .franchise-hero .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .franchise-hero .hero-image img {
+        width: 100%;
+        max-width: 550px;
+        /* Good size for the graphic */
+        border-radius: 40px;
+        /* Smooth Curve */
+        box-shadow: none !important;
+        /* Removed Shadow as requested */
+        object-fit: cover;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+        .franchise-hero {
+            flex-direction: column-reverse;
+            text-align: center;
+            padding: 120px 20px 60px;
+            height: auto;
+        }
+
+        .franchise-hero .hero-text h1 {
+            font-size: 42px;
+        }
+
+        .franchise-hero .hero-buttons {
+            justify-content: center;
+        }
+
+        .franchise-hero .hero-image img {
+            max-width: 100%;
+        }
+    }
+</style>
 
 <!-- Hero Section for Franchise -->
 <section class="franchise-hero">
     <div class="hero-text">
-        <p class="tagline tagline-orange">Partner With Us</p>
+        <p class="tagline-orange">Partner With Us</p>
         <h1>Be Part of Our <span>Family</span></h1>
         <p>Join the growing Danono's franchise network and bring the sweetest treats to your community. We provide the
             recipe for success — you bring the passion!</p>

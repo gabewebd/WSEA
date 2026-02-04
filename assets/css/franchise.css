@@ -1,103 +1,5 @@
 /* Franchise Page Styles */
 
-/* --- FRANCHISE HERO (Fixed Layout) --- */
-.franchise-hero {
-    background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%) !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 40px !important;
-    min-height: 80vh;
-    padding: 120px 5% 80px;
-    max-width: 1250px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Ensure children respect flex */
-.franchise-hero .hero-text {
-    flex: 1 !important;
-    flex-shrink: 1 !important;
-    min-width: 0 !important;
-    max-width: 600px;
-    z-index: 2;
-}
-
-.franchise-hero .hero-image {
-    flex: 1 !important;
-    min-width: 0 !important;
-    display: flex !important;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-}
-
-.franchise-hero .hero-image img {
-    width: 100%;
-    max-width: 550px;
-    border-radius: 30px;
-    box-shadow: 20px 20px 0px rgba(239, 125, 50, 0.15);
-    object-fit: cover;
-}
-
-.btn-orange {
-    background-color: #EF7D32;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-outline {
-    border: 2px solid #EF7D32;
-    color: #EF7D32;
-    padding: 12px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-orange:hover {
-    background-color: #d66a22;
-}
-
-.btn-outline:hover {
-    background-color: #EF7D32;
-    color: white;
-}
-
-/* Hero Image Side */
-.hero-image {
-    flex: 1;
-    min-width: 0;
-    /* Prevent flex overflow */
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 550px;
-    border-radius: 30px;
-    box-shadow: 20px 20px 0px rgba(239, 125, 50, 0.15);
-    /* Orange shadow */
-    object-fit: cover;
-}
-
 /* --- WHY FRANCHISE SECTION --- */
 .why-franchise-section {
     background: white;
@@ -178,7 +80,7 @@
 
 /* --- FRANCHISE FORM SECTION --- */
 .franchise-form-section {
-    background: #FFFDF9;
+    background: #FFEDD4;
     padding: 100px 20px;
 }
 
