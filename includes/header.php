@@ -35,7 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
       "@context": "https://schema.org",
       "@type": "Bakery",
       "name": "Danonos Donuts",
-      "image": "http://localhost/danonos/assets/img/logo.png", 
+      "image": "/assets/img/logo.png", 
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Manila"
@@ -59,14 +59,14 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
   <header>
     <div class="logo">
-      <img src="/danonos/assets/img/danonos-logo.jpg" alt="Danono's" style="height: 50px; border-radius: 50%;">
+      <img src="/assets/img/danonos-logo.jpg" alt="Danono's" style="height: 50px; border-radius: 50%;">
     </div>
     <nav>
-      <a href="/danonos/index.php">Home</a>
-      <a href="/danonos/about.php">About</a>
-      <a href="/danonos/menu.php">Menu</a>
-      <a href="/danonos/blogs.php">Blogs</a>
-      <a href="/danonos/locations.php">Locations</a>
-      <a href="/danonos/franchise.php">Franchise</a>
+      <a href="/index.php">Home</a>
+      <a href="/about.php">About</a>
+      <a href="/menu.php">Menu</a>
+      <a href="/blogs.php">Blogs</a>
+      <a href="/locations.php">Locations</a>
+      <a href="/franchise.php">Franchise</a>
     </nav>
   </header>
