@@ -35,7 +35,6 @@ include 'includes/db_connect.php';
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #FFF9F3 0%, #FFF3E6 100%);
             color: var(--text);
             line-height: 1.6;
@@ -89,7 +88,6 @@ include 'includes/db_connect.php';
 
         .section-label {
             display: inline-block;
-            font-family: 'Raleway', sans-serif;
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -100,7 +98,7 @@ include 'includes/db_connect.php';
         }
 
         .page-title {
-            font-family: 'Cormorant Garamond', serif;
+
             font-size: 72px;
             font-weight: 700;
             color: var(--dark);
@@ -141,7 +139,6 @@ include 'includes/db_connect.php';
             border: 2px solid var(--border);
             background: white;
             color: var(--text);
-            font-family: 'Poppins', sans-serif;
             font-size: 14px;
             font-weight: 600;
             border-radius: 50px;
@@ -307,7 +304,6 @@ include 'includes/db_connect.php';
         }
 
         .card h3 {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
             font-weight: 700;
             color: var(--dark);
@@ -542,7 +538,7 @@ include 'includes/db_connect.php';
         <!-- Header Section -->
         <div class="header-section">
             <div class="header-content">
-                <span class="section-label">✨ Fresh Daily</span>
+                <span class="section-label">Fresh Daily</span>
                 <h1 class="page-title">Most Loved <span>Treats</span></h1>
                 <p class="page-subtitle">Handcrafted premium brioche doughnuts, decadent brownies, and artisanal beverages</p>
             </div>
