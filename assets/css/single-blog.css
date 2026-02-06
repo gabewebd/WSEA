@@ -109,12 +109,12 @@ body {
 
 /* IMAGES INSIDE CONTENT - FIXED */
 .blog-content img {
-    max-width: 100%; /* Allow full width */
-    height: auto;
-    border-radius: 12px;
+    border-radius: 8px;
     margin: 40px auto;
     display: block;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    max-width: 100%;  /* <--- FIXED */
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Optional: keeping shadow */
 }
 
 /* LINKS */
