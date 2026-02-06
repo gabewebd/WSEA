@@ -81,6 +81,38 @@ include 'includes/db_connect.php';
     .price i {
         font-size: 20px;
     }
+
+    /* --- ANIMATION STYLES --- */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes fadeOutDown {
+        from {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+    }
+
+    .card.animating-in {
+        animation: fadeInUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+
+    .card.hidden {
+        display: none;
+    }
+
 </style>
 
 <div class="container">
@@ -155,7 +187,7 @@ include 'includes/db_connect.php';
                 ["name" => "Fluffy Floss Fantasy", "category" => "doughnuts", "price" => "₱50", "desc" => "Savory brioche donuts with Japanese mayo spread and chicken floss on top."],
                 ["name" => "Toasty Ovalmaltine Dream", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut spread with Ovomaltine crunch top with torched marshmallows and sprinkled with crushed Biscoff biscuit."],
                 ["name" => "Mango Crunch", "category" => "doughnuts", "price" => "₱50", "desc" => "Chocolate-dipped brioche donut with mango filling and topped with graham cracker bits."],
-                
+
                 // Signature Drinks
                 ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "₱100", "desc" => "Signature chocolate drink served hot."],
                 ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "₱110", "desc" => "Signature chocolate drink served over ice."],
@@ -218,29 +250,52 @@ include 'includes/db_connect.php';
     </div>
 
     <script>
-        function filterMenu(cat, btn) {
-            // Remove active class
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        function filterMenu(category, btn) {
+            // 1. Update Active Button State
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
+            // 2. Get all cards
             const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const cardCat = card.dataset.category;
-                const isMatch = (cat === 'all') ||
-                    (cat === cardCat) ||
-                    (cat === 'coffee' && (cardCat === 'coffee' || cardCat === 'beverages'));
+            
+            // 3. Animation Logic
+            let delayCounter = 0; // To stagger the entrance of new items
 
-                if (isMatch) {
-                    card.style.display = 'block';
-                    // Re-trigger animation if any
-                    card.style.animation = 'none';
-                    card.offsetHeight; /* trigger reflow */
-                    card.style.animation = 'fadeIn 0.5s';
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                
+                // Determine if this card should show
+                const shouldShow = (category === 'all') || 
+                                   (category === cardCat) || 
+                                   (category === 'coffee' && (cardCat === 'beverages'));
+
+                if (shouldShow) {
+                    // If hidden, remove hidden class and animate in
+                    if (card.classList.contains('hidden')) {
+                        card.classList.remove('hidden');
+                        card.style.animationDelay = `${delayCounter * 0.05}s`; // Stagger effect
+                        card.classList.add('animating-in');
+                        delayCounter++;
+
+                        // Clean up animation class after it runs
+                        card.addEventListener('animationend', () => {
+                            card.classList.remove('animating-in');
+                            card.style.animationDelay = '0s';
+                        }, { once: true });
+                    } 
                 } else {
-                    card.style.display = 'none';
+                    // Hide immediately (or you could add a fadeOut animation here too)
+                    card.classList.add('hidden');
                 }
             });
         }
+
+        // Optional: Trigger 'All' animation on page load for a nice entrance
+        document.addEventListener('DOMContentLoaded', () => {
+             const firstBtn = document.querySelector('.filter-btn.active');
+             if(firstBtn) filterMenu('all', firstBtn);
+        });
     </script>
 </div>
 
