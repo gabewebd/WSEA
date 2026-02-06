@@ -252,7 +252,7 @@ if (isset($_POST['update'])) {
                                 Doughnuts</option>
                             <option value="Brownies" <?php echo $item['category'] == 'Brownies' ? 'selected' : ''; ?>>
                                 Brownies</option>
-                            <option value="Coffee" <?php echo $item['category'] == 'Coffee' ? 'selected' : ''; ?>>Coffee
+                            <option value="Beverages" <?php echo $item['category'] == 'Beverages' ? 'selected' : ''; ?>>Beverages
                             </option>
                         </select>
                     </div>
