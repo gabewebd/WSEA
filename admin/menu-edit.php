@@ -34,73 +34,34 @@ if (isset($_POST['update'])) {
     $description = $_POST['description'];
     $image_filename = $item['image']; // Keep existing by default
 
-    // Image Upload (if new image provided)
+    // Image Upload
     if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0) {
         $file = $_FILES['image'];
         $uploadDir = '../uploads/';
 
-        // Clean filename
+        // 1. Clean filename
         $rawName = pathinfo($file['name'], PATHINFO_FILENAME);
         $cleanName = preg_replace('/[^a-zA-Z0-9_-]/', '-', $rawName);
         $cleanName = preg_replace('/-+/', '-', $cleanName);
         $cleanName = trim(strtolower($cleanName), '-');
 
-        $origExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-        $gdAvailable = function_exists('imagecreatefromjpeg');
-        $finalExt = $gdAvailable ? 'jpg' : $origExt;
+        // 2. Keep Original Extension
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-        // Handle duplicates
-        $fileName = $cleanName . '.' . $finalExt;
+        // 3. Handle duplicates
+        $fileName = $cleanName . '.' . $ext;
         $counter = 1;
         while (file_exists($uploadDir . $fileName)) {
-            $fileName = $cleanName . '-' . $counter . '.' . $finalExt;
+            $fileName = $cleanName . '-' . $counter . '.' . $ext;
             $counter++;
         }
         $destination = $uploadDir . $fileName;
 
-        // Process
-        if ($gdAvailable) {
-            $max_width = 1000;
-            $quality = 75;
-
-            list($width, $height) = getimagesize($file['tmp_name']);
-            $ratio = $width / $height;
-
-            if ($width > $max_width) {
-                $newWidth = $max_width;
-                $newHeight = $max_width / $ratio;
-            } else {
-                $newWidth = $width;
-                $newHeight = $height;
-            }
-
-            $src = null;
-            if ($origExt == 'jpg' || $origExt == 'jpeg') {
-                $src = imagecreatefromjpeg($file['tmp_name']);
-            } elseif ($origExt == 'png') {
-                $src = imagecreatefrompng($file['tmp_name']);
-                $bg = imagecreatetruecolor($width, $height);
-                imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
-                imagecopy($bg, $src, 0, 0, 0, 0, $width, $height);
-                $src = $bg;
-            } elseif ($origExt == 'gif') {
-                $src = imagecreatefromgif($file['tmp_name']);
-            }
-
-            if ($src) {
-                $dst = imagecreatetruecolor($newWidth, $newHeight);
-                imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-                imagejpeg($dst, $destination, $quality);
-                imagedestroy($src);
-                imagedestroy($dst);
-                $image_filename = $fileName;
-            } else {
-                move_uploaded_file($file['tmp_name'], $destination);
-                $image_filename = $fileName;
-            }
-        } else {
-            move_uploaded_file($file['tmp_name'], $destination);
+        // 4. UPLOAD EXACT FILE (No resizing, No quality loss)
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
             $image_filename = $fileName;
+        } else {
+            // Error handling (optional)
         }
     }
 

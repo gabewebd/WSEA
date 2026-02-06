@@ -16,7 +16,7 @@ if (isset($_POST['submit_post'])) {
     $author_id = $_SESSION['user_id'];
     $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
 
-    // Handle Image: Upload OR URL (SEO-Friendly Names + Resize & Compress with GD Fallback)
+    // Handle Image: Upload OR URL
     $image_filename = "";
 
     if (!empty($_FILES['featured_image']['name']) && $_FILES['featured_image']['error'] == 0) {
@@ -29,66 +29,20 @@ if (isset($_POST['submit_post'])) {
         $cleanName = preg_replace('/-+/', '-', $cleanName);
         $cleanName = trim(strtolower($cleanName), '-');
 
-        $origExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-        $gdAvailable = function_exists('imagecreatefromjpeg');
-        $finalExt = $gdAvailable ? 'jpg' : $origExt;
+        // 2. Keep Original Extension (Crucial for quality!)
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-        // 2. HANDLE DUPLICATES
-        $fileName = $cleanName . '.' . $finalExt;
+        // 3. HANDLE DUPLICATES
+        $fileName = $cleanName . '.' . $ext;
         $counter = 1;
         while (file_exists($uploadDir . $fileName)) {
-            $fileName = $cleanName . '-' . $counter . '.' . $finalExt;
+            $fileName = $cleanName . '-' . $counter . '.' . $ext;
             $counter++;
         }
         $destination = $uploadDir . $fileName;
 
-        // 3. PROCESS IMAGE
-        if ($gdAvailable) {
-            // GD AVAILABLE - Resize & Compress
-            $max_width = 1200;  // Larger for better detail
-            $quality = 90;      // Higher quality (less blur)
-
-            list($width, $height) = getimagesize($file['tmp_name']);
-            $ratio = $width / $height;
-
-            if ($width > $max_width) {
-                $newWidth = $max_width;
-                $newHeight = $max_width / $ratio;
-            } else {
-                $newWidth = $width;
-                $newHeight = $height;
-            }
-
-            $src = null;
-            if ($origExt == 'jpg' || $origExt == 'jpeg') {
-                $src = imagecreatefromjpeg($file['tmp_name']);
-            } elseif ($origExt == 'png') {
-                $src = imagecreatefrompng($file['tmp_name']);
-                $bg = imagecreatetruecolor($width, $height);
-                imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
-                imagecopy($bg, $src, 0, 0, 0, 0, $width, $height);
-                $src = $bg;
-            } elseif ($origExt == 'gif') {
-                $src = imagecreatefromgif($file['tmp_name']);
-            }
-
-            if ($src) {
-                $dst = imagecreatetruecolor($newWidth, $newHeight);
-                imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-                imagejpeg($dst, $destination, $quality);
-
-                imagedestroy($src);
-                imagedestroy($dst);
-
-                $image_filename = $fileName;
-            } else {
-                // Unsupported format fallback
-                move_uploaded_file($file['tmp_name'], $destination);
-                $image_filename = $fileName;
-            }
-        } else {
-            // GD NOT AVAILABLE - Simple move
-            move_uploaded_file($file['tmp_name'], $destination);
+        // 4. UPLOAD EXACT FILE (No resizing, No quality loss)
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
             $image_filename = $fileName;
         }
     } elseif (!empty($_POST['image_url'])) {
@@ -151,7 +105,6 @@ if (isset($_POST['submit_post'])) {
 
     <div class="admin-page" style="padding: 0;">
 
-        <!-- Header -->
         <div class="admin-header" style="margin: 0; width: 100%;">
             <div class="admin-header-left">
                 <a href="dashboard.php" class="back-link">
@@ -169,19 +122,14 @@ if (isset($_POST['submit_post'])) {
         <form method="POST" enctype="multipart/form-data">
             <div class="editor-layout">
 
-                <!-- LEFT: Main Editor (75%) -->
                 <div class="editor-main">
-                    <!-- Title -->
                     <input type="text" name="title" class="title-input" placeholder="Enter post title..." required>
 
-                    <!-- Editor -->
                     <textarea id="summernote" name="content"></textarea>
                 </div>
 
-                <!-- RIGHT: Sidebar (25%) -->
                 <div class="editor-sidebar">
 
-                    <!-- PUBLISH SECTION -->
                     <div class="sidebar-section">
                         <div class="sidebar-title"><i class="ph ph-rocket-launch"></i> Publish</div>
 
@@ -197,7 +145,6 @@ if (isset($_POST['submit_post'])) {
                         </button>
                     </div>
 
-                    <!-- FEATURED IMAGE SECTION -->
                     <div class="sidebar-section">
                         <div class="sidebar-title"><i class="ph ph-image"></i> Featured Image</div>
 
@@ -216,7 +163,6 @@ if (isset($_POST['submit_post'])) {
                         <input type="text" name="alt_text" class="form-input" placeholder="Describe the image...">
                     </div>
 
-                    <!-- SEO SECTION -->
                     <div class="sidebar-section">
                         <div class="sidebar-title"><i class="ph ph-magnifying-glass"></i> SEO</div>
 
@@ -227,7 +173,6 @@ if (isset($_POST['submit_post'])) {
                         <p class="field-hint">Keep under 160 characters</p>
                     </div>
 
-                    <!-- DYNAMIC: Image Settings Panel -->
                     <div id="image-settings-panel" class="image-panel">
                         <div class="sidebar-title" style="color: var(--primary);"><i class="ph ph-pencil-simple"></i>
                             Edit Image</div>
