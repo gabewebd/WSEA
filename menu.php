@@ -4,302 +4,781 @@ $metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brown
 $customCss = "menu.css";
 include 'includes/db_connect.php';
 ?>
-<?php include 'includes/header.php'; ?>
-<style>
-    /* --- CARD STYLING --- */
-    .card {
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        border: 1px solid #FFF8F0;
-        /* Very light cream border */
-        box-shadow: 0 10px 30px rgba(67, 20, 7, 0.03);
-        /* Soft shadow */
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        /* Ensures all cards in a row are same height */
-        position: relative;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08);
-        border-color: #EF7D32;
-        /* Orange border on hover */
-    }
-
-    /* Image */
-    .card img {
-        width: 100%;
-        height: 260px;
-        /* Fixed height for uniformity */
-        object-fit: cover;
-        background-color: #FFF8F0;
-        transition: transform 0.5s ease;
-    }
-
-    .card:hover img {
-        transform: scale(1.05);
-        /* Subtle zoom effect */
-    }
-
-    /* Text Content */
-    .card h3 {
-        font-size: 22px;
-        margin: 20px 25px 10px;
-        color: #431407;
-        font-weight: 700;
-    }
-
-    .card p {
-        font-size: 15px;
-        color: #666;
-        margin: 0 25px 20px;
-        line-height: 1.6;
-        flex-grow: 1;
-        /* Pushes the price to the bottom */
-    }
-
-    /* Price Tag */
-    .price {
-        margin-top: auto;
-        /* Forces to bottom */
-        padding: 20px 25px;
-        background-color: #FFFDF9;
-        border-top: 1px solid #FFF0E0;
-        color: #EF7D32 !important;
-        /* Force Orange */
-        font-weight: 800;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .price i {
-        font-size: 20px;
-    }
-
-    /* --- ANIMATION STYLES --- */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $metaDesc; ?>">
+    <title><?php echo $pageTitle; ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+
+        :root {
+            --primary: #D4945E;
+            --primary-dark: #A67346;
+            --primary-light: #E8B88D;
+            --accent: #8B4513;
+            --cream: #FFF9F3;
+            --dark: #2C1810;
+            --text: #3D2817;
+            --border: #E8D4C0;
+            --success: #C67C4E;
+            --shadow-sm: 0 4px 12px rgba(76, 34, 14, 0.08);
+            --shadow-md: 0 12px 32px rgba(76, 34, 14, 0.12);
+            --shadow-lg: 0 20px 48px rgba(76, 34, 14, 0.15);
         }
-    }
 
-    @keyframes fadeOutDown {
-        from {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF9F3 0%, #FFF3E6 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        to {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
+
+        html {
+            scroll-behavior: smooth;
         }
-    }
 
-    .card.animating-in {
-        animation: fadeInUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-    }
+        /* ===== HEADER SECTION ===== */
+        .header-section {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card.hidden {
-        display: none;
-    }
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 148, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
 
-</style>
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 148, 94, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
 
-<div class="container">
-    <!-- Page Header -->
-    <div class="section-header">
-        <span class="section-label">Fresh Daily</span>
-        <h1 class="page-title">Most Loved <span>Treats</span></h1>
-    </div>
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    <!-- Menu Filters -->
-    <div class="menu-filters">
-        <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
-        <button class="filter-btn" onclick="filterMenu('doughnuts', this)">Doughnuts</button>
-        <button class="filter-btn" onclick="filterMenu('brownies', this)">Brownies</button>
-        <button class="filter-btn" onclick="filterMenu('coffee', this)">Beverages</button>
-    </div>
+        .section-label {
+            display: inline-block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+        }
 
-    <!-- Menu Grid -->
-    <div class="grid" id="menuGrid">
-        <?php
-        $sql = "SELECT * FROM menu_items WHERE (is_visible = 1 OR is_visible IS NULL) ORDER BY category, name";
-        $result = $conn->query($sql);
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+        }
 
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $name = htmlspecialchars($row["name"]);
-                $price = number_format($row["price"], 2);
-                $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : "A delicious treat made fresh daily.";
-                $image = isset($row["image"]) && !empty($row["image"]) ? "uploads/" . $row["image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop";
-                $cat = strtolower($row["category"]);
-                // Use DB alt_text if available, otherwise fallback to name
-                $altText = !empty($row["alt_text"]) ? htmlspecialchars($row["alt_text"]) : $name;
-                ?>
-                <div class="card" data-category="<?php echo $cat; ?>">
-                    <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>"
-                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop'">
-                    <h3><?php echo $name; ?></h3>
-                    <p><?php echo $description; ?></p>
-                    <p class="price"><i class="ph ph-tag"></i> ₱<?php echo $price; ?></p>
-                </div>
-                <?php
-            }
-        } else {
-            // Fallback static menu items if database is empty
-            $menuItems = [
-                // Premium doughnuts 
-                ["name" => "Sweet Bavarian Crunch", "category" => "doughnuts", "price" => "₱30", "desc" => "Bavarian-filled brioche donut dipped in crispy, roasted sugar."],
-                ["name" => "Rainbow Crunch", "category" => "doughnuts", "price" => "₱30", "desc" => "Brioche donut dipped in chocolate and topped with Froot Loops."],
-                ["name" => "Gleaming Glaze", "category" => "doughnuts", "price" => "₱30", "desc" => "Classic glazed brioche donut"],
-                ["name" => "Choco Gleaming Glaze", "category" => "doughnuts", "price" => "₱50", "desc" => "Classic glazed brioche donut."],
-                ["name" => "Dusted Berry Dream", "category" => "dougnuts", "price" => "₱30", "desc" => "Strawberry jam-filled brioche donut coated in powdered sugar."],
-                ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "₱40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
-                ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "₱40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with a chocolate cream filling."],
-                ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
-                ["name" => "Whipped Oreo Wonder", "category" => "doughnuts", "price" => "₱40", "desc" => "Cream and Oreo-filled brioche donuts topped with whipped cream and crushed Oreos."],
-                ["name" => "Choco Caviar Creation", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in chocolate topped with chocolate caviar."],
-                ["name" => "So Matcha Love", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped and filled with matcha and topped with matcha crumbs."],
-                ["name" => "Almond Amore", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in semi-sweet white chocolate and topped with almond slices."],
-                ["name" => "Ube Bliss", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut filled with creamy ube, coated with semi-sweet ube dipping, and drizzled with ube and cream combination."],
-                ["name" => "Nutty Choco Nirvana", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut topped with almond choco crunch, drizzled with almond chocolate and caramel fudge."],
-                ["name" => "Sweet Cherry Crave", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut with whipped cream spread, topped with cherry and chocolate curls."],
-                ["name" => "Milky Cheese Dream", "category" => "doughnuts", "price" => "₱15", "desc" => "Cheddar cheese-filled brioche donuts dusted with powdered milk."],
-                ["name" => "Ube Cheese Fantasy", "category" => "doughnuts", "price" => "₱20", "desc" => "Brioche donut filled with ube and cheese, dusted with powdered milk."],
+        .page-title span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
 
-                // Danono's doughnuts
-                ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "₱65", "desc" => "Brioche donut spread with pistachio crunch drizzled with melted white chocolate."],
-                ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "₱60", "desc" => "Combination of 5 kinds of chocolates in 1 doughnut drizzled with Hershey's chocolate syrup."],
-                ["name" => "Biscoff Bite", "category" => "doughnuts", "price" => "₱60", "desc" => "Smooth Biscoff spread-dipped brioche donut topped with Lotus Biscoff biscuits."],
-                ["name" => "Sans Rival Temptation", "category" => "doughnuts", "price" => "₱60", "desc" => "Brioche donut with alternate layers of buttercream, sansrival base, and donut bread, topped with cashew."],
-                ["name" => "Cheesy Overload", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut with torched glaze, cream cheese, and grated toppings."],
-                ["name" => "Decadent Choco Trio", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut filled with chocolate filling, chocolate-dipped, topped with chocolate chips."],
-                ["name" => "Fluffy Floss Fantasy", "category" => "doughnuts", "price" => "₱50", "desc" => "Savory brioche donuts with Japanese mayo spread and chicken floss on top."],
-                ["name" => "Toasty Ovalmaltine Dream", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut spread with Ovomaltine crunch top with torched marshmallows and sprinkled with crushed Biscoff biscuit."],
-                ["name" => "Mango Crunch", "category" => "doughnuts", "price" => "₱50", "desc" => "Chocolate-dipped brioche donut with mango filling and topped with graham cracker bits."],
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text);
+            font-weight: 300;
+            margin-top: 15px;
+            animation: fadeIn 0.8s ease 0.4s both;
+        }
 
-                // Signature Drinks
-                ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "₱100", "desc" => "Signature chocolate drink served hot."],
-                ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "₱110", "desc" => "Signature chocolate drink served over ice."],
-                ["name" => "Danono's Coffee", "category" => "beverages", "price" => "₱120", "desc" => "Signature coffee blend."],
-                ["name" => "Seasalt Latte", "category" => "beverages", "price" => "₱120", "desc" => "Signature latte with a touch of sea salt."],
-                ["name" => "White Mocha Latte", "category" => "beverages", "price" => "₱120", "desc" => "Signature white chocolate mocha latte."],
+        /* ===== FILTER BUTTONS ===== */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 50px auto;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+        }
 
-                // Hot Coffee
-                ["name" => "Hot Americano (8oz)", "category" => "beverages", "price" => "₱55", "desc" => "Classic hot espresso with water."],
-                ["name" => "Hot Americano (12oz)", "category" => "beverages", "price" => "₱80", "desc" => "Classic hot espresso with water."],
-                ["name" => "Hot Capuccino (12oz)", "category" => "beverages", "price" => "₱100", "desc" => "Espresso with steamed milk and foam."],
-                ["name" => "Hot Caramel Macchiato (12oz)", "category" => "beverages", "price" => "₱110", "desc" => "Espresso with steamed milk and caramel."],
-                ["name" => "Hot Cafe Mocha (12oz)", "category" => "beverages", "price" => "₱110", "desc" => "Espresso with chocolate and steamed milk."],
-                ["name" => "Hot Salted Caramel Latte (12oz)", "category" => "beverages", "price" => "₱120", "desc" => "Latte with salted caramel syrup."],
+        .filter-btn {
+            padding: 12px 28px;
+            border: 2px solid var(--border);
+            background: white;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: capitalize;
+            box-shadow: var(--shadow-sm);
+        }
 
-                // Iced Coffee (16oz)
-                ["name" => "Iced Americano", "category" => "beverages", "price" => "₱100", "desc" => "Chilled espresso with water over ice."],
-                ["name" => "Iced Capuccino", "category" => "beverages", "price" => "₱110", "desc" => "Chilled espresso with milk and foam."],
-                ["name" => "Iced Caramel Macchiato", "category" => "beverages", "price" => "₱120", "desc" => "Chilled espresso with milk and caramel."],
-                ["name" => "Iced Cafe Mocha", "category" => "beverages", "price" => "₱120", "desc" => "Chilled espresso with chocolate and milk."],
-                ["name" => "Iced Spanish Latte", "category" => "beverages", "price" => "₱120", "desc" => "Creamy iced latte with a sweet twist."],
-                ["name" => "Iced Salted Caramel Latte", "category" => "beverages", "price" => "₱130", "desc" => "Chilled latte with salted caramel over ice."],
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
 
-                // Iced Non-Coffee (16oz)
-                ["name" => "Iced Strawberry Milk", "category" => "beverages", "price" => "₱110", "desc" => "Creamy milk with strawberry flavor."],
-                ["name" => "Iced Matcha Latte", "category" => "beverages", "price" => "₱110", "desc" => "Chilled green tea matcha with milk."],
-                ["name" => "Iced White Chocolate", "category" => "beverages", "price" => "₱100", "desc" => "Creamy white chocolate over ice."],
+        .filter-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
 
-                // Frappe (16oz)
-                ["name" => "Espresso Frappe", "category" => "beverages", "price" => "₱130", "desc" => "Blended coffee-based frozen drink."],
-                ["name" => "Cookies and Cream Frappe", "category" => "beverages", "price" => "₱120", "desc" => "Blended cookies and cream frozen drink."],
-                ["name" => "Chocolate Chip Frappe", "category" => "beverages", "price" => "₱120", "desc" => "Blended chocolate chip frozen drink."],
+        .filter-btn.active {
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
 
-                // Refreshers (16oz)
-                ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "₱120", "desc" => "Freshly squeezed lemon with strawberry."],
-                ["name" => "Lychee Lemonade", "category" => "beverages", "price" => "₱120", "desc" => "Freshly squeezed lemon with lychee."],
-                ["name" => "Blueberry Breeze", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing blueberry lemon drink."],
-                ["name" => "Strawberry Blush", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing strawberry lemon drink."],
-                ["name" => "Lychee Lush", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing lychee lemon drink."],
-                ["name" => "Golden Peach Passion", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing peach lemon drink."],
-                ["name" => "Green Apple Zing", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing green apple lemon drink."],
+        .filter-btn.active::before {
+            left: 0;
+        }
 
-                // Hot Tea (12oz)
-                ["name" => "Honey Ginger Tea", "category" => "beverages", "price" => "₱100", "desc" => "Soothing hot honey and ginger tea."],
-            ];
+        /* ===== MENU GRID ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
 
-            foreach ($menuItems as $item) {
-                ?>
-                <div class="card" data-category="<?php echo $item['category']; ?>">
-                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=200&fit=crop"
-                        alt="<?php echo $item['name']; ?>">
-                    <h3><?php echo $item['name']; ?></h3>
-                    <p><?php echo $item['desc']; ?></p>
-                    <p class="price"><i class="ph ph-tag"></i> ₱<?php echo $item['price']; ?></p>
-                </div>
-                <?php
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 36px;
             }
         }
-        ?>
+
+        @media (min-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 28px;
+            }
+        }
+
+        /* ===== CARD STYLING ===== */
+        .card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-md);
+            transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+            animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .card.hidden {
+            display: none;
+        }
+
+        .card.animating-in {
+            animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes cardLoad {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 148, 94, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+            background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C0 100%);
+        }
+
+        .card-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: brightness(1.05) contrast(1.05);
+        }
+
+        .card:hover img {
+            transform: scale(1.12) rotate(2deg);
+            filter: brightness(1.15) contrast(1.1) saturate(1.1);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h3 {
+            color: var(--primary);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0 0 20px;
+            line-height: 1.7;
+            flex-grow: 1;
+            font-weight: 400;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(212, 148, 94, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .price-tag {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(212, 148, 94, 0.4);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover .card-icon {
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(20deg);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(30px) translateX(10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(212, 148, 94, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(212, 148, 94, 0);
+            }
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.3s both;
+        }
+
+        .empty-state-icon {
+            font-size: 80px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h2 {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #999;
+            font-size: 16px;
+        }
+
+        /* ===== LOADING STATE ===== */
+        .card.skeleton {
+            pointer-events: none;
+        }
+
+        .card.skeleton img {
+            background: linear-gradient(90deg, #e0d5c8 0%, #f0e6d9 50%, #e0d5c8 100%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 48px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .filter-container {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 60px 20px 40px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .filter-container {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .card {
+            opacity: 0;
+        }
+
+        .card.in-view {
+            animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* ===== SMOOTH TRANSITIONS ===== */
+        button, a {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+</head>
+<body>
+    <?php include 'includes/header.php'; ?>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="header-content">
+                <span class="section-label">✨ Fresh Daily</span>
+                <h1 class="page-title">Most Loved <span>Treats</span></h1>
+                <p class="page-subtitle">Handcrafted premium brioche doughnuts, decadent brownies, and artisanal beverages</p>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterMenu('all', this)" data-filter="all">
+                <i class="fas fa-th"></i> All Items
+            </button>
+            <button class="filter-btn" onclick="filterMenu('doughnuts', this)" data-filter="doughnuts">
+                <i class="fas fa-ring"></i> Doughnuts
+            </button>
+            <button class="filter-btn" onclick="filterMenu('brownies', this)" data-filter="brownies">
+                <i class="fas fa-square"></i> Brownies
+            </button>
+            <button class="filter-btn" onclick="filterMenu('beverages', this)" data-filter="beverages">
+                <i class="fas fa-mug-hot"></i> Beverages
+            </button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="grid" id="menuGrid">
+            <?php
+            $sql = "SELECT * FROM menu_items WHERE (is_visible = 1 OR is_visible IS NULL) ORDER BY category, name";
+            $result = $conn->query($sql);
+
+            $hasItems = false;
+
+            if ($result && $result->num_rows > 0) {
+                $hasItems = true;
+                while ($row = $result->fetch_assoc()) {
+                    $name = htmlspecialchars($row["name"]);
+                    $price = number_format($row["price"], 2);
+                    $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : "A delicious treat made fresh daily.";
+                    $image = isset($row["image"]) && !empty($row["image"]) ? "uploads/" . $row["image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop";
+                    $cat = strtolower($row["category"]);
+                    $altText = !empty($row["alt_text"]) ? htmlspecialchars($row["alt_text"]) : $name;
+                    ?>
+                    <div class="card" data-category="<?php echo $cat; ?>">
+                        <div class="card-image-wrapper">
+                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>"
+                                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3><?php echo $name; ?></h3>
+                            <p><?php echo $description; ?></p>
+                            <div class="card-footer">
+                                <div class="price-tag">₱<?php echo $price; ?></div>
+                                <div class="card-icon" title="Add to cart">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                // Fallback static menu items
+                $menuItems = [
+                    // Doughnuts
+                    ["name" => "Sweet Bavarian Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Bavarian-filled brioche donut dipped in crispy, roasted sugar."],
+                    ["name" => "Rainbow Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Brioche donut dipped in chocolate and topped with Froot Loops."],
+                    ["name" => "Gleaming Glaze", "category" => "doughnuts", "price" => "30", "desc" => "Classic glazed brioche donut."],
+                    ["name" => "Choco Gleaming Glaze", "category" => "doughnuts", "price" => "50", "desc" => "Classic glazed brioche donut with rich chocolate."],
+                    ["name" => "Dusted Berry Dream", "category" => "doughnuts", "price" => "30", "desc" => "Strawberry jam-filled brioche donut coated in powdered sugar."],
+                    ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
+                    ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with chocolate cream filling."],
+                    ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
+                    ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Brioche donut spread with pistachio crunch drizzled with melted white chocolate."],
+                    ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "Combination of 5 kinds of chocolates in 1 doughnut."],
+                    
+                    // Brownies
+                    ["name" => "Classic Fudge Brownie", "category" => "brownies", "price" => "45", "desc" => "Rich, dense chocolate fudge brownie with a moist center."],
+                    ["name" => "Salted Caramel Brownie", "category" => "brownies", "price" => "55", "desc" => "Decadent brownie with salted caramel swirl and crushed sea salt."],
+                    ["name" => "Nutella Dream", "category" => "brownies", "price" => "50", "desc" => "Chocolate brownie with Nutella filling and hazelnut bits."],
+                    ["name" => "Double Chocolate Stack", "category" => "brownies", "price" => "60", "desc" => "Dark and milk chocolate layered brownie perfection."],
+                    
+                    // Beverages
+                    ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "100", "desc" => "Signature chocolate drink served hot with velvety texture."],
+                    ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "110", "desc" => "Signature chocolate drink served refreshingly cold."],
+                    ["name" => "Seasalt Latte", "category" => "beverages", "price" => "120", "desc" => "Smooth latte with a sophisticated touch of sea salt."],
+                    ["name" => "White Mocha Latte", "category" => "beverages", "price" => "120", "desc" => "Creamy white chocolate mocha latte."],
+                    ["name" => "Hot Cappuccino", "category" => "beverages", "price" => "100", "desc" => "Classic espresso with velvety steamed milk and thick foam."],
+                    ["name" => "Iced Americano", "category" => "beverages", "price" => "100", "desc" => "Refreshing espresso with cold water over ice."],
+                    ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "120", "desc" => "Freshly made lemonade with fresh strawberry juice."],
+                    ["name" => "Matcha Latte", "category" => "beverages", "price" => "110", "desc" => "Creamy latte with traditional matcha green tea."],
+                ];
+
+                $hasItems = true;
+                foreach ($menuItems as $item) {
+                    $cat = strtolower($item['category']);
+                    ?>
+                    <div class="card" data-category="<?php echo $cat; ?>">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop"
+                                alt="<?php echo htmlspecialchars($item['name']); ?>">
+                        </div>
+                        <div class="card-content">
+                            <h3><?php echo htmlspecialchars($item['name']); ?></h3>
+                            <p><?php echo htmlspecialchars($item['desc']); ?></p>
+                            <div class="card-footer">
+                                <div class="price-tag">₱<?php echo $item['price']; ?></div>
+                                <div class="card-icon" title="Add to cart">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+
+        <!-- Empty State (hidden by default) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">🍩</div>
+            <h2>No Items Found</h2>
+            <p>Try selecting a different category</p>
+        </div>
     </div>
 
     <script>
+        // Enhanced filter functionality
         function filterMenu(category, btn) {
-            // 1. Update Active Button State
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(b => b.classList.remove('active'));
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // 2. Get all cards
             const cards = document.querySelectorAll('.card');
-            
-            // 3. Animation Logic
-            let delayCounter = 0; // To stagger the entrance of new items
+            let visibleCount = 0;
+            let delayCounter = 0;
 
             cards.forEach(card => {
                 const cardCat = card.getAttribute('data-category');
-                
-                // Determine if this card should show
                 const shouldShow = (category === 'all') || 
-                                   (category === cardCat) || 
-                                   (category === 'coffee' && (cardCat === 'beverages'));
+                                 (category === cardCat) || 
+                                 (category === 'coffee' && cardCat === 'beverages');
 
                 if (shouldShow) {
-                    // If hidden, remove hidden class and animate in
                     if (card.classList.contains('hidden')) {
                         card.classList.remove('hidden');
-                        card.style.animationDelay = `${delayCounter * 0.05}s`; // Stagger effect
                         card.classList.add('animating-in');
+                        card.style.animationDelay = `${delayCounter * 0.06}s`;
                         delayCounter++;
 
-                        // Clean up animation class after it runs
                         card.addEventListener('animationend', () => {
                             card.classList.remove('animating-in');
-                            card.style.animationDelay = '0s';
                         }, { once: true });
-                    } 
+                    }
+                    visibleCount++;
                 } else {
-                    // Hide immediately (or you could add a fadeOut animation here too)
                     card.classList.add('hidden');
                 }
             });
+
+            // Show/hide empty state
+            document.getElementById('emptyState').style.display = visibleCount === 0 ? 'block' : 'none';
         }
 
-        // Optional: Trigger 'All' animation on page load for a nice entrance
+        // Heart icon interaction
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.card-icon')) {
+                const icon = e.target.closest('i');
+                icon.classList.toggle('fa-heart');
+                icon.classList.toggle('fa-regular');
+                icon.classList.toggle('fa-solid');
+                
+                // Add pulse animation
+                const cardIcon = e.target.closest('.card-icon');
+                cardIcon.style.animation = 'pulse 0.6s ease-out';
+                setTimeout(() => cardIcon.style.animation = '', 600);
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('in-view')) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Initial load animation
         document.addEventListener('DOMContentLoaded', () => {
-             const firstBtn = document.querySelector('.filter-btn.active');
-             if(firstBtn) filterMenu('all', firstBtn);
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.05}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Mouse follow effect on cards (subtle)
+        document.addEventListener('mousemove', (e) => {
+            document.querySelectorAll('.card').forEach(card => {
+                if (!card.classList.contains('hidden')) {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenterX = rect.left + rect.width / 2;
+                    const cardCenterY = rect.top + rect.height / 2;
+                    
+                    const mouseX = e.clientX;
+                    const mouseY = e.clientY;
+                    
+                    const distX = (mouseX - cardCenterX) * 0.01;
+                    const distY = (mouseY - cardCenterY) * 0.01;
+                    
+                    if (Math.abs(distX) < 5 && Math.abs(distY) < 5) {
+                        card.style.transform = `perspective(1000px) rotateX(${distY}deg) rotateY(${distX}deg)`;
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.transform = '';
+            });
+        });
+
+        // Trigger initial filter
+        window.addEventListener('load', () => {
+            const firstBtn = document.querySelector('.filter-btn.active');
+            if (firstBtn) filterMenu('all', firstBtn);
         });
     </script>
-</div>
 
-
-
-
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
+</body>
+</html>
