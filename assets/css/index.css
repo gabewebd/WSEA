@@ -1,21 +1,21 @@
-/* Index Page Styles */
-
 /* --- HERO SECTION --- */
 .hero {
     display: flex;
     flex-direction: row;
-    /* Force row layout */
     flex-wrap: nowrap;
-    /* Prevent wrapping */
     padding: 0;
     align-items: stretch;
     min-height: 85vh;
     background: #FFEDD4;
-    /* Cream Root */
     position: relative;
     overflow: hidden;
 }
-
+.tagline-available {
+    color: #00B14F;       /* Official GrabFood Green */
+    font-weight: 900;     /* Extra Bold */
+    font-size: 20px;      /* Larger text */
+    text-shadow: 0 2px 10px rgba(0, 177, 79, 0.2); /* Subtle glow */
+}
 .hero::after {
     content: '';
     position: absolute;
@@ -28,11 +28,30 @@
     z-index: 0;
 }
 
+/* Floating Background Shapes (Interactive) */
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    opacity: 0.7;
+    transition: transform 0.1s linear; /* Smooth mouse movement */
+}
+
+.shape-1 {
+    top: -100px; left: -50px; width: 500px; height: 500px;
+    background: #FFE4D1;
+}
+
+.shape-2 {
+    bottom: -50px; right: 20%; width: 350px; height: 350px;
+    background: #FFF0E0;
+}
+
 .hero-text {
     flex: 1;
     min-width: 0;
-    /* Prevent flex overflow */
-    z-index: 1;
+    z-index: 2;
     padding: 0 40px 0 80px;
     display: flex;
     flex-direction: column;
@@ -44,15 +63,8 @@
     line-height: 1.15;
     margin: 0 0 25px 0;
     color: #431407;
-    /* Dark Brown */
     font-weight: 700;
     letter-spacing: -1px;
-}
-
-.hero-text h1 span {
-    color: #EF7D32;
-    /* Primary Orange */
-    font-weight: 900;
 }
 
 .hero-text>p {
@@ -68,70 +80,40 @@
     margin-bottom: 30px;
 }
 
-.tagline {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.tagline-available {
-    color: #00B14F;
-    /* GrabFood Green */
-    font-weight: 700;
+/* Float Animation for Hero Image */
+.float-img { animation: float-vertical 4s ease-in-out infinite; }
+@keyframes float-vertical {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
 }
 
 .hero-image {
     flex: 0 0 50%;
     min-width: 0;
-    /* Prevent flex overflow */
-    z-index: 1;
+    z-index: 2;
     position: relative;
     padding: 0;
 }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-}
-
-/* --- TREATS SECTION (CARDS) --- */
+/* --- TREATS SECTION (Restored Card Design) --- */
 .treats-section {
     padding: 80px 20px;
     background-color: #FFFDF9;
-    /* Warm White */
     text-align: center;
     position: relative;
 }
 
 .section-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #EF7D32;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    color: #EF7D32; margin-bottom: 10px; text-transform: uppercase;
 }
-
-.section-header h2 {
-    font-size: 42px;
-    color: #431407;
-    margin-bottom: 40px;
-}
+.section-header h2 { font-size: 42px; color: #431407; margin-bottom: 40px; }
 
 .view-all {
-    position: absolute;
-    top: 80px;
-    /* Aligns with header */
-    right: 5%;
-    color: #EF7D32;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 14px;
+    position: absolute; top: 80px; right: 5%;
+    color: #EF7D32; font-weight: 700; text-decoration: none; font-size: 14px;
 }
 
 .treats-carousel {
@@ -142,18 +124,24 @@
     margin: 0 auto;
 }
 
+/* --- THE CARD DESIGN YOU WANTED BACK --- */
 .treat-card {
     background: #ffffff;
     padding: 30px 20px;
     border-radius: 20px;
     text-align: center;
+    /* Original Shadow */
     box-shadow: 0 5px 15px rgba(67, 20, 7, 0.05);
+    /* Original Border */
     border: 2px solid #FFF8F0;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .treat-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); /* The physical lift effect */
     border-color: #EF7D32;
     box-shadow: 0 15px 30px rgba(67, 20, 7, 0.1);
 }
@@ -162,7 +150,7 @@
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 15px; /* Original border radius */
     margin-bottom: 20px;
 }
 
@@ -177,6 +165,7 @@
     color: #888;
     margin-bottom: 20px;
     line-height: 1.5;
+    flex-grow: 1; /* Ensures buttons align at bottom */
 }
 
 .btn-small {
@@ -188,298 +177,68 @@
     text-decoration: none;
     font-weight: 600;
     transition: 0.2s;
-}
-
-.btn-small:hover {
-    background: #EF7D32;
-    color: white;
-}
-
-/* --- DRINKS & CHOCO CIRCLES SECTION --- */
-.drinks-choco {
-    padding: 100px 5%;
-    background-color: #FFF8F0;
-    /* Cream */
-}
-
-.drinks-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.drinks-image,
-.choco-image {
-    flex: 0 0 25%;
-    border-radius: 30px;
-    overflow: hidden;
-    border: 8px solid #431407;
-    box-shadow: 0 10px 25px rgba(67, 20, 7, 0.15);
-}
-
-.drinks-image img,
-.choco-image img {
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.drinks-text {
-    flex: 1;
-    text-align: center;
-}
-
-.drinks-text h2 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: #431407;
-}
-
-.btn-dark {
-    background: #431407;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
     display: inline-block;
-    margin-top: 20px;
-}
-
-/* --- NAV CARDS SECTION (Locations & Blogs) --- */
-.nav-cards-section {
-    padding: 80px 5%;
-    background-color: #FFFDF9;
-    /* Warm White */
-}
-
-.nav-cards-container {
-    display: flex;
-    gap: 30px;
-    max-width: 1200px;
+    width: fit-content;
     margin: 0 auto;
 }
 
-.nav-card {
-    flex: 1;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    height: 350px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 5px solid white;
-}
+.btn-small:hover { background: #EF7D32; color: white; }
 
-.nav-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+/* --- DRINKS & OTHER SECTIONS --- */
+.drinks-choco { padding: 100px 5%; background-color: #FFF8F0; }
+.drinks-content { display: flex; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; }
+.drinks-image, .choco-image { flex: 0 0 25%; border-radius: 30px; overflow: hidden; border: 8px solid #431407; box-shadow: 0 10px 25px rgba(67, 20, 7, 0.15); }
+.drinks-image img, .choco-image img { width: 100%; display: block; height: auto; }
+.drinks-text { flex: 1; text-align: center; }
+.drinks-text h2 { font-size: 48px; line-height: 1.2; margin-bottom: 20px; color: #431407; }
 
-.nav-card:hover img {
-    transform: scale(1.05);
-}
+/* Buttons & Text Effects */
+.btn-orange { background: #EF7D32; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.btn-outline { border: 2px solid #431407; color: #431407; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.btn-dark { background: #431407; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; }
+.btn-white { background: white; color: #EF7D32; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; }
 
-.nav-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: background 0.3s ease;
-}
+/* Nav Cards */
+.nav-cards-section { padding: 80px 5%; background-color: #FFFDF9; }
+.nav-cards-container { display: flex; gap: 30px; max-width: 1200px; margin: 0 auto; }
+.nav-card { flex: 1; position: relative; border-radius: 20px; overflow: hidden; height: 350px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 5px solid white; }
+.nav-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.nav-card:hover img { transform: scale(1.05); }
+.nav-card-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; flex-direction: column; transition: background 0.3s ease; }
+.nav-card:hover .nav-card-overlay { background: rgba(0, 0, 0, 0.5); }
+.nav-card h3 { color: white; font-size: 32px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
 
-.nav-card:hover .nav-card-overlay {
-    background: rgba(0, 0, 0, 0.5);
-}
+/* Family Section */
+.family-section { background: linear-gradient(135deg, #EF7D32 0%, #D8651E 100%); color: white; padding: 100px 5%; display: flex; align-items: center; justify-content: space-between; gap: 60px; position: relative; overflow: hidden; }
+.family-content { flex: 1; z-index: 1; max-width: 600px; }
+.family-image { flex: 0 0 40%; z-index: 1; }
+.family-image img { width: 100%; border-radius: 25px; border: 5px solid white; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
 
-.nav-card h3 {
-    color: white;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* --- JOIN OUR FAMILY SECTION --- */
-.family-section {
-    background: linear-gradient(135deg, #EF7D32 0%, #D8651E 100%);
-    color: white;
-    padding: 100px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    position: relative;
-    overflow: hidden;
-}
-
-.family-content {
-    flex: 1;
-    z-index: 1;
-    max-width: 600px;
-}
-
-.family-content h2 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 58px;
-    line-height: 1;
-}
-
-.family-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.95;
-}
-
-.family-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.btn-white {
-    background: white;
-    color: #EF7D32;
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.2s;
-}
-
-.btn-white:hover {
-    background: #FFF8F0;
-}
-
-.family-image {
-    flex: 0 0 40%;
-    z-index: 1;
-}
-
-.family-image img {
-    width: 100%;
-    border-radius: 25px;
-    border: 5px solid white;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* --- TYPOGRAPHY EFFECTS --- */
-.double-stroke {
-    /* Simulating stroke if font supports it, or just bold white */
-    color: white;
-    font-weight: 900;
-}
-
+/* Interactive Text */
 .pop-out-text {
-    font-size: 70px;
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1em;
-    margin: 0;
-    color: #EF7D32;
-    /* -webkit-text-stroke: 2px #431407; */
-    /* Dark Brown Outline */
+    font-size: 70px; font-weight: 900; text-transform: uppercase; line-height: 1em; margin: 0; display: inline-block; cursor: default;
+    background: linear-gradient(to right, #EF7D32 0%, #FFC107 25%, #EF7D32 50%, #FFC107 75%, #EF7D32 100%);
+    background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: shine 4s linear infinite;
 }
+.pop-out-text-sm { font-size: 48px; font-weight: 900; text-transform: uppercase; color: #EF7D32; }
+@keyframes shine { to { background-position: 200% center; } }
+.double-stroke { color: white; font-weight: 900; }
 
-.pop-out-text-sm {
-    font-size: 48px;
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1em;
-    margin: 0;
-    color: #EF7D32;
-    /* -webkit-text-stroke: 1.5px #431407; */
-}
-
-/* --- RESPONSIVE --- */
+/* Responsive */
 @media (max-width: 1024px) {
-
-    .hero,
-    .treats-section,
-    .drinks-choco,
-    .story-section,
-    .family-section {
-        padding: 60px 30px;
-    }
-
-    .hero h1 {
-        font-size: 50px;
-    }
-
-    .story-content {
-        gap: 40px;
-    }
+    .hero, .treats-section, .drinks-choco, .story-section, .family-section { padding: 60px 30px; }
+    .hero h1 { font-size: 50px; }
+    .story-content { gap: 40px; }
 }
 
 @media (max-width: 768px) {
-
-    /* Hero */
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 100px;
-        /* Space for navbar */
-    }
-
-    .hero-text {
-        padding: 0 20px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-image {
-        order: -1;
-        margin-bottom: 30px;
-    }
-
-    /* Drinks & Choco Circles */
-    .drinks-content {
-        flex-direction: column;
-    }
-
-    .drinks-image,
-    .choco-image {
-        width: 80%;
-        max-width: 300px;
-    }
-
-    /* Story */
-    .story-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .story-image {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* Nav Cards */
-    .nav-cards-container {
-        flex-direction: column;
-    }
-
-    .nav-card {
-        height: 250px;
-    }
-
-    /* Family */
-    .family-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .family-buttons {
-        justify-content: center;
-    }
+    .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+    .hero-text { padding: 0 20px; }
+    .hero-buttons { justify-content: center; }
+    .hero-image { order: -1; margin-bottom: 30px; }
+    .drinks-content, .story-content, .nav-cards-container, .family-section { flex-direction: column; text-align: center; }
+    .drinks-image, .choco-image, .story-image, .family-image { width: 80%; max-width: 300px; margin: 0 auto; }
+    .nav-card { height: 250px; }
+    .family-buttons { justify-content: center; }
 }
