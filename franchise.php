@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Franchise - Danono's";
 $metaDesc = "Join the Danono's family! Learn about franchise opportunities and how to bring our delicious doughnuts to your community.";
-$customCss = "franchise.css"; // Ensure your CSS file is updated with the code from the previous step
+$customCss = "assets/franchise.css"; // Ensure your CSS file is updated with the code from the previous step
 ?>
 <?php include 'includes/header.php'; ?>
 
