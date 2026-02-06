@@ -11,9 +11,6 @@ include 'includes/db_connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $metaDesc; ?>">
     <title><?php echo $pageTitle; ?></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -38,7 +35,6 @@ include 'includes/db_connect.php';
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #FFF9F3 0%, #FFF3E6 100%);
             color: var(--text);
             line-height: 1.6;
@@ -92,7 +88,6 @@ include 'includes/db_connect.php';
 
         .section-label {
             display: inline-block;
-            font-family: 'Raleway', sans-serif;
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 2.5px;
@@ -103,7 +98,6 @@ include 'includes/db_connect.php';
         }
 
         .page-title {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 72px;
             font-weight: 700;
             color: var(--dark);
@@ -258,7 +252,6 @@ include 'includes/db_connect.php';
         }
 
         .blog-card h3 {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 26px;
             font-weight: 700;
             color: var(--dark);
@@ -359,7 +352,6 @@ include 'includes/db_connect.php';
         }
 
         .no-posts h3 {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 32px;
             color: var(--dark);
             font-weight: 600;
@@ -538,7 +530,7 @@ include 'includes/db_connect.php';
         <!-- Page Header -->
         <div class="header-section">
             <div class="header-content">
-                <span class="section-label">📝 From Our Kitchen</span>
+                <span class="section-label">From Our Kitchen</span>
                 <h1 class="page-title">Latest <span>News</span></h1>
                 <p class="page-description">
                     Stay updated with the sweetest news, new flavor launches, and behind-the-scenes stories from the Danono's kitchen. Discover the art and passion behind every treat we create.
