@@ -108,7 +108,7 @@ include 'includes/db_connect.php';
         }
 
         .page-title span {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: #EE7B32;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
