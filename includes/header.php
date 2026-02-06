@@ -24,10 +24,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/danonos/assets/css/style.css">
 
   <?php if (isset($customCss)): ?>
-    <link rel="stylesheet" href="assets/css<?php echo $customCss; ?>">
+    <link rel="stylesheet" href="/danonos/assets/css/<?php echo $customCss; ?>">
   <?php endif; ?>
 
   <script type="application/ld+json">
