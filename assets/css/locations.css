@@ -1,18 +1,110 @@
-/* Locations Page Styles */
-.locations-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 90%;
-    padding: 60px 0;
+/* ====================================
+   LOCATIONS PAGE - STUNNING DESIGN
+   ==================================== */
+
+:root {
+    --primary-orange: #EF7D32;
+    --dark-brown: #431407;
+    --light-cream: #FFFDF9;
+    --accent-orange: #FF8E43;
 }
 
-/* 3-Column Grid on Desktop */
+/* --- PAGE LAYOUT & HEADER --- */
+.locations-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 90%;
+    padding: 100px 0 80px;
+}
+
+/* Section Header with Stunning Animation */
+.section-header {
+    text-align: center;
+    margin-bottom: 100px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--primary-orange);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--dark-brown);
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.page-title span {
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.page-title span::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-orange), transparent);
+    border-radius: 3px;
+}
+
+.header-subtitle {
+    font-size: 18px;
+    color: #777;
+    margin: 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+/* ====================================
+   RESPONSIVE GRID
+   ==================================== */
+
 .locations-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto 0;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 35px;
+    margin-bottom: 100px;
 }
 
 @media (max-width: 1024px) {
@@ -27,48 +119,466 @@
     }
 }
 
-/* Location Card */
+/* ====================================
+   LOCATION CARD - PREMIUM STYLING
+   ==================================== */
+
 .location-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--light-cream) 100%);
+    border-radius: 28px;
+    padding: 45px 35px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(67, 20, 7, 0.08);
-    border: 1px solid var(--cream, #FFEDD4);
-    transition: all 0.3s ease;
+    border: 2px solid #FFE8D6;
+    box-shadow: 0 10px 40px rgba(67, 20, 7, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+/* Animated border on hover */
+.location-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-orange), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Glow effect background */
+.location-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(239, 125, 50, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
 }
 
 .location-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(67, 20, 7, 0.12);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(239, 125, 50, 0.2);
+    border-color: var(--primary-orange);
 }
 
-.location-card .icon {
-    font-size: 40px;
-    color: #EF7D32;
-    margin-bottom: 15px;
+.location-card:hover::before {
+    opacity: 1;
 }
 
+.location-card:hover::after {
+    opacity: 1;
+    top: -20%;
+    right: -20%;
+}
+
+/* Premium Badge */
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(239, 125, 50, 0.4);
+    z-index: 2;
+    animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* Location Icon */
+.location-icon {
+    font-size: 56px;
+    color: var(--primary-orange);
+    margin-bottom: 25px;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Card Title */
 .location-card h3 {
     font-family: 'Fredoka', sans-serif;
-    font-size: 22px;
-    color: #431407;
-    margin-bottom: 15px;
+    font-size: 28px;
+    color: var(--dark-brown);
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
 }
 
-.location-card p {
-    font-family: 'Barlow', sans-serif;
+/* Category Badge */
+.location-card .category {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-orange);
+    background: linear-gradient(135deg, #FFF3E0, #FFE8D6);
+    padding: 8px 18px;
+    border-radius: 25px;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    border: 1px solid #FFD6B3;
+}
+
+/* Distance Info */
+.location-card .distance {
     font-size: 14px;
     color: #666;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.location-card .distance i {
+    color: var(--primary-orange);
+    font-size: 18px;
+}
+
+/* Address */
+.location-card .address {
+    font-size: 15px;
+    color: #555;
     line-height: 1.6;
-    margin-bottom: 12px;
+    margin: 14px 0;
+    font-weight: 500;
 }
 
-.location-card p i {
-    color: #EF7D32;
-    margin-right: 5px;
+/* Followers Count */
+.location-card .followers {
+    font-size: 13px;
+    color: #888;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
 }
 
-.location-card .btn {
-    margin-top: 10px;
+.location-card .followers i {
+    color: var(--primary-orange);
+    font-size: 18px;
+}
+
+/* Description */
+.location-card .description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+    margin: 18px 0 25px 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+/* Store Hours */
+.location-card .store-hours {
+    font-size: 13px;
+    color: var(--dark-brown);
+    font-weight: 700;
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.location-card .store-hours i {
+    color: var(--primary-orange);
+    font-size: 18px;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 15px 0;
+}
+
+.status-badge.open {
+    background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+    color: #1B5E20;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.status-badge.always-open {
+    background: linear-gradient(135deg, #B2DFDB, #80CBC4);
+    color: #004D40;
+    box-shadow: 0 4px 12px rgba(0, 150, 136, 0.2);
+}
+
+/* ====================================
+   PREMIUM CARD STYLING
+   ==================================== */
+
+.location-card.premium {
+    background: linear-gradient(135deg, #FFFEF7 0%, #FFFBF3 100%);
+    border: 2px solid var(--primary-orange);
+    box-shadow: 0 15px 50px rgba(239, 125, 50, 0.12);
+}
+
+.location-card.premium:hover {
+    box-shadow: 0 30px 70px rgba(239, 125, 50, 0.2);
+}
+
+/* ====================================
+   BUTTON STYLING
+   ==================================== */
+
+.btn {
+    border: none;
+    border-radius: 50px;
+    padding: 14px 36px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
+    color: white;
+    box-shadow: 0 6px 20px rgba(239, 125, 50, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(239, 125, 50, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary-orange);
+    transform: translateY(-3px);
+}
+
+.btn i {
+    font-size: 18px;
+}
+
+/* ====================================
+   CTA SECTION - CALL TO ACTION
+   ==================================== */
+
+.locations-cta {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--accent-orange) 100%);
+    border-radius: 32px;
+    padding: 80px 50px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 50px rgba(239, 125, 50, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.locations-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.locations-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.locations-cta h2 {
+    font-size: 48px;
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.locations-cta p {
+    font-size: 19px;
+    margin: 0 0 35px 0;
+    opacity: 0.98;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.locations-cta .btn-secondary {
+    border-color: white;
+    color: white;
+    display: inline-flex;
+    position: relative;
+    z-index: 1;
+}
+
+.locations-cta .btn-secondary:hover {
+    background: white;
+    color: var(--primary-orange);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 768px) {
+    .locations-container {
+        width: 95%;
+        padding: 70px 0 60px;
+    }
+
+    .section-header {
+        margin-bottom: 70px;
+    }
+
+    .page-title {
+        font-size: 45px;
+    }
+
+    .header-subtitle {
+        font-size: 16px;
+    }
+
+    .location-card {
+        padding: 35px 28px;
+        min-height: 480px;
+    }
+
+    .location-card h3 {
+        font-size: 24px;
+    }
+
+    .location-icon {
+        font-size: 48px;
+    }
+
+    .locations-cta {
+        padding: 60px 35px;
+    }
+
+    .locations-cta h2 {
+        font-size: 36px;
+    }
+
+    .locations-cta p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 36px;
+    }
+
+    .location-card {
+        padding: 28px 22px;
+        min-height: auto;
+    }
+
+    .location-card h3 {
+        font-size: 21px;
+    }
+
+    .location-icon {
+        font-size: 42px;
+    }
+
+    .btn {
+        padding: 12px 28px;
+        font-size: 13px;
+    }
+
+    .locations-cta h2 {
+        font-size: 28px;
+    }
 }
