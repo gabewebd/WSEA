@@ -722,7 +722,7 @@ if ($menu_check && $menu_check->num_rows > 0) {
                                     <option value="">Select Category</option>
                                     <option value="Doughnuts">Doughnuts</option>
                                     <option value="Brownies">Brownies</option>
-                                    <option value="Coffee">Coffee</option>
+                                    <option value="Beverages">Beverages</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -778,7 +778,7 @@ if ($menu_check && $menu_check->num_rows > 0) {
                                 <select name="category" id="edit_menu_category" class="form-input" required>
                                     <option value="Doughnuts">Doughnuts</option>
                                     <option value="Brownies">Brownies</option>
-                                    <option value="Coffee">Coffee</option>
+                                    <option value="Beverages">Beverages</option>
                                 </select>
                             </div>
                             <div class="form-group">

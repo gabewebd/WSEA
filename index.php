@@ -106,6 +106,7 @@ include 'includes/db_connect.php'; // Optional, but consistent
 
 <!-- HERO SECTION -->
 <section class="hero">
+    <h1>Josh Aguiluz</h1>
     <div class="hero-text">
         <h1>More Choices,<br><span class="pop-out-text">MORE VALUE.</span></h1>
         <p>Indulge in our famous Glazed Donuts and refreshing Spanish Latte. Crafted fresh daily in Los Angeles.</p>

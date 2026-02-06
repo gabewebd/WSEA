@@ -214,7 +214,7 @@ if (isset($_POST['submit'])) {
                             <option value="">Select Category</option>
                             <option value="Doughnuts">Doughnuts</option>
                             <option value="Brownies">Brownies</option>
-                            <option value="Coffee">Coffee</option>
+                            <option value="Beverages">Beverages</option>
                         </select>
                     </div>
                 </div>
