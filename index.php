@@ -131,51 +131,48 @@ include 'includes/db_connect.php'; // Optional, but consistent
     </div>
     <div class="treats-carousel">
         <div class="treat-card">
-            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop"
-                alt="Choco Heaven Supreme">
-            <h3>Choco Heaven Supreme</h3>
-            <p>Indulge in our decadent chocolate glazed creation</p>
+            <img src="uploads/chococaviar.jpg"
+                alt=" Choco Caviar Creation">
+            <h3> Choco Caviar Creation</h3>
+            <p>Our ultimate choco-loaded treat that’s rich, crunchy, and irresistibly indulgent.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
         <div class="treat-card">
-            <img src="https://images.unsplash.com/photo-1631397834789-32263f357564?w=300&h=300&fit=crop"
+            <img src="uploads/biscoff.jpg"
                 alt="Biscoff Bite">
             <h3>Biscoff Bite</h3>
-            <p>Sweet treat with delightful Biscoff crunch</p>
+            <p>Fluffy brioche donut, rich peanut butter glaze, and a generous topping of Lotus Biscoff biscuits.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
         <div class="treat-card">
-            <img src="https://images.unsplash.com/photo-1534940568018-05b1062b53eb?w=300&h=300&fit=crop"
-                alt="Molly Marshmallow">
-            <h3>Molly Marshmallow</h3>
-            <p>Fluffy and light with a sweet marshmallow center</p>
+            <img src="uploads/doublechocodelight.jpg"
+                alt="Double Choco Delight">
+            <h3>Double Choco Delight</h3>
+            <p>Double Choco Delight is here, and it’s everything your chocolate dreams are made of.
+Soft, fudgy,satisfying.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
         <div class="treat-card">
-            <img src="https://images.unsplash.com/photo-1558500204-7a1ae5d33306?w=300&h=300&fit=crop" alt="Pistachio C">
-            <h3>Pistachio C</h3>
-            <p>Nutty flavor with creamy pistachio filling</p>
+            <img src="uploads/almondamore.jpg">
+            <h3>Almond Amore</h3>
+            <p>Light, fluffy, and loaded with almond love, this one’s a certified heart-stealer.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
     </div>
 </section>
 
 <!-- DRINKS AND BROWNIES SECTION -->
-<section class="drinks-brownies">
-    <div class="drinks-content">
+<section class="drinks-choco"> <div class="drinks-content">
         <div class="drinks-image">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop"
-                alt="Spanish Latte Drinks">
+            <img src="uploads/Refreshers.jpg" alt="Danono's Refreshers">
         </div>
         <div class="drinks-text">
             <span class="section-label">PERFECT PAIRING</span>
-            <h2>Drinks and Brownies That<br><span class="pop-out-text-sm">COMPLEMENT</span></h2>
-            <p>From our signature Spanish Latte to classic Filipino hot coffee, every sip is crafted to pair
-                perfectly with our favorite doughnuts.</p>
+            <h2>Refreshers & Choco Circles<br><span class="pop-out-text-sm">PERFECT MATCH</span></h2>
+            <p>Beat the heat with our ice-cold, sparkling Refreshers, crafted to pair flawlessly with the rich, velvety indulgence of our signature Choco Circle doughnuts.</p>
             <a href="menu.php" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
         </div>
-        <div class="brownies-image">
-            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476d?w=400&h=450&fit=crop" alt="Brownies">
+        <div class="choco-image"> <img src="uploads/chococircle.jpg" alt="Choco Circle Donuts">
         </div>
     </div>
 </section>
