@@ -126,12 +126,80 @@ include 'includes/db_connect.php';
         } else {
             // Fallback static menu items if database is empty
             $menuItems = [
-                ["name" => "Classic Glazed", "category" => "doughnuts", "price" => "45.00", "desc" => "Our signature brioche doughnut with vanilla glaze."],
-                ["name" => "Chocolate Dream", "category" => "doughnuts", "price" => "55.00", "desc" => "Rich chocolate ganache on fluffy brioche."],
-                ["name" => "Ube Delight", "category" => "doughnuts", "price" => "60.00", "desc" => "Filipino favorite purple yam with cheese crumble."],
-                ["name" => "Matcha Bliss", "category" => "doughnuts", "price" => "65.00", "desc" => "Premium Japanese matcha glaze with white chocolate."],
-                ["name" => "Fudge Brownie", "category" => "brownies", "price" => "45.00", "desc" => "Dense, chewy brownie with chocolate chunks."],
-                ["name" => "Iced Coffee", "category" => "coffee", "price" => "85.00", "desc" => "Cold brew coffee, perfect with any doughnut."],
+                // Premium doughnuts 
+                ["name" => "Sweet Bavarian Crunch", "category" => "doughnuts", "price" => "₱30", "desc" => "Bavarian-filled brioche donut dipped in crispy, roasted sugar."],
+                ["name" => "Rainbow Crunch", "category" => "doughnuts", "price" => "₱30", "desc" => "Brioche donut dipped in chocolate and topped with Froot Loops."],
+                ["name" => "Gleaming Glaze", "category" => "doughnuts", "price" => "₱30", "desc" => "Classic glazed brioche donut"],
+                ["name" => "Choco Gleaming Glaze", "category" => "doughnuts", "price" => "₱50", "desc" => "Classic glazed brioche donut."],
+                ["name" => "Dusted Berry Dream", "category" => "dougnuts", "price" => "₱30", "desc" => "Strawberry jam-filled brioche donut coated in powdered sugar."],
+                ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "₱40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
+                ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "₱40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with a chocolate cream filling."],
+                ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
+                ["name" => "Whipped Oreo Wonder", "category" => "doughnuts", "price" => "₱40", "desc" => "Cream and Oreo-filled brioche donuts topped with whipped cream and crushed Oreos."],
+                ["name" => "Choco Caviar Creation", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in chocolate topped with chocolate caviar."],
+                ["name" => "So Matcha Love", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped and filled with matcha and topped with matcha crumbs."],
+                ["name" => "Almond Amore", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut dipped in semi-sweet white chocolate and topped with almond slices."],
+                ["name" => "Ube Bliss", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut filled with creamy ube, coated with semi-sweet ube dipping, and drizzled with ube and cream combination."],
+                ["name" => "Nutty Choco Nirvana", "category" => "doughnuts", "price" => "₱40", "desc" => "Brioche donut topped with almond choco crunch, drizzled with almond chocolate and caramel fudge."],
+                ["name" => "Sweet Cherry Crave", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut with whipped cream spread, topped with cherry and chocolate curls."],
+                ["name" => "Milky Cheese Dream", "category" => "doughnuts", "price" => "₱15", "desc" => "Cheddar cheese-filled brioche donuts dusted with powdered milk."],
+                ["name" => "Ube Cheese Fantasy", "category" => "doughnuts", "price" => "₱20", "desc" => "Brioche donut filled with ube and cheese, dusted with powdered milk."],
+
+                // Danono's doughnuts
+                ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "₱65", "desc" => "Brioche donut spread with pistachio crunch drizzled with melted white chocolate."],
+                ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "₱60", "desc" => "Combination of 5 kinds of chocolates in 1 doughnut drizzled with Hershey's chocolate syrup."],
+                ["name" => "Biscoff Bite", "category" => "doughnuts", "price" => "₱60", "desc" => "Smooth Biscoff spread-dipped brioche donut topped with Lotus Biscoff biscuits."],
+                ["name" => "Sans Rival Temptation", "category" => "doughnuts", "price" => "₱60", "desc" => "Brioche donut with alternate layers of buttercream, sansrival base, and donut bread, topped with cashew."],
+                ["name" => "Cheesy Overload", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut with torched glaze, cream cheese, and grated toppings."],
+                ["name" => "Decadent Choco Trio", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut filled with chocolate filling, chocolate-dipped, topped with chocolate chips."],
+                ["name" => "Fluffy Floss Fantasy", "category" => "doughnuts", "price" => "₱50", "desc" => "Savory brioche donuts with Japanese mayo spread and chicken floss on top."],
+                ["name" => "Toasty Ovalmaltine Dream", "category" => "doughnuts", "price" => "₱50", "desc" => "Brioche donut spread with Ovomaltine crunch top with torched marshmallows and sprinkled with crushed Biscoff biscuit."],
+                ["name" => "Mango Crunch", "category" => "doughnuts", "price" => "₱50", "desc" => "Chocolate-dipped brioche donut with mango filling and topped with graham cracker bits."],
+                
+                // Signature Drinks
+                ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "₱100", "desc" => "Signature chocolate drink served hot."],
+                ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "₱110", "desc" => "Signature chocolate drink served over ice."],
+                ["name" => "Danono's Coffee", "category" => "beverages", "price" => "₱120", "desc" => "Signature coffee blend."],
+                ["name" => "Seasalt Latte", "category" => "beverages", "price" => "₱120", "desc" => "Signature latte with a touch of sea salt."],
+                ["name" => "White Mocha Latte", "category" => "beverages", "price" => "₱120", "desc" => "Signature white chocolate mocha latte."],
+
+                // Hot Coffee
+                ["name" => "Hot Americano (8oz)", "category" => "beverages", "price" => "₱55", "desc" => "Classic hot espresso with water."],
+                ["name" => "Hot Americano (12oz)", "category" => "beverages", "price" => "₱80", "desc" => "Classic hot espresso with water."],
+                ["name" => "Hot Capuccino (12oz)", "category" => "beverages", "price" => "₱100", "desc" => "Espresso with steamed milk and foam."],
+                ["name" => "Hot Caramel Macchiato (12oz)", "category" => "beverages", "price" => "₱110", "desc" => "Espresso with steamed milk and caramel."],
+                ["name" => "Hot Cafe Mocha (12oz)", "category" => "beverages", "price" => "₱110", "desc" => "Espresso with chocolate and steamed milk."],
+                ["name" => "Hot Salted Caramel Latte (12oz)", "category" => "beverages", "price" => "₱120", "desc" => "Latte with salted caramel syrup."],
+
+                // Iced Coffee (16oz)
+                ["name" => "Iced Americano", "category" => "beverages", "price" => "₱100", "desc" => "Chilled espresso with water over ice."],
+                ["name" => "Iced Capuccino", "category" => "beverages", "price" => "₱110", "desc" => "Chilled espresso with milk and foam."],
+                ["name" => "Iced Caramel Macchiato", "category" => "beverages", "price" => "₱120", "desc" => "Chilled espresso with milk and caramel."],
+                ["name" => "Iced Cafe Mocha", "category" => "beverages", "price" => "₱120", "desc" => "Chilled espresso with chocolate and milk."],
+                ["name" => "Iced Spanish Latte", "category" => "beverages", "price" => "₱120", "desc" => "Creamy iced latte with a sweet twist."],
+                ["name" => "Iced Salted Caramel Latte", "category" => "beverages", "price" => "₱130", "desc" => "Chilled latte with salted caramel over ice."],
+
+                // Iced Non-Coffee (16oz)
+                ["name" => "Iced Strawberry Milk", "category" => "beverages", "price" => "₱110", "desc" => "Creamy milk with strawberry flavor."],
+                ["name" => "Iced Matcha Latte", "category" => "beverages", "price" => "₱110", "desc" => "Chilled green tea matcha with milk."],
+                ["name" => "Iced White Chocolate", "category" => "beverages", "price" => "₱100", "desc" => "Creamy white chocolate over ice."],
+
+                // Frappe (16oz)
+                ["name" => "Espresso Frappe", "category" => "beverages", "price" => "₱130", "desc" => "Blended coffee-based frozen drink."],
+                ["name" => "Cookies and Cream Frappe", "category" => "beverages", "price" => "₱120", "desc" => "Blended cookies and cream frozen drink."],
+                ["name" => "Chocolate Chip Frappe", "category" => "beverages", "price" => "₱120", "desc" => "Blended chocolate chip frozen drink."],
+
+                // Refreshers (16oz)
+                ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "₱120", "desc" => "Freshly squeezed lemon with strawberry."],
+                ["name" => "Lychee Lemonade", "category" => "beverages", "price" => "₱120", "desc" => "Freshly squeezed lemon with lychee."],
+                ["name" => "Blueberry Breeze", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing blueberry lemon drink."],
+                ["name" => "Strawberry Blush", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing strawberry lemon drink."],
+                ["name" => "Lychee Lush", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing lychee lemon drink."],
+                ["name" => "Golden Peach Passion", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing peach lemon drink."],
+                ["name" => "Green Apple Zing", "category" => "beverages", "price" => "₱90", "desc" => "Refreshing green apple lemon drink."],
+
+                // Hot Tea (12oz)
+                ["name" => "Honey Ginger Tea", "category" => "beverages", "price" => "₱100", "desc" => "Soothing hot honey and ginger tea."],
             ];
 
             foreach ($menuItems as $item) {
