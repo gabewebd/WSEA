@@ -45,36 +45,41 @@ if ($post['featured_image']) {
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 ?>
 
-<div class="blog-wrapper-fullscreen">
+<div class="blog-wrapper">
 
-    <div class="blog-hero" style="background-image: url('<?php echo $img_src ? htmlspecialchars($img_src) : ''; ?>');">
-        <div class="blog-hero-overlay"></div>
-        <div class="blog-hero-content">
-            <div class="blog-meta-hero">
-                <?php echo date('F j, Y', strtotime($post['created_at'])); ?> • <?php echo $read_time; ?>
-            </div>
-
-            <h1 class="blog-title-hero"><?php echo htmlspecialchars($post['title']); ?></h1>
-
-            <div class="blog-author-hero">
-                Written by <strong><?php echo htmlspecialchars($author_name); ?></strong>
-            </div>
+    <!-- Header: Meta, Title, Author -->
+    <div class="blog-header">
+        <div class="blog-meta">
+            <?php echo date('F j, Y', strtotime($post['created_at'])); ?> •
+            <?php echo $read_time; ?>
+        </div>
+        <h1 class="blog-title"><?php echo htmlspecialchars($post['title']); ?></h1>
+        <div class="blog-author">
+            Written by <strong><?php echo htmlspecialchars($author_name); ?></strong>
         </div>
     </div>
 
-    <div class="blog-wrapper">
-        <div class="blog-content">
-            <?php echo $post['content']; ?>
+    <!-- Featured Image -->
+    <?php if ($img_src): ?>
+        <div class="featured-image-container">
+            <img src="<?php echo htmlspecialchars($img_src); ?>"
+                alt="<?php echo htmlspecialchars($post['image_alt_text'] ?? $post['title']); ?>">
         </div>
+    <?php endif; ?>
 
-        <div class="blog-footer">
-            <a href="blogs" class="back-link">
-                <i class="ph ph-arrow-left"></i> Back to Stories
-            </a>
-            <button onclick="copyLink()" class="btn-share">
-                <i class="ph ph-share-network"></i> Share this Post
-            </button>
-        </div>
+    <!-- Content -->
+    <div class=" blog-content">
+        <?php echo $post['content']; ?>
+    </div>
+
+    <!-- Footer: Back & Share -->
+    <div class="blog-footer">
+        <a href="blogs" class="back-link">
+            <i class="ph ph-arrow-left"></i> Back to Stories
+        </a>
+        <button onclick="copyLink()" class="btn-share">
+            <i class="ph ph-share-network"></i> Share this Post
+        </button>
     </div>
 
 </div>
