@@ -17,7 +17,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
                 class="pop-out-text">DOUGHNUT</span> at a Time.</h1>
     </div>
     <div class="about-hero-bg" data-speed="1">
-        <img src="assets/img/danonos-login-bg.jpg" alt="Danonos Bakery Background"
+        <img src="assets/img/danonos-hero.jpg" alt="Danonos Bakery Background"
             onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
     </div>
@@ -60,7 +60,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
     <div class="values-grid">
         <div class="value-card" data-aos="fade-up" data-aos-delay="100">
             <div class="value-icon">
-                <i class="ph ph-doughnut"></i>
+                <i class="ph ph-bread"></i>
             </div>
             <h3>Signature Brioche</h3>
             <p>We don't use shortcuts. Our dough is fermented for 24 hours to achieve that distinctively light, airy,

@@ -1,14 +1,17 @@
 RewriteEngine On
 
-# 1. SPECIAL RULE: Remove "index.php" or "index" forcing it to just "/"
+# 1. FIX: Redirect "home" (or "home.php") to the main root URL "/"
+RewriteRule ^home(\.php)?/?$ / [R=301,L]
+
+# 2. Remove "index.php" or "index" forcing it to just "/"
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index(\.php)?\ HTTP/
 RewriteRule ^(.*)index(\.php)?$ /$1 [R=301,L]
 
-# 2. Redirect all OTHER .php requests to the clean URL (e.g. about.php -> about)
+# 3. Redirect all OTHER .php requests to the clean URL (e.g. about.php -> about)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php\ HTTP/
 RewriteRule ^(.+)\.php$ /$1 [R=301,L]
 
-# 3. Map the clean URL back to the .php file internally (So the server understands it)
+# 4. Map the clean URL back to the .php file internally
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

@@ -5,7 +5,6 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 ?>
 <?php include 'includes/header.php'; ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 
 <section class="franchise-hero">
     <div class="floating-shape shape-1"></div>

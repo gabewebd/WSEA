@@ -15,7 +15,7 @@
     --shadow-strong: 0 25px 50px -12px rgba(67, 20, 7, 0.25);
     --radius-lg: 24px;
     --radius-xl: 40px;
-    --font-main: 'Nunito', sans-serif; /* Highly recommended for Doughnut sites */
+    --font-main: 'Barlow', sans-serif;
 }
 
 body {
@@ -23,7 +23,8 @@ body {
     background-image: radial-gradient(#EF7D32 0.5px, transparent 0.5px), radial-gradient(#EF7D32 0.5px, var(--cream) 0.5px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    background-attachment: fixed; /* Creates a subtle sprinkle texture */
+    background-attachment: fixed;
+    /* Creates a subtle sprinkle texture */
     font-family: var(--font-main);
     color: #555;
 }
@@ -34,7 +35,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 120px 8% 180px; /* Extra bottom padding for the wave */
+    padding: 120px 8% 180px;
+    /* Extra bottom padding for the wave */
     overflow: visible;
     gap: 4rem;
 }
@@ -85,11 +87,28 @@ body {
     z-index: 0;
     opacity: 0.6;
 }
-.shape-1 { top: -10%; left: -5%; width: 300px; height: 300px; background: #ffe4d1; }
-.shape-2 { bottom: 10%; right: 40%; width: 200px; height: 200px; background: #fff0e0; }
+
+.shape-1 {
+    top: -10%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: #ffe4d1;
+}
+
+.shape-2 {
+    bottom: 10%;
+    right: 40%;
+    width: 200px;
+    height: 200px;
+    background: #fff0e0;
+}
 
 /* Buttons */
-.hero-buttons { display: flex; gap: 16px; }
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
 
 .btn {
     padding: 16px 32px;
@@ -139,7 +158,8 @@ body {
     height: 120%;
     background: #FFDcb8;
     z-index: -1;
-    border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%; /* Organic blob shape */
+    border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%;
+    /* Organic blob shape */
     animation: blob-bounce 8s infinite ease-in-out alternate;
 }
 
@@ -167,19 +187,42 @@ body {
     animation: float 4s ease-in-out infinite;
 }
 
-.floating-card i { font-size: 24px; color: var(--primary); background: #fff0e6; padding: 10px; border-radius: 50%; }
-.floating-card span { display: block; font-size: 12px; color: #888; text-transform: uppercase; font-weight: 700; }
-.floating-card strong { color: var(--chocolate); font-size: 16px; }
+.floating-card i {
+    font-size: 24px;
+    color: var(--primary);
+    background: #fff0e6;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.floating-card span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.floating-card strong {
+    color: var(--chocolate);
+    font-size: 16px;
+}
 
 /* ---- WHY FRANCHISE (Cards) ---- */
 .why-franchise-section {
     position: relative;
-    background: transparent; /* Let body texture show */
+    background: transparent;
+    /* Let body texture show */
     z-index: 5;
-    margin-top: -80px; /* Pull up to overlap SVG */
+    margin-top: -80px;
+    /* Pull up to overlap SVG */
 }
 
-.why-franchise-container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
+.why-franchise-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6%;
+}
 
 .why-franchise-grid {
     display: grid;
@@ -201,8 +244,8 @@ body {
     display: flex;
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.5);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .benefit-item:hover {
@@ -224,7 +267,11 @@ body {
     box-shadow: inset 0 0 10px rgba(239, 125, 50, 0.1);
 }
 
-.benefit-title { color: var(--chocolate); margin: 0 0 5px 0; font-size: 1.1rem; }
+.benefit-title {
+    color: var(--chocolate);
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
 
 /* ---- STATS & TESTIMONIALS ---- */
 .franchise-stats-testimonials {
@@ -243,11 +290,12 @@ body {
 }
 
 .stat-item {
-    background: rgba(255,255,255,0.05); /* Glass dark mode */
+    background: rgba(255, 255, 255, 0.05);
+    /* Glass dark mode */
     padding: 30px 20px;
     border-radius: 24px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-item h3 {
@@ -263,11 +311,12 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px;
-    border-radius: var(--radius-xl) 0 var(--radius-xl) var(--radius-xl); /* Fun uneven corner */
+    border-radius: var(--radius-xl) 0 var(--radius-xl) var(--radius-xl);
+    /* Fun uneven corner */
     display: flex;
     align-items: center;
     gap: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial-avatar img {
@@ -277,8 +326,19 @@ body {
     border: 4px solid var(--accent);
 }
 
-.quote { font-size: 1.2rem; font-style: italic; opacity: 0.8; }
-.author { font-weight: 800; color: var(--primary); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.author {
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* ---- FORM SECTION ---- */
 .franchise-form-section {
@@ -300,13 +360,15 @@ body {
 
 .form-header-title {
     font-size: 3rem;
-    color: #431407; /* Dark Chocolate */
+    color: #431407;
+    /* Dark Chocolate */
     font-weight: 900;
     margin: 10px 0;
 }
 
 .text-highlight {
-    color: #EF7D32; /* Orange */
+    color: #EF7D32;
+    /* Orange */
     position: relative;
     display: inline-block;
 }
@@ -336,9 +398,10 @@ body {
     background: #ffffff;
     padding: 40px 50px;
     border-radius: 30px;
-    box-shadow: 
-        0 20px 60px rgba(67, 20, 7, 0.08), 
-        0 0 0 10px rgba(255, 255, 255, 0.5); /* Double border effect */
+    box-shadow:
+        0 20px 60px rgba(67, 20, 7, 0.08),
+        0 0 0 10px rgba(255, 255, 255, 0.5);
+    /* Double border effect */
     border: 2px solid #FFF0E0;
     position: relative;
     overflow: hidden;
@@ -352,7 +415,8 @@ body {
     width: 120px;
     height: 120px;
     background: transparent;
-    border: 25px solid #FFEDD5; /* Light Peach Ring */
+    border: 25px solid #FFEDD5;
+    /* Light Peach Ring */
     border-radius: 50%;
     z-index: 0;
     opacity: 0.6;
@@ -361,7 +425,8 @@ body {
 /* ---- GRID LAYOUT (Fixes alignment) ---- */
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two Columns */
+    grid-template-columns: 1fr 1fr;
+    /* Two Columns */
     gap: 24px;
     position: relative;
     z-index: 1;
@@ -374,7 +439,8 @@ body {
 }
 
 .full-width {
-    grid-column: 1 / -1; /* Spans both columns */
+    grid-column: 1 / -1;
+    /* Spans both columns */
 }
 
 /* ---- INPUT STYLING (The Aesthetic Fix) ---- */
@@ -387,20 +453,32 @@ body {
     margin-left: 4px;
 }
 
-.required { color: #EF7D32; }
-.optional { color: #aaa; text-transform: none; font-weight: 600; font-size: 0.8rem; }
+.required {
+    color: #EF7D32;
+}
+
+.optional {
+    color: #aaa;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
 
 .form-input {
-    background: #FFFBF5; /* Very light cream/peach */
-    border: 2px solid #F0DCCA; /* Soft tan border */
+    background: #FFFBF5;
+    /* Very light cream/peach */
+    border: 2px solid #F0DCCA;
+    /* Soft tan border */
     padding: 14px 18px;
-    border-radius: 16px; /* Bubbly rounded corners */
+    border-radius: 16px;
+    /* Bubbly rounded corners */
     font-size: 1rem;
     color: #555;
     font-family: inherit;
     transition: all 0.3s ease;
     width: 100%;
-    box-sizing: border-box; /* IMPORTANT for layout */
+    box-sizing: border-box;
+    /* IMPORTANT for layout */
 }
 
 /* Input Focus State (Glow) */
@@ -467,32 +545,69 @@ textarea.form-input {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .form-grid {
-        grid-template-columns: 1fr; /* Stack on mobile */
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
     }
+
     .form-card-box {
         padding: 30px 20px;
     }
+
     .form-header-title {
         font-size: 2.2rem;
     }
 }
+
 /* ---- ANIMATIONS ---- */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes blob-bounce {
-    0% { border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%; }
-    100% { border-radius: 54% 46% 51% 49% / 44% 49% 51% 56%; }
+    0% {
+        border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%;
+    }
+
+    100% {
+        border-radius: 54% 46% 51% 49% / 44% 49% 51% 56%;
+    }
 }
 
 /* Responsive Tweaks */
 @media (max-width: 900px) {
-    .franchise-hero { grid-template-columns: 1fr; text-align: center; padding-top: 60px; }
-    .hero-buttons, .hero-image-wrapper { justify-content: center; }
-    .hero-image-wrapper { margin-top: 40px; }
-    .why-franchise-grid, .stats-row, .form-grid-2 { grid-template-columns: 1fr; }
-    .testimonial-card { flex-direction: column; text-align: center; }
+    .franchise-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-buttons,
+    .hero-image-wrapper {
+        justify-content: center;
+    }
+
+    .hero-image-wrapper {
+        margin-top: 40px;
+    }
+
+    .why-franchise-grid,
+    .stats-row,
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        flex-direction: column;
+        text-align: center;
+    }
 }
