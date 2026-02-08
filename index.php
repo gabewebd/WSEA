@@ -7,106 +7,7 @@ $customCss = "index.css";
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<style>
-    .story-section {
-        padding: 100px 5%;
-        background-color: transparent;
-        position: relative;
-    }
-
-    .story-content {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 80px !important;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .story-image {
-        flex: 1 !important;
-        min-width: 0 !important;
-        max-width: 450px;
-        position: relative;
-        border-radius: 30px;
-        border: 8px solid #431407;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .story-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-    }
-
-    /* ANIMATED BADGE */
-    .story-badge {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #FFC107;
-        border: 5px solid #431407;
-        width: 90px;
-        height: 90px;
-        border-radius: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #431407;
-        z-index: 2;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .story-badge:hover {
-        transform: translateX(-50%) scale(1.1) rotate(3deg);
-        cursor: pointer;
-    }
-
-    .story-badge-label {
-        font-size: 10px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: -2px;
-    }
-
-    .story-badge-year {
-        font-size: 26px;
-        font-weight: 900;
-        line-height: 1;
-    }
-
-    .story-text {
-        flex: 1.2 !important;
-        min-width: 0 !important;
-    }
-
-    .story-text h2 {
-        font-size: 48px;
-        line-height: 1.1;
-        margin-bottom: 24px;
-        color: #431407;
-    }
-
-    .story-text p {
-        font-size: 17px;
-        line-height: 1.6;
-        color: #666;
-        margin-bottom: 25px;
-    }
-</style>
-
 <section class="hero">
-    <div class="floating-shape shape-1" data-speed="4"></div>
-    <div class="floating-shape shape-2" data-speed="-2"></div>
-
     <div class="hero-text">
         <h1 data-aos="fade-up">More Choices,<br><span class="pop-out-text">MORE VALUE.</span></h1>
         <p data-aos="fade-up" data-aos-delay="100">Indulge in our famous Glazed Donuts and refreshing Spanish Latte.
@@ -120,7 +21,7 @@ $customCss = "index.css";
         </p>
     </div>
     <div class="hero-image" data-aos="zoom-in-left" data-aos-duration="1000">
-        <img src="assets/img/danonos-image.png" alt="Danono's Donuts Box" class="float-img">
+        <img src="assets/img/danonos.jpg" alt="Danono's Donuts Box" class="float-img">
     </div>
 </section>
 
@@ -135,29 +36,29 @@ $customCss = "index.css";
         <div class="treat-card" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/choco-caviar.jpg" alt="Choco Caviar Creation">
             <h3>Choco Caviar Creation</h3>
-            <p>Our ultimate choco-loaded treat that’s rich, crunchy, and irresistibly indulgent.</p>
-            <a href="menu" class="btn btn-small">PKG</a>
+            <p>Our ultimate choco-loaded treat that's rich, crunchy, and irresistibly indulgent.</p>
+            <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="200">
             <img src="assets/img/biscoff.jpg" alt="Biscoff Bite">
             <h3>Biscoff Bite</h3>
             <p>Fluffy brioche donut, rich peanut butter glaze, and a generous topping of Lotus Biscoff.</p>
-            <a href="menu" class="btn btn-small">PKG</a>
+            <a href="menu" class="btn btn-small">₱60</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="300">
             <img src="assets/img/double-choco-delight.jpg" alt="Double Choco Delight">
             <h3>Double Choco Delight</h3>
-            <p>Double Choco Delight is here, and it’s everything your chocolate dreams are made of.</p>
-            <a href="menu" class="btn btn-small">PKG</a>
+            <p>Double Choco Delight is here, and it's everything your chocolate dreams are made of.</p>
+            <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="400">
             <img src="assets/img/almond-amore.jpg" alt="Almond Amore">
             <h3>Almond Amore</h3>
-            <p>Light, fluffy, and loaded with almond love, this one’s a certified heart-stealer.</p>
-            <a href="menu" class="btn btn-small">PKG</a>
+            <p>Light, fluffy, and loaded with almond love, this one's a certified heart-stealer.</p>
+            <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
     </div>
@@ -221,17 +122,14 @@ $customCss = "index.css";
     </div>
 </section>
 
-<section class="family-section">
-    <div class="family-content" data-aos="fade-right">
-        <h2>BE PART OF OUR<br><span class="double-stroke">GROWING FAMILY</span></h2>
+<section class="family-banner family-banner-centered">
+    <div class="family-banner-content" data-aos="fade-up">
+        <h2>Be Part of Our <span class="family-highlight">FAMILY</span></h2>
         <p>Ready to taste the handmade? Join a box today and make your day a little sweeter.</p>
         <div class="family-buttons">
-            <a href="franchise" class="btn btn-white">Partner With Us</a>
-            <a href="locations" class="btn btn-white">Find a Branch</a>
+            <a href="franchise" class="btn btn-white"><i class="ph ph-handshake"></i> Partner With Us</a>
+            <a href="locations" class="btn btn-outline-white"><i class="ph ph-map-pin"></i> Find a Branch</a>
         </div>
-    </div>
-    <div class="family-image" data-aos="zoom-in-left">
-        <img src="assets/img/box-of-donuts.jpg" alt="Box of Donuts">
     </div>
 </section>
 

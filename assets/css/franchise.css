@@ -348,8 +348,9 @@ body {
 }
 
 .franchise-form-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    width: 100%;
 }
 
 /* Header Styling */
@@ -542,7 +543,7 @@ textarea.form-input {
     gap: 6px;
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive for Form */
 @media (max-width: 768px) {
     .form-grid {
         grid-template-columns: 1fr;
@@ -583,31 +584,674 @@ textarea.form-input {
     }
 }
 
-/* Responsive Tweaks */
+/* ============================================= */
+/* --- COMPREHENSIVE RESPONSIVE STYLES --- */
+/* ============================================= */
+
+/* --- TABLET (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+
+    /* Hero Section */
+    .franchise-hero {
+        padding: 100px 6% 140px;
+        gap: 3rem;
+    }
+
+    .franchise-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .franchise-hero p {
+        font-size: 1.15rem;
+    }
+
+    /* Floating Shapes */
+    .shape-1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .shape-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Hero Image */
+    .floating-img {
+        max-width: 420px;
+    }
+
+    .floating-card {
+        padding: 14px 20px;
+        bottom: 30px;
+        left: -10px;
+    }
+
+    /* Why Franchise Section */
+    .why-franchise-container {
+        padding: 0 5%;
+    }
+
+    .why-franchise-grid {
+        gap: 40px;
+    }
+
+    .why-franchise-grid h2 {
+        font-size: 2.2rem !important;
+    }
+
+    .benefit-item {
+        padding: 20px;
+    }
+
+    .benefit-icon-box {
+        min-width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    /* Stats Section */
+    .franchise-stats-testimonials {
+        padding: 60px 5%;
+    }
+
+    .stats-row {
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+
+    .stat-item {
+        padding: 25px 15px;
+    }
+
+    .stat-item h3 {
+        font-size: 2.5rem;
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+        padding: 30px;
+        gap: 25px;
+    }
+
+    .quote {
+        font-size: 1.1rem;
+    }
+
+    /* Form Section */
+    .franchise-form-section {
+        padding: 60px 5% 100px;
+    }
+
+    .form-header-title {
+        font-size: 2.5rem;
+    }
+
+    .form-card-box {
+        padding: 35px 40px;
+    }
+}
+
+/* --- TABLET/MOBILE (max-width: 900px) --- */
 @media (max-width: 900px) {
+
+    /* Hero - Stack Layout */
     .franchise-hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 60px;
+        padding: 80px 5% 100px;
+        gap: 2rem;
     }
 
-    .hero-buttons,
+    .hero-text {
+        order: 1;
+    }
+
     .hero-image-wrapper {
+        order: 2;
         justify-content: center;
+        margin-top: 10px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .hero-image-wrapper {
-        margin-top: 40px;
+    .franchise-hero p {
+        max-width: 100%;
+        margin: 0 auto 28px;
     }
 
-    .why-franchise-grid,
-    .stats-row,
-    .form-grid-2 {
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .floating-card {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+
+    /* Form Section - Use More Space */
+    .franchise-form-container {
+        max-width: 100%;
+        padding: 0 2%;
+    }
+
+    .form-card-box {
+        padding: 30px 25px;
+    }
+
+    /* Why Franchise - Stack Layout */
+    .why-franchise-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
+    .why-franchise-grid>div:first-child {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .why-franchise-grid>div:last-child {
+        text-align: center;
+    }
+
+    .benefit-item {
+        text-align: left;
+    }
+
+    /* Stats - 2 Columns */
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Testimonial - Stack */
     .testimonial-card {
         flex-direction: column;
         text-align: center;
+    }
+
+    .testimonial-content {
+        text-align: center !important;
+    }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Hero Section */
+    .franchise-hero {
+        padding: 50px 4% 80px;
+        gap: 1.5rem;
+    }
+
+    .franchise-hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 16px;
+    }
+
+    .franchise-hero p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .badge-pill {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 320px;
+    }
+
+    .floating-img {
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    /* Floating Shapes */
+    .floating-shape {
+        filter: blur(30px);
+    }
+
+    .shape-1 {
+        width: 150px;
+        height: 150px;
+        top: -5%;
+        left: -8%;
+    }
+
+    .shape-2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Form Section - Utilize Full Width */
+    .franchise-form-section {
+        padding: 40px 3% 70px;
+    }
+
+    .franchise-form-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .form-card-box {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .form-header-title {
+        font-size: 1.8rem;
+    }
+
+    /* Buttons */
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Image */
+    .floating-img {
+        max-width: 100%;
+        border-radius: 20px;
+        border-width: 6px;
+    }
+
+    .floating-card {
+        padding: 12px 18px;
+        border-radius: 16px;
+    }
+
+    .floating-card i {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .floating-card strong {
+        font-size: 14px;
+    }
+
+    .floating-card span {
+        font-size: 11px;
+    }
+
+    /* Image Blob */
+    .image-blob-bg {
+        width: 110%;
+        height: 110%;
+    }
+
+    /* Why Franchise Section */
+    .why-franchise-section {
+        margin-top: -40px;
+    }
+
+    .why-franchise-grid h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .why-franchise-grid p {
+        font-size: 1rem !important;
+    }
+
+    .benefits-grid {
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .benefit-item {
+        padding: 18px;
+        gap: 15px;
+        border-radius: 18px;
+    }
+
+    .benefit-icon-box {
+        min-width: 45px;
+        height: 45px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    .benefit-title {
+        font-size: 1rem;
+    }
+
+    .benefit-desc {
+        font-size: 0.9rem;
+    }
+
+    /* Stats Section */
+    .franchise-stats-testimonials {
+        padding: 50px 4%;
+    }
+
+    .stats-row {
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+
+    .stat-item {
+        padding: 20px 12px;
+        border-radius: 18px;
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    .stat-item p {
+        font-size: 0.85rem;
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+        padding: 25px 20px;
+        border-radius: 24px 0 24px 24px;
+        gap: 20px;
+    }
+
+    .testimonial-avatar img {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+
+    .quote {
+        font-size: 1rem;
+    }
+
+    .author {
+        font-size: 0.85rem;
+    }
+
+    /* Form Section */
+    .franchise-form-section {
+        padding: 50px 4% 80px;
+    }
+
+    .form-header {
+        margin-bottom: 30px;
+    }
+
+    .form-header-title {
+        font-size: 2rem;
+    }
+
+    .form-header-desc {
+        font-size: 1rem;
+    }
+
+    .form-card-box {
+        padding: 25px 20px;
+        border-radius: 24px;
+    }
+
+    .decoration-doughnut {
+        width: 80px;
+        height: 80px;
+        border-width: 18px;
+        top: -20px;
+        right: -20px;
+    }
+
+    .form-grid {
+        gap: 18px;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+    }
+
+    .form-input {
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 0.95rem;
+    }
+
+    .form-footer {
+        margin-top: 25px;
+    }
+
+    .form-submit-btn {
+        padding: 14px 36px;
+        font-size: 1rem;
+    }
+
+    .privacy-notice {
+        font-size: 0.8rem;
+    }
+}
+
+/* --- SMALL MOBILE (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    /* Hero Section */
+    .franchise-hero {
+        padding: 50px 4% 80px;
+    }
+
+    .franchise-hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .franchise-hero p {
+        font-size: 0.95rem;
+    }
+
+    .badge-pill {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+
+    /* Floating Shapes */
+    .shape-1 {
+        width: 140px;
+        height: 140px;
+    }
+
+    .shape-2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Buttons - Stack */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    /* Hero Image */
+    .floating-img {
+        border-radius: 16px;
+        border-width: 5px;
+    }
+
+    .floating-card {
+        padding: 10px 14px;
+        border-radius: 14px;
+    }
+
+    .floating-card i {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    /* Why Franchise Section */
+    .why-franchise-section {
+        margin-top: -30px;
+    }
+
+    .why-franchise-container {
+        padding: 0 4%;
+    }
+
+    .why-franchise-grid h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .benefits-grid {
+        gap: 12px;
+    }
+
+    .benefit-item {
+        padding: 15px;
+        gap: 12px;
+        border-radius: 14px;
+    }
+
+    .benefit-icon-box {
+        min-width: 40px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .benefit-title {
+        font-size: 0.95rem;
+    }
+
+    .benefit-desc {
+        font-size: 0.85rem;
+    }
+
+    /* Stats Section */
+    .franchise-stats-testimonials {
+        padding: 40px 3%;
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+
+    .stat-item {
+        padding: 16px 10px;
+        border-radius: 14px;
+    }
+
+    .stat-item h3 {
+        font-size: 1.6rem;
+    }
+
+    .stat-item p {
+        font-size: 0.75rem;
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+        padding: 20px 16px;
+        border-radius: 20px 0 20px 20px;
+    }
+
+    .testimonial-avatar img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .quote {
+        font-size: 0.9rem;
+    }
+
+    .author {
+        font-size: 0.8rem;
+    }
+
+    /* Form Section */
+    .franchise-form-section {
+        padding: 40px 3% 60px;
+    }
+
+    .form-header-title {
+        font-size: 1.7rem;
+    }
+
+    .form-header-desc {
+        font-size: 0.9rem;
+    }
+
+    .form-card-box {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+
+    .decoration-doughnut {
+        width: 60px;
+        height: 60px;
+        border-width: 14px;
+        top: -15px;
+        right: -15px;
+    }
+
+    .form-grid {
+        gap: 14px;
+    }
+
+    .form-label {
+        font-size: 0.75rem;
+    }
+
+    .form-input {
+        padding: 11px 12px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+    }
+
+    .form-submit-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+
+    .privacy-notice {
+        font-size: 0.75rem;
+    }
+}
+
+/* --- EXTRA SMALL MOBILE (max-width: 360px) --- */
+@media (max-width: 360px) {
+    .franchise-hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .franchise-hero p {
+        font-size: 0.9rem;
+    }
+
+    .why-franchise-grid h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .stat-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .quote {
+        font-size: 0.85rem;
+    }
+
+    .form-header-title {
+        font-size: 1.5rem;
+    }
+
+    .form-submit-btn {
+        font-size: 0.9rem;
+        padding: 12px 20px;
     }
 }

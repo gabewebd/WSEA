@@ -1,19 +1,223 @@
 <?php
 $pageTitle = "Franchise - Danono's";
 $metaDesc = "Join the Danono's family! Learn about franchise opportunities and how to bring our delicious doughnuts to your community.";
-$customCss = "franchise.css"; // Ensure your CSS file is updated with the code from the previous step
+$customCss = "franchise.css";
 ?>
 <?php include 'includes/header.php'; ?>
 
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+    /* =========================================
+       FRANCHISE RESPONSIVE FIXES (HERO & FORM ONLY)
+       ========================================= */
+    :root {
+        --primary-orange: #EF7D32;
+        --dark-brown: #431407;
+        --cream: #FFF9F2;
+    }
+
+    /* --- HERO SECTION STYLES --- */
+    .franchise-hero {
+        position: relative;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 120px 5% 80px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #FFFdf9 0%, #FFF0E6 100%);
+    }
+
+    .hero-text {
+        flex: 1;
+        max-width: 600px;
+        z-index: 2;
+    }
+
+    .hero-text h1 {
+        font-size: 64px;
+        line-height: 1.1;
+        color: var(--dark-brown);
+        margin-bottom: 25px;
+        font-weight: 800;
+    }
+
+    .text-gradient {
+        color: var(--primary-orange);
+    }
+
+    .hero-image-wrapper {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .floating-img {
+        width: 100%;
+        max-width: 550px;
+        border-radius: 30px;
+        border: 8px solid white;
+        box-shadow: 0 20px 50px rgba(67, 20, 7, 0.15);
+        transform: rotate(3deg);
+    }
+
+    .floating-card {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        background: white;
+        padding: 15px 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 3;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+    }
+
+    /* --- FORM BUTTON STYLES --- */
+    .form-submit-btn {
+        background: var(--primary-orange);
+        color: white;
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .form-submit-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    /* --- MOBILE RESPONSIVE FIXES --- */
+    @media (max-width: 968px) {
+
+        /* 1. Fix Hero Section Stacking */
+        .franchise-hero {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            text-align: center;
+            padding: 100px 20px 60px;
+            min-height: auto !important;
+            height: auto !important;
+            gap: 40px;
+        }
+
+        /* 2. Text First (Order: 1) */
+        .hero-text {
+            order: 1 !important;
+            width: 100%;
+            max-width: 100%;
+            flex: none !important;
+            margin-bottom: 30px;
+        }
+
+        .hero-text h1 {
+            font-size: 32px;
+            /* Mobile header size */
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            margin: 0 auto 25px;
+            max-width: 100%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px 24px;
+        }
+
+        /* 3. Image Second (Order: 2) */
+        .hero-image-wrapper {
+            order: 2 !important;
+            width: 100%;
+            max-width: 320px;
+            flex: none !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper img.floating-img {
+            width: 100%;
+            max-width: 100%;
+            transform: rotate(0deg) !important;
+            animation: none !important;
+            border-width: 5px;
+            border-radius: 20px;
+        }
+
+        .floating-card {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            max-width: 260px;
+            margin-top: 15px;
+            animation: none !important;
+            z-index: 5;
+        }
+
+        /* Hide decorative shapes on mobile to avoid overflow */
+        .floating-shape {
+            display: none !important;
+        }
+
+        /* 4. Fix Submit Button */
+        .form-submit-btn {
+            width: 100%;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+</style>
 
 <section class="franchise-hero">
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-1" data-speed="4"></div>
+    <div class="floating-shape shape-2" data-speed="-2"></div>
 
-    <div class="hero-text">
-        <div class="badge-pill">Partner With Us</div>
-        <h1>Be Part of Our <span class="text-gradient">Family</span></h1>
-        <p>Join the growing Danono's franchise network and bring the sweetest treats to your community. We provide the
+    <div class="hero-text" data-aos="fade-right" data-aos-duration="800">
+        <div class="badge-pill" data-aos="fade-down" data-aos-delay="100">Partner With Us</div>
+        <h1 data-aos="fade-up" data-aos-delay="200">Be Part of Our <span class="text-gradient">Family</span></h1>
+        <p data-aos="fade-up" data-aos-delay="300">Join the growing Danono's franchise network and bring the sweetest
+            treats to your community. We provide the
             recipe for success — you bring the passion!</p>
 
         <div class="hero-buttons">
@@ -26,12 +230,12 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
         </div>
     </div>
 
-    <div class="hero-image-wrapper">
+    <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
         <div class="image-blob-bg"></div>
 
         <img src="assets/img/franchise.jpg" alt="Danono's Franchise Opportunity" class="floating-img">
 
-        <div class="floating-card">
+        <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
             <i class="ph-fill ph-trend-up"></i>
             <div>
                 <span>Potential ROI</span>
@@ -52,24 +256,26 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 <section id="learn-more" class="why-franchise-section">
     <div class="why-franchise-container">
         <div class="why-franchise-grid">
-            <div>
+            <div data-aos="fade-right" data-aos-duration="800">
                 <img src="assets/img/perfect-spot.jpg" alt="Perfect Spot for your Franchise" class="floating-img"
                     style="transform: rotate(2deg);">
             </div>
 
-            <div>
-                <span class="badge-pill">Business Opportunity</span>
-                <h2 style="font-size: 2.5rem; color: var(--chocolate); font-weight: 900; margin-bottom: 20px;">
+            <div data-aos="fade-left" data-aos-duration="800">
+                <span class="badge-pill" data-aos="fade-down" data-aos-delay="100">Business Opportunity</span>
+                <h2 style="font-size: 2.5rem; color: var(--chocolate); font-weight: 900; margin-bottom: 20px;"
+                    data-aos="fade-up" data-aos-delay="200">
                     Why Choose <span class="text-gradient">Danono's?</span>
                 </h2>
-                <p style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+                <p style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;" data-aos="fade-up"
+                    data-aos-delay="300">
                     Danono's isn't just a doughnut shop; it's a destination for happiness. Our proven business model,
                     combined with high-quality ingredients and a strong brand identity, makes us the perfect partner for
                     aspiring entrepreneurs.
                 </p>
 
                 <div class="benefits-grid">
-                    <div class="benefit-item">
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="benefit-icon-box">
                             <i class="ph-fill ph-check-circle"></i>
                         </div>
@@ -80,7 +286,7 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
                         </div>
                     </div>
 
-                    <div class="benefit-item">
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="benefit-icon-box">
                             <i class="ph-fill ph-star"></i>
                         </div>
@@ -90,7 +296,7 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
                         </div>
                     </div>
 
-                    <div class="benefit-item">
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="benefit-icon-box">
                             <i class="ph-fill ph-chart-line-up"></i>
                         </div>
@@ -116,25 +322,25 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 <section class="franchise-stats-testimonials">
     <div class="container">
         <div class="stats-row">
-            <div class="stat-item">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
                 <h3>120+</h3>
                 <p>Successful outlets</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
                 <h3>24K</h3>
                 <p>Social followers</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
                 <h3>4.8</h3>
                 <p>Average rating</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
                 <h3>10</h3>
                 <p>Years of excellence</p>
             </div>
         </div>
 
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800">
             <div class="testimonial-avatar">
                 <img src="assets/img/franchise.jpg" alt="Owner testimonial">
             </div>
@@ -158,7 +364,7 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 <section id="apply" class="franchise-form-section">
     <div class="container franchise-form-container">
 
-        <div class="form-header">
+        <div class="form-header" data-aos="fade-up">
             <span class="badge-pill">Join Our Network</span>
             <h2 class="form-header-title">Start Your <span class="text-highlight">Journey</span></h2>
             <p class="form-header-desc">
@@ -183,7 +389,7 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
             </div>
         <?php endif; ?>
 
-        <div class="form-card-box">
+        <div class="form-card-box" data-aos="fade-up" data-aos-delay="200">
             <div class="decoration-doughnut"></div>
 
             <form action="admin/process_franchise.php" method="POST">
@@ -235,5 +441,15 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
         </div>
     </div>
 </section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true,
+        offset: 120,
+        duration: 800,
+        easing: 'ease-out-back'
+    });
+</script>
 
 <?php include 'includes/footer.php'; ?>

@@ -168,13 +168,30 @@ $customCss = "locations.css";
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
     </div>
-
-    <!-- CTA Section -->
-    <div class="locations-cta">
-        <h2>Can't find a location near you?</h2>
-        <p>Interested in bringing Danonos to your area? Explore our franchise opportunities!</p>
-        <a href="franchise" class="btn btn-secondary"><i class="ph ph-handshake"></i> Learn About Franchising</a>
-    </div>
 </div>
+
+<!-- CTA Section - Family Banner Style -->
+<section class="family-banner family-banner-centered">
+    <div class="family-banner-content" data-aos="fade-up">
+        <h2>Can't Find a Location <span class="family-highlight">Near You?</span></h2>
+        <p>Interested in bringing Danonos to your area? Explore our franchise opportunities and be part of our growing
+            family!</p>
+        <div class="family-buttons">
+            <a href="franchise" class="btn btn-white"><i class="ph ph-handshake"></i> Partner With Us</a>
+            <a href="#" class="btn btn-outline-white"><i class="ph ph-phone"></i> Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true,
+        offset: 120,
+        duration: 800,
+        easing: 'ease-out-back'
+    });
+</script>
 
 <?php include 'includes/footer.php'; ?>

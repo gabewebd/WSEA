@@ -66,9 +66,12 @@ nav a,
 /* =========================================
    3. COMPONENTS (Header, Buttons, Nav)
    ========================================= */
+
+/* --- HEADER CONTAINER --- */
 header {
     background: #ffffff;
-    padding: 15px 60px;
+    padding: 15px 5%;
+    /* Responsive padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,33 +79,44 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 80px;
+    /* Fixed height for consistency */
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    /* Bold Fredoka */
-    color: var(--primary-orange);
-    letter-spacing: -0.5px;
+.logo img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    display: block;
 }
 
-nav {
+/* --- DESKTOP NAVIGATION --- */
+.nav-menu {
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-nav a {
+.nav-menu a {
     text-decoration: none;
     color: var(--dark-brown);
+    font-family: var(--font-body);
+    font-weight: 700;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+.nav-menu a:hover {
     color: var(--primary-orange);
+}
+
+/* Hide Mobile Elements on Desktop by Default */
+.mobile-toggle,
+.mobile-close,
+.nav-overlay {
+    display: none;
 }
 
 /* --- BUTTONS --- */
@@ -209,9 +223,6 @@ nav a:hover {
 /* Moved to index.css */
 
 /* --- FOOTER --- */
-/* Moved to index.css */
-
-/* --- FOOTER --- */
 footer {
     background: linear-gradient(to right, var(--dark-brown), #5a2e22);
     color: white;
@@ -311,7 +322,6 @@ footer {
 .page-title span {
     color: var(--dark-brown);
     font-size: 52px;
-    /* Ensure consistency */
 }
 
 /* --- GRID LAYOUT --- */
@@ -338,10 +348,108 @@ footer {
 /* Moved to single-blog.css */
 
 
-/* --- RESPONSIVE --- */
-@media (max-width: 1024px) {
+/* =========================================
+   7. RESPONSIVE (MOBILE MENU ADDED HERE)
+   ========================================= */
 
-    header,
+/* Mobile Menu Logic (Triggered at 968px) */
+@media (max-width: 968px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    /* 1. Show Hamburger Button */
+    .mobile-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: var(--dark-brown);
+        cursor: pointer;
+    }
+
+    /* 2. Style the Mobile Menu (Slide-in Drawer) */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hidden off-screen by default */
+        width: 280px;
+        /* Width of the drawer */
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Left align text */
+        justify-content: flex-start;
+        padding: 80px 30px;
+        /* Top padding clears space for close button */
+        gap: 25px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        /* Smooth slide animation */
+        z-index: 1001;
+    }
+
+    /* Active State (Slide in) */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* 3. Mobile Links Styling */
+    .nav-menu a {
+        font-size: 18px;
+        /* Larger text for tapping */
+        width: 100%;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+
+    /* 4. Close Button Styling */
+    .mobile-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: var(--primary-orange);
+        cursor: pointer;
+    }
+
+    /* 5. Dark Overlay Background */
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Prevent body scroll when menu is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
+
+/* Standard Responsive Tweaks */
+@media (max-width: 1024px) {
     .story-section {
         padding: 60px 30px;
     }
@@ -361,26 +469,16 @@ footer {
         width: 100%;
     }
 
-    nav {
-        display: none;
-    }
-
-    /* Add a mobile menu toggle later if needed */
+    /* Removed "nav { display: none }" because new menu handles it */
 
     .footer-content {
         grid-template-columns: 1fr;
     }
 }
 
-/* --- NAV CARDS SECTION (Locations & Blogs) --- */
-/* Moved to index.css */
-
-/* --- MENU FILTERS --- */
-/* Moved to menu.css */
-
 
 /* =========================================
-   7. FAILSAFE DUPLICATES (USER REQUESTED)
+   8. FAILSAFE DUPLICATES (USER REQUESTED)
    ========================================= */
 
 /* --- FRANCHISE HERO (Fixed Layout) --- */

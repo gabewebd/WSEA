@@ -13,6 +13,9 @@ include 'includes/db_connect.php';
     <meta name="description" content="<?php echo $metaDesc; ?>">
     <title><?php echo $pageTitle; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
     <style>
         * {
             margin: 0;
@@ -24,11 +27,14 @@ include 'includes/db_connect.php';
             --primary: #D4945E;
             --primary-dark: #A67346;
             --primary-light: #E8B88D;
+            --primary-orange: #EF7D32;
             --accent: #8B4513;
             --cream: #FFF9F3;
             --dark: #2C1810;
+            --dark-brown: #431407;
             --text: #3D2817;
             --border: #E8D4C0;
+            --gold: #FFC107;
             --success: #C67C4E;
             --shadow-sm: 0 4px 12px rgba(76, 34, 14, 0.08);
             --shadow-md: 0 12px 32px rgba(76, 34, 14, 0.12);
@@ -46,82 +52,101 @@ include 'includes/db_connect.php';
             scroll-behavior: smooth;
         }
 
-        /* ===== HEADER SECTION ===== */
-        .header-section {
-            text-align: center;
-            padding: 80px 20px 60px;
+        /* ===== MENU HERO SECTION ===== */
+        .menu-hero {
             position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            background-color: var(--dark-brown);
         }
 
-        .header-section::before {
-            content: '';
+        .menu-hero-bg {
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 148, 94, 0.1) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+            transition: transform 0.1s linear;
+        }
+
+        .menu-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
             border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
+            filter: blur(60px);
+            z-index: 2;
+            opacity: 0.6;
+            transition: transform 0.1s linear;
             pointer-events: none;
         }
 
-        .header-section::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
+        .shape-1 {
+            top: -50px;
+            left: -50px;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(212, 148, 94, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite reverse;
-            pointer-events: none;
+            background: #EF7D32;
         }
 
-        .header-content {
+        .shape-2 {
+            bottom: -50px;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            background: #FFC107;
+        }
+
+        .menu-hero-content {
             position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
         }
 
-        .section-label {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
-        }
-
-        .page-title {
-
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--dark);
+        .menu-hero-content h1 {
+            font-size: 56px;
             line-height: 1.1;
-            margin-bottom: 20px;
-            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+            font-weight: 700;
         }
 
-        .page-title span {
-            background: #EE7B32;
+        .menu-hero-content .section-subtitle {
+            display: block;
+            font-family: 'Barlow', sans-serif;
+            letter-spacing: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-weight: 700;
+        }
+
+        /* Text Effects */
+        .pop-out-text {
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #EF7D32 0%, #FFC107 50%, #EF7D32 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
+            animation: shine 4s linear infinite;
         }
 
-        .page-subtitle {
-            font-size: 18px;
-            color: var(--text);
-            font-weight: 300;
-            margin-top: 15px;
-            animation: fadeIn 0.8s ease 0.4s both;
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
         }
 
         /* ===== FILTER BUTTONS ===== */
@@ -158,7 +183,7 @@ include 'includes/db_connect.php';
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(90deg, var(--primary-orange) 0%, var(--gold) 100%);
             transition: left 0.4s ease;
             z-index: -1;
         }
@@ -171,7 +196,7 @@ include 'includes/db_connect.php';
 
         .filter-btn.active {
             color: white;
-            border-color: var(--primary);
+            border-color: var(--primary-orange);
             box-shadow: var(--shadow-lg);
         }
 
@@ -337,7 +362,7 @@ include 'includes/db_connect.php';
         }
 
         .price-tag {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -480,9 +505,19 @@ include 'includes/db_connect.php';
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .menu-hero-content h1 {
+                font-size: 36px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 48px;
+            .menu-hero {
+                height: 380px;
+            }
+
+            .menu-hero-content h1 {
+                font-size: 32px;
             }
 
             .grid {
@@ -505,12 +540,12 @@ include 'includes/db_connect.php';
         }
 
         @media (max-width: 480px) {
-            .header-section {
-                padding: 60px 20px 40px;
+            .menu-hero {
+                height: 320px;
             }
 
-            .page-title {
-                font-size: 36px;
+            .menu-hero-content h1 {
+                font-size: 28px;
             }
 
             .grid {
@@ -548,16 +583,23 @@ include 'includes/db_connect.php';
 <body>
     <?php include 'includes/header.php'; ?>
 
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header-section">
-            <div class="header-content">
-                <span class="section-label">Fresh Daily</span>
-                <h1 class="page-title">Most Loved <span>Treats</span></h1>
-                <p class="page-subtitle">Handcrafted premium brioche doughnuts, decadent brownies, and artisanal
-                    beverages</p>
-            </div>
+    <!-- Menu Hero Section -->
+    <section class="menu-hero">
+        <div class="floating-shape shape-1" data-speed="4"></div>
+        <div class="floating-shape shape-2" data-speed="-2"></div>
+
+        <div class="menu-hero-content">
+            <span class="section-subtitle" data-aos="fade-down">FRESH DAILY</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Discover Our<br>Most Loved <span
+                    class="pop-out-text">TREATS</span></h1>
         </div>
+        <div class="menu-hero-bg" data-speed="1">
+            <img src="assets/img/danonos-menu.jpg" alt="Danono's Menu Background"
+                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
+        </div>
+    </section>
+
+    <div class="container">
 
         <!-- Filter Section -->
         <div class="filter-container">
@@ -677,7 +719,27 @@ include 'includes/db_connect.php';
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Mouse Parallax Logic for floating shapes
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            document.querySelectorAll(".floating-shape").forEach(function (move) {
+                var moving_value = move.getAttribute("data-speed");
+                var x = (e.clientX * moving_value) / 250;
+                var y = (e.clientY * moving_value) / 250;
+                move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+            });
+        }
+
         // Enhanced filter functionality
         function filterMenu(category, btn) {
             // Update active button

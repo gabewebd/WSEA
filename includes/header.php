@@ -1,5 +1,5 @@
 <?php
-// Start session if not already started (Good practice for login later)
+// Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
@@ -14,6 +14,9 @@ if (session_status() === PHP_SESSION_NONE) {
   <title><?php echo isset($pageTitle) ? $pageTitle : "Danonos Donuts - Best Donuts in Manila"; ?></title>
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day. Order online or visit us!"; ?>">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/img/danonos-logo.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,26 +45,35 @@ if (session_status() === PHP_SESSION_NONE) {
       }
     }
     </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B381CPCZK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-7B381CPCZK');
+  </script>
+
+  <meta name="google-site-verification" content="Xl7SjAbdH5sySew0zAOHdzu410dFzPMe7up3yKONQ9I" />
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7B381CPCZK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-7B381CPCZK');
-</script>
-
-<meta name="google-site-verification" content="Xl7SjAbdH5sySew0zAOHdzu410dFzPMe7up3yKONQ9I" />
 
 <body>
   <header>
     <div class="logo">
-      <img src="assets/img/danonos-logo.jpg" alt="Danono's" style="height: 50px; border-radius: 50%;">
+      <a href="index">
+        <img src="assets/img/danonos-logo.jpg" alt="Danono's">
+      </a>
     </div>
-    <nav>
+
+    <button class="mobile-toggle" aria-label="Open Menu">
+      <i class="ph ph-list"></i>
+    </button>
+
+    <nav class="nav-menu">
+      <button class="mobile-close" aria-label="Close Menu">
+        <i class="ph ph-x"></i>
+      </button>
+
       <a href="index">Home</a>
       <a href="about">About</a>
       <a href="menu">Menu</a>
@@ -69,4 +81,23 @@ if (session_status() === PHP_SESSION_NONE) {
       <a href="locations">Locations</a>
       <a href="franchise">Franchise</a>
     </nav>
+
+    <div class="nav-overlay"></div>
   </header>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mobileClose = document.querySelector('.mobile-close');
+    const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    function toggleMenu() {
+      navMenu.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.classList.toggle('no-scroll'); // Prevents scrolling when menu is open
+    }
+
+    mobileToggle.addEventListener('click', toggleMenu);
+    mobileClose.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+  </script>

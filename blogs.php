@@ -13,6 +13,9 @@ include 'includes/db_connect.php';
     <meta name="description" content="<?php echo $metaDesc; ?>">
     <title><?php echo $pageTitle; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blogs.css">
     <style>
         * {
             margin: 0;
@@ -24,11 +27,14 @@ include 'includes/db_connect.php';
             --primary: #D4945E;
             --primary-dark: #A67346;
             --primary-light: #E8B88D;
+            --primary-orange: #EF7D32;
             --accent: #8B4513;
             --cream: #FFF9F3;
             --dark: #2C1810;
+            --dark-brown: #431407;
             --text: #3D2817;
             --border: #E8D4C0;
+            --gold: #FFC107;
             --success: #C67C4E;
             --shadow-sm: 0 4px 12px rgba(76, 34, 14, 0.08);
             --shadow-md: 0 12px 32px rgba(76, 34, 14, 0.12);
@@ -46,85 +52,112 @@ include 'includes/db_connect.php';
             scroll-behavior: smooth;
         }
 
-        /* ===== HEADER SECTION ===== */
-        .header-section {
-            text-align: center;
-            padding: 100px 20px 60px;
+        /* ===== BLOG HERO SECTION ===== */
+        .blog-hero {
             position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            background-color: var(--dark-brown);
         }
 
-        .header-section::before {
-            content: '';
+        .blog-hero-bg {
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 148, 94, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .header-section::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(212, 148, 94, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 12s ease-in-out infinite reverse;
-            pointer-events: none;
-        }
-
-        .header-content {
-            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+            opacity: 0.4;
+            transition: transform 0.1s linear;
         }
 
-        .section-label {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+        .blog-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .page-title {
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--dark);
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 2;
+            opacity: 0.6;
+            transition: transform 0.1s linear;
+            pointer-events: none;
+        }
+
+        .shape-1 {
+            top: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: #EF7D32;
+        }
+
+        .shape-2 {
+            bottom: -50px;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            background: #FFC107;
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+        .blog-hero-content h1 {
+            font-size: 56px;
             line-height: 1.1;
-            margin-bottom: 20px;
-            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+            font-weight: 700;
         }
 
-        .page-title span {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        .blog-hero-content .section-subtitle {
+            display: block;
+            font-family: 'Barlow', sans-serif;
+            letter-spacing: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-weight: 700;
+        }
+
+        .blog-hero-content .hero-description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-top: 20px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Text Effects */
+        .pop-out-text {
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #EF7D32 0%, #FFC107 50%, #EF7D32 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
+            animation: shine 4s linear infinite;
         }
 
-        .page-description {
-            font-size: 16px;
-            color: #666;
-            font-weight: 400;
-            margin-top: 20px;
-            line-height: 1.8;
-            animation: fadeIn 0.8s ease 0.4s both;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
         }
 
         /* ===== CONTAINER ===== */
@@ -311,7 +344,7 @@ include 'includes/db_connect.php';
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
             z-index: -1;
             transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -319,7 +352,7 @@ include 'includes/db_connect.php';
         .btn-read-more:hover {
             color: white;
             transform: translateX(6px);
-            border-color: var(--primary);
+            border-color: var(--primary-orange);
             box-shadow: 0 8px 20px rgba(212, 148, 94, 0.3);
         }
 
@@ -424,9 +457,19 @@ include 'includes/db_connect.php';
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .blog-hero-content h1 {
+                font-size: 36px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 52px;
+            .blog-hero {
+                height: 380px;
+            }
+
+            .blog-hero-content h1 {
+                font-size: 32px;
             }
 
             .blog-grid {
@@ -442,18 +485,18 @@ include 'includes/db_connect.php';
                 font-size: 22px;
             }
 
-            .page-description {
-                font-size: 15px;
+            .blog-hero-content .hero-description {
+                font-size: 14px;
             }
         }
 
         @media (max-width: 480px) {
-            .header-section {
-                padding: 70px 20px 50px;
+            .blog-hero {
+                height: 350px;
             }
 
-            .page-title {
-                font-size: 40px;
+            .blog-hero-content h1 {
+                font-size: 28px;
             }
 
             .blog-card img {
@@ -466,10 +509,6 @@ include 'includes/db_connect.php';
 
             .blog-card-content {
                 padding: 20px 18px;
-            }
-
-            .page-description {
-                font-size: 14px;
             }
         }
 
@@ -563,18 +602,25 @@ include 'includes/db_connect.php';
 <body>
     <?php include 'includes/header.php'; ?>
 
-    <div class="blog-container">
-        <!-- Page Header -->
-        <div class="header-section">
-            <div class="header-content">
-                <span class="section-label">From Our Kitchen</span>
-                <h1 class="page-title">Latest <span>News</span></h1>
-                <p class="page-description">
-                    Stay updated with the sweetest news, new flavor launches, and behind-the-scenes stories from the
-                    Danono's kitchen. Discover the art and passion behind every treat we create.
-                </p>
-            </div>
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="floating-shape shape-1" data-speed="4"></div>
+        <div class="floating-shape shape-2" data-speed="-2"></div>
+
+        <div class="blog-hero-content">
+            <span class="section-subtitle" data-aos="fade-down">FROM OUR KITCHEN</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Sweet Stories &<br>Latest <span class="pop-out-text">NEWS</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">Stay updated with the sweetest news, new
+                flavor launches, and behind-the-scenes stories from the Danono's kitchen.</p>
         </div>
+        <div class="blog-hero-bg" data-speed="1">
+            <img src="assets/img/danonos-craving.jpg" alt="Danono's Blog Background"
+                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
+        </div>
+    </section>
+
+    <div class="blog-container">
 
         <!-- Blog Grid -->
         <div class="blog-grid">
@@ -631,7 +677,27 @@ include 'includes/db_connect.php';
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Mouse Parallax Logic for floating shapes
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            document.querySelectorAll(".floating-shape").forEach(function (move) {
+                var moving_value = move.getAttribute("data-speed");
+                var x = (e.clientX * moving_value) / 250;
+                var y = (e.clientY * moving_value) / 250;
+                move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+            });
+        }
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.15,

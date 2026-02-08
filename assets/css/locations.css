@@ -29,6 +29,7 @@
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -51,6 +52,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -205,6 +207,7 @@
         opacity: 0;
         transform: scale(0) rotate(-180deg);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) rotate(0);
@@ -222,9 +225,12 @@
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-12px);
     }
@@ -468,6 +474,7 @@
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -507,78 +514,490 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* ====================================
-   RESPONSIVE DESIGN
-   ==================================== */
+/* ============================================= */
+/* --- COMPREHENSIVE RESPONSIVE STYLES --- */
+/* ============================================= */
 
-@media (max-width: 768px) {
+/* --- TABLET (max-width: 1024px) --- */
+@media (max-width: 1024px) {
     .locations-container {
-        width: 95%;
-        padding: 70px 0 60px;
+        width: 92%;
+        padding: 80px 0 60px;
     }
 
     .section-header {
-        margin-bottom: 70px;
+        margin-bottom: 80px;
     }
 
     .page-title {
-        font-size: 45px;
+        font-size: 52px;
     }
 
     .header-subtitle {
-        font-size: 16px;
+        font-size: 17px;
+    }
+
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin-bottom: 80px;
     }
 
     .location-card {
-        padding: 35px 28px;
+        padding: 38px 30px;
         min-height: 480px;
+        border-radius: 24px;
     }
 
     .location-card h3 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .location-icon {
-        font-size: 48px;
+        font-size: 50px;
+        margin-bottom: 20px;
     }
 
     .locations-cta {
-        padding: 60px 35px;
+        padding: 70px 45px;
+        border-radius: 28px;
     }
 
     .locations-cta h2 {
-        font-size: 36px;
-    }
-
-    .locations-cta p {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 36px;
-    }
-
-    .location-card {
-        padding: 28px 22px;
-        min-height: auto;
-    }
-
-    .location-card h3 {
-        font-size: 21px;
-    }
-
-    .location-icon {
         font-size: 42px;
     }
 
-    .btn {
-        padding: 12px 28px;
+    .locations-cta p {
+        font-size: 18px;
+    }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+    .locations-container {
+        width: 94%;
+        padding: 60px 0 50px;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+    }
+
+    .section-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .page-title {
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+
+    .page-title span::after {
+        height: 4px;
+        bottom: -5px;
+    }
+
+    .header-subtitle {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Grid - Single Column */
+    .locations-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 60px;
+    }
+
+    .location-card {
+        padding: 32px 25px;
+        min-height: auto;
+        border-radius: 22px;
+    }
+
+    .card-badge {
+        padding: 8px 16px;
+        font-size: 10px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .location-card h3 {
+        font-size: 23px;
+    }
+
+    .location-card .category {
+        font-size: 10px;
+        padding: 6px 14px;
+    }
+
+    .location-icon {
+        font-size: 45px;
+        margin-bottom: 18px;
+    }
+
+    .location-card .address {
+        font-size: 14px;
+    }
+
+    .location-card .description {
+        font-size: 14px;
+        margin: 14px 0 20px 0;
+    }
+
+    .location-card .store-hours {
+        font-size: 12px;
+    }
+
+    .location-card .distance,
+    .location-card .followers {
         font-size: 13px;
     }
 
+    .status-badge {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+
+    .btn {
+        padding: 13px 30px;
+        font-size: 14px;
+    }
+
+    /* CTA Section */
+    .locations-cta {
+        padding: 55px 30px;
+        border-radius: 24px;
+    }
+
+    .locations-cta::before {
+        width: 200px;
+        height: 200px;
+    }
+
+    .locations-cta::after {
+        width: 180px;
+        height: 180px;
+    }
+
     .locations-cta h2 {
-        font-size: 28px;
+        font-size: 34px;
+        margin-bottom: 12px;
+    }
+
+    .locations-cta p {
+        font-size: 15px;
+        margin-bottom: 28px;
+        line-height: 1.6;
+    }
+
+    .locations-cta .btn-secondary {
+        padding: 13px 28px;
+        font-size: 14px;
+    }
+}
+
+/* --- SMALL MOBILE (max-width: 480px) --- */
+@media (max-width: 480px) {
+    .locations-container {
+        width: 100%;
+        padding: 50px 12px 40px;
+    }
+
+    .section-header {
+        margin-bottom: 45px;
+    }
+
+    .section-label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .page-title {
+        font-size: 32px;
+        margin-bottom: 14px;
+    }
+
+    .header-subtitle {
+        font-size: 14px;
+    }
+
+    .locations-grid {
+        gap: 18px;
+        margin-bottom: 50px;
+    }
+
+    .location-card {
+        padding: 26px 20px;
+        border-radius: 18px;
+    }
+
+    .card-badge {
+        padding: 6px 12px;
+        font-size: 9px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .location-card h3 {
+        font-size: 20px;
+    }
+
+    .location-card .category {
+        font-size: 9px;
+        padding: 5px 12px;
+    }
+
+    .location-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .location-card .address {
+        font-size: 13px;
+    }
+
+    .location-card .description {
+        font-size: 13px;
+        margin: 12px 0 18px 0;
+    }
+
+    .location-card .store-hours {
+        font-size: 11px;
+    }
+
+    .location-card .distance,
+    .location-card .followers {
+        font-size: 12px;
+    }
+
+    .status-badge {
+        padding: 7px 14px;
+        font-size: 10px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+
+    /* CTA Section */
+    .locations-cta {
+        padding: 45px 20px;
+        border-radius: 20px;
+    }
+
+    .locations-cta h2 {
+        font-size: 26px;
+    }
+
+    .locations-cta p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .locations-cta .btn-secondary {
+        padding: 12px 24px;
+        font-size: 13px;
+        width: 100%;
+    }
+}
+
+/* --- EXTRA SMALL MOBILE (max-width: 360px) --- */
+@media (max-width: 360px) {
+    .locations-container {
+        padding: 40px 10px 35px;
+    }
+
+    .page-title {
+        font-size: 26px;
+    }
+
+    .header-subtitle {
+        font-size: 13px;
+    }
+
+    .location-card {
+        padding: 22px 16px;
+    }
+
+    .location-card h3 {
+        font-size: 18px;
+    }
+
+    .location-icon {
+        font-size: 36px;
+    }
+
+    .locations-cta h2 {
+        font-size: 22px;
+    }
+
+    .locations-cta p {
+        font-size: 13px;
+    }
+}
+
+/* ============================================
+   FAMILY BANNER SECTION (CTA Banner Style)
+   ============================================ */
+.family-banner {
+    /* Vibrant moving gradient - like before but longer duration */
+    background: linear-gradient(90deg,
+            #EF7D32 0%,
+            #FFC107 25%,
+            #D8651E 50%,
+            #FFC107 75%,
+            #EF7D32 100%);
+    background-size: 300% 100%;
+    animation: familyGradient 10s ease-in-out infinite;
+    color: white;
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes familyGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Halftone texture overlay */
+.family-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Ccircle cx='12' cy='12' r='1.5'/%3E%3Ccircle cx='37' cy='12' r='1'/%3E%3Ccircle cx='12' cy='37' r='1'/%3E%3Ccircle cx='37' cy='37' r='1.5'/%3E%3Ccircle cx='25' cy='25' r='1'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.family-banner-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.family-banner-content h2 {
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.family-highlight {
+    color: #FFF;
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.15),
+        -1px -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.family-banner-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-bottom: 30px;
+}
+
+.family-banner .family-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* White filled button */
+.family-banner .btn-white {
+    background: white;
+    color: #EF7D32;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.family-banner .btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline button for Find a Branch */
+.btn-outline-white {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: #EF7D32;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Family Banner Centered (Text Only) */
+.family-banner-centered {
+    justify-content: center;
+    text-align: center;
+}
+
+.family-banner-centered .family-banner-content {
+    flex: 0 0 auto;
+    max-width: 700px;
+}
+
+.family-banner-centered .family-buttons {
+    justify-content: center;
+}
+
+/* Family Banner Responsive */
+@media (max-width: 968px) {
+    .family-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+    }
+
+    .family-banner-content h2 {
+        font-size: 32px;
+        white-space: normal;
+    }
+
+    .family-banner .family-buttons {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 }
