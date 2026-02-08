@@ -184,8 +184,7 @@ $customCss = "index.css";
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=400&h=500&fit=crop"
-                alt="Danono's Kitchen">
+            <img src="assets/img/danonos-kitchen.jpg" alt="Danonos Kitchen">
             <div class="story-badge">
                 <div class="story-badge-label">SINCE</div>
                 <div class="story-badge-year">2018</div>
@@ -206,7 +205,7 @@ $customCss = "index.css";
 <section class="nav-cards-section">
     <div class="nav-cards-container">
         <div class="nav-card" data-aos="zoom-in-up" data-aos-delay="100">
-            <img src="assets/img/perfect-spot.jpg" alt="Our Locations">
+            <img src="assets/img/danonos-branches.jpg" alt="Our Locations">
             <div class="nav-card-overlay">
                 <h3>Our Locations</h3>
                 <a href="locations" class="btn btn-orange"><i class="ph ph-map-pin"></i> Find a Branch</a>
@@ -232,7 +231,7 @@ $customCss = "index.css";
         </div>
     </div>
     <div class="family-image" data-aos="zoom-in-left">
-        <img src="assets/img/danonos-donuts.jpg" alt="Family of Donuts">
+        <img src="assets/img/box-of-donuts.jpg" alt="Box of Donuts">
     </div>
 </section>
 

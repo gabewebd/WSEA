@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
 
         body {
             /* 60% Black Overlay on top of login-bg.jpg */
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/danonos-login-bg.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/danonos-hero.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

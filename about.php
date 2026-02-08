@@ -17,15 +17,16 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
                 class="pop-out-text">DOUGHNUT</span> at a Time.</h1>
     </div>
     <div class="about-hero-bg" data-speed="1">
-        <img src="uploads/danonos-login-bg.jpg" alt="Danonos Bakery Background"
-            onerror="this.src='assets/img/danonos-login-bg.jpg'">
+        <img src="assets/img/danonos-login-bg.jpg" alt="Danonos Bakery Background"
+            onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
+
     </div>
 </section>
 
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="uploads/about-story.jpg" alt="Danono's humble beginnings"
+            <img src="assets/img/about-story.jpg" alt="Danono's humble beginnings"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
             <div class="story-badge">
@@ -59,7 +60,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
     <div class="values-grid">
         <div class="value-card" data-aos="fade-up" data-aos-delay="100">
             <div class="value-icon">
-                <i class="ph ph-wheat"></i>
+                <i class="ph ph-doughnut"></i>
             </div>
             <h3>Signature Brioche</h3>
             <p>We don't use shortcuts. Our dough is fermented for 24 hours to achieve that distinctively light, airy,
@@ -94,15 +95,15 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
     </div>
     <div class="gallery-grid">
         <div class="gallery-item large" data-aos="zoom-in" data-aos-delay="100">
-            <img src="uploads/danonos-treats.jpg" alt="Danonos Box of Treats"
+            <img src="assets/img/sans-rival-temptation.jpg" alt="Danonos Sans Rival"
                 onerror="this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=800&fit=crop'">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-            <img src="uploads/danonos-donuts.jpg" alt="Fresh Doughnuts"
+            <img src="assets/img/sweet-cherry-crave.jpg" alt="Sweet Cherry Cave"
                 onerror="this.src='https://images.unsplash.com/photo-1631397834789-32263f357564?w=400&h=400&fit=crop'">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-            <img src="uploads/danonos-iced-spanish-latte.jpg" alt="Spanish Latte"
+            <img src="assets/img/ube-bliss.jpg" alt="Ube Bliss"
                 onerror="this.src='https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop'">
         </div>
     </div>
