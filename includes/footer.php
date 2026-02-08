@@ -19,16 +19,12 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="index" target="_blank" rel="noopener noreferrer"><i class="ph ph-house"></i> Home</a></li>
-                <li><a href="about" target="_blank" rel="noopener noreferrer"><i class="ph ph-info"></i> About Us</a>
-                </li>
-                <li><a href="menu" target="_blank" rel="noopener noreferrer"><i class="ph ph-cookie"></i> Menu</a></li>
-                <li><a href="blogs" target="_blank" rel="noopener noreferrer"><i class="ph ph-article"></i> Blogs</a>
-                </li>
-                <li><a href="locations" target="_blank" rel="noopener noreferrer"><i class="ph ph-map-pin"></i>
-                        Locations</a></li>
-                <li><a href="franchise" target="_blank" rel="noopener noreferrer"><i class="ph ph-handshake"></i>
-                        Franchise</a></li>
+                <li><a href="index"><i class="ph ph-house"></i> Home</a></li>
+                <li><a href="about"><i class="ph ph-info"></i> About Us</a></li>
+                <li><a href="menu"><i class="ph ph-cookie"></i> Menu</a></li>
+                <li><a href="blogs"><i class="ph ph-article"></i> Blogs</a></li>
+                <li><a href="locations"><i class="ph ph-map-pin"></i> Locations</a></li>
+                <li><a href="franchise"><i class="ph ph-handshake"></i> Franchise</a></li>
             </ul>
         </div>
 
@@ -48,8 +44,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="privacy-policy"
-                style="color: inherit;" target="_blank" rel="noopener noreferrer">Privacy
-                Policy and Terms of Service</a></p>
+        <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="privacy-policy"
+                style="color: inherit;">Privacy Policy and Terms of Service</a></p>
     </div>
 </footer>
