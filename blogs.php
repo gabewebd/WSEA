@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Blogs - Danono's";
+$pageTitle = "Blogs - Danono's Doughnuts and Brownies";
 $metaDesc = "Read the latest news, recipes, and stories from Danono's Doughnuts & Brownies.";
 $customCss = "blogs.css";
 include 'includes/db_connect.php';

@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Danono's | Home";
+$pageTitle = "Danono's Doughnuts and Brownies | Home";
 $metaDesc = "Welcome to Danono's! Home of the best brioche doughnuts and brownies in Angeles City. Freshly baked daily.";
 $customCss = "index.css";
 ?>

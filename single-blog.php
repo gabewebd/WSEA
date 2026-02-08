@@ -67,7 +67,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         max-width: 1000px;
         margin: 0 auto;
         padding: 80px 20px 40px;
-        /* Reduced bottom padding */
     }
 
     /* --- HEADER SECTION --- */
@@ -168,16 +167,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         color: #431407;
     }
 
-    /* --- POST NAVIGATION (Next/Prev) --- */
-    .post-navigation {
-        max-width: 850px;
-        margin: 60px auto 40px;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    /* --- BLOG FOOTER ACTION BAR --- */
+    /* --- ACTION BAR (Back & Share) --- */
     .blog-action-bar {
         max-width: 850px;
         margin: 0 auto;
@@ -235,7 +225,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
     .more-stories-section {
         max-width: 1000px;
         margin: 0 auto 80px;
-        /* Added bottom margin before footer */
         padding: 0 20px;
     }
 
@@ -259,7 +248,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         }
     }
 
-    /* NAV CARD STYLES */
+    /* --- NAV CARD (Hover Effect Restored) --- */
     .nav-card {
         background: white;
         border-radius: 16px;
@@ -271,6 +260,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
         border: 2px solid transparent;
+        cursor: pointer;
     }
 
     .nav-card:hover {
@@ -289,33 +279,59 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.7s;
+        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
+    /* Hover Animation: Zoom Image */
     .nav-card:hover img {
         transform: scale(1.1);
     }
 
-    .nav-card-img::before {
+    /* Hover Animation: Overlay & Arrow */
+    .nav-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        /* Darken Image */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+
+    .nav-card:hover .nav-card-overlay {
+        opacity: 1;
+    }
+
+    .nav-card-overlay span {
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Label Tags */
+    .nav-card-label {
         position: absolute;
         top: 10px;
         left: 10px;
         background: rgba(239, 125, 50, 0.9);
         color: white;
-        padding: 5px 10px;
+        padding: 5px 12px;
         border-radius: 5px;
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        z-index: 2;
+        z-index: 5;
     }
 
-    .nav-card.prev-card .nav-card-img::before {
-        content: 'Previous';
-    }
-
-    .nav-card.next-card .nav-card-img::before {
-        content: 'Next';
+    .nav-card.next-card .nav-card-label {
         left: auto;
         right: 10px;
     }
@@ -347,7 +363,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         position: fixed;
         inset: 0;
         z-index: 9999;
-        /* Higher z-index */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -514,22 +529,26 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 <div class="more-stories-section">
     <h3 class="more-stories-title">More from the Kitchen</h3>
     <div class="post-navigation-cards">
+
         <?php if ($prev_post):
             $prev_img = !empty($prev_post["featured_image"]) ? "uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
             ?>
             <a href="single-blog?slug=<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
                 <div class="nav-card-img">
+                    <div class="nav-card-label">Previous</div>
                     <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
                         onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+
+                    <div class="nav-card-overlay">
+                        <span><i class="ph ph-arrow-left"></i> Previous</span>
+                    </div>
                 </div>
                 <div class="nav-card-content">
                     <span class="nav-date"><?php echo $prev_date; ?></span>
                     <h4 class="nav-title"><?php echo htmlspecialchars($prev_post['title']); ?></h4>
                 </div>
             </a>
-        <?php else: ?>
-            <div class="nav-card-placeholder"></div>
         <?php endif; ?>
 
         <?php if ($next_post):
@@ -538,8 +557,13 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
             ?>
             <a href="single-blog?slug=<?php echo $next_post['slug']; ?>" class="nav-card next-card">
                 <div class="nav-card-img">
+                    <div class="nav-card-label">Next</div>
                     <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
                         onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+
+                    <div class="nav-card-overlay">
+                        <span>Next <i class="ph ph-arrow-right"></i></span>
+                    </div>
                 </div>
                 <div class="nav-card-content">
                     <span class="nav-date"><?php echo $next_date; ?></span>
@@ -547,6 +571,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
                 </div>
             </a>
         <?php endif; ?>
+
     </div>
 </div>
 
@@ -607,15 +632,17 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
     function copyToClipboard() {
         navigator.clipboard.writeText(window.location.href);
+
         const btn = document.querySelector('.share-btn.copy-link');
         const originalHTML = btn.innerHTML;
+        const originalColor = btn.style.backgroundColor;
 
         btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
-        btn.classList.add('copied');
+        btn.style.backgroundColor = '#10B981';
 
         setTimeout(() => {
             btn.innerHTML = originalHTML;
-            btn.classList.remove('copied');
+            btn.style.backgroundColor = originalColor;
         }, 2000);
     }
 </script>

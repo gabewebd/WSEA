@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "About Us - Danono's";
+$pageTitle = "About Us - Danono's Doughnuts and Brownies";
 $customCss = "about.css";
 $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to Angeles City's favorite doughnut destination.";
 ?>

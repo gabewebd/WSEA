@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Locations - Danono's";
+$pageTitle = "Locations - Danono's Doughnuts and Brownies";
 $metaDesc = "Find a Danono's branch near you. Visit us in Angeles City, Magalang, and San Fernando.";
 $customCss = "locations.css";
 ?>

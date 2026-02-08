@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Franchise - Danono's";
+$pageTitle = "Franchise - Danono's Doughnuts and Brownies";
 $metaDesc = "Join the Danono's family! Learn about franchise opportunities and how to bring our delicious doughnuts to your community.";
 $customCss = "franchise.css";
 ?>

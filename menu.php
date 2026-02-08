@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Our Menu - Danono's";
+$pageTitle = "Our Menu - Danono's Doughnuts and Brownies";
 $metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brownies, and refreshing drinks.";
 $customCss = "menu.css";
 include 'includes/db_connect.php';

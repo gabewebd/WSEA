@@ -27,7 +27,8 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's - Best Donuts in Angeles City"; ?></title>
+  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies - Best Donuts in Angeles City"; ?>
+  </title>
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
@@ -35,7 +36,7 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo $currentUrl; ?>">
-  <meta property="og:title" content="<?php echo isset($pageTitle) ? $pageTitle : "Danono's"; ?>">
+  <meta property="og:title" content="<?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies"; ?>">
   <meta property="og:description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day."; ?>">
   <meta property="og:image" content="<?php echo $socialImage; ?>">

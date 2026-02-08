@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Privacy Policy - Danono's";
+$pageTitle = "Privacy Policy - Danono's Doughnuts and Brownies";
 include 'includes/header.php';
 ?>
 

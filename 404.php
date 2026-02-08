@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Page Not Found - Danono's";
+$pageTitle = "Page Not Found - Danono's Doughnuts and Brownies";
 $metaDesc = "The page you are looking for does not exist.";
 include 'includes/header.php';
 ?>
