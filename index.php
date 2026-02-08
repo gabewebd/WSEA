@@ -54,28 +54,28 @@ $customCss = "index.css";
     <div class="treats-carousel">
         
         <div class="treat-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="uploads/chococaviar.jpg" alt="Choco Caviar Creation">
+            <img src="assets/img/choco-caviar.jpg" alt="Choco Caviar Creation">
             <h3>Choco Caviar Creation</h3>
             <p>Our ultimate choco-loaded treat that’s rich, crunchy, and irresistibly indulgent.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="uploads/biscoff.jpg" alt="Biscoff Bite">
+            <img src="assets/img/biscoff.jpg" alt="Biscoff Bite">
             <h3>Biscoff Bite</h3>
             <p>Fluffy brioche donut, rich peanut butter glaze, and a generous topping of Lotus Biscoff.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="300">
-            <img src="uploads/doublechocodelight.jpg" alt="Double Choco Delight">
+            <img src="assets/img/double-choco-delight.jpg" alt="Double Choco Delight">
             <h3>Double Choco Delight</h3>
             <p>Double Choco Delight is here, and it’s everything your chocolate dreams are made of.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="400">
-            <img src="uploads/almondamore.jpg" alt="Almond Amore">
+            <img src="assets/img/almond-amore.jpg" alt="Almond Amore">
             <h3>Almond Amore</h3>
             <p>Light, fluffy, and loaded with almond love, this one’s a certified heart-stealer.</p>
             <a href="menu.php" class="btn btn-small">PKG</a>
@@ -87,7 +87,7 @@ $customCss = "index.css";
 <section class="drinks-choco"> 
     <div class="drinks-content">
         <div class="drinks-image" data-aos="fade-right">
-            <img src="uploads/Refreshers.jpg" alt="Danono's Refreshers">
+            <img src="assets/img/Refreshers.jpg" alt="Danono's Refreshers">
         </div>
         <div class="drinks-text" data-aos="fade-up">
             <span class="section-label">PERFECT PAIRING</span>
@@ -96,7 +96,7 @@ $customCss = "index.css";
             <a href="menu.php" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
         </div>
         <div class="choco-image" data-aos="fade-left"> 
-            <img src="uploads/chococircle.jpg" alt="Choco Circle Donuts">
+            <img src="assets/img/choco-circle.jpg" alt="Choco Circle Donuts">
         </div>
     </div>
 </section>
@@ -130,7 +130,7 @@ $customCss = "index.css";
             </div>
         </div>
         <div class="nav-card" data-aos="zoom-in-up" data-aos-delay="300">
-            <img src="uploads/threegirlsdanonos.png" alt="The Danono's Team">
+            <img src="assets/img/threegirlsdanonos.png" alt="The Danono's Team">
             <div class="nav-card-overlay">
                 <h3>Our Blogs</h3>
                 <a href="blogs.php" class="btn btn-orange"><i class="ph ph-read-cv-logo"></i> Read Blogs</a>
@@ -149,7 +149,7 @@ $customCss = "index.css";
         </div>
     </div>
     <div class="family-image" data-aos="zoom-in-left">
-        <img src="uploads/info.jpg" alt="Family of Donuts">
+        <img src="assets/img/danonos-donuts.jpg" alt="Family of Donuts">
     </div>
 </section>
 
