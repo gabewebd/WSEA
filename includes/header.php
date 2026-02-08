@@ -52,7 +52,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     gtag('config', 'G-F39H5M2LGJ');
   </script>
-  <meta name="google-site-verification" content="Xl7SjAbdH5sySew0zAOHdzu410dFzPMe7up3yKONQ9I" />
+  <meta name="google-site-verification" content="ICn4_I4gNkh5hC1Aqd3kYOm9DZhQAAJyXaCPgI9sMbM" />
 </head>
 
 <body>
