@@ -3,47 +3,49 @@
 
   <url>
     <loc>https://danonos.com/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-09</lastmod>
     <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://danonos.com/menu.php</loc>
-    <lastmod>2026-02-04</lastmod>
+    <loc>https://danonos.com/menu</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.90</priority>
   </url>
   
   <url>
-    <loc>https://danonos.com/about.php</loc>
-    <lastmod>2026-02-04</lastmod>
+    <loc>https://danonos.com/about</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://danonos.com/franchise.php</loc>
-    <lastmod>2026-02-04</lastmod>
+    <loc>https://danonos.com/franchise</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://danonos.com/locations.php</loc>
-    <lastmod>2026-02-04</lastmod>
+    <loc>https://danonos.com/locations</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://danonos.com/blogs.php</loc>
-    <lastmod>2026-02-04</lastmod>
+    <loc>https://danonos.com/blogs</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://danonos.com/single-blog.php?id=1</loc>
+    <loc>https://danonos.com/single-blog?id=1</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.70</priority>
   </url>
   
   <url>
-    <loc>https://danonos.com/single-blog.php?id=2</loc>
+    <loc>https://danonos.com/single-blog?id=2</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.70</priority>
   </url>
 

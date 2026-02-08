@@ -48,9 +48,8 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="#" style="color: inherit;"
-                target="_blank" rel="noopener noreferrer">Privacy
-                Policy</a> | <a href="#" style="color: inherit;" target="_blank" rel="noopener noreferrer">Terms of
-                Service</a></p>
+        <p>&copy; 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="privacy-policy"
+                style="color: inherit;" target="_blank" rel="noopener noreferrer">Privacy
+                Policy and Terms of Service</a></p>
     </div>
 </footer>
