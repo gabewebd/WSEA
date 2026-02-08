@@ -130,7 +130,7 @@ $customCss = "index.css";
             </div>
         </div>
         <div class="nav-card" data-aos="zoom-in-up" data-aos-delay="300">
-            <img src="assets/img/threegirlsdanonos.png" alt="The Danono's Team">
+            <img src="assets/img/three-girls-danonos.png" alt="The Danono's Team">
             <div class="nav-card-overlay">
                 <h3>Our Blogs</h3>
                 <a href="blogs.php" class="btn btn-orange"><i class="ph ph-read-cv-logo"></i> Read Blogs</a>
