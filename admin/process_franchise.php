@@ -1,5 +1,5 @@
 <?php
-// process_franchise.php - Handle Franchise Applications via Email
+// process_franchise.php - Handle Franchise Applications
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,10 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Prepare email
+    // --- EMAIL SETTINGS ---
+
+    // 1. WHERE TO SEND IT (personal email)
     $to = "eiyadwnlds@gmail.com";
+
+    // 2. SUBJECT LINE
     $subject = "New Franchise Application - " . $name;
 
+    // 3. EMAIL BODY
     $email_body = "
     NEW FRANCHISE APPLICATION
     ========================
@@ -44,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Submitted: " . date('F j, Y, g:i a') . "
     ";
 
-    $headers = "From: noreply@danonos.com\r\n";
+    // We use 'noreply@' just for sending. 
+    $server_domain = $_SERVER['SERVER_NAME']; // This gets 'danonos.com' automatically
+    $headers = "From: noreply@" . $server_domain . "\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
