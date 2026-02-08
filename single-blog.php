@@ -8,7 +8,7 @@ if (!isset($_GET['slug'])) {
 
 $slug = $_GET['slug'];
 
-// SQL: Get Post + Author Full Name
+// 1. GET CURRENT POST
 $stmt = $conn->prepare("SELECT p.*, u.full_name FROM posts p LEFT JOIN users u ON p.author_id = u.id WHERE p.slug = ? AND p.status = 'published'");
 $stmt->bind_param("s", $slug);
 $stmt->execute();
@@ -19,6 +19,20 @@ if (!$post) {
     header('Location: blogs');
     exit;
 }
+
+$current_id = $post['id'];
+
+// 2. GET PREVIOUS POST (ID < Current ID)
+$prev_stmt = $conn->prepare("SELECT slug, title FROM posts WHERE id < ? AND status = 'published' ORDER BY id DESC LIMIT 1");
+$prev_stmt->bind_param("i", $current_id);
+$prev_stmt->execute();
+$prev_post = $prev_stmt->get_result()->fetch_assoc();
+
+// 3. GET NEXT POST (ID > Current ID)
+$next_stmt = $conn->prepare("SELECT slug, title FROM posts WHERE id > ? AND status = 'published' ORDER BY id ASC LIMIT 1");
+$next_stmt->bind_param("i", $current_id);
+$next_stmt->execute();
+$next_post = $next_stmt->get_result()->fetch_assoc();
 
 // Read Time Calculation
 $word_count = str_word_count(strip_tags($post['content']));
@@ -33,21 +47,13 @@ $pageTitle = $post['title'] . " | Danono's Blog";
 $customCss = "single-blog.css";
 include 'includes/header.php';
 
-// Featured Image Source
-$img_src = '';
-if ($post['featured_image']) {
-    $img_src = (strpos($post['featured_image'], 'http') === 0 || strpos($post['featured_image'], '/') === 0)
-        ? $post['featured_image']
-        : "uploads/" . $post['featured_image'];
-}
-
 // Author Name
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 ?>
 
 <style>
     /* =========================================
-       SINGLE BLOG INLINE STYLES (Image Fix)
+       SINGLE BLOG INLINE STYLES
        ========================================= */
 
     body {
@@ -70,6 +76,8 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f0f0f0;
     }
 
     .blog-meta {
@@ -97,28 +105,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
     .blog-author strong {
         color: #431407;
-    }
-
-    /* --- FEATURED IMAGE (FIXED) --- */
-    .featured-image-container {
-        width: 100%;
-        /* Removed max-height to allow full image height */
-        height: auto;
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 60px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        background: #f9f9f9;
-        /* Subtle bg in case of transparency */
-    }
-
-    .featured-image-container img {
-        width: 100%;
-        height: auto;
-        /* Follows original aspect ratio */
-        display: block;
-        /* Ensures entire image is visible, not cropped */
-        object-fit: contain;
     }
 
     /* --- CONTENT AREA --- */
@@ -181,10 +167,57 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         color: #431407;
     }
 
+    /* --- POST NAVIGATION (Next/Prev) --- */
+    .post-navigation {
+        max-width: 850px;
+        margin: 60px auto 40px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .nav-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 20px;
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        color: #555;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        max-width: 45%;
+    }
+
+    .nav-btn:hover {
+        border-color: #EF7D32;
+        color: #EF7D32;
+        transform: translateY(-2px);
+    }
+
+    .nav-label {
+        font-size: 12px;
+        color: #999;
+        display: block;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-title {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     /* --- FOOTER SECTION --- */
     .blog-footer {
         max-width: 850px;
-        margin: 80px auto 0;
+        margin: 0 auto;
         padding-top: 40px;
         border-top: 2px solid #F3F4F6;
         display: flex;
@@ -238,10 +271,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
             font-size: 36px;
         }
 
-        .featured-image-container {
-            margin-bottom: 40px;
-        }
-
         .blog-content {
             font-size: 18px;
         }
@@ -249,6 +278,17 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         .blog-footer {
             flex-direction: column;
             gap: 25px;
+            text-align: center;
+        }
+
+        .post-navigation {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            max-width: 100%;
+            justify-content: center;
             text-align: center;
         }
     }
@@ -267,20 +307,37 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         </div>
     </div>
 
-    <?php if ($img_src): ?>
-        <div class="featured-image-container">
-            <img src="<?php echo htmlspecialchars($img_src); ?>"
-                alt="<?php echo htmlspecialchars($post['image_alt_text'] ?? $post['title']); ?>">
-        </div>
-    <?php endif; ?>
-
     <div class="blog-content">
         <?php echo $post['content']; ?>
     </div>
 
+    <div class="post-navigation">
+        <?php if ($prev_post): ?>
+            <a href="single-blog?slug=<?php echo $prev_post['slug']; ?>" class="nav-btn prev">
+                <i class="ph ph-arrow-left" style="margin-right: 8px;"></i>
+                <div>
+                    <span class="nav-label">Previous Post</span>
+                    <span class="nav-title"><?php echo htmlspecialchars($prev_post['title']); ?></span>
+                </div>
+            </a>
+        <?php else: ?>
+            <div></div> <?php endif; ?>
+
+        <?php if ($next_post): ?>
+            <a href="single-blog?slug=<?php echo $next_post['slug']; ?>" class="nav-btn next"
+                style="text-align: right; margin-left: auto;">
+                <div>
+                    <span class="nav-label">Next Post</span>
+                    <span class="nav-title"><?php echo htmlspecialchars($next_post['title']); ?></span>
+                </div>
+                <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+            </a>
+        <?php endif; ?>
+    </div>
+
     <div class="blog-footer">
         <a href="blogs" class="back-link">
-            <i class="ph ph-arrow-left"></i> Back to Stories
+            <i class="ph ph-squares-four"></i> View All Stories
         </a>
         <button onclick="copyLink()" class="btn-share">
             <i class="ph ph-share-network"></i> Share this Post
