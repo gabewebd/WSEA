@@ -6,6 +6,7 @@ include 'includes/db_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -177,6 +178,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(50px) scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -370,6 +372,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -381,6 +384,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -391,15 +395,19 @@ include 'includes/db_connect.php';
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) translateX(0px);
             }
+
             50% {
                 transform: translateY(30px) translateX(15px);
             }
@@ -409,6 +417,7 @@ include 'includes/db_connect.php';
             0% {
                 background-position: -1000px 0;
             }
+
             100% {
                 background-position: 1000px 0;
             }
@@ -474,7 +483,8 @@ include 'includes/db_connect.php';
         }
 
         /* ===== HOVER EFFECTS ===== */
-        button, a {
+        button,
+        a {
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
@@ -491,15 +501,41 @@ include 'includes/db_connect.php';
         }
 
         /* ===== STAGGER ANIMATION DELAYS ===== */
-        .blog-card:nth-child(1) { animation-delay: 0.05s; }
-        .blog-card:nth-child(2) { animation-delay: 0.1s; }
-        .blog-card:nth-child(3) { animation-delay: 0.15s; }
-        .blog-card:nth-child(4) { animation-delay: 0.2s; }
-        .blog-card:nth-child(5) { animation-delay: 0.25s; }
-        .blog-card:nth-child(6) { animation-delay: 0.3s; }
-        .blog-card:nth-child(7) { animation-delay: 0.35s; }
-        .blog-card:nth-child(8) { animation-delay: 0.4s; }
-        .blog-card:nth-child(9) { animation-delay: 0.45s; }
+        .blog-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .blog-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .blog-card:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .blog-card:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .blog-card:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .blog-card:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .blog-card:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .blog-card:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        .blog-card:nth-child(9) {
+            animation-delay: 0.45s;
+        }
 
         /* ===== DECORATIVE ACCENTS ===== */
         .blog-card {
@@ -523,6 +559,7 @@ include 'includes/db_connect.php';
         }
     </style>
 </head>
+
 <body>
     <?php include 'includes/header.php'; ?>
 
@@ -533,7 +570,8 @@ include 'includes/db_connect.php';
                 <span class="section-label">From Our Kitchen</span>
                 <h1 class="page-title">Latest <span>News</span></h1>
                 <p class="page-description">
-                    Stay updated with the sweetest news, new flavor launches, and behind-the-scenes stories from the Danono's kitchen. Discover the art and passion behind every treat we create.
+                    Stay updated with the sweetest news, new flavor launches, and behind-the-scenes stories from the
+                    Danono's kitchen. Discover the art and passion behind every treat we create.
                 </p>
             </div>
         </div>
@@ -572,7 +610,7 @@ include 'includes/db_connect.php';
                             </p>
                             <h3><?php echo $title; ?></h3>
                             <p><?php echo $excerpt; ?></p>
-                            <a href="single-blog.php?slug=<?php echo urlencode($slug); ?>" class="btn-read-more">
+                            <a href="single-blog?slug=<?php echo urlencode($slug); ?>" class="btn-read-more">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -626,18 +664,18 @@ include 'includes/db_connect.php';
         // Enhanced hover effect with perspective
         document.addEventListener('mousemove', (e) => {
             const cards = document.querySelectorAll('.blog-card');
-            
+
             cards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 const cardCenterX = rect.left + rect.width / 2;
                 const cardCenterY = rect.top + rect.height / 2;
-                
+
                 const mouseX = e.clientX;
                 const mouseY = e.clientY;
-                
+
                 const distX = (mouseX - cardCenterX) * 0.015;
                 const distY = (mouseY - cardCenterY) * 0.015;
-                
+
                 // Only apply effect if mouse is relatively close
                 if (Math.abs(distX) < 8 && Math.abs(distY) < 8) {
                     card.style.transform = `perspective(1200px) rotateX(${distY}deg) rotateY(${distX}deg)`;
@@ -654,10 +692,10 @@ include 'includes/db_connect.php';
 
         // Link smooth transitions
         document.querySelectorAll('.btn-read-more').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
+            btn.addEventListener('mouseenter', function () {
                 this.style.letterSpacing = '1.5px';
             });
-            btn.addEventListener('mouseleave', function() {
+            btn.addEventListener('mouseleave', function () {
                 this.style.letterSpacing = '1px';
             });
         });
@@ -665,4 +703,5 @@ include 'includes/db_connect.php';
 
     <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>

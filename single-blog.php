@@ -2,7 +2,7 @@
 include 'includes/db_connect.php';
 
 if (!isset($_GET['slug'])) {
-    header('Location: blogs.php');
+    header('Location: blogs');
     exit;
 }
 
@@ -16,7 +16,7 @@ $result = $stmt->get_result();
 $post = $result->fetch_assoc();
 
 if (!$post) {
-    header('Location: blogs.php');
+    header('Location: blogs');
     exit;
 }
 
@@ -74,7 +74,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
     <!-- Footer: Back & Share -->
     <div class="blog-footer">
-        <a href="blogs.php" class="back-link">
+        <a href="blogs" class="back-link">
             <i class="ph ph-arrow-left"></i> Back to Stories
         </a>
         <button onclick="copyLink()" class="btn-share">

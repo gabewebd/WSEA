@@ -62,11 +62,11 @@ if (session_status() === PHP_SESSION_NONE) {
       <img src="assets/img/danonos-logo.jpg" alt="Danono's" style="height: 50px; border-radius: 50%;">
     </div>
     <nav>
-      <a href="index.php">Home</a>
-      <a href="about.php">About</a>
-      <a href="menu.php">Menu</a>
-      <a href="blogs.php">Blogs</a>
-      <a href="locations.php">Locations</a>
-      <a href="franchise.php">Franchise</a>
+      <a href="index">Home</a>
+      <a href="about">About</a>
+      <a href="menu">Menu</a>
+      <a href="blogs">Blogs</a>
+      <a href="locations">Locations</a>
+      <a href="franchise">Franchise</a>
     </nav>
   </header>

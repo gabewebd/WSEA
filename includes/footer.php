@@ -14,12 +14,12 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="index.php"><i class="ph ph-house"></i> Home</a></li>
-                <li><a href="about.php"><i class="ph ph-info"></i> About Us</a></li>
-                <li><a href="menu.php"><i class="ph ph-cookie"></i> Menu</a></li>
-                <li><a href="blogs.php"><i class="ph ph-article"></i> Blogs</a></li>
-                <li><a href="locations.php"><i class="ph ph-map-pin"></i> Locations</a></li>
-                <li><a href="franchise.php"><i class="ph ph-handshake"></i> Franchise</a></li>
+                <li><a href="index"><i class="ph ph-house"></i> Home</a></li>
+                <li><a href="about"><i class="ph ph-info"></i> About Us</a></li>
+                <li><a href="menu"><i class="ph ph-cookie"></i> Menu</a></li>
+                <li><a href="blogs"><i class="ph ph-article"></i> Blogs</a></li>
+                <li><a href="locations"><i class="ph ph-map-pin"></i> Locations</a></li>
+                <li><a href="franchise"><i class="ph ph-handshake"></i> Franchise</a></li>
             </ul>
         </div>
 

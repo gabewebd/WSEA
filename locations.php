@@ -10,7 +10,8 @@ $customCss = "locations.css";
     <div class="section-header">
         <span class="section-label">Visit Us</span>
         <h1 class="page-title">Find a <span>Branch</span></h1>
-        <p class="header-subtitle">Discover our delicious brioche doughnuts & brownies at multiple locations across Pampanga and beyond</p>
+        <p class="header-subtitle">Discover our delicious brioche doughnuts & brownies at multiple locations across
+            Pampanga and beyond</p>
     </div>
 
     <!-- Locations Grid -->
@@ -26,7 +27,8 @@ $customCss = "locations.css";
             <p class="distance"><i class="ph ph-map"></i> 10.8 mi</p>
             <p class="address">Masangsang, Sto. Cristo, Mexico, Philippines</p>
             <p class="followers"><i class="ph ph-users"></i> 3.6K followers</p>
-            <p class="description">Treat yourself to the finest delights at Nono's Doughnuts. Enjoy fresh, irresistibly delicious brioche donuts made daily. Pasalubong for all occasions!</p>
+            <p class="description">Treat yourself to the finest delights at Nono's Doughnuts. Enjoy fresh, irresistibly
+                delicious brioche donuts made daily. Pasalubong for all occasions!</p>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
 
@@ -41,7 +43,8 @@ $customCss = "locations.css";
             <p class="distance"><i class="ph ph-map"></i> 10.7 mi</p>
             <p class="address">Mac Arthur Highway, Brgy. San Isidro, San Fernando, Philippines</p>
             <p class="followers"><i class="ph ph-users"></i> 24K followers</p>
-            <p class="description">Started as Nono's. Still your favorite brioche doughnuts. Now growing — with more treats on the way.</p>
+            <p class="description">Started as Nono's. Still your favorite brioche doughnuts. Now growing — with more
+                treats on the way.</p>
             <div class="status-badge open">Open Now</div>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
@@ -56,7 +59,8 @@ $customCss = "locations.css";
             <p class="distance"><i class="ph ph-map"></i> 6.3 mi</p>
             <p class="address">372 McArthur Highway, Salapungan, Angeles City, Philippines</p>
             <p class="followers"><i class="ph ph-users"></i> 2.5K followers</p>
-            <p class="description">Pasalubong from Pampanga! Take home joy and gift delight with Danono's Brioche Doughnuts & Brownies!</p>
+            <p class="description">Pasalubong from Pampanga! Take home joy and gift delight with Danono's Brioche
+                Doughnuts & Brownies!</p>
             <div class="status-badge open">Open Now</div>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
@@ -71,7 +75,8 @@ $customCss = "locations.css";
             <p class="distance"><i class="ph ph-map"></i> 5.7 mi</p>
             <p class="address">278 MacArthur Highway, Brgy. Dau, Mabalacat, Philippines</p>
             <p class="followers"><i class="ph ph-users"></i> 418 followers</p>
-            <p class="description">Fluffy and flavorful, our delectable brioche doughnuts and fudgy brownies are an absolute must-try. Freshly made daily to satisfy your cravings.</p>
+            <p class="description">Fluffy and flavorful, our delectable brioche doughnuts and fudgy brownies are an
+                absolute must-try. Freshly made daily to satisfy your cravings.</p>
             <div class="status-badge open">Open Now</div>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
@@ -129,7 +134,8 @@ $customCss = "locations.css";
             <h3>Danonos - Capas</h3>
             <p class="category">Donut Shop</p>
             <p class="followers"><i class="ph ph-users"></i> 1.5K followers</p>
-            <p class="description">Fresh and irresistible delights brioche donuts! Get your favorites at our Capas location.</p>
+            <p class="description">Fresh and irresistible delights brioche donuts! Get your favorites at our Capas
+                location.</p>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
 
@@ -157,7 +163,8 @@ $customCss = "locations.css";
             <h3>Danonos - Imus</h3>
             <p class="category">Food & Drink</p>
             <p class="followers"><i class="ph ph-users"></i> 1.5K followers</p>
-            <p class="description">Experience the famous doughnuts and the irresistible goodness of brioche doughnuts from Pampanga! THE FIRST EVER BRANCH IN THE SOUTH!</p>
+            <p class="description">Experience the famous doughnuts and the irresistible goodness of brioche doughnuts
+                from Pampanga! THE FIRST EVER BRANCH IN THE SOUTH!</p>
             <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
         </div>
     </div>
@@ -166,7 +173,7 @@ $customCss = "locations.css";
     <div class="locations-cta">
         <h2>Can't find a location near you?</h2>
         <p>Interested in bringing Danonos to your area? Explore our franchise opportunities!</p>
-        <a href="franchise.php" class="btn btn-secondary"><i class="ph ph-handshake"></i> Learn About Franchising</a>
+        <a href="franchise" class="btn btn-secondary"><i class="ph ph-handshake"></i> Learn About Franchising</a>
     </div>
 </div>
 

@@ -16,7 +16,7 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
         <h1>Be Part of Our <span class="text-gradient">Family</span></h1>
         <p>Join the growing Danono's franchise network and bring the sweetest treats to your community. We provide the
             recipe for success — you bring the passion!</p>
-        
+
         <div class="hero-buttons">
             <a href="#apply" class="btn btn-primary">
                 <i class="ph-fill ph-handshake"></i> Apply Now
@@ -29,9 +29,9 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 
     <div class="hero-image-wrapper">
         <div class="image-blob-bg"></div>
-        
+
         <img src="assets/img/franchise.jpg" alt="Danono's Franchise Opportunity" class="floating-img">
-        
+
         <div class="floating-card">
             <i class="ph-fill ph-trend-up"></i>
             <div>
@@ -44,7 +44,9 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 
 <div class="section-divider">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#FFF9F2" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,122.7C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        <path fill="#FFF9F2" fill-opacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,122.7C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+        </path>
     </svg>
 </div>
 
@@ -52,7 +54,8 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
     <div class="why-franchise-container">
         <div class="why-franchise-grid">
             <div>
-                <img src="assets/img/perfect-spot.jpg" alt="Perfect Spot for your Franchise" class="floating-img" style="transform: rotate(2deg);">
+                <img src="assets/img/perfect-spot.jpg" alt="Perfect Spot for your Franchise" class="floating-img"
+                    style="transform: rotate(2deg);">
             </div>
 
             <div>
@@ -73,7 +76,8 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
                         </div>
                         <div>
                             <h4 class="benefit-title">Proven Business Model</h4>
-                            <p class="benefit-desc">Operational systems tested and perfected across multiple locations.</p>
+                            <p class="benefit-desc">Operational systems tested and perfected across multiple locations.
+                            </p>
                         </div>
                     </div>
 
@@ -104,7 +108,9 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 
 <div style="background-color: var(--cream); margin-bottom: -2px;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#431407" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <path fill="#431407" fill-opacity="1"
+            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
     </svg>
 </div>
 
@@ -134,7 +140,8 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
                 <img src="assets/img/franchise.jpg" alt="Owner testimonial">
             </div>
             <div class="testimonial-content" style="text-align: left;">
-                <p class="quote">"Partnering with Danono's transformed my life. The support, training, and product quality made opening a breeze — customers keep coming back!"</p>
+                <p class="quote">"Partnering with Danono's transformed my life. The support, training, and product
+                    quality made opening a breeze — customers keep coming back!"</p>
                 <p class="author">— Maria Santos, Danono's Angeles</p>
             </div>
         </div>
@@ -143,32 +150,37 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 
 <div style="background-color: var(--cream); margin-top: -2px;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="transform: rotate(180deg);">
-        <path fill="#431407" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <path fill="#431407" fill-opacity="1"
+            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
     </svg>
 </div>
 
 <section id="apply" class="franchise-form-section">
     <div class="container franchise-form-container">
-        
+
         <div class="form-header">
             <span class="badge-pill">Join Our Network</span>
             <h2 class="form-header-title">Start Your <span class="text-highlight">Journey</span></h2>
             <p class="form-header-desc">
-                Ready to take the next step? Fill out the form below and our franchise team will get in touch within 2 business days.
+                Ready to take the next step? Fill out the form below and our franchise team will get in touch within 2
+                business days.
             </p>
         </div>
 
         <?php if (isset($_SESSION['franchise_success'])): ?>
             <div class="alert alert-success">
                 <i class="ph-fill ph-check-circle alert-icon"></i>
-                <span><?php echo $_SESSION['franchise_success']; unset($_SESSION['franchise_success']); ?></span>
+                <span><?php echo $_SESSION['franchise_success'];
+                unset($_SESSION['franchise_success']); ?></span>
             </div>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['franchise_error'])): ?>
             <div class="alert alert-error">
                 <i class="ph-fill ph-warning-circle alert-icon"></i>
-                <span><?php echo $_SESSION['franchise_error']; unset($_SESSION['franchise_error']); ?></span>
+                <span><?php echo $_SESSION['franchise_error'];
+                unset($_SESSION['franchise_error']); ?></span>
             </div>
         <?php endif; ?>
 
@@ -177,30 +189,38 @@ $customCss = "franchise.css"; // Ensure your CSS file is updated with the code f
 
             <form action="admin/process_franchise.php" method="POST">
                 <div class="form-grid">
-                    
+
                     <div class="input-group">
                         <label for="name" class="form-label">Full Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required class="form-input">
+                        <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required
+                            class="form-input">
                     </div>
 
                     <div class="input-group">
                         <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="juan@example.com" required class="form-input">
+                        <input type="email" id="email" name="email" placeholder="juan@example.com" required
+                            class="form-input">
                     </div>
 
                     <div class="input-group">
                         <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" required class="form-input">
+                        <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" required
+                            class="form-input">
                     </div>
 
                     <div class="input-group">
-                        <label for="location" class="form-label">Preferred Location <span class="required">*</span></label>
-                        <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga" required class="form-input">
+                        <label for="location" class="form-label">Preferred Location <span
+                                class="required">*</span></label>
+                        <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga" required
+                            class="form-input">
                     </div>
 
                     <div class="input-group full-width">
-                        <label for="message" class="form-label">Tell Us About Yourself <span class="optional">(Optional)</span></label>
-                        <textarea id="message" name="message" rows="4" placeholder="Share your business experience, goals, and why you're interested in partnering with Danono's..." class="form-input"></textarea>
+                        <label for="message" class="form-label">Tell Us About Yourself <span
+                                class="optional">(Optional)</span></label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Share your business experience, goals, and why you're interested in partnering with Danono's..."
+                            class="form-input"></textarea>
                     </div>
                 </div>
 

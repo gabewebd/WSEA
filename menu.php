@@ -6,6 +6,7 @@ include 'includes/db_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -235,6 +236,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(40px) scale(0.92);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -377,6 +379,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -388,6 +391,7 @@ include 'includes/db_connect.php';
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -398,24 +402,31 @@ include 'includes/db_connect.php';
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) translateX(0px);
             }
+
             50% {
                 transform: translateY(30px) translateX(10px);
             }
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 0 0 rgba(212, 148, 94, 0.7);
             }
+
             50% {
                 box-shadow: 0 0 0 10px rgba(212, 148, 94, 0);
             }
@@ -462,6 +473,7 @@ include 'includes/db_connect.php';
             0% {
                 background-position: 200% 0;
             }
+
             100% {
                 background-position: -200% 0;
             }
@@ -526,11 +538,13 @@ include 'includes/db_connect.php';
         }
 
         /* ===== SMOOTH TRANSITIONS ===== */
-        button, a {
+        button,
+        a {
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
     </style>
 </head>
+
 <body>
     <?php include 'includes/header.php'; ?>
 
@@ -540,7 +554,8 @@ include 'includes/db_connect.php';
             <div class="header-content">
                 <span class="section-label">Fresh Daily</span>
                 <h1 class="page-title">Most Loved <span>Treats</span></h1>
-                <p class="page-subtitle">Handcrafted premium brioche doughnuts, decadent brownies, and artisanal beverages</p>
+                <p class="page-subtitle">Handcrafted premium brioche doughnuts, decadent brownies, and artisanal
+                    beverages</p>
             </div>
         </div>
 
@@ -610,13 +625,13 @@ include 'includes/db_connect.php';
                     ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
                     ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Brioche donut spread with pistachio crunch drizzled with melted white chocolate."],
                     ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "Combination of 5 kinds of chocolates in 1 doughnut."],
-                    
+
                     // Brownies
                     ["name" => "Classic Fudge Brownie", "category" => "brownies", "price" => "45", "desc" => "Rich, dense chocolate fudge brownie with a moist center."],
                     ["name" => "Salted Caramel Brownie", "category" => "brownies", "price" => "55", "desc" => "Decadent brownie with salted caramel swirl and crushed sea salt."],
                     ["name" => "Nutella Dream", "category" => "brownies", "price" => "50", "desc" => "Chocolate brownie with Nutella filling and hazelnut bits."],
                     ["name" => "Double Chocolate Stack", "category" => "brownies", "price" => "60", "desc" => "Dark and milk chocolate layered brownie perfection."],
-                    
+
                     // Beverages
                     ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "100", "desc" => "Signature chocolate drink served hot with velvety texture."],
                     ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "110", "desc" => "Signature chocolate drink served refreshingly cold."],
@@ -675,9 +690,9 @@ include 'includes/db_connect.php';
 
             cards.forEach(card => {
                 const cardCat = card.getAttribute('data-category');
-                const shouldShow = (category === 'all') || 
-                                 (category === cardCat) || 
-                                 (category === 'coffee' && cardCat === 'beverages');
+                const shouldShow = (category === 'all') ||
+                    (category === cardCat) ||
+                    (category === 'coffee' && cardCat === 'beverages');
 
                 if (shouldShow) {
                     if (card.classList.contains('hidden')) {
@@ -707,7 +722,7 @@ include 'includes/db_connect.php';
                 icon.classList.toggle('fa-heart');
                 icon.classList.toggle('fa-regular');
                 icon.classList.toggle('fa-solid');
-                
+
                 // Add pulse animation
                 const cardIcon = e.target.closest('.card-icon');
                 cardIcon.style.animation = 'pulse 0.6s ease-out';
@@ -745,13 +760,13 @@ include 'includes/db_connect.php';
                     const rect = card.getBoundingClientRect();
                     const cardCenterX = rect.left + rect.width / 2;
                     const cardCenterY = rect.top + rect.height / 2;
-                    
+
                     const mouseX = e.clientX;
                     const mouseY = e.clientY;
-                    
+
                     const distX = (mouseX - cardCenterX) * 0.01;
                     const distY = (mouseY - cardCenterY) * 0.01;
-                    
+
                     if (Math.abs(distX) < 5 && Math.abs(distY) < 5) {
                         card.style.transform = `perspective(1000px) rotateX(${distY}deg) rotateY(${distX}deg)`;
                     }
@@ -774,4 +789,5 @@ include 'includes/db_connect.php';
 
     <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>
