@@ -101,11 +101,11 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 
 <body>
   <header>
-    <!-- <div class="logo">
+    <div class="logo">
       <a href="index">
         <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danono's">
       </a>
-    </div> -->
+    </div>
 
     <button class="mobile-toggle" aria-label="Open Menu">
       <i class="ph ph-list"></i>
