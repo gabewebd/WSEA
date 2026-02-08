@@ -22,13 +22,13 @@ if (!$post) {
 
 $current_id = $post['id'];
 
-// 2. GET PREVIOUS POST (ID < Current ID)
+// 2. GET PREVIOUS POST
 $prev_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id < ? AND status = 'published' ORDER BY id DESC LIMIT 1");
 $prev_stmt->bind_param("i", $current_id);
 $prev_stmt->execute();
 $prev_post = $prev_stmt->get_result()->fetch_assoc();
 
-// 3. GET NEXT POST (ID > Current ID)
+// 3. GET NEXT POST
 $next_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id > ? AND status = 'published' ORDER BY id ASC LIMIT 1");
 $next_stmt->bind_param("i", $current_id);
 $next_stmt->execute();
@@ -66,7 +66,8 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
     .blog-wrapper {
         max-width: 1000px;
         margin: 0 auto;
-        padding: 80px 20px;
+        padding: 80px 20px 40px;
+        /* Reduced bottom padding */
     }
 
     /* --- HEADER SECTION --- */
@@ -176,50 +177,11 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         gap: 20px;
     }
 
-    .nav-btn {
-        display: inline-flex;
-        align-items: center;
-        padding: 12px 20px;
-        background: white;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        color: #555;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.2s;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        max-width: 45%;
-    }
-
-    .nav-btn:hover {
-        border-color: #EF7D32;
-        color: #EF7D32;
-        transform: translateY(-2px);
-    }
-
-    .nav-label {
-        font-size: 12px;
-        color: #999;
-        display: block;
-        margin-bottom: 2px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .nav-title {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    /* --- FOOTER SECTION --- */
-    .blog-footer {
+    /* --- BLOG FOOTER ACTION BAR --- */
+    .blog-action-bar {
         max-width: 850px;
         margin: 0 auto;
         padding-top: 40px;
-        border-top: 2px solid #F3F4F6;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -261,42 +223,19 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         color: white;
     }
 
-    /* --- RESPONSIVE --- */
-    @media (max-width: 768px) {
-        .blog-wrapper {
-            padding: 40px 20px;
-        }
-
-        .blog-title {
-            font-size: 36px;
-        }
-
-        .blog-content {
-            font-size: 18px;
-        }
-
-        .blog-footer {
-            flex-direction: column;
-            gap: 25px;
-            text-align: center;
-        }
-
-        .post-navigation {
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .nav-btn {
-            max-width: 100%;
-            justify-content: center;
-            text-align: center;
-        }
+    /* --- DIVIDER --- */
+    .section-divider {
+        max-width: 1000px;
+        margin: 60px auto;
+        border: 0;
+        border-top: 1px solid #E5E7EB;
     }
 
     /* --- MORE STORIES SECTION --- */
     .more-stories-section {
         max-width: 1000px;
-        margin: 60px auto 40px;
+        margin: 0 auto 80px;
+        /* Added bottom margin before footer */
         padding: 0 20px;
     }
 
@@ -320,13 +259,12 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         }
     }
 
-    /* --- NAV CARD STYLES --- */
+    /* NAV CARD STYLES */
     .nav-card {
         background: white;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        /* reuse shadow-md approx */
         text-decoration: none;
         display: flex;
         flex-direction: column;
@@ -338,12 +276,9 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
     .nav-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 20px 48px rgba(76, 34, 14, 0.15);
-        /* reuse shadow-lg approx */
         border-color: #E8B88D;
-        /* primary-light */
     }
 
-    /* Image */
     .nav-card-img {
         height: 220px;
         position: relative;
@@ -354,47 +289,18 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: transform 0.7s;
     }
 
     .nav-card:hover img {
         transform: scale(1.1);
     }
 
-    /* Overlay */
-    .nav-card-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .nav-card:hover .nav-card-overlay {
-        opacity: 1;
-    }
-
-    .nav-card-overlay span {
-        color: white;
-        font-weight: 700;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
     .nav-card-img::before {
-        content: '';
         position: absolute;
         top: 10px;
         left: 10px;
         background: rgba(239, 125, 50, 0.9);
-        /* Primary Orange */
         color: white;
         padding: 5px 10px;
         border-radius: 5px;
@@ -414,7 +320,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         right: 10px;
     }
 
-    /* Content */
     .nav-card-content {
         padding: 24px;
         display: flex;
@@ -431,23 +336,18 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
     .nav-title {
         font-family: 'Fredoka', sans-serif;
-        /* Keep consistent with titles */
         font-size: 20px;
         color: #431407;
         margin: 0;
         line-height: 1.3;
-        transition: color 0.3s;
     }
 
-    .nav-card:hover .nav-title {
-        color: #EF7D32;
-    }
-
-    /* --- SHARE MODAL STYLES --- */
+    /* --- SHARE MODAL --- */
     .share-modal {
         position: fixed;
         inset: 0;
-        z-index: 1000;
+        z-index: 9999;
+        /* Higher z-index */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -478,7 +378,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         z-index: 2;
         text-align: center;
         transform: translateY(20px);
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: transform 0.3s;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     }
 
@@ -495,7 +395,6 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         font-size: 20px;
         color: #999;
         cursor: pointer;
-        transition: color 0.2s;
         width: 30px;
         height: 30px;
         display: flex;
@@ -509,23 +408,11 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         background: #FFF9F3;
     }
 
-    .modal-header h3 {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 24px;
-        color: #431407;
-        margin-bottom: 5px;
-    }
-
-    .modal-header p {
-        color: #666;
-        margin-bottom: 25px;
-        font-size: 14px;
-    }
-
     .share-options {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
+        margin-top: 20px;
     }
 
     .share-btn {
@@ -539,10 +426,9 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         color: white;
         font-weight: 600;
         font-size: 14px;
-        transition: transform 0.2s, opacity 0.2s;
+        transition: transform 0.2s;
         border: none;
         cursor: pointer;
-        font-family: inherit;
     }
 
     .share-btn:hover {
@@ -564,14 +450,32 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
     .share-btn.copy-link {
         background: #4B5563;
-        color: white;
     }
 
     .share-btn.copy-link.copied {
         background: #10B981;
     }
 
-    @media (max-width: 500px) {
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .blog-wrapper {
+            padding: 40px 20px;
+        }
+
+        .blog-title {
+            font-size: 36px;
+        }
+
+        .blog-content {
+            font-size: 18px;
+        }
+
+        .blog-action-bar {
+            flex-direction: column;
+            gap: 25px;
+            text-align: center;
+        }
+
         .share-options {
             grid-template-columns: 1fr;
         }
@@ -595,134 +499,125 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
         <?php echo $post['content']; ?>
     </div>
 
-
-
-    <div class="blog-footer">
+    <div class="blog-action-bar">
         <a href="blogs" class="back-link">
             <i class="ph ph-squares-four"></i> View All Stories
         </a>
-        <button onclick="openShareModal()" class="btn-share">
+        <button type="button" onclick="openShareModal()" class="btn-share">
             <i class="ph ph-share-network"></i> Share this Post
         </button>
     </div>
 
-    <!-- NEW NAVIGATION CARDS -->
-    <div class="more-stories-section">
-        <h3 class="more-stories-title">More from the Kitchen</h3>
-        <div class="post-navigation-cards">
-            <?php if ($prev_post):
-                $prev_img = !empty($prev_post["featured_image"]) ? "uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
-                $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
-                ?>
-                <a href="single-blog?slug=<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
-                    <div class="nav-card-img">
-                        <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
-                            onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-                        <div class="nav-card-overlay">
-                            <span><i class="ph ph-arrow-left"></i> Previous Post</span>
-                        </div>
-                    </div>
-                    <div class="nav-card-content">
-                        <span class="nav-date"><?php echo $prev_date; ?></span>
-                        <h4 class="nav-title"><?php echo htmlspecialchars($prev_post['title']); ?></h4>
-                    </div>
-                </a>
-            <?php else: ?>
-                <div class="nav-card-placeholder"></div>
-            <?php endif; ?>
+</div>
+<hr class="section-divider">
 
-            <?php if ($next_post):
-                $next_img = !empty($next_post["featured_image"]) ? "uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
-                $next_date = date('M d, Y', strtotime($next_post['created_at']));
-                ?>
-                <a href="single-blog?slug=<?php echo $next_post['slug']; ?>" class="nav-card next-card">
-                    <div class="nav-card-img">
-                        <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
-                            onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-                        <div class="nav-card-overlay">
-                            <span>Next Post <i class="ph ph-arrow-right"></i></span>
-                        </div>
-                    </div>
-                    <div class="nav-card-content">
-                        <span class="nav-date"><?php echo $next_date; ?></span>
-                        <h4 class="nav-title"><?php echo htmlspecialchars($next_post['title']); ?></h4>
-                    </div>
-                </a>
-            <?php endif; ?>
+<div class="more-stories-section">
+    <h3 class="more-stories-title">More from the Kitchen</h3>
+    <div class="post-navigation-cards">
+        <?php if ($prev_post):
+            $prev_img = !empty($prev_post["featured_image"]) ? "uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
+            ?>
+            <a href="single-blog?slug=<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
+                <div class="nav-card-img">
+                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
+                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+                </div>
+                <div class="nav-card-content">
+                    <span class="nav-date"><?php echo $prev_date; ?></span>
+                    <h4 class="nav-title"><?php echo htmlspecialchars($prev_post['title']); ?></h4>
+                </div>
+            </a>
+        <?php else: ?>
+            <div class="nav-card-placeholder"></div>
+        <?php endif; ?>
+
+        <?php if ($next_post):
+            $next_img = !empty($next_post["featured_image"]) ? "uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            $next_date = date('M d, Y', strtotime($next_post['created_at']));
+            ?>
+            <a href="single-blog?slug=<?php echo $next_post['slug']; ?>" class="nav-card next-card">
+                <div class="nav-card-img">
+                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
+                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+                </div>
+                <div class="nav-card-content">
+                    <span class="nav-date"><?php echo $next_date; ?></span>
+                    <h4 class="nav-title"><?php echo htmlspecialchars($next_post['title']); ?></h4>
+                </div>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div id="shareModal" class="share-modal">
+    <div class="share-modal-backdrop"></div>
+    <div class="share-modal-content">
+        <button type="button" class="close-modal" aria-label="Close modal"><i class="ph ph-x"></i></button>
+        <div class="modal-header">
+            <h3>Share this Post</h3>
+            <p>Spread the sweetness with your friends!</p>
         </div>
 
-    </div>
-
-    <script>
-        // Modal Elements
-        const shareModal = document.getElementById('shareModal');
-        const modalBackdrop = document.querySelector('.share-modal-backdrop');
-        const closeModalBtn = document.querySelector('.close-modal');
-
-        function openShareModal() {
-            if (shareModal) shareModal.classList.add('active');
-
-            // Update Social Links based on current URL
-            const currentUrl = encodeURIComponent(window.location.href);
-            const pageTitle = encodeURIComponent(document.title);
-
-            const facebookBtn = document.querySelector('.share-btn.facebook');
-            if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
-            const twitterBtn = document.querySelector('.share-btn.twitter');
-            if (twitterBtn) twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-
-            const whatsappBtn = document.querySelector('.share-btn.whatsapp');
-            if (whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
-        }
-
-        function closeShareModal() {
-            if (shareModal) shareModal.classList.remove('active');
-        }
-
-        if (modalBackdrop) modalBackdrop.addEventListener('click', closeShareModal);
-        if (closeModalBtn) closeModalBtn.addEventListener('click', closeShareModal);
-
-        function copyToClipboard() {
-            navigator.clipboard.writeText(window.location.href);
-            const btn = document.querySelector('.share-btn.copy-link');
-            const originalHTML = btn.innerHTML;
-
-            btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
-            btn.classList.add('copied');
-
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.classList.remove('copied');
-            }, 2000);
-        }
-    </script>
-
-    <!-- Share Modal HTML -->
-    <div id="shareModal" class="share-modal">
-        <div class="share-modal-backdrop"></div>
-        <div class="share-modal-content">
-            <button class="close-modal" aria-label="Close modal"><i class="ph ph-x"></i></button>
-            <div class="modal-header">
-                <h3>Share this Post</h3>
-                <p>Spread the sweetness with your friends!</p>
-            </div>
-
-            <div class="share-options">
-                <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer">
-                    <i class="ph ph-facebook-logo"></i> Facebook
-                </a>
-                <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer">
-                    <i class="ph ph-twitter-logo"></i> Twitter
-                </a>
-                <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer">
-                    <i class="ph ph-whatsapp-logo"></i> WhatsApp
-                </a>
-                <button class="share-btn copy-link" onclick="copyToClipboard()">
-                    <i class="ph ph-link"></i> Copy Link
-                </button>
-            </div>
+        <div class="share-options">
+            <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-facebook-logo"></i> Facebook
+            </a>
+            <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-twitter-logo"></i> Twitter
+            </a>
+            <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-whatsapp-logo"></i> WhatsApp
+            </a>
+            <button type="button" class="share-btn copy-link" onclick="copyToClipboard()">
+                <i class="ph ph-link"></i> Copy Link
+            </button>
         </div>
     </div>
+</div>
 
-    <?php include 'includes/footer.php'; ?>
+<script>
+    // Modal Logic
+    const shareModal = document.getElementById('shareModal');
+    const modalBackdrop = document.querySelector('.share-modal-backdrop');
+    const closeModalBtn = document.querySelector('.close-modal');
+
+    function openShareModal() {
+        if (shareModal) shareModal.classList.add('active');
+
+        const currentUrl = encodeURIComponent(window.location.href);
+        const pageTitle = encodeURIComponent(document.title);
+
+        const facebookBtn = document.querySelector('.share-btn.facebook');
+        if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+        const twitterBtn = document.querySelector('.share-btn.twitter');
+        if (twitterBtn) twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
+
+        const whatsappBtn = document.querySelector('.share-btn.whatsapp');
+        if (whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
+    }
+
+    function closeShareModal() {
+        if (shareModal) shareModal.classList.remove('active');
+    }
+
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeShareModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeShareModal);
+
+    function copyToClipboard() {
+        navigator.clipboard.writeText(window.location.href);
+        const btn = document.querySelector('.share-btn.copy-link');
+        const originalHTML = btn.innerHTML;
+
+        btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('copied');
+        }, 2000);
+    }
+</script>
+
+<?php include 'includes/footer.php'; ?>
