@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><?php echo isset($pageTitle) ? $pageTitle : "Danonos Donuts - Best Donuts in Manila"; ?></title>
+  <title><?php echo isset($pageTitle) ? $pageTitle : "Danonos Donuts - Best Donuts in Angeles City"; ?></title>
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day. Order online or visit us!"; ?>">
 

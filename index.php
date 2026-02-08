@@ -11,7 +11,7 @@ $customCss = "index.css";
     <div class="hero-text">
         <h1 data-aos="fade-up">More Choices,<br><span class="pop-out-text">MORE VALUE.</span></h1>
         <p data-aos="fade-up" data-aos-delay="100">Indulge in our famous Glazed Donuts and refreshing Spanish Latte.
-            Crafted fresh daily in Los Angeles.</p>
+            Crafted fresh daily in Angeles City.</p>
         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
             <a href="menu" class="btn btn-orange"><i class="ph ph-bicycle"></i> Order Delivery</a>
             <a href="locations" class="btn btn-outline"><i class="ph ph-map-pin"></i> Find a branch</a>
