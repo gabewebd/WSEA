@@ -43,14 +43,15 @@ if (session_status() === PHP_SESSION_NONE) {
     }
     </script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B381CPCZK"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F39H5M2LGJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-7B381CPCZK');
-  </script>
 
+    gtag('config', 'G-F39H5M2LGJ');
+  </script>
   <meta name="google-site-verification" content="Xl7SjAbdH5sySew0zAOHdzu410dFzPMe7up3yKONQ9I" />
 </head>
 
