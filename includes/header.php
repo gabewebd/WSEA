@@ -15,9 +15,6 @@ if (session_status() === PHP_SESSION_NONE) {
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day. Order online or visit us!"; ?>">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/img/danonos-logo.jpg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
