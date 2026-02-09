@@ -1,20 +1,24 @@
 RewriteEngine On
 
-# 1. FIX: Redirect "home" (or "home.php") to the main root URL "/"
+# 1. Force remove trailing slash (e.g. danonos.com/about/ -> danonos.com/about)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# 2. Redirect "home" (or "home.php") to the main root URL "/"
 RewriteRule ^home(\.php)?/?$ / [R=301,L]
 
-# 2. Remove "index.php" or "index" forcing it to just "/"
+# 3. Remove "index.php" or "index" forcing it to just "/"
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index(\.php)?\ HTTP/
 RewriteRule ^(.*)index(\.php)?$ /$1 [R=301,L]
 
-# 3. Redirect all OTHER .php requests to the clean URL (e.g. about.php -> about)
+# 4. Redirect all OTHER .php requests to the clean URL (e.g. about.php -> about)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php\ HTTP/
 RewriteRule ^(.+)\.php$ /$1 [R=301,L]
 
-# 4. Map the clean URL back to the .php file internally
+# 5. Map the clean URL back to the .php file internally
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-# 5. Handle 404 errors
+# 6. Handle 404 errors
 ErrorDocument 404 /404.php

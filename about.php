@@ -355,70 +355,51 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
     .family-banner .family-buttons {
         display: flex;
         gap: 20px;
-        justify-content: center;
-        margin-top: 30px;
+        flex-wrap: wrap;
     }
 
-    /* Buttons */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        padding: 12px 30px;
+    /* White filled button */
+    .family-banner .btn-white {
+        background: white;
+        color: #EF7D32;
+        padding: 14px 32px;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 700;
-        transition: all 0.2s;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-orange {
-        background-color: var(--primary-orange);
-        color: white;
-        border: 2px solid var(--primary-orange);
-    }
-
-    .btn-white {
-        background: white;
-        color: #EF7D32;
+        font-size: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
         border: 2px solid white;
     }
 
+    .family-banner .btn-white:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Outline button for Find a Branch */
     .btn-outline-white {
         background: transparent;
         color: white;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
         border: 2px solid white;
-    }
-
-    .btn-shine::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-        transition: 0.5s;
-    }
-
-    .btn-shine:hover::after {
-        left: 100%;
-    }
-
-    .btn-orange:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-white:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .btn-outline-white:hover {
         background: white;
         color: #EF7D32;
         transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .pop-out-text,
@@ -789,7 +770,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
         <h2>Taste the <span class="family-highlight">Love</span> Today</h2>
         <p>Ready to experience the best brioche doughnuts in Pampanga?</p>
         <div class="family-buttons">
-            <a href="menu" class="btn btn-white"><i class="ph ph-fork-knife"></i> View Menu</a>
+            <a href="menu" class="btn btn-white"><i class="ph ph-cookie"></i> View Menu</a>
             <a href="locations" class="btn btn-outline-white"><i class="ph ph-map-pin"></i> Find a Branch</a>
         </div>
     </div>
