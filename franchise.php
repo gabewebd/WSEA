@@ -25,10 +25,9 @@ $customCss = "franchise.css";
         align-items: center;
         justify-content: space-between;
         padding: 120px 5% 80px;
-        overflow: hidden;
-        background: linear-gradient(135deg, #FFFdf9 0%, #FFF0E6 100%);
+        overflow: visible; 
+        background: linear-gradient(to bottom, #FFFdf9 0%, #FFF9F2 100%);
     }
-
     .hero-text {
         flex: 1;
         max-width: 600px;
