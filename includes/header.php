@@ -64,7 +64,7 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Danono's",
+            "name": "Danono's Donuts and Brownies",
             "url": "https://danonos.com/",
             "potentialAction": {
                 "@type": "SearchAction",
@@ -75,8 +75,8 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
         {
             "@context": "https://schema.org",
             "@type": "Bakery",
-            "name": "Danono's",
-            "image": "<?php echo $baseUrl; ?>assets/img/logo.png",
+            "name": "Danono's Donuts and Brownies",
+            "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg",
             "url": "https://danonos.com/",
             "address": {
                 "@type": "PostalAddress",
