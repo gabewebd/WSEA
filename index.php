@@ -21,7 +21,7 @@ $customCss = "index.css";
         </p>
     </div>
     <div class="hero-image" data-aos="zoom-in-left" data-aos-duration="1000">
-        <img src="assets/img/danonos.jpg" alt="Danono's Donuts Box" class="float-img">
+        <img src="assets/img/danonos.jpg" alt="Danono's Donuts" class="float-img">
     </div>
 </section>
 
