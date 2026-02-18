@@ -17,7 +17,13 @@ if (substr($baseUrl, -1) !== '/') {
   $baseUrl .= '/';
 }
 
-$currentUrl = $protocol . "://" . $host . $_SERVER['REQUEST_URI'];
+// --- SEO FIX: Canonical Logic ---
+// We explicitly FORCE the canonical URL to be the "non-www" version.
+// Even if someone visits "www", this tag tells Google the real version is without it.
+$requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$canonicalUrl = "https://danonos.com" . $requestPath;
+
+// Fallback for social images
 $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-hero.jpg";
 ?>
 <!DOCTYPE html>
@@ -32,10 +38,10 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <meta name="description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
-  <link rel="canonical" href="<?php echo $currentUrl; ?>">
+  <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="<?php echo $currentUrl; ?>">
+  <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
   <meta property="og:title" content="<?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies"; ?>">
   <meta property="og:description"
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day."; ?>">
@@ -78,13 +84,38 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
             "name": "Danono's Doughnuts and Brownies",
             "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg",
             "url": "https://danonos.com/",
+            "telephone": "+63 927 365 0789",
+            "servesCuisine": "Brioche Doughnuts, Coffee, Pastries",
             "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "#1 Holy Angel Avenue, Sto. Rosario",
                 "addressLocality": "Angeles City",
+                "postalCode": "2009",
                 "addressRegion": "Pampanga",
                 "addressCountry": "PH"
             },
-            "priceRange": "₱₱"
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 15.134, 
+                "longitude": 120.590
+            },
+            "priceRange": "₱₱",
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                    ],
+                    "opens": "10:00",
+                    "closes": "19:00"
+                }
+            ]
         }
     ]
     </script>

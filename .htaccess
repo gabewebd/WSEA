@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# --- Force NON-WWW (Redirects www.danonos.com -> danonos.com) ---
+RewriteCond %{HTTP_HOST} ^www\.danonos\.com [NC]
+RewriteRule ^(.*)$ https://danonos.com/$1 [L,R=301]
+# ---------------------------------------------------------------------------
+
 # 1. Force remove trailing slash (e.g. danonos.com/about/ -> danonos.com/about)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
