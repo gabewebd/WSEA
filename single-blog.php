@@ -49,7 +49,40 @@ include 'includes/header.php';
 
 // Author Name
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
+
+// --- ARTICLE SCHEMA START ---
+$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
+$schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
 ?>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "<?php echo $currentUrl; ?>"
+  },
+  "headline": "<?php echo htmlspecialchars($post['title']); ?>",
+  "image": [
+    "<?php echo $schemaImage; ?>"
+  ],
+  "datePublished": "<?php echo $schemaDate; ?>",
+  "dateModified": "<?php echo $schemaDate; ?>",
+  "author": {
+    "@type": "Person",
+    "name": "<?php echo htmlspecialchars($author_name); ?>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Danono's Doughnuts and Brownies",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg"
+    }
+  }
+}
+</script>
 
 <style>
     /* =========================================
