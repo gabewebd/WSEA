@@ -1,14 +1,6 @@
 <?php
 include 'includes/db_connect.php';
 
-// --- 1. REDIRECT OLD QUERY LINKS TO PRETTY URLS ---
-if (isset($_GET['slug']) && strpos($_SERVER['REQUEST_URI'], 'single-blog') !== false) {
-    header("HTTP/1.1 301 Moved Permanently");
-    header("Location: /blog/" . $_GET['slug']);
-    exit;
-}
-
-// Get slug from the URL (The .htaccess handles mapping /blog/xyz to single-blog.php?slug=xyz)
 if (!isset($_GET['slug'])) {
     header('Location: /blogs');
     exit;
@@ -16,7 +8,7 @@ if (!isset($_GET['slug'])) {
 
 $slug = $_GET['slug'];
 
-// 2. GET CURRENT POST
+// 1. GET CURRENT POST
 $stmt = $conn->prepare("SELECT p.*, u.full_name FROM posts p LEFT JOIN users u ON p.author_id = u.id WHERE p.slug = ? AND p.status = 'published'");
 $stmt->bind_param("s", $slug);
 $stmt->execute();
@@ -30,13 +22,13 @@ if (!$post) {
 
 $current_id = $post['id'];
 
-// 3. GET PREVIOUS POST
+// 2. GET PREVIOUS POST
 $prev_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id < ? AND status = 'published' ORDER BY id DESC LIMIT 1");
 $prev_stmt->bind_param("i", $current_id);
 $prev_stmt->execute();
 $prev_post = $prev_stmt->get_result()->fetch_assoc();
 
-// 4. GET NEXT POST
+// 3. GET NEXT POST
 $next_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id > ? AND status = 'published' ORDER BY id ASC LIMIT 1");
 $next_stmt->bind_param("i", $current_id);
 $next_stmt->execute();
@@ -46,21 +38,21 @@ $next_post = $next_stmt->get_result()->fetch_assoc();
 $word_count = str_word_count(strip_tags($post['content']));
 $read_time = max(1, ceil($word_count / 200)) . ' min read';
 
-// Meta Description & SEO Setup
+// Meta Description
 $clean_content = strip_tags($post['content']);
 $auto_desc = substr($clean_content, 0, 150) . '...';
 $metaDesc = !empty($post['meta_description']) ? $post['meta_description'] : $auto_desc;
 
 $pageTitle = $post['title'] . " | Danono's Blog";
 $customCss = "single-blog.css";
-
-// Include header (which now contains our improved canonical logic)
 include 'includes/header.php';
 
-// For Schema & Author
+// Author Name
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
-$currentUrl = "https://danonos.com/blog/" . $post['slug'];
-$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "/uploads" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
+
+// --- ARTICLE SCHEMA START ---
+// Added leading slash to uploads
+$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
 $schemaDate = date('c', strtotime($post['created_at'])); 
 ?>
 
@@ -73,7 +65,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
     "@id": "<?php echo $currentUrl; ?>"
   },
   "headline": "<?php echo htmlspecialchars($post['title']); ?>",
-  "image": ["<?php echo $schemaImage; ?>"],
+  "image": [
+    "<?php echo $schemaImage; ?>"
+  ],
   "datePublished": "<?php echo $schemaDate; ?>",
   "dateModified": "<?php echo $schemaDate; ?>",
   "author": {
@@ -109,7 +103,6 @@ $schemaDate = date('c', strtotime($post['created_at']));
         padding: 80px 20px 40px;
     }
 
-    /* --- HEADER SECTION --- */
     .blog-header {
         text-align: center;
         margin-bottom: 50px;
@@ -143,11 +136,8 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-weight: 500;
     }
 
-    .blog-author strong {
-        color: #431407;
-    }
+    .blog-author strong { color: #431407; }
 
-    /* --- CONTENT AREA --- */
     .blog-content {
         max-width: 850px;
         margin: 0 auto;
@@ -155,10 +145,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
         line-height: 1.8;
     }
 
-    .blog-content h1,
-    .blog-content h2,
-    .blog-content h3,
-    .blog-content h4 {
+    .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
         font-family: 'Fredoka', sans-serif;
         color: #EF7D32;
         margin-top: 50px;
@@ -166,27 +153,11 @@ $schemaDate = date('c', strtotime($post['created_at']));
         line-height: 1.3;
     }
 
-    .blog-content h2 {
-        font-size: 32px;
-    }
-
-    .blog-content h3 {
-        font-size: 26px;
-    }
-
-    .blog-content p {
-        margin-bottom: 24px;
-    }
-
-    .blog-content ul,
-    .blog-content ol {
-        margin-bottom: 30px;
-        padding-left: 20px;
-    }
-
-    .blog-content li {
-        margin-bottom: 12px;
-    }
+    .blog-content h2 { font-size: 32px; }
+    .blog-content h3 { font-size: 26px; }
+    .blog-content p { margin-bottom: 24px; }
+    .blog-content ul, .blog-content ol { margin-bottom: 30px; padding-left: 20px; }
+    .blog-content li { margin-bottom: 12px; }
 
     .blog-content img {
         border-radius: 8px;
@@ -203,11 +174,8 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-weight: 600;
     }
 
-    .blog-content a:hover {
-        color: #431407;
-    }
+    .blog-content a:hover { color: #431407; }
 
-    /* --- ACTION BAR (Back & Share) --- */
     .blog-action-bar {
         max-width: 850px;
         margin: 0 auto;
@@ -228,9 +196,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
         transition: color 0.2s;
     }
 
-    .back-link:hover {
-        color: #EF7D32;
-    }
+    .back-link:hover { color: #EF7D32; }
 
     .btn-share {
         background: transparent;
@@ -248,12 +214,8 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-size: 16px;
     }
 
-    .btn-share:hover {
-        background: #EF7D32;
-        color: white;
-    }
+    .btn-share:hover { background: #EF7D32; color: white; }
 
-    /* --- DIVIDER --- */
     .section-divider {
         max-width: 1000px;
         margin: 60px auto;
@@ -261,7 +223,6 @@ $schemaDate = date('c', strtotime($post['created_at']));
         border-top: 1px solid #E5E7EB;
     }
 
-    /* --- MORE STORIES SECTION --- */
     .more-stories-section {
         max-width: 1000px;
         margin: 0 auto 80px;
@@ -283,12 +244,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
     }
 
     @media (min-width: 768px) {
-        .post-navigation-cards {
-            grid-template-columns: 1fr 1fr;
-        }
+        .post-navigation-cards { grid-template-columns: 1fr 1fr; }
     }
 
-    /* --- NAV CARD (Hover Effect Restored) --- */
     .nav-card {
         background: white;
         border-radius: 16px;
@@ -309,238 +267,85 @@ $schemaDate = date('c', strtotime($post['created_at']));
         border-color: #E8B88D;
     }
 
-    .nav-card-img {
-        height: 220px;
-        position: relative;
-        overflow: hidden;
-    }
+    .nav-card-img { height: 220px; position: relative; overflow: hidden; }
+    .nav-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .nav-card:hover img { transform: scale(1.1); }
 
-    .nav-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    /* Hover Animation: Zoom Image */
-    .nav-card:hover img {
-        transform: scale(1.1);
-    }
-
-    /* Hover Animation: Overlay & Arrow */
     .nav-card-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        /* Darken Image */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 10;
+        position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5);
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; transition: opacity 0.3s ease; z-index: 10;
     }
 
-    .nav-card:hover .nav-card-overlay {
-        opacity: 1;
-    }
+    .nav-card:hover .nav-card-overlay { opacity: 1; }
 
     .nav-card-overlay span {
-        color: white;
-        font-weight: 700;
-        font-size: 18px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        color: white; font-weight: 700; font-size: 18px;
+        text-transform: uppercase; letter-spacing: 1px;
+        display: flex; align-items: center; gap: 10px;
     }
 
-    /* Label Tags */
     .nav-card-label {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: rgba(239, 125, 50, 0.9);
-        color: white;
-        padding: 5px 12px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        z-index: 5;
+        position: absolute; top: 10px; left: 10px;
+        background: rgba(239, 125, 50, 0.9); color: white;
+        padding: 5px 12px; border-radius: 5px; font-size: 12px; font-weight: 700;
+        text-transform: uppercase; z-index: 5;
     }
+    .nav-card.next-card .nav-card-label { left: auto; right: 10px; }
 
-    .nav-card.next-card .nav-card-label {
-        left: auto;
-        right: 10px;
-    }
+    .nav-card-content { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .nav-date { font-size: 12px; color: #EF7D32; font-weight: 600; text-transform: uppercase; }
+    .nav-title { font-family: 'Fredoka', sans-serif; font-size: 20px; color: #431407; margin: 0; line-height: 1.3; }
 
-    .nav-card-content {
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-date {
-        font-size: 12px;
-        color: #EF7D32;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    .nav-title {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 20px;
-        color: #431407;
-        margin: 0;
-        line-height: 1.3;
-    }
-
-    /* --- SHARE MODAL --- */
     .share-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+        position: fixed; inset: 0; z-index: 9999;
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
-
-    .share-modal.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .share-modal-backdrop {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
-    }
-
+    .share-modal.active { opacity: 1; pointer-events: auto; }
+    .share-modal-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
     .share-modal-content {
-        background: white;
-        width: 90%;
-        max-width: 450px;
-        padding: 30px;
-        border-radius: 20px;
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        transform: translateY(20px);
-        transition: transform 0.3s;
+        background: white; width: 90%; max-width: 450px; padding: 30px;
+        border-radius: 20px; position: relative; z-index: 2; text-align: center;
+        transform: translateY(20px); transition: transform 0.3s;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     }
-
-    .share-modal.active .share-modal-content {
-        transform: translateY(0);
-    }
+    .share-modal.active .share-modal-content { transform: translateY(0); }
 
     .close-modal {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        color: #999;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+        position: absolute; top: 15px; right: 15px; background: transparent; border: none;
+        font-size: 20px; color: #999; cursor: pointer; width: 30px; height: 30px;
+        display: flex; align-items: center; justify-content: center; border-radius: 50%;
     }
+    .close-modal:hover { color: #EF7D32; background: #FFF9F3; }
 
-    .close-modal:hover {
-        color: #EF7D32;
-        background: #FFF9F3;
-    }
-
-    .share-options {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
+    .share-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
     .share-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: white;
-        font-weight: 600;
-        font-size: 14px;
-        transition: transform 0.2s;
-        border: none;
-        cursor: pointer;
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 12px; border-radius: 10px; text-decoration: none; color: white;
+        font-weight: 600; font-size: 14px; transition: transform 0.2s; border: none; cursor: pointer;
     }
+    .share-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .share-btn.facebook { background: #1877F2; }
+    .share-btn.twitter { background: #1DA1F2; }
+    .share-btn.whatsapp { background: #25D366; }
+    .share-btn.copy-link { background: #4B5563; }
+    .share-btn.copy-link.copied { background: #10B981; }
 
-    .share-btn:hover {
-        transform: translateY(-2px);
-        opacity: 0.9;
-    }
-
-    .share-btn.facebook {
-        background: #1877F2;
-    }
-
-    .share-btn.twitter {
-        background: #1DA1F2;
-    }
-
-    .share-btn.whatsapp {
-        background: #25D366;
-    }
-
-    .share-btn.copy-link {
-        background: #4B5563;
-    }
-
-    .share-btn.copy-link.copied {
-        background: #10B981;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-        .blog-wrapper {
-            padding: 40px 20px;
-        }
-
-        .blog-title {
-            font-size: 36px;
-        }
-
-        .blog-content {
-            font-size: 18px;
-        }
-
-        .blog-action-bar {
-            flex-direction: column;
-            gap: 25px;
-            text-align: center;
-        }
-
-        .share-options {
-            grid-template-columns: 1fr;
-        }
+        .blog-wrapper { padding: 40px 20px; }
+        .blog-title { font-size: 36px; }
+        .blog-content { font-size: 18px; }
+        .blog-action-bar { flex-direction: column; gap: 25px; text-align: center; }
+        .share-options { grid-template-columns: 1fr; }
     }
 </style>
 
 <div class="blog-wrapper">
     <div class="blog-header">
         <div class="blog-meta">
-            <?php echo date('F j, Y', strtotime($post['created_at'])); ?> • <?php echo $read_time; ?>
+            <?php echo date('F j, Y', strtotime($post['created_at'])); ?> •
+            <?php echo $read_time; ?>
         </div>
         <h1 class="blog-title"><?php echo htmlspecialchars($post['title']); ?></h1>
         <div class="blog-author">
@@ -549,7 +354,11 @@ $schemaDate = date('c', strtotime($post['created_at']));
     </div>
 
     <div class="blog-content">
-        <?php echo $post['content']; ?>
+        <?php 
+            $content = $post['content'];
+            $content = preg_replace('/src="uploads\//', 'src="/uploads/', $content);
+            echo $content; 
+        ?>
     </div>
 
     <div class="blog-action-bar">
@@ -569,13 +378,16 @@ $schemaDate = date('c', strtotime($post['created_at']));
     <div class="post-navigation-cards">
 
         <?php if ($prev_post):
-            $prev_img = !empty($prev_post["featured_image"]) ? "/uploads" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            // FIXED: Added leading slash to image
+            $prev_img = !empty($prev_post["featured_image"]) ? "/uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
             ?>
-            <a href="/blog/<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
+            <a href="/blog/<?php echo urlencode($prev_post['slug']); ?>" class="nav-card prev-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Previous</div>
-                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>">
+                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
+                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+
                     <div class="nav-card-overlay">
                         <span><i class="ph ph-arrow-left"></i> Previous</span>
                     </div>
@@ -588,13 +400,16 @@ $schemaDate = date('c', strtotime($post['created_at']));
         <?php endif; ?>
 
         <?php if ($next_post):
-            $next_img = !empty($next_post["featured_image"]) ? "/uploads" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            // FIXED: Added leading slash to image
+            $next_img = !empty($next_post["featured_image"]) ? "/uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $next_date = date('M d, Y', strtotime($next_post['created_at']));
             ?>
-            <a href="/blog/<?php echo $next_post['slug']; ?>" class="nav-card next-card">
+            <a href="/blog/<?php echo urlencode($next_post['slug']); ?>" class="nav-card next-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Next</div>
-                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>">
+                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
+                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
+
                     <div class="nav-card-overlay">
                         <span>Next <i class="ph ph-arrow-right"></i></span>
                     </div>
@@ -617,11 +432,20 @@ $schemaDate = date('c', strtotime($post['created_at']));
             <h3>Share this Post</h3>
             <p>Spread the sweetness with your friends!</p>
         </div>
+
         <div class="share-options">
-            <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i> Facebook</a>
-            <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
-            <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer"><i class="ph ph-whatsapp-logo"></i> WhatsApp</a>
-            <button type="button" class="share-btn copy-link" onclick="copyToClipboard()"><i class="ph ph-link"></i> Copy Link</button>
+            <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-facebook-logo"></i> Facebook
+            </a>
+            <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-twitter-logo"></i> Twitter
+            </a>
+            <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-whatsapp-logo"></i> WhatsApp
+            </a>
+            <button type="button" class="share-btn copy-link" onclick="copyToClipboard()">
+                <i class="ph ph-link"></i> Copy Link
+            </button>
         </div>
     </div>
 </div>
@@ -633,12 +457,18 @@ $schemaDate = date('c', strtotime($post['created_at']));
 
     function openShareModal() {
         if (shareModal) shareModal.classList.add('active');
+
         const currentUrl = encodeURIComponent(window.location.href);
         const pageTitle = encodeURIComponent(document.title);
 
-        document.querySelector('.share-btn.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-        document.querySelector('.share-btn.twitter').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-        document.querySelector('.share-btn.whatsapp').href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
+        const facebookBtn = document.querySelector('.share-btn.facebook');
+        if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+        const twitterBtn = document.querySelector('.share-btn.twitter');
+        if (twitterBtn) twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
+
+        const whatsappBtn = document.querySelector('.share-btn.whatsapp');
+        if (whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
     }
 
     function closeShareModal() {
@@ -650,13 +480,17 @@ $schemaDate = date('c', strtotime($post['created_at']));
 
     function copyToClipboard() {
         navigator.clipboard.writeText(window.location.href);
+
         const btn = document.querySelector('.share-btn.copy-link');
         const originalHTML = btn.innerHTML;
+        const originalColor = btn.style.backgroundColor;
+
         btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
         btn.style.backgroundColor = '#10B981';
+
         setTimeout(() => {
             btn.innerHTML = originalHTML;
-            btn.style.backgroundColor = '';
+            btn.style.backgroundColor = originalColor;
         }, 2000);
     }
 </script>
