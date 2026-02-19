@@ -7,6 +7,7 @@ RewriteRule ^(.*)$ https://danonos.com/$1 [L,R=301]
 # Force redirect from old query string to new pretty URL
 RewriteCond %{QUERY_STRING} ^slug=([a-zA-Z0-9_-]+)$
 RewriteRule ^single-blog\.php$ /blog/%1? [R=301,L]
+RewriteRule ^blog/([a-zA-Z0-9_-]+)$ single-blog.php?slug=$1 [L,QSA]
 # ---------------------------------------------------------------------------
 
 # 1. Force remove trailing slash (e.g. danonos.com/about/ -> danonos.com/about)
