@@ -141,7 +141,7 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 <body>
   <header>
     <div class="logo">
-      <a href="index">
+      <a href="<?php echo $baseUrl; ?>">
         <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danono's">
       </a>
     </div>
@@ -151,16 +151,16 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     </button>
 
     <nav class="nav-menu">
-        <button class="mobile-close" aria-label="Close Menu">
-            <i class="ph ph-x"></i>
-        </button>
+      <button class="mobile-close" aria-label="Close Menu">
+        <i class="ph ph-x"></i>
+      </button>
 
-        <a href="<?php echo $baseUrl; ?>">Home</a>
-        <a href="<?php echo $baseUrl; ?>about">About</a>
-        <a href="<?php echo $baseUrl; ?>menu">Menu</a>
-        <a href="<?php echo $baseUrl; ?>blogs">Blogs</a>
-        <a href="<?php echo $baseUrl; ?>locations">Locations</a>
-        <a href="<?php echo $baseUrl; ?>franchise">Franchise</a>
+      <a href="<?php echo $baseUrl; ?>">Home</a>
+      <a href="<?php echo $baseUrl; ?>about">About</a>
+      <a href="<?php echo $baseUrl; ?>menu">Menu</a>
+      <a href="<?php echo $baseUrl; ?>blogs">Blogs</a>
+      <a href="<?php echo $baseUrl; ?>locations">Locations</a>
+      <a href="<?php echo $baseUrl; ?>franchise">Franchise</a>
     </nav>
 
     <div class="nav-overlay"></div>

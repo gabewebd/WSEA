@@ -1,11 +1,11 @@
 <footer>
     <div class="footer-content">
         <div class="footer-section footer-about">
-            <a href="index">
-                <img src="assets/img/danonos-logo.jpg" alt="Danonos"
+            <a href="<?php echo $baseUrl; ?>">
+                <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danonos"
                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; margin-bottom: 15px;">
             </a>
-            <p>Spreading happiness one doughnut at a time. The home of premium brioche doughnuts in Angeles City.</p>
+            <p>Spreading happiness one donut at a time. The home of premium brioche donuts in Angeles City.</p>
             <div class="social-icons">
                 <a href="https://www.facebook.com/danonosdoughnuts" class="social-icon" target="_blank"
                     rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i></a>
@@ -43,9 +43,8 @@
         </div>
     </div>
 
-        <div class="footer-bottom">
-            <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | 
-            <a href="<?php echo $baseUrl; ?>privacy-policy" style="color: inherit;">Privacy Policy and Terms of Service</a>
-            </p>
-        </div>
+    <div class="footer-bottom">
+        <p>© 2026 Danono's Donuts & Brownies. All rights reserved. | <a href="<?php echo $baseUrl; ?>privacy-policy"
+                style="color: inherit;">Privacy Policy and Terms of Service</a></p>
+    </div>
 </footer>
