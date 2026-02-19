@@ -1,10 +1,7 @@
 <?php
-// Page configuration
-$pageTitle = "Latest News & Articles";
-$metaDesc = "Explore our latest blog posts, updates, and stories.";
+$pageTitle = "Blogs - Danono's Doughnuts and Brownies";
+$metaDesc = "Read the latest news, recipes, and stories from Danono's Doughnuts & Brownies.";
 $customCss = "blogs.css";
-
-// Database connection
 include 'includes/db_connect.php';
 ?>
 <!DOCTYPE html>
@@ -15,11 +12,10 @@ include 'includes/db_connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $metaDesc; ?>">
     <title><?php echo $pageTitle; ?></title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/<?php echo $customCss; ?>">
+    <link rel="stylesheet" href="assets/css/blogs.css">
     
     <style>
         * {
@@ -640,7 +636,7 @@ include 'includes/db_connect.php';
                     $date = date('M d, Y', strtotime($row["created_at"]));
                     
                     // Fallback for missing featured images
-                    $image = !empty($row["featured_image"]) ? "uploads/" . $row["featured_image"] : "assets/img/default-blog.jpg";
+                    $image = !empty($row["featured_image"]) ? "/uploads/" . $row["featured_image"] : "assets/img/default-hero.jpg";
                     
                     // Slug-based routing
                     $slug = (!empty($row["slug"])) ? $row["slug"] : $id;
