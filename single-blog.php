@@ -1,14 +1,22 @@
 <?php
 include 'includes/db_connect.php';
 
+// --- 1. REDIRECT OLD QUERY LINKS TO PRETTY URLS ---
+if (isset($_GET['slug']) && strpos($_SERVER['REQUEST_URI'], 'single-blog') !== false) {
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: /blog/" . $_GET['slug']);
+    exit;
+}
+
+// Get slug from the URL (The .htaccess handles mapping /blog/xyz to single-blog.php?slug=xyz)
 if (!isset($_GET['slug'])) {
-    header('Location: blogs');
+    header('Location: /blogs');
     exit;
 }
 
 $slug = $_GET['slug'];
 
-// 1. GET CURRENT POST
+// 2. GET CURRENT POST
 $stmt = $conn->prepare("SELECT p.*, u.full_name FROM posts p LEFT JOIN users u ON p.author_id = u.id WHERE p.slug = ? AND p.status = 'published'");
 $stmt->bind_param("s", $slug);
 $stmt->execute();
@@ -16,19 +24,19 @@ $result = $stmt->get_result();
 $post = $result->fetch_assoc();
 
 if (!$post) {
-    header('Location: blogs');
+    header('Location: /blogs');
     exit;
 }
 
 $current_id = $post['id'];
 
-// 2. GET PREVIOUS POST
+// 3. GET PREVIOUS POST
 $prev_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id < ? AND status = 'published' ORDER BY id DESC LIMIT 1");
 $prev_stmt->bind_param("i", $current_id);
 $prev_stmt->execute();
 $prev_post = $prev_stmt->get_result()->fetch_assoc();
 
-// 3. GET NEXT POST
+// 4. GET NEXT POST
 $next_stmt = $conn->prepare("SELECT slug, title, featured_image, created_at FROM posts WHERE id > ? AND status = 'published' ORDER BY id ASC LIMIT 1");
 $next_stmt->bind_param("i", $current_id);
 $next_stmt->execute();
@@ -38,21 +46,22 @@ $next_post = $next_stmt->get_result()->fetch_assoc();
 $word_count = str_word_count(strip_tags($post['content']));
 $read_time = max(1, ceil($word_count / 200)) . ' min read';
 
-// Meta Description
+// Meta Description & SEO Setup
 $clean_content = strip_tags($post['content']);
 $auto_desc = substr($clean_content, 0, 150) . '...';
 $metaDesc = !empty($post['meta_description']) ? $post['meta_description'] : $auto_desc;
 
 $pageTitle = $post['title'] . " | Danono's Blog";
 $customCss = "single-blog.css";
+
+// Include header (which now contains our improved canonical logic)
 include 'includes/header.php';
 
-// Author Name
+// For Schema & Author
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
-
-// --- ARTICLE SCHEMA START ---
+$currentUrl = "https://danonos.com/blog/" . $post['slug'];
 $schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
-$schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
+$schemaDate = date('c', strtotime($post['created_at'])); 
 ?>
 
 <script type="application/ld+json">
@@ -64,9 +73,7 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
     "@id": "<?php echo $currentUrl; ?>"
   },
   "headline": "<?php echo htmlspecialchars($post['title']); ?>",
-  "image": [
-    "<?php echo $schemaImage; ?>"
-  ],
+  "image": ["<?php echo $schemaImage; ?>"],
   "datePublished": "<?php echo $schemaDate; ?>",
   "dateModified": "<?php echo $schemaDate; ?>",
   "author": {
@@ -531,11 +538,9 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
 </style>
 
 <div class="blog-wrapper">
-
     <div class="blog-header">
         <div class="blog-meta">
-            <?php echo date('F j, Y', strtotime($post['created_at'])); ?> •
-            <?php echo $read_time; ?>
+            <?php echo date('F j, Y', strtotime($post['created_at'])); ?> • <?php echo $read_time; ?>
         </div>
         <h1 class="blog-title"><?php echo htmlspecialchars($post['title']); ?></h1>
         <div class="blog-author">
@@ -548,15 +553,15 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
     </div>
 
     <div class="blog-action-bar">
-        <a href="blogs" class="back-link">
+        <a href="/blogs" class="back-link">
             <i class="ph ph-squares-four"></i> View All Stories
         </a>
         <button type="button" onclick="openShareModal()" class="btn-share">
             <i class="ph ph-share-network"></i> Share this Post
         </button>
     </div>
-
 </div>
+
 <hr class="section-divider">
 
 <div class="more-stories-section">
@@ -567,12 +572,10 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
             $prev_img = !empty($prev_post["featured_image"]) ? "uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
             ?>
-            <a href="single-blog?slug=<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
+            <a href="/blog/<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Previous</div>
-                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
-                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-
+                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>">
                     <div class="nav-card-overlay">
                         <span><i class="ph ph-arrow-left"></i> Previous</span>
                     </div>
@@ -588,12 +591,10 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
             $next_img = !empty($next_post["featured_image"]) ? "uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $next_date = date('M d, Y', strtotime($next_post['created_at']));
             ?>
-            <a href="single-blog?slug=<?php echo $next_post['slug']; ?>" class="nav-card next-card">
+            <a href="/blog/<?php echo $next_post['slug']; ?>" class="nav-card next-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Next</div>
-                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
-                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-
+                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>">
                     <div class="nav-card-overlay">
                         <span>Next <i class="ph ph-arrow-right"></i></span>
                     </div>
@@ -616,44 +617,28 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
             <h3>Share this Post</h3>
             <p>Spread the sweetness with your friends!</p>
         </div>
-
         <div class="share-options">
-            <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-facebook-logo"></i> Facebook
-            </a>
-            <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-twitter-logo"></i> Twitter
-            </a>
-            <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-whatsapp-logo"></i> WhatsApp
-            </a>
-            <button type="button" class="share-btn copy-link" onclick="copyToClipboard()">
-                <i class="ph ph-link"></i> Copy Link
-            </button>
+            <a href="#" class="share-btn facebook" target="_blank" rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i> Facebook</a>
+            <a href="#" class="share-btn twitter" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
+            <a href="#" class="share-btn whatsapp" target="_blank" rel="noopener noreferrer"><i class="ph ph-whatsapp-logo"></i> WhatsApp</a>
+            <button type="button" class="share-btn copy-link" onclick="copyToClipboard()"><i class="ph ph-link"></i> Copy Link</button>
         </div>
     </div>
 </div>
 
 <script>
-    // Modal Logic
     const shareModal = document.getElementById('shareModal');
     const modalBackdrop = document.querySelector('.share-modal-backdrop');
     const closeModalBtn = document.querySelector('.close-modal');
 
     function openShareModal() {
         if (shareModal) shareModal.classList.add('active');
-
         const currentUrl = encodeURIComponent(window.location.href);
         const pageTitle = encodeURIComponent(document.title);
 
-        const facebookBtn = document.querySelector('.share-btn.facebook');
-        if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
-        const twitterBtn = document.querySelector('.share-btn.twitter');
-        if (twitterBtn) twitterBtn.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-
-        const whatsappBtn = document.querySelector('.share-btn.whatsapp');
-        if (whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
+        document.querySelector('.share-btn.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        document.querySelector('.share-btn.twitter').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
+        document.querySelector('.share-btn.whatsapp').href = `https://api.whatsapp.com/send?text=${pageTitle}%20${currentUrl}`;
     }
 
     function closeShareModal() {
@@ -665,17 +650,13 @@ $schemaDate = date('c', strtotime($post['created_at'])); // ISO 8601 format
 
     function copyToClipboard() {
         navigator.clipboard.writeText(window.location.href);
-
         const btn = document.querySelector('.share-btn.copy-link');
         const originalHTML = btn.innerHTML;
-        const originalColor = btn.style.backgroundColor;
-
         btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
         btn.style.backgroundColor = '#10B981';
-
         setTimeout(() => {
             btn.innerHTML = originalHTML;
-            btn.style.backgroundColor = originalColor;
+            btn.style.backgroundColor = '';
         }, 2000);
     }
 </script>
