@@ -16,6 +16,7 @@ include 'includes/db_connect.php';
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/blogs.css">
+    
     <style>
         * {
             margin: 0;
@@ -602,7 +603,6 @@ include 'includes/db_connect.php';
 <body>
     <?php include 'includes/header.php'; ?>
 
-    <!-- Blog Hero Section -->
     <section class="blog-hero">
         <div class="floating-shape shape-1" data-speed="4"></div>
         <div class="floating-shape shape-2" data-speed="-2"></div>
@@ -622,7 +622,6 @@ include 'includes/db_connect.php';
 
     <div class="blog-container">
 
-        <!-- Blog Grid -->
         <div class="blog-grid">
             <?php
             $sql = "SELECT * FROM posts WHERE status = 'published' ORDER BY created_at DESC";
@@ -645,7 +644,9 @@ include 'includes/db_connect.php';
 
                     $date = date('M d, Y', strtotime($row["created_at"]));
                     $image = !empty($row["featured_image"]) ? "uploads/" . $row["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
-                    $slug = isset($row["slug"]) ? $row["slug"] : $id;
+                    
+                    // FIXED: Ensure we use the slug for the pretty URL
+                    $slug = (!empty($row["slug"])) ? $row["slug"] : $id;
                     ?>
                     <div class="blog-card">
                         <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
@@ -656,7 +657,8 @@ include 'includes/db_connect.php';
                             </p>
                             <h3><?php echo $title; ?></h3>
                             <p><?php echo $excerpt; ?></p>
-                            <a href="single-blog?slug=<?php echo urlencode($slug); ?>" class="btn-read-more">
+                            
+                            <a href="/blog/<?php echo $slug; ?>" class="btn-read-more">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -679,15 +681,8 @@ include 'includes/db_connect.php';
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
+        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
 
-        // Mouse Parallax Logic for floating shapes
         document.addEventListener("mousemove", parallax);
         function parallax(e) {
             document.querySelectorAll(".floating-shape").forEach(function (move) {
@@ -698,76 +693,22 @@ include 'includes/db_connect.php';
             });
         }
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('in-view')) {
                     entry.target.classList.add('in-view');
-                    // Optional: stop observing after animation
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Initialize animations on page load
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.blog-card');
-            cards.forEach(card => {
-                observer.observe(card);
-            });
-
-            // Stagger entrance animations
-            cards.forEach((card, index) => {
-                card.style.setProperty('--card-index', index);
-            });
-        });
-
-        // Enhanced hover effect with perspective
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.blog-card');
-
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
-
-                const distX = (mouseX - cardCenterX) * 0.015;
-                const distY = (mouseY - cardCenterY) * 0.015;
-
-                // Only apply effect if mouse is relatively close
-                if (Math.abs(distX) < 8 && Math.abs(distY) < 8) {
-                    card.style.transform = `perspective(1200px) rotateX(${distY}deg) rotateY(${distX}deg)`;
-                }
-            });
-        });
-
-        // Reset perspective on mouse leave
-        document.addEventListener('mouseleave', () => {
-            document.querySelectorAll('.blog-card').forEach(card => {
-                card.style.transform = '';
-            });
-        });
-
-        // Link smooth transitions
-        document.querySelectorAll('.btn-read-more').forEach(btn => {
-            btn.addEventListener('mouseenter', function () {
-                this.style.letterSpacing = '1.5px';
-            });
-            btn.addEventListener('mouseleave', function () {
-                this.style.letterSpacing = '1px';
-            });
+            cards.forEach(card => observer.observe(card));
         });
     </script>
 
     <?php include 'includes/footer.php'; ?>
 </body>
-
 </html>
