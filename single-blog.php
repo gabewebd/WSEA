@@ -43,6 +43,10 @@ $clean_content = strip_tags($post['content']);
 $auto_desc = substr($clean_content, 0, 150) . '...';
 $metaDesc = !empty($post['meta_description']) ? $post['meta_description'] : $auto_desc;
 
+// FIXED: Force the Pretty URL for Schema and Canonicals
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$prettyUrl = $protocol . "://danonos.com/blog/" . urlencode($slug);
+
 $pageTitle = $post['title'] . " | Danono's Blog";
 $customCss = "single-blog.css";
 include 'includes/header.php';
@@ -51,8 +55,7 @@ include 'includes/header.php';
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
 // --- ARTICLE SCHEMA START ---
-// Added leading slash to uploads
-$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
+$schemaImage = !empty($post["featured_image"]) ? "/uploads/" . $post["featured_image"] : "/assets/img/danonos-hero.jpg";
 $schemaDate = date('c', strtotime($post['created_at'])); 
 ?>
 
@@ -62,7 +65,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "<?php echo $currentUrl; ?>"
+    "@id": "<?php echo $prettyUrl; ?>"
   },
   "headline": "<?php echo htmlspecialchars($post['title']); ?>",
   "image": [
@@ -79,7 +82,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
     "name": "Danono's Doughnuts and Brownies",
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg"
+      "url": "/assets/img/danonos-logo.jpg"
     }
   }
 }
@@ -356,6 +359,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
     <div class="blog-content">
         <?php 
             $content = $post['content'];
+            // Fix local image paths if they missed the leading slash
             $content = preg_replace('/src="uploads\//', 'src="/uploads/', $content);
             echo $content; 
         ?>
@@ -377,45 +381,37 @@ $schemaDate = date('c', strtotime($post['created_at']));
     <h3 class="more-stories-title">More from the Kitchen</h3>
     <div class="post-navigation-cards">
 
-        <?php if ($prev_post):
-            // FIXED: Added leading slash to image
+        <?php if ($prev_post): 
             $prev_img = !empty($prev_post["featured_image"]) ? "/uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
-            $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
             ?>
             <a href="/blog/<?php echo urlencode($prev_post['slug']); ?>" class="nav-card prev-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Previous</div>
-                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>"
-                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-
+                    <img src="<?php echo $prev_img; ?>" alt="<?php echo htmlspecialchars($prev_post['title']); ?>">
                     <div class="nav-card-overlay">
                         <span><i class="ph ph-arrow-left"></i> Previous</span>
                     </div>
                 </div>
                 <div class="nav-card-content">
-                    <span class="nav-date"><?php echo $prev_date; ?></span>
+                    <span class="nav-date"><?php echo date('M d, Y', strtotime($prev_post['created_at'])); ?></span>
                     <h4 class="nav-title"><?php echo htmlspecialchars($prev_post['title']); ?></h4>
                 </div>
             </a>
         <?php endif; ?>
 
-        <?php if ($next_post):
-            // FIXED: Added leading slash to image
+        <?php if ($next_post): 
             $next_img = !empty($next_post["featured_image"]) ? "/uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
-            $next_date = date('M d, Y', strtotime($next_post['created_at']));
             ?>
             <a href="/blog/<?php echo urlencode($next_post['slug']); ?>" class="nav-card next-card">
                 <div class="nav-card-img">
                     <div class="nav-card-label">Next</div>
-                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>"
-                        onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
-
+                    <img src="<?php echo $next_img; ?>" alt="<?php echo htmlspecialchars($next_post['title']); ?>">
                     <div class="nav-card-overlay">
                         <span>Next <i class="ph ph-arrow-right"></i></span>
                     </div>
                 </div>
                 <div class="nav-card-content">
-                    <span class="nav-date"><?php echo $next_date; ?></span>
+                    <span class="nav-date"><?php echo date('M d, Y', strtotime($next_post['created_at'])); ?></span>
                     <h4 class="nav-title"><?php echo htmlspecialchars($next_post['title']); ?></h4>
                 </div>
             </a>
