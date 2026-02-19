@@ -27,3 +27,6 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # 6. Handle 404 errors
 ErrorDocument 404 /404.php
+
+# 7. Pretty URLs for Blogs (e.g., danonos.com/blog/my-post)
+RewriteRule ^blog/([a-zA-Z0-9_-]+)$ single-blog.php?slug=$1 [L,QSA]
