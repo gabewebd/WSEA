@@ -17,11 +17,18 @@ if (substr($baseUrl, -1) !== '/') {
   $baseUrl .= '/';
 }
 
-// --- SEO FIX: Canonical Logic ---
-// We explicitly FORCE the canonical URL to be the "non-www" version.
-// Even if someone visits "www", this tag tells Google the real version is without it.
+// --- SEO FIX: Improved Canonical Logic ---
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = "danonos.com"; // Force non-www
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$canonicalUrl = "https://danonos.com" . $requestPath;
+
+// If it's a blog post using the new structure, or even the old one, 
+// we ensure the canonical points to the "Pretty" version.
+if (isset($_GET['slug']) && strpos($requestPath, 'single-blog') !== false) {
+    $canonicalUrl = $protocol . "://" . $host . "/blog/" . $_GET['slug'];
+} else {
+    $canonicalUrl = $protocol . "://" . $host . $requestPath;
+}
 
 // Fallback for social images
 $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-hero.jpg";
