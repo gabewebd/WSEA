@@ -60,7 +60,7 @@ include 'includes/header.php';
 // For Schema & Author
 $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 $currentUrl = "https://danonos.com/blog/" . $post['slug'];
-$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
+$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "/uploads" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
 $schemaDate = date('c', strtotime($post['created_at'])); 
 ?>
 
@@ -569,7 +569,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
     <div class="post-navigation-cards">
 
         <?php if ($prev_post):
-            $prev_img = !empty($prev_post["featured_image"]) ? "uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            $prev_img = !empty($prev_post["featured_image"]) ? "/uploads" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $prev_date = date('M d, Y', strtotime($prev_post['created_at']));
             ?>
             <a href="/blog/<?php echo $prev_post['slug']; ?>" class="nav-card prev-card">
@@ -588,7 +588,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
         <?php endif; ?>
 
         <?php if ($next_post):
-            $next_img = !empty($next_post["featured_image"]) ? "uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
+            $next_img = !empty($next_post["featured_image"]) ? "/uploads" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             $next_date = date('M d, Y', strtotime($next_post['created_at']));
             ?>
             <a href="/blog/<?php echo $next_post['slug']; ?>" class="nav-card next-card">
