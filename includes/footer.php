@@ -19,12 +19,12 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="index"><i class="ph ph-house"></i> Home</a></li>
-                <li><a href="about"><i class="ph ph-info"></i> About Us</a></li>
-                <li><a href="menu"><i class="ph ph-cookie"></i> Menu</a></li>
-                <li><a href="blogs"><i class="ph ph-article"></i> Blogs</a></li>
-                <li><a href="locations"><i class="ph ph-map-pin"></i> Locations</a></li>
-                <li><a href="franchise"><i class="ph ph-handshake"></i> Franchise</a></li>
+                <li><a href="<?php echo $baseUrl; ?>"><i class="ph ph-house"></i> Home</a></li>
+                <li><a href="<?php echo $baseUrl; ?>about"><i class="ph ph-info"></i> About Us</a></li>
+                <li><a href="<?php echo $baseUrl; ?>menu"><i class="ph ph-cookie"></i> Menu</a></li>
+                <li><a href="<?php echo $baseUrl; ?>blogs"><i class="ph ph-article"></i> Blogs</a></li>
+                <li><a href="<?php echo $baseUrl; ?>locations"><i class="ph ph-map-pin"></i> Locations</a></li>
+                <li><a href="<?php echo $baseUrl; ?>franchise"><i class="ph ph-handshake"></i> Franchise</a></li>
             </ul>
         </div>
 
@@ -43,8 +43,9 @@
         </div>
     </div>
 
-    <div class="footer-bottom">
-        <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="privacy-policy"
-                style="color: inherit;">Privacy Policy and Terms of Service</a></p>
-    </div>
+        <div class="footer-bottom">
+            <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | 
+            <a href="<?php echo $baseUrl; ?>privacy-policy" style="color: inherit;">Privacy Policy and Terms of Service</a>
+            </p>
+        </div>
 </footer>
