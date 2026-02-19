@@ -14,7 +14,10 @@ if (isset($_POST['submit_post'])) {
     $alt_text = $_POST['alt_text'];
     $status = $_POST['status'];
     $author_id = $_SESSION['user_id'];
-    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
+    // 1. Remove apostrophes entirely so "Danono's" becomes "Danonos"
+    $clean_title = str_replace("'", "", $title);
+    // 2. Standard slugify (replace non-alphanumeric with hyphens)
+    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $clean_title), '-'));
 
     // Handle Image: Upload OR URL
     $image_filename = "";

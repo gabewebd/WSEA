@@ -33,7 +33,10 @@ if (isset($_POST['update_post'])) {
     $meta_desc = $_POST['meta_description'];
     $alt_text = $_POST['alt_text'];
     $status = $_POST['status'];
-    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
+    // 1. Remove apostrophes entirely so "Danono's" becomes "Danonos"
+    $clean_title = str_replace("'", "", $title);
+    // 2. Standard slugify (replace non-alphanumeric with hyphens)
+    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $clean_title), '-'));
 
     // Handle Image: New upload, new URL, or keep existing
     $image_filename = $post['featured_image']; // Keep existing by default

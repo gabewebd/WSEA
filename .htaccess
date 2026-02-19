@@ -1,40 +1,44 @@
 RewriteEngine On
 RewriteBase /
 
-# --- IGNORE ADMIN FOLDER ---
+# 1. IGNORE ADMIN FOLDER
+# This prevents the pretty URL rules from breaking the admin login and dashboard
 RewriteRule ^admin/ - [L]
 
-# 1. Force NON-WWW (Redirects www.danonos.com -> danonos.com)
+# 2. REDIRECT OLD HYPHENATED APOSTROPHES
+# This catches links like /blog/danono-s-donuts and sends them to /blog/danonos-donuts
+# This protects the links already submitted
+RewriteRule ^blog/(.*)-s-(.*)$ /blog/$1s-$2 [R=301,L]
+
+# 3. Force NON-WWW (Redirects www.danonos.com -> danonos.com)
 RewriteCond %{HTTP_HOST} ^www\.danonos\.com [NC]
 RewriteRule ^(.*)$ https://danonos.com/$1 [L,R=301]
 
-# 2. Redirect "home" or "index" to root "/"
+# 4. Redirect "home" or "index" to root "/"
 RewriteRule ^home(\.php)?$ / [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index(\.php)?\ HTTP/
 RewriteRule ^(.*)index(\.php)?$ /$1 [R=301,L]
 
-# 3. Blog Pretty URLs: Redirect old query string (?slug=) to /blog/slug
+# 5. Blog Pretty URLs: Redirect old query string (?slug=) to /blog/slug
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /single-blog\.php\?slug=([a-zA-Z0-9_-]+)\ HTTP/
 RewriteRule ^single-blog\.php$ /blog/%1? [R=301,L]
 
-# 4. Blog Pretty URLs: Internal Mapping (Keep this ABOVE general PHP rules)
-# This maps danonos.com/blog/my-post internally to single-blog.php?slug=my-post
+# 6. Blog Pretty URLs: Internal Mapping
+# Maps danonos.com/blog/my-post internally to single-blog.php?slug=my-post
 RewriteRule ^blog/([a-zA-Z0-9_-]+)/?$ single-blog.php?slug=$1 [L,QSA]
 
-# 5. Remove .php extension from URL (External Redirect)
-# Redirects danonos.com/about.php to danonos.com/about
+# 7. Remove .php extension from URL (External Redirect)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php\ HTTP/
 RewriteRule ^(.+)\.php$ /$1 [R=301,L]
 
-# 6. Map Clean URL back to .php internally
-# If the request isn't a directory and the .php file exists, use it.
+# 8. Map Clean URL back to .php internally
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^([^/]+)$ $1.php [L]
 
-# 7. Force remove trailing slash (except for directories)
+# 9. Force remove trailing slash (except for directories)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-# 8. Handle 404 errors
+# 10. Handle 404 errors
 ErrorDocument 404 /404.php
