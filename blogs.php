@@ -656,7 +656,7 @@ include 'includes/db_connect.php';
                             <h3><?php echo $title; ?></h3>
                             <p><?php echo $excerpt; ?></p>
                             
-                            <a href="post.php?slug=<?php echo $slug; ?>" class="btn-read-more">
+                            <a href="/blog/<?php echo $slug; ?>" class="btn-read-more">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
