@@ -5,9 +5,8 @@ RewriteBase /
 # This prevents the pretty URL rules from breaking the admin login and dashboard
 RewriteRule ^admin/ - [L]
 
-# 2. REDIRECT OLD HYPHENATED APOSTROPHES
-# This catches links like /blog/danono-s-donuts and sends them to /blog/danonos-donuts
-# This protects the links already submitted
+# 2. REDIRECT OLD HYPHENATED APOSTROPHES IN PRETTY URLS
+# Fixes: danonos.com/blog/danono-s-donuts -> danonos.com/blog/danonos-donuts
 RewriteRule ^blog/(.*)-s-(.*)$ /blog/$1s-$2 [R=301,L]
 
 # 3. Force NON-WWW (Redirects www.danonos.com -> danonos.com)
@@ -19,8 +18,13 @@ RewriteRule ^home(\.php)?$ / [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index(\.php)?\ HTTP/
 RewriteRule ^(.*)index(\.php)?$ /$1 [R=301,L]
 
-# 5. Blog Pretty URLs: Redirect old query string (?slug=) to /blog/slug
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /single-blog\.php\?slug=([a-zA-Z0-9_-]+)\ HTTP/
+# 5. REDIRECT OLD QUERY STRINGS AND FIX HYPHENATED APOSTROPHES
+# This handles old URLs like single-blog.php?slug=danono-s-donuts and redirects to /blog/danonos-donuts
+RewriteCond %{QUERY_STRING} ^slug=(.*)-s-(.*)$
+RewriteRule ^single-blog\.php$ /blog/%1s-%2? [R=301,L]
+
+# Standard redirect for ?slug= (if no hyphenated apostrophe is present)
+RewriteCond %{QUERY_STRING} ^slug=([a-zA-Z0-9_-]+)$
 RewriteRule ^single-blog\.php$ /blog/%1? [R=301,L]
 
 # 6. Blog Pretty URLs: Internal Mapping
