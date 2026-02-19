@@ -1,6 +1,9 @@
 RewriteEngine On
 RewriteBase /
 
+# --- IGNORE ADMIN FOLDER ---
+RewriteRule ^admin/ - [L]
+
 # 1. Force NON-WWW (Redirects www.danonos.com -> danonos.com)
 RewriteCond %{HTTP_HOST} ^www\.danonos\.com [NC]
 RewriteRule ^(.*)$ https://danonos.com/$1 [L,R=301]
