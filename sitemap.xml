@@ -38,12 +38,6 @@
   </url>
 
   <url>
-    <loc>https://danonos.com/privacy-policy</loc>
-    <lastmod>2026-02-19</lastmod>
-    <priority>0.60</priority>
-  </url>
-
-  <url>
     <loc>https://danonos.com/blog/beyond-the-doughnut-the-ultimate-guide-to-our-iced-drinks</loc>
     <lastmod>2026-02-19</lastmod>
     <priority>0.70</priority>
@@ -89,6 +83,12 @@
     <loc>https://danonos.com/blog/no-tricks-just-treats-danonos-halloween-collection-is-here</loc>
     <lastmod>2026-02-19</lastmod>
     <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://danonos.com/privacy-policy</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.50</priority>
   </url>
 
 </urlset>
