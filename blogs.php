@@ -656,7 +656,7 @@ include 'includes/db_connect.php';
                             </p>
                             <h3><?php echo $title; ?></h3>
                             <p><?php echo $excerpt; ?></p>
-                            <a href="/blog/<?php echo urlencode($slug); ?>" class="btn-read-more" aria-label="Read more about <?php echo $title; ?>">
+                            <a href="/blog/<?php echo urlencode($slug); ?>" class="btn-read-more" aria-label="Read the full article: <?php echo $title; ?>">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
