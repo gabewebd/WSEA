@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# 0. Allow direct access to robots.txt and sitemap.xml without routing
+RewriteRule ^robots\.txt$ - [L]
+RewriteRule ^sitemap\.xml$ - [L]
+
 # 1. IGNORE ADMIN FOLDER
 # This prevents the pretty URL rules from breaking the admin login and dashboard
 RewriteRule ^admin/ - [L]
