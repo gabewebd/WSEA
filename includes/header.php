@@ -17,17 +17,28 @@ if (substr($baseUrl, -1) !== '/') {
   $baseUrl .= '/';
 }
 
-// --- SEO FIX: Improved Canonical Logic ---
+// --- SEO FIX: Improved Canonical Logic (SOLVES GSC DUPLICATE ERROR) ---
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 $host = "danonos.com"; // Force non-www
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// If it's a blog post using the new structure, or even the old one, 
-// we ensure the canonical points to the "Pretty" version.
-if (isset($_GET['slug']) && strpos($requestPath, 'single-blog') !== false) {
-    $canonicalUrl = $protocol . "://" . $host . "/blog/" . $_GET['slug'];
+// 1. Force index/home variations to exactly match the root "/"
+if ($requestPath == '/index.php' || $requestPath == '/index' || $requestPath == '/home') {
+  $requestPath = '/';
+}
+
+// 2. Remove trailing slashes from inner pages (e.g., /about/ becomes /about)
+if ($requestPath != '/' && substr($requestPath, -1) == '/') {
+  $requestPath = rtrim($requestPath, '/');
+}
+
+// 3. Generate final canonical URL
+if (isset($_GET['slug']) && strpos($_SERVER['REQUEST_URI'], 'single-blog') !== false) {
+  // If it's a blog post using the new or old structure, point to the "Pretty" version.
+  $canonicalUrl = $protocol . "://" . $host . "/blog/" . $_GET['slug'];
 } else {
-    $canonicalUrl = $protocol . "://" . $host . $requestPath;
+  // Otherwise, use the strictly formatted request path
+  $canonicalUrl = $protocol . "://" . $host . $requestPath;
 }
 
 // Fallback for social images
@@ -136,6 +147,8 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   </script>
 
   <meta name="google-site-verification" content="ICn4_I4gNkh5hC1Aqd3kYOm9DZhQAAJyXaCPgI9sMbM" />
+
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="8bGj2TNE59261+17GxiipA" async></script>
 </head>
 
 <body>
