@@ -1,19 +1,35 @@
 /* ===== MENU CSS - Hero & Page Styles ===== */
 
-/* --- GLOBAL VARIABLES --- */
 :root {
-    --primary-orange: #EF7D32;
-    --dark-brown: #431407;
+    --primary: #D4945E;
+    --primary-dark: #A67346;
+    --primary-light: #E8B88D;
+    /* --primary-orange: #EF7D32; (Defined in style.css) */
+    --accent: #8B4513;
+    /* --cream: #FFEDD4; (Defined in style.css) */
+    --dark: #2C1810;
+    /* --dark-brown: #431407; (Defined in style.css) */
+    --text: #3D2817;
+    --border: #E8D4C0;
     --gold: #FFC107;
-    --text-gray: #666;
-    --bg-light: #FFF9F2;
+    --success: #C67C4E;
+    --shadow-sm: 0 4px 12px rgba(76, 34, 14, 0.08);
+    --shadow-md: 0 12px 32px rgba(76, 34, 14, 0.12);
+    --shadow-lg: 0 20px 48px rgba(76, 34, 14, 0.15);
 }
 
 body {
+    background: linear-gradient(135deg, #FFF9F3 0%, #FFF3E6 100%);
+    color: var(--text);
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* --- 1. MENU HERO SECTION --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== MENU HERO SECTION ===== */
 .menu-hero {
     position: relative;
     height: 450px;
@@ -110,150 +126,260 @@ body {
     }
 }
 
-/* --- 2. PAGE LAYOUT & CONTAINER --- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #EF7D32;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.page-title {
-    font-size: 52px;
-    color: #431407;
-    margin: 0;
-    line-height: 1.1;
-}
-
-.page-title span {
-    color: #EF7D32;
-}
-
-/* --- 3. MENU FILTERS --- */
-.menu-filters {
+/* ===== FILTER BUTTONS ===== */
+.filter-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 60px;
+    gap: 12px;
+    margin: 50px auto;
     flex-wrap: wrap;
+    padding: 0 20px;
+    animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
 }
 
 .filter-btn {
-    padding: 12px 30px;
-    border: 2px solid #EF7D32;
-    background: transparent;
-    color: #EF7D32;
+    padding: 12px 28px;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
     border-radius: 50px;
-    font-family: inherit;
-    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: capitalize;
+    box-shadow: var(--shadow-sm);
 }
 
-.filter-btn.active,
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-orange) 0%, var(--gold) 100%);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
 .filter-btn:hover {
-    background: #EF7D32;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(239, 125, 50, 0.3);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
 }
 
-/* --- 4. MENU GRID SYSTEM --- */
+.filter-btn.active {
+    color: white;
+    border-color: var(--primary-orange);
+    box-shadow: var(--shadow-lg);
+}
+
+.filter-btn.active::before {
+    left: 0;
+}
+
+/* ===== MENU GRID ===== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding-bottom: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
 }
 
-/* --- 5. CARD STYLING --- */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+    }
+}
+
+/* ===== CARD STYLING ===== */
 .card {
     background: white;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    border: 1px solid #FFF8F0;
-    box-shadow: 0 10px 30px rgba(67, 20, 7, 0.03);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-md);
+    transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
+    opacity: 0;
+    animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card.hidden {
+    display: none;
+}
+
+.card.animating-in {
+    animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardLoad {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 148, 94, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08);
-    border-color: #EF7D32;
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
 }
 
-/* Card Image */
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C0 100%);
+}
+
+.card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
 .card img {
     width: 100%;
-    height: 260px;
+    height: 100%;
     object-fit: cover;
-    background-color: #FFF8F0;
-    transition: transform 0.5s ease;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: brightness(1.05) contrast(1.05);
 }
 
 .card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.12) rotate(2deg);
+    filter: brightness(1.15) contrast(1.1) saturate(1.1);
 }
 
-/* Card Text Content */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 28px;
+    position: relative;
+    z-index: 2;
+}
+
 .card h3 {
-    font-size: 22px;
-    margin: 20px 25px 10px;
-    color: #431407;
+    font-size: 24px;
     font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: var(--primary);
 }
 
 .card p {
-    font-size: 15px;
+    font-size: 14px;
     color: #666;
-    margin: 0 25px 20px;
-    line-height: 1.6;
+    margin: 0 0 20px;
+    line-height: 1.7;
     flex-grow: 1;
+    font-weight: 400;
 }
 
-/* Price Tag */
-.price {
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
     margin-top: auto;
-    padding: 20px 25px;
-    background-color: #FFFDF9;
-    border-top: 1px solid #FFF0E0;
-    color: #EF7D32 !important;
-    font-weight: 800;
-    font-size: 18px;
+}
+
+.price-tag {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(212, 148, 94, 0.3);
+    transition: all 0.3s ease;
 }
 
-.price i {
-    font-size: 20px;
+.card:hover .price-tag {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(212, 148, 94, 0.4);
 }
 
-/* --- 6. ANIMATIONS --- */
-@keyframes fadeIn {
+.card-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover .card-icon {
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(20deg);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInDown {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-30px);
     }
 
     to {
@@ -262,359 +388,169 @@ body {
     }
 }
 
-/* ============================================= */
-/* --- RESPONSIVE STYLES --- */
-/* ============================================= */
-
-/* --- TABLET (max-width: 1024px) --- */
-@media (max-width: 1024px) {
-
-    /* Hero Section */
-    .menu-hero {
-        height: 400px;
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
-    .menu-hero-content h1 {
-        font-size: 42px;
-    }
-
-    .menu-hero-content .section-subtitle {
-        font-size: 12px;
-        letter-spacing: 3px;
-    }
-
-    /* Floating Shapes */
-    .shape-1 {
-        width: 250px;
-        height: 250px;
-    }
-
-    .shape-2 {
-        width: 200px;
-        height: 200px;
-    }
-
-    /* Container & Layout */
-    .container {
-        padding: 50px 20px;
-    }
-
-    /* Section Header */
-    .page-title {
-        font-size: 44px;
-    }
-
-    .section-header {
-        margin-bottom: 40px;
-    }
-
-    /* Menu Filters */
-    .menu-filters {
-        gap: 12px;
-        margin-bottom: 50px;
-    }
-
-    .filter-btn {
-        padding: 10px 24px;
-        font-size: 14px;
-    }
-
-    /* Grid */
-    .grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-    }
-
-    /* Cards */
-    .card img {
-        height: 240px;
-    }
-
-    .card h3 {
-        font-size: 20px;
-        margin: 18px 22px 8px;
-    }
-
-    .card p {
-        font-size: 14px;
-        margin: 0 22px 18px;
-    }
-
-    .price {
-        padding: 18px 22px;
-        font-size: 17px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* --- MOBILE (max-width: 768px) --- */
-@media (max-width: 768px) {
-
-    /* Hero Section */
-    .menu-hero {
-        height: 350px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
 
-    .menu-hero-content {
-        padding: 0 15px;
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(30px) translateX(10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 148, 94, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(212, 148, 94, 0);
+    }
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 0.3s both;
+}
+
+.empty-state-icon {
+    font-size: 80px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h2 {
+    font-size: 28px;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #999;
+    font-size: 16px;
+}
+
+/* ===== LOADING STATE ===== */
+.card.skeleton {
+    pointer-events: none;
+}
+
+.card.skeleton img {
+    background: linear-gradient(90deg, #e0d5c8 0%, #f0e6d9 50%, #e0d5c8 100%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .menu-hero-content h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-hero {
+        height: 380px;
     }
 
     .menu-hero-content h1 {
         font-size: 32px;
-        line-height: 1.2;
     }
 
-    .menu-hero-content .section-subtitle {
-        font-size: 11px;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
     }
 
-    /* Floating Shapes */
-    .floating-shape {
-        filter: blur(40px);
+    .card-content {
+        padding: 20px;
     }
 
-    .shape-1 {
-        width: 200px;
-        height: 200px;
-        top: -30px;
-        left: -30px;
-    }
-
-    .shape-2 {
-        width: 150px;
-        height: 150px;
-        bottom: -30px;
-    }
-
-    /* Container & Layout */
-    .container {
-        padding: 40px 15px;
-    }
-
-    /* Section Header */
-    .page-title {
-        font-size: 36px;
-    }
-
-    .section-label {
-        font-size: 12px;
-        letter-spacing: 1.5px;
-    }
-
-    .section-header {
-        margin-bottom: 35px;
-    }
-
-    /* Menu Filters */
-    .menu-filters {
-        gap: 10px;
-        margin-bottom: 40px;
-        padding: 0 5px;
+    .filter-container {
+        gap: 8px;
     }
 
     .filter-btn {
         padding: 10px 20px;
         font-size: 13px;
-        border-width: 1.5px;
-    }
-
-    /* Grid */
-    .grid {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 20px;
-        padding-bottom: 30px;
-    }
-
-    /* Cards */
-    .card {
-        border-radius: 16px;
-    }
-
-    .card img {
-        height: 220px;
-    }
-
-    .card h3 {
-        font-size: 19px;
-        margin: 16px 20px 8px;
-    }
-
-    .card p {
-        font-size: 14px;
-        margin: 0 20px 16px;
-        line-height: 1.5;
-    }
-
-    .price {
-        padding: 16px 20px;
-        font-size: 16px;
-    }
-
-    .price i {
-        font-size: 18px;
     }
 }
 
-/* --- SMALL MOBILE (max-width: 480px) --- */
 @media (max-width: 480px) {
-
-    /* Hero Section */
     .menu-hero {
-        height: 300px;
-    }
-
-    .menu-hero-content {
-        padding: 0 12px;
+        height: 320px;
     }
 
     .menu-hero-content h1 {
-        font-size: 26px;
-    }
-
-    .menu-hero-content .section-subtitle {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-    }
-
-    /* Floating Shapes */
-    .floating-shape {
-        filter: blur(30px);
-    }
-
-    .shape-1 {
-        width: 150px;
-        height: 150px;
-        top: -20px;
-        left: -20px;
-    }
-
-    .shape-2 {
-        width: 120px;
-        height: 120px;
-        bottom: -20px;
-        right: 5%;
-    }
-
-    /* Container & Layout */
-    .container {
-        padding: 30px 12px;
-    }
-
-    /* Section Header */
-    .page-title {
         font-size: 28px;
     }
 
-    .section-label {
-        font-size: 11px;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-    }
-
-    .section-header {
-        margin-bottom: 30px;
-    }
-
-    /* Menu Filters - Horizontal Scroll */
-    .menu-filters {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        /* Firefox */
-        -ms-overflow-style: none;
-        /* IE/Edge */
-        gap: 10px;
-        margin-bottom: 30px;
-        padding: 0 12px 10px;
-        justify-content: flex-start;
-    }
-
-    .menu-filters::-webkit-scrollbar {
-        display: none;
-        /* Chrome/Safari */
-    }
-
-    .filter-btn {
-        flex-shrink: 0;
-        white-space: nowrap;
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-
-    /* Grid - Single Column */
     .grid {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding-bottom: 25px;
     }
 
-    /* Cards */
-    .card {
-        border-radius: 14px;
+    .filter-container {
+        flex-direction: column;
     }
 
-    .card img {
-        height: 200px;
-    }
-
-    .card h3 {
-        font-size: 18px;
-        margin: 14px 16px 6px;
-    }
-
-    .card p {
-        font-size: 13px;
-        margin: 0 16px 14px;
-        line-height: 1.5;
-    }
-
-    .price {
-        padding: 14px 16px;
-        font-size: 15px;
-        gap: 6px;
-    }
-
-    .price i {
-        font-size: 16px;
+    .filter-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
-/* --- EXTRA SMALL MOBILE (max-width: 360px) --- */
-@media (max-width: 360px) {
-    .menu-hero {
-        height: 260px;
-    }
+/* ===== SCROLL ANIMATIONS ===== */
+.card {
+    opacity: 0;
+}
 
-    .menu-hero-content h1 {
-        font-size: 22px;
-    }
+.card.in-view {
+    animation: cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
 
-    .menu-hero-content .section-subtitle {
-        font-size: 9px;
-    }
-
-    .page-title {
-        font-size: 24px;
-    }
-
-    .card img {
-        height: 180px;
-    }
-
-    .card h3 {
-        font-size: 16px;
-        margin: 12px 14px 5px;
-    }
-
-    .card p {
-        font-size: 12px;
-        margin: 0 14px 12px;
-    }
-
-    .price {
-        padding: 12px 14px;
-        font-size: 14px;
-    }
+/* ===== SMOOTH TRANSITIONS ===== */
+button,
+a {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
