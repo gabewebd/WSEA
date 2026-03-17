@@ -1,11 +1,9 @@
 <footer>
     <div class="footer-content">
         <div class="footer-section footer-about">
-            <a href="<?php echo $baseUrl; ?>">
-                <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danonos"
-                    style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; margin-bottom: 15px;">
-            </a>
-            <p>Spreading happiness one donut at a time. The home of premium brioche donuts in Angeles City.</p>
+            <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danono's Donuts Logo" class="footer-logo" 
+                style="width: 80px; height: auto; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);">
+            <p>Spreading happiness one donut at a time. The home of <strong>premium brioche donuts</strong> in Angeles City.</p>
             <div class="social-icons">
                 <a href="https://www.facebook.com/danonosdoughnuts" class="social-icon" target="_blank"
                     rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i></a>
@@ -36,10 +34,19 @@
                 <li><a href="mailto:nonosdoughnuts@gmail.com" target="_blank" rel="noopener noreferrer"><i
                             class="ph ph-envelope"></i>
                         nonosdoughnuts@gmail.com</a></li>
-                <li><a href="https://maps.app.goo.gl/rpfMVMtcKbejSVjS6" target="_blank" rel="noopener noreferrer"><i
-                            class="ph ph-map-pin"></i> Angeles City,
-                        Pampanga</a></li>
+                <li><a href="https://maps.app.goo.gl/QbmtLY8x3255rzCT7" target="_blank" rel="noopener noreferrer"><i
+                            class="ph ph-map-pin"></i> Angeles City, Pampanga</a>
+                </li>
             </ul>
+        </div>
+        <div class="footer-section footer-map">
+            <h3>Visit Us</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.1983680897783!2d120.5943797!3d15.1474468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f24013020c15%3A0x3c7b1670185d73c2!2sNono&#39;s%20Doughnuts%20(Angeles%20Branch)!5e0!3m2!1sen!2sph!4v1773760746750!5m2!1sen!2sph"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p style="font-size: 12px; margin-top: 10px; color: #999;">Best <a href="<?php echo $baseUrl; ?>menu"
+                    style="color: inherit; text-decoration: underline;">donuts and coffee near me</a> in Pampanga.</p>
         </div>
     </div>
 

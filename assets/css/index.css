@@ -537,8 +537,16 @@
 
     .family-banner .family-buttons {
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
         align-items: center;
+        gap: 12px; /* Slightly tighter gap for mobile */
+    }
+
+    .family-banner .btn-white,
+    .family-banner .btn-outline-white {
+        width: auto; /* Ensure they don't fill width */
+        padding: 12px 24px; /* Slightly smaller padding for mobile */
+        font-size: 14px;
     }
 }
 

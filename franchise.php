@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Franchise - Danono's Doughnuts and Brownies";
-$metaDesc = "Join the Danono's family! Learn about franchise opportunities and how to bring our delicious doughnuts to your community.";
+$pageTitle = "Franchise Opportunities | Best Donut Franchise in the Philippines";
+$metaDesc = "Join the Danono's family! Learn about donut franchise opportunities in the Philippines and how to bring our premium brioche donuts to your community.";
 $customCss = "franchise.css";
 ?>
 <?php include 'includes/header.php'; ?>
@@ -11,94 +11,188 @@ $customCss = "franchise.css";
     /* =========================================
        FRANCHISE RESPONSIVE FIXES (HERO & FORM ONLY)
        ========================================= */
-    :root {
-        --primary-orange: #EF7D32;
-        --dark-brown: #431407;
-        --cream: #FFF9F2;
+    html, body {
+        overflow-x: visible !important; /* Allow sticky header */
     }
-
-    /* --- HERO SECTION STYLES --- */
     .franchise-hero {
         position: relative;
-        min-height: 85vh;
+        min-height: 95vh;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 120px 5% 80px;
-        overflow: visible; 
-        background: linear-gradient(to bottom, #FFFdf9 0%, #FFF9F2 100%);
+        padding: 40px 5% 40px;
+        background: #FFFAF5;
+        overflow: hidden;
+        gap: 15px;
+        width: 100%;
+        max-width: 100%;
     }
+
     .hero-text {
-        flex: 1;
-        max-width: 600px;
-        z-index: 2;
+        flex: 1.2;
+        max-width: 700px;
+        z-index: 10;
+        text-align: left;
+        padding: 0 5%;
     }
 
     .hero-text h1 {
-        font-size: 64px;
+        font-family: var(--font-heading), "Fredoka", sans-serif;
+        font-size: 68px;
         line-height: 1.1;
-        color: var(--dark-brown);
+        color: #431407;
         margin-bottom: 25px;
-        font-weight: 800;
+        font-weight: 900;
+        letter-spacing: -1.5px;
     }
 
-    .text-gradient {
-        color: var(--primary-orange);
-    }
-
-    .hero-image-wrapper {
-        flex: 1;
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .floating-img {
-        width: 100%;
+    .hero-text p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #6D4C41;
+        margin: 0 0 40px;
         max-width: 550px;
-        border-radius: 30px;
-        border: 8px solid white;
-        box-shadow: 0 20px 50px rgba(67, 20, 7, 0.15);
-        transform: rotate(3deg);
-    }
-
-    .floating-card {
-        position: absolute;
-        bottom: 40px;
-        left: 0;
-        background: white;
-        padding: 15px 25px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        z-index: 3;
     }
 
     .hero-buttons {
         display: flex;
-        gap: 15px;
+        gap: 16px;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    /* --- FORM BUTTON STYLES --- */
-    .form-submit-btn {
-        background: var(--primary-orange);
-        color: white;
-        width: 100%;
-        padding: 16px;
-        border: none;
-        border-radius: 12px;
-        font-size: 16px;
+    .btn-primary {
+        background: #EF7D32;
+        color: white !important;
+        padding: 16px 35px;
+        border-radius: 50px;
         font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s;
-        margin-top: 20px;
+        font-size: 15px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: none;
+        box-shadow: 0 10px 20px rgba(239, 125, 50, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(239, 125, 50, 0.4);
+    }
+
+    .btn-secondary {
+        background: white;
+        color: #431407 !important;
+        padding: 16px 35px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        border: 2px solid #EEE5DE;
+    }
+
+    .btn-secondary:hover {
+        background: #FDFBFA;
+        border-color: #431407;
+        transform: translateY(-3px);
+    }
+
+    /* --- HERO IMAGE & BLOB --- */
+    /* --- HERO SIDE IMAGES --- */
+    .hero-side-wrapper {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        padding-right: 5%;
+    }
+
+    .image-blob-bg {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        background: #FEE7C8;
+        border-radius: 50%;
+        z-index: 1;
+        opacity: 0.8;
+        filter: blur(60px);
+    }
+
+    .premium-image-container {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .premium-image-container:hover {
+        transform: scale(1.02);
+    }
+
+    .floating-img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 30px;
+        display: block;
+        box-shadow: 0 40px 100px rgba(67, 20, 7, 0.15);
+    }
+
+    .floating-card {
+        position: absolute;
+        bottom: 20px;
+        left: -30px;
+        background: white;
+        padding: 15px 22px;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(67, 20, 7, 0.12);
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        gap: 15px;
+        z-index: 20;
+        animation: floatCard 4s infinite ease-in-out;
+    }
+
+    @keyframes floatCard {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .floating-card i {
+        font-size: 28px;
+        color: #EF7D32;
+        background: #FFF5EE;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .floating-card span {
+        display: block;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #A1887F;
+        letter-spacing: 1px;
+    }
+
+    .floating-card strong {
+        font-size: 18px;
+        color: #431407;
+        font-weight: 900;
     }
 
     .form-submit-btn:hover {
@@ -108,116 +202,103 @@ $customCss = "franchise.css";
 
     /* --- MOBILE RESPONSIVE FIXES --- */
     @media (max-width: 968px) {
-
-        /* 1. Fix Hero Section Stacking */
         .franchise-hero {
-            display: flex !important;
             flex-direction: column !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            text-align: center;
-            padding: 100px 20px 60px;
-            min-height: auto !important;
+            text-align: center !important;
+            padding: 40px 20px 60px !important;
+            gap: 20px;
+            min-height: 0 !important;
             height: auto !important;
-            gap: 40px;
+            justify-content: flex-start !important;
+            margin-top: 0 !important;
+            overflow: hidden; /* Extra safety for horizontal scroll */
         }
 
-        /* 2. Text First (Order: 1) */
         .hero-text {
-            order: 1 !important;
-            width: 100%;
-            max-width: 100%;
-            flex: none !important;
-            margin-bottom: 30px;
+            text-align: center !important;
+            padding: 0;
+            order: 1;
         }
 
         .hero-text h1 {
-            font-size: 32px;
-            /* Mobile header size */
-            margin-bottom: 15px;
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .hero-text p {
-            font-size: 16px;
-            margin: 0 auto 25px;
-            max-width: 100%;
+            margin: 0 auto 30px;
         }
 
         .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto;
-        }
-
-        .hero-buttons .btn {
-            width: 100%;
             justify-content: center;
-            padding: 14px 24px;
         }
 
-        /* 3. Image Second (Order: 2) */
-        .hero-image-wrapper {
-            order: 2 !important;
+        .hero-side-wrapper {
+            order: 2;
+            padding-right: 0;
             width: 100%;
-            max-width: 320px;
-            flex: none !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 auto;
         }
 
-        .hero-image-wrapper img.floating-img {
-            width: 100%;
-            max-width: 100%;
-            transform: rotate(0deg) !important;
-            animation: none !important;
-            border-width: 5px;
-            border-radius: 20px;
+        .premium-image-container {
+            transform: rotate(0deg);
+            max-width: 450px;
         }
 
         .floating-card {
-            position: relative;
-            bottom: auto;
-            left: auto;
-            transform: none;
-            width: 100%;
-            max-width: 260px;
-            margin-top: 15px;
+            left: 50%;
+            transform: translateX(-50%) !important;
+            bottom: -15px; /* Adjust to sit below image on mobile center */
             animation: none !important;
-            z-index: 5;
+            position: relative; /* Switch to relative on mobile to prevent overlap */
+            margin: 20px auto 0;
         }
 
-        /* Hide decorative shapes on mobile to avoid overflow */
-        .floating-shape {
-            display: none !important;
+        /* Second section separation */
+        .why-franchise-section {
+            padding-top: 60px !important;
+            margin-top: 0 !important;
+            overflow-x: hidden;
         }
 
-        /* 4. Fix Submit Button */
-        .form-submit-btn {
-            width: 100%;
+        .franchise-stats-testimonials {
+            overflow-x: hidden;
         }
 
-        .form-grid {
-            display: flex;
-            flex-direction: column;
+        .franchise-form-section {
+            overflow-x: hidden;
         }
+    }
+
+    @media (min-width: 1600px) {
+        .franchise-hero {
+            padding: 100px 12% 80px;
+        }
+    }
+
+    /* 4. Fix Submit Button */
+    .form-submit-btn {
+        width: 100%;
+    }
+
+    .form-grid {
+        display: flex;
+        flex-direction: column;
+    }
     }
 </style>
 
 <section class="franchise-hero">
-    <div class="floating-shape shape-1" data-speed="4"></div>
-    <div class="floating-shape shape-2" data-speed="-2"></div>
+    <!-- <div class="floating-shape shape-1" data-speed="4"></div>
+    <div class="floating-shape shape-2" data-speed="-2"></div> -->
 
-    <div class="hero-text" data-aos="fade-right" data-aos-duration="800">
-        <div class="badge-pill" data-aos="fade-down" data-aos-delay="100">Partner With Us</div>
-        <h1 data-aos="fade-up" data-aos-delay="200">Be Part of Our <span class="text-gradient">Family</span></h1>
-        <p data-aos="fade-up" data-aos-delay="300">Join the growing Danono's franchise network and bring the sweetest
-            treats to your community. We provide the
-            recipe for success — you bring the passion!</p>
+    <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+        <span class="badge-pill" data-aos="fade-up">Partner With Us</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">The Best <span class="pop-out-text">DONUT FRANCHISE</span>
+            Opportunity in the Philippines</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Join the growing Danono's network and explore the <strong>best donut
+                franchise in the Philippines</strong>. We provide the recipe for success — you bring the passion for
+            business growth!</p>
 
         <div class="hero-buttons">
             <a href="#apply" class="btn btn-primary">
@@ -229,42 +310,34 @@ $customCss = "franchise.css";
         </div>
     </div>
 
-    <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+    <div class="hero-side-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
         <div class="image-blob-bg"></div>
-
-        <img src="assets/img/franchise.jpg" alt="Danono's Franchise Opportunity" class="floating-img">
-
-        <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
-            <i class="ph-fill ph-trend-up"></i>
-            <div>
-                <span>Potential ROI</span>
-                <strong>High Growth</strong>
+        <div class="premium-image-container">
+            <img src="assets/img/franchise.jpg" alt="Danono's Franchise Opportunity" class="floating-img">
+            <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
+                <i class="ph-fill ph-trend-up"></i>
+                <div>
+                    <span>Potential ROI</span>
+                    <strong>High Growth</strong>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-<div class="section-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#FFF9F2" fill-opacity="1"
-            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,122.7C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
-        </path>
-    </svg>
-</div>
 
 <section id="learn-more" class="why-franchise-section">
     <div class="why-franchise-container">
         <div class="why-franchise-grid">
             <div data-aos="fade-right" data-aos-duration="800">
                 <img src="assets/img/perfect-spot.jpg" alt="Perfect Spot for your Franchise" class="floating-img"
-                    style="transform: rotate(2deg);">
+                    style="transform: rotate(2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             </div>
 
             <div data-aos="fade-left" data-aos-duration="800">
                 <span class="badge-pill" data-aos="fade-down" data-aos-delay="100">Business Opportunity</span>
-                <h2 style="font-size: 2.5rem; color: var(--chocolate); font-weight: 900; margin-bottom: 20px;"
+                <h2 style="font-size: 3.2rem; color: var(--dark-brown); font-weight: 900; margin-bottom: 25px; line-height: 1.1; white-space: normal;"
                     data-aos="fade-up" data-aos-delay="200">
-                    Why Choose <span class="text-gradient">Danono's?</span>
+                    Why Choose <span class="pop-out-text-sm">Danono's?</span>
                 </h2>
                 <p style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;" data-aos="fade-up"
                     data-aos-delay="300">
@@ -310,8 +383,8 @@ $customCss = "franchise.css";
     </div>
 </section>
 
-<div style="background-color: var(--cream); margin-bottom: -2px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+<div style="background-color: var(--cream); margin-bottom: -2px; width: 100%; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width: 100%; height: auto; display: block;">
         <path fill="#431407" fill-opacity="1"
             d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
@@ -352,8 +425,8 @@ $customCss = "franchise.css";
     </div>
 </section>
 
-<div style="background-color: var(--cream); margin-top: -2px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="transform: rotate(180deg);">
+<div style="background-color: var(--cream); margin-top: -2px; width: 100%; overflow: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width: 100%; height: auto; display: block; transform: rotate(180deg);">
         <path fill="#431407" fill-opacity="1"
             d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
@@ -365,7 +438,7 @@ $customCss = "franchise.css";
 
         <div class="form-header" data-aos="fade-up">
             <span class="badge-pill">Join Our Network</span>
-            <h2 class="form-header-title">Start Your <span class="text-highlight">Journey</span></h2>
+            <h2 class="form-header-title">Start Your <span class="pop-out-text-sm">Journey</span></h2>
             <p class="form-header-desc">
                 Ready to take the next step? Fill out the form below and our franchise team will get in touch within 2
                 business days.
@@ -388,55 +461,110 @@ $customCss = "franchise.css";
             </div>
         <?php endif; ?>
 
-        <div class="form-card-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="decoration-doughnut"></div>
+        <div class="form-layout-wrapper">
+            <div class="form-card-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="decoration-doughnut"></div>
 
-            <form action="admin/process_franchise.php" method="POST">
-                <div class="form-grid">
+                <form action="admin/process_franchise.php" method="POST">
+                    <div class="form-grid">
 
-                    <div class="input-group">
-                        <label for="name" class="form-label">Full Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required
-                            class="form-input">
+                        <div class="input-group">
+                            <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required
+                                class="form-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="juan@example.com" required
+                                class="form-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+63 962 558 5616" required
+                                class="form-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="location" class="form-label">Preferred Location <span
+                                    class="required">*</span></label>
+                            <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga" required
+                                class="form-input">
+                        </div>
+
+                        <div class="input-group full-width">
+                            <label for="message" class="form-label">Tell Us About Yourself <span
+                                    class="optional">(Optional)</span></label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Share your business experience, goals, and why you're interested in partnering with Danono's..."
+                                class="form-input"></textarea>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="juan@example.com" required
-                            class="form-input">
+                    <div class="form-footer">
+                        <button type="submit" class="form-submit-btn">
+                            Submit Application <i class="ph-bold ph-paper-plane-right"></i>
+                        </button>
+                        <p class="privacy-notice">
+                            <i class="ph-fill ph-lock-key"></i> Your information is secure.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Sidebar -->
+            <aside class="contact-sidebar" data-aos="fade-left" data-aos-delay="300">
+                <div class="sidebar-blob-bg"></div>
+                <div class="sidebar-backplate"></div>
+                
+                <div class="contact-sidebar-card">
+                    <img src="assets/img/mini-doughnut.png" alt="Danono's" class="sidebar-floating-donut" onerror="this.style.display='none'">
+                    
+                    <h3 class="pop-out-text-sm" style="font-size: 1.8rem; margin-bottom: 30px;">Direct Contact</h3>
+                    
+                    <div class="contact-method-list">
+                        <a href="tel:+639625585616" class="contact-method-card">
+                            <div class="method-icon-wrap">
+                                <i class="ph-fill ph-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">CALL OUT TO US</span>
+                                <strong class="method-value">+63 962 558 5616</strong>
+                            </div>
+                        </a>
+
+                        <a href="mailto:nonosdoughnuts@gmail.com" class="contact-method-card">
+                            <div class="method-icon-wrap">
+                                <i class="ph-fill ph-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">DROP A MESSAGE</span>
+                                <strong class="method-value" style="font-size: 14px; word-break: break-all;">nonosdoughnuts@gmail.com</strong>
+                            </div>
+                        </a>
+
+                        <div class="contact-method-card no-hover">
+                            <div class="method-icon-wrap">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">OUR HEADQUARTERS</span>
+                                <strong class="method-value">Angeles City, Pampanga</strong>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" required
-                            class="form-input">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="location" class="form-label">Preferred Location <span
-                                class="required">*</span></label>
-                        <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga" required
-                            class="form-input">
-                    </div>
-
-                    <div class="input-group full-width">
-                        <label for="message" class="form-label">Tell Us About Yourself <span
-                                class="optional">(Optional)</span></label>
-                        <textarea id="message" name="message" rows="4"
-                            placeholder="Share your business experience, goals, and why you're interested in partnering with Danono's..."
-                            class="form-input"></textarea>
+                    <div class="contact-socials-box">
+                        <p>Join the Family Online</p>
+                        <div class="sidebar-social-icons">
+                            <a href="https://www.facebook.com/danonosdoughnuts" class="sidebar-social-link" target="_blank" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="https://www.instagram.com/danonosdoughnuts" class="sidebar-social-link" target="_blank" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="https://www.tiktok.com/@danonosdoughnuts" class="sidebar-social-link" target="_blank" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-footer">
-                    <button type="submit" class="form-submit-btn">
-                        Submit Application <i class="ph-bold ph-paper-plane-right"></i>
-                    </button>
-                    <p class="privacy-notice">
-                        <i class="ph-fill ph-lock-key"></i> Your information is secure.
-                    </p>
-                </div>
-            </form>
+            </aside>
         </div>
     </div>
 </section>
@@ -448,6 +576,21 @@ $customCss = "franchise.css";
         offset: 120,
         duration: 800,
         easing: 'ease-out-back'
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const franchiseForm = document.querySelector('form[action="admin/process_franchise.php"]');
+        if (franchiseForm) {
+            franchiseForm.addEventListener('submit', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        form_name: 'franchise_application'
+                    });
+                }
+            });
+        }
     });
 </script>
 

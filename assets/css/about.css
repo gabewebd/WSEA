@@ -590,6 +590,10 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     border: 2px solid white;
     transition: 0.3s;
 }
@@ -889,17 +893,18 @@ body {
     }
 
     .family-banner .family-buttons {
-        flex-direction: column;
-        gap: 12px;
+        justify-content: center;
+        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
+        align-items: center;
+        gap: 12px; /* Slightly tighter gap for mobile */
         margin-top: 25px;
     }
 
     .family-banner .btn-white,
-    .btn-outline-white {
-        padding: 12px 28px;
+    .family-banner .btn-outline-white {
+        width: auto; /* Ensure they don't fill width */
+        padding: 12px 24px; /* Slightly smaller padding for mobile */
         font-size: 14px;
-        width: 100%;
-        max-width: 280px;
         justify-content: center;
     }
 
@@ -1058,12 +1063,16 @@ body {
     }
 
     .family-banner .family-buttons {
-        gap: 10px;
+        justify-content: center;
+        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
+        align-items: center;
+        gap: 12px; /* Slightly tighter gap for mobile */
         margin-top: 20px;
     }
 
     .family-banner .btn-white,
-    .btn-outline-white {
+    .family-banner .btn-outline-white {
+        width: auto; /* Ensure they don't fill width */
         padding: 11px 24px;
         font-size: 13px;
     }

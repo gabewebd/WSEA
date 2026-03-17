@@ -1,7 +1,7 @@
 <?php
-$pageTitle = "About Us - Danono's Doughnuts and Brownies";
+$pageTitle = "About Danono's | The Best Donut Brand in Pampanga";
 $customCss = "about.css";
-$metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to Angeles City's favorite doughnut destination.";
+$metaDesc = "Discover the story behind Danono's, the top-rated artisan donut shop in Pampanga. Learn why our premium brioche donuts are the fluffiest in the Philippines.";
 ?>
 <?php include 'includes/header.php'; ?>
 
@@ -12,40 +12,15 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
        ABOUT PAGE INLINE STYLES (Mobile Responsive Fixed)
        ========================================= */
 
-    :root {
-        --primary-orange: #EF7D32;
-        --dark-brown: #431407;
-        --gold: #FFC107;
-        --text-gray: #666;
-        --bg-light: #FFF9F2;
-    }
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .highlight-orange {
-        color: var(--primary-orange);
-    }
-
-    .center-text {
-        text-align: center;
-    }
-
-    .section-label {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--primary-orange);
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    /* --- 2. STORY SECTION --- */
-    .story-section {
-        padding: 100px 5%;
-        background-color: transparent;
+    /* --- HERO SECTION --- */
+    .about-hero {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: var(--dark-brown);
     }
 
     .story-content {
@@ -508,7 +483,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
         }
 
         .about-hero-content h1 {
-            font-size: 32px;
+            font-size: 38px;
             line-height: 1.2;
         }
 
@@ -666,9 +641,8 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
     <div class="floating-shape shape-2" data-speed="-2"></div>
 
     <div class="about-hero-content">
-        <span class="section-subtitle" data-aos="fade-down">ESTABLISHED 2019</span>
-        <h1 data-aos="fade-up" data-aos-delay="100">Spreading Happiness,<br>One <span
-                class="pop-out-text">DOUGHNUT</span> at a Time.</h1>
+        <span class="section-subtitle" data-aos="fade-down">ESTABLISHED 2018</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">Angeles City's Most Loved <br><span class="pop-out-text">BRIOCHE DONUTS</span> & The Story of Danono's</h1>
     </div>
     <div class="about-hero-bg" data-speed="1">
         <img src="assets/img/danonos-hero.jpg" alt="Danonos Bakery Background"
@@ -691,11 +665,17 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
 
         <div class="story-text" data-aos="fade-left">
             <span class="section-label">OUR JOURNEY</span>
-            <h2>From Nono's to <span class="pop-out-text-sm">DANONO'S</span></h2>
-            <p>What started as a passionate home kitchen project has blossomed into Angeles City’s favorite destination
-                for premium treats. We didn't just want to make doughnuts; we wanted to elevate them.</p>
+            <h2>The Best Donut Brand in Pampanga: From Nono's to <span class="pop-out-text-sm">DANONO'S</span>
+            </h2>
+            <p>What started as a passionate home kitchen project has blossomed into <strong>Danono's Donuts
+                    Pampanga</strong>—Angeles City’s favorite destination
+                for <strong>premium brioche donuts in Pampanga</strong>. Some fans know us as <strong>Nono's</strong>
+                , but the mission remains the same: to elevate the
+                humble donut into a gourmet experience.</p>
             <p>Using our signature brioche dough recipe—rich, fluffy, and buttery—we spent months perfecting the balance
-                of texture and flavor. Today, Danono's is more than just a bakery; it's a place where friends gather.
+                of texture and flavor. We've built an experience that's widely considered more premium and artisanal
+                than mass-produced alternatives. Today, Danono's is the top-rated <strong>artisan donut shop</strong> in
+                the region.
             </p>
 
             <div class="story-signature" data-aos="zoom-in" data-aos-delay="300">
@@ -708,7 +688,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
 <section class="values-section">
     <div class="section-header center-text" data-aos="fade-up">
         <span class="section-label">WHY CHOOSE US</span>
-        <h2>The Danono's <span class="pop-out-text-sm">DIFFERENCE</span></h2>
+        <h2>The Difference: <span class="pop-out-text-sm">BEST DONUTS</span> in Pampanga</h2>
     </div>
 
     <div class="values-grid">
@@ -718,7 +698,7 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
             </div>
             <h3>Signature Brioche</h3>
             <p>We don't use shortcuts. Our dough is fermented for 24 hours to achieve that distinctively light, airy,
-                and buttery brioche texture.</p>
+                and buttery <strong>soft and fluffy donuts Pampanga</strong> experience.</p>
         </div>
 
         <div class="value-card" data-aos="fade-up" data-aos-delay="200">
@@ -744,7 +724,8 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
 <section class="gallery-section">
     <div class="gallery-text" data-aos="fade-right">
         <h2>Sweet <span class="double-stroke" data-text="MOMENTS">MOMENTS</span></h2>
-        <p>From our kitchen to your hands. See the treats that made us Angeles City's favorite.</p>
+        <p>From our kitchen to your hands. See the treats that made us the <strong>best donut shop near Angeles
+                Pampanga</strong>.</p>
         <a href="menu" class="btn btn-orange btn-shine" style="margin-top: 20px;">Order Now</a>
     </div>
 
@@ -768,7 +749,8 @@ $metaDesc = "Learn about Danono's story - from a small home kitchen in 2019 to A
 <section class="family-banner family-banner-centered">
     <div class="family-banner-content" data-aos="fade-up">
         <h2>Taste the <span class="family-highlight">Love</span> Today</h2>
-        <p>Ready to experience the best brioche doughnuts in Pampanga?</p>
+        <p>Ready to experience the handmade difference? Grab a box of the <strong>best brioche donuts in the
+                Philippines</strong> today.</p>
         <div class="family-buttons">
             <a href="menu" class="btn btn-white"><i class="ph ph-cookie"></i> View Menu</a>
             <a href="locations" class="btn btn-outline-white"><i class="ph ph-map-pin"></i> Find a Branch</a>

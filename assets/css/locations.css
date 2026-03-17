@@ -69,22 +69,7 @@
 }
 
 .page-title span {
-    background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     position: relative;
-}
-
-.page-title span::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary-orange), transparent);
-    border-radius: 3px;
 }
 
 .header-subtitle {
@@ -99,8 +84,98 @@
 }
 
 /* ====================================
-   RESPONSIVE GRID
+   MAP EMBED & RESPONSIVE GRID
    ==================================== */
+
+.locations-map-wrapper {
+    width: 100%;
+    margin-bottom: 60px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(67, 20, 7, 0.08);
+    border: 3px solid #FFF5EE;
+    position: relative;
+    z-index: 5;
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.locations-map-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(239, 125, 50, 0.15);
+    border-color: #FFE0C2;
+}
+
+.locations-map-wrapper iframe {
+    display: block;
+    width: 100%;
+    min-height: 450px;
+    filter: sepia(10%) contrast(100%) saturate(120%) hue-rotate(-10deg); /* Slight warm brand tint */
+}
+
+/* Map Search Below */
+.locations-map-wrapper {
+    margin-bottom: 25px; /* Reduced since search bar now sits below it */
+}
+
+.map-search-below {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+.search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 15px 25px;
+    box-shadow: 0 10px 30px rgba(67, 20, 7, 0.08);
+    border: 2px solid rgba(239, 125, 50, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.search-bar-wrapper:focus-within {
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 40px rgba(239, 125, 50, 0.25);
+    transform: translateY(-2px);
+}
+
+.search-bar-wrapper i {
+    font-size: 22px;
+    color: var(--primary-orange);
+    margin-right: 12px;
+}
+
+.search-bar-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-brown);
+    font-family: inherit;
+    background: transparent;
+}
+
+.search-bar-wrapper input::placeholder {
+    color: #AAA;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .locations-map-wrapper iframe {
+        min-height: 350px;
+    }
+    
+    .map-search-below {
+        padding: 0 15px; /* Prevent touching edges on very small screens */
+    }
+    
+    .search-bar-wrapper {
+        padding: 12px 20px;
+    }
+}
 
 .locations-grid {
     display: grid;
@@ -241,11 +316,21 @@
     font-family: 'Fredoka', sans-serif;
     font-size: 28px;
     color: var(--dark-brown);
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     font-weight: 800;
     line-height: 1.2;
     position: relative;
     z-index: 1;
+}
+
+/* Card Meta Row (Category & Status) */
+.card-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap; /* In case screens get very narrow */
 }
 
 /* Category Badge */
@@ -258,7 +343,7 @@
     background: linear-gradient(135deg, #FFF3E0, #FFE8D6);
     padding: 8px 18px;
     border-radius: 25px;
-    margin: 0 0 16px 0;
+    margin: 0; /* Reset margin since it's in a flex row */
     text-transform: uppercase;
     border: 1px solid #FFD6B3;
 }
@@ -339,25 +424,27 @@
 /* Status Badges */
 .status-badge {
     display: inline-block;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 12px;
+    padding: 8px 16px; /* Slightly slimmed down to match category */
+    border-radius: 25px;
+    font-size: 11px; /* Match category font size */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    margin: 15px 0;
+    margin: 0; /* Reset margin since it's in a flex row */
 }
 
 .status-badge.open {
     background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
     color: #1B5E20;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+    border: 1px solid #A5D6A7;
 }
 
 .status-badge.always-open {
     background: linear-gradient(135deg, #B2DFDB, #80CBC4);
     color: #004D40;
     box-shadow: 0 4px 12px rgba(0, 150, 136, 0.2);
+    border: 1px solid #80CBC4;
 }
 
 /* ====================================
@@ -375,10 +462,10 @@
 }
 
 /* ====================================
-   BUTTON STYLING
+   BUTTON STYLING (Scoped to Cards)
    ==================================== */
 
-.btn {
+.location-card .btn {
     border: none;
     border-radius: 50px;
     padding: 14px 36px;
@@ -400,34 +487,22 @@
     z-index: 1;
 }
 
-.btn-primary {
+.location-card .btn-primary {
     background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
     color: white;
     box-shadow: 0 6px 20px rgba(239, 125, 50, 0.35);
 }
 
-.btn-primary:hover {
+.location-card .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(239, 125, 50, 0.5);
 }
 
-.btn-primary:active {
+.location-card .btn-primary:active {
     transform: translateY(-1px);
 }
 
-.btn-secondary {
-    border: 2px solid white;
-    color: white;
-    background: transparent;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: var(--primary-orange);
-    transform: translateY(-3px);
-}
-
-.btn i {
+.location-card .btn i {
     font-size: 18px;
 }
 
@@ -594,9 +669,10 @@
         margin-bottom: 16px;
     }
 
-    .page-title span::after {
-        height: 4px;
-        bottom: -5px;
+    .pop-out-text {
+        font-size: 1em !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
     }
 
     .header-subtitle {
@@ -661,7 +737,7 @@
         font-size: 11px;
     }
 
-    .btn {
+    .location-card .btn {
         padding: 13px 30px;
         font-size: 14px;
     }
@@ -778,7 +854,7 @@
         font-size: 10px;
     }
 
-    .btn {
+    .location-card .btn {
         padding: 12px 24px;
         font-size: 13px;
     }
@@ -934,6 +1010,7 @@
     font-size: 15px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
     border: 2px solid white;
@@ -955,6 +1032,7 @@
     font-size: 15px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
     border: 2px solid white;
@@ -976,6 +1054,7 @@
 .family-banner-centered .family-banner-content {
     flex: 0 0 auto;
     max-width: 700px;
+    margin: 0 auto; /* Force horizontal center */
 }
 
 .family-banner-centered .family-buttons {
@@ -997,7 +1076,15 @@
 
     .family-banner .family-buttons {
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
         align-items: center;
+        gap: 12px; /* Slightly tighter gap for mobile */
+    }
+
+    .family-banner .btn-white,
+    .family-banner .btn-outline-white {
+        width: auto; /* Ensure they don't fill width */
+        padding: 12px 24px; /* Slightly smaller padding for mobile */
+        font-size: 14px;
     }
 }

@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Our Menu - Danono's Doughnuts and Brownies";
-$metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brownies, and refreshing drinks.";
+$pageTitle = "Menu - Danono's Donuts | Best Flavored Brioche Donuts Pampanga";
+$metaDesc = "Explore Danono's menu: premium brioche donuts, Biscoff donuts, Ube donuts, and gourmet brownies. The best flavored donuts in the Philippines available now.";
 $customCss = "menu.css";
 include 'includes/header.php';
 include 'includes/db_connect.php';
@@ -53,15 +53,17 @@ include 'includes/db_connect.php';
             scroll-behavior: smooth;
         }
 
-        /* ===== MENU HERO SECTION ===== */
         .menu-hero {
             position: relative;
-            height: 450px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             background-color: var(--dark-brown);
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
         }
 
         .menu-hero-bg {
@@ -70,8 +72,8 @@ include 'includes/db_connect.php';
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            opacity: 0.4;
+            z-index: 2;
+            opacity: 0.5;
             transition: transform 0.1s linear;
         }
 
@@ -85,9 +87,9 @@ include 'includes/db_connect.php';
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
-            z-index: 2;
-            opacity: 0.6;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.7;
             transition: transform 0.1s linear;
             pointer-events: none;
         }
@@ -114,12 +116,14 @@ include 'includes/db_connect.php';
             text-align: center;
             color: white;
             padding: 0 20px;
+            max-width: 900px;
         }
 
         .menu-hero-content h1 {
             font-size: 56px;
             line-height: 1.1;
-            font-weight: 700;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
 
         .menu-hero-content .section-subtitle {
@@ -130,24 +134,6 @@ include 'includes/db_connect.php';
             margin-bottom: 15px;
             opacity: 0.9;
             font-weight: 700;
-        }
-
-        /* Text Effects */
-        .pop-out-text {
-            font-weight: 900;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #EF7D32 0%, #FFC107 50%, #EF7D32 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shine 4s linear infinite;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
         }
 
         /* ===== FILTER BUTTONS ===== */
@@ -517,9 +503,27 @@ include 'includes/db_connect.php';
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .menu-hero-content h1 {
-                font-size: 36px;
+            .menu-hero {
+                height: 400px;
             }
+            .menu-hero-content h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-hero {
+                height: 380px;
+            }
+            .menu-hero-content h1 {
+                font-size: 38px;
+                line-height: 1.2;
+            }
+            .menu-hero-content .section-subtitle {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+            .floating-shape { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -594,17 +598,18 @@ include 'includes/db_connect.php';
 <body>
     <!-- Menu Hero Section -->
     <section class="menu-hero">
+        <div class="menu-hero-bg">
+            <img src="assets/img/danonos-menu.jpg" alt="Best Biscoff and Matcha Donuts in Pampanga Philippines"
+                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
+        </div>
+
         <div class="floating-shape shape-1" data-speed="4"></div>
         <div class="floating-shape shape-2" data-speed="-2"></div>
 
         <div class="menu-hero-content">
             <span class="section-subtitle" data-aos="fade-down">FRESH DAILY</span>
-            <h1 data-aos="fade-up" data-aos-delay="100">Discover Our<br>Most Loved <span
-                    class="pop-out-text">TREATS</span></h1>
-        </div>
-        <div class="menu-hero-bg" data-speed="1">
-            <img src="assets/img/danonos-menu.jpg" alt="Danono's Menu Background"
-                onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
+            <h1 data-aos="fade-up">Discover our Premium <span
+                    class="pop-out-text">FLAVORED DONUTS</span> & Artisan Treats</h1>
         </div>
     </section>
 
@@ -616,7 +621,7 @@ include 'includes/db_connect.php';
                 <i class="fas fa-th"></i> All Items
             </button>
             <button class="filter-btn" onclick="filterMenu('doughnuts', this)" data-filter="doughnuts">
-                <i class="fas fa-ring"></i> Doughnuts
+                <i class="fas fa-ring"></i> Donuts
             </button>
             <button class="filter-btn" onclick="filterMenu('brownies', this)" data-filter="brownies">
                 <i class="fas fa-square"></i> Brownies
@@ -674,8 +679,8 @@ include 'includes/db_connect.php';
                     ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
                     ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with chocolate cream filling."],
                     ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
-                    ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Brioche donut spread with pistachio crunch drizzled with melted white chocolate."],
-                    ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "Combination of 5 kinds of chocolates in 1 doughnut."],
+                    ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Gourmet brioche donuts Mexico Pampanga spread with pistachio crunch and melted white chocolate."],
+                    ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "A decadent combination of 5 kinds of premium chocolates in 1 artisan doughnut."],
 
                     // Brownies
                     ["name" => "Classic Fudge Brownie", "category" => "brownies", "price" => "45", "desc" => "Rich, dense chocolate fudge brownie with a moist center."],
@@ -691,7 +696,7 @@ include 'includes/db_connect.php';
                     ["name" => "Hot Cappuccino", "category" => "beverages", "price" => "100", "desc" => "Classic espresso with velvety steamed milk and thick foam."],
                     ["name" => "Iced Americano", "category" => "beverages", "price" => "100", "desc" => "Refreshing espresso with cold water over ice."],
                     ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "120", "desc" => "Freshly made lemonade with fresh strawberry juice."],
-                    ["name" => "Matcha Latte", "category" => "beverages", "price" => "110", "desc" => "Creamy latte with traditional matcha green tea."],
+                    ["name" => "Matcha Latte", "category" => "beverages", "price" => "110", "desc" => "Premium specialty matcha in Angeles City - creamy latte with traditional green tea."],
                 ];
 
                 $hasItems = true;
@@ -855,6 +860,31 @@ include 'includes/db_connect.php';
         window.addEventListener('load', () => {
             const firstBtn = document.querySelector('.filter-btn.active');
             if (firstBtn) filterMenu('all', firstBtn);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuGrid = document.getElementById('menuGrid');
+            if (menuGrid) {
+                menuGrid.addEventListener('click', function(e) {
+                    const heartBtn = e.target.closest('.card-icon');
+                    if (heartBtn) {
+                        const card = heartBtn.closest('.card');
+                        if (card) {
+                            const itemName = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'Unknown Item';
+                            const itemCategory = card.getAttribute('data-category') || 'Uncategorized';
+                            
+                            if (typeof gtag === 'function') {
+                                gtag('event', 'add_to_wishlist', {
+                                    item_name: itemName,
+                                    item_category: itemCategory
+                                });
+                            }
+                        }
+                    }
+                });
+            }
         });
     </script>
 

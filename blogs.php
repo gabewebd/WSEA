@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Blogs - Danono's Doughnuts and Brownies";
-$metaDesc = "Read the latest news, recipes, and stories from Danono's Doughnuts & Brownies.";
+$pageTitle = "Blog - Danono's | Sweet Stories & Best Donuts in Pampanga News";
+$metaDesc = "Stay updated with the latest donut news and flavor launches in Pampanga. Read sweet stories from the Danono's kitchen and the local food scene.";
 $customCss = "blogs.css";
 include 'includes/header.php';
 include 'includes/db_connect.php';
@@ -56,12 +56,15 @@ include 'includes/db_connect.php';
         /* ===== BLOG HERO SECTION ===== */
         .blog-hero {
             position: relative;
-            height: 450px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             background-color: var(--dark-brown);
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
         }
 
         .blog-hero-bg {
@@ -70,8 +73,8 @@ include 'includes/db_connect.php';
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            opacity: 0.4;
+            z-index: 2;
+            opacity: 0.5;
             transition: transform 0.1s linear;
         }
 
@@ -85,9 +88,9 @@ include 'includes/db_connect.php';
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
-            z-index: 2;
-            opacity: 0.6;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.7;
             transition: transform 0.1s linear;
             pointer-events: none;
         }
@@ -141,24 +144,6 @@ include 'includes/db_connect.php';
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        /* Text Effects */
-        .pop-out-text {
-            font-weight: 900;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #EF7D32 0%, #FFC107 50%, #EF7D32 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shine 4s linear infinite;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
         }
 
         /* ===== CONTAINER ===== */
@@ -472,7 +457,8 @@ include 'includes/db_connect.php';
             }
 
             .blog-hero-content h1 {
-                font-size: 32px;
+                font-size: 38px;
+                line-height: 1.2;
             }
 
             .blog-grid {
@@ -499,7 +485,8 @@ include 'includes/db_connect.php';
             }
 
             .blog-hero-content h1 {
-                font-size: 28px;
+                font-size: 32px;
+                line-height: 1.2;
             }
 
             .blog-card img {
@@ -610,9 +597,9 @@ include 'includes/db_connect.php';
 
         <div class="blog-hero-content">
             <span class="section-subtitle" data-aos="fade-down">FROM OUR KITCHEN</span>
-            <h1 data-aos="fade-up" data-aos-delay="100">Sweet Stories &<br>Latest <span class="pop-out-text">NEWS</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Sweet Stories &<br>Latest <span class="pop-out-text">DONUT NEWS</span> in Pampanga
             </h1>
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">Stay updated with the sweetest news, new
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">Stay updated with the <strong>best donuts in Pampanga blog</strong>, featuring new
                 flavor launches, and behind-the-scenes stories from the Danono's kitchen.</p>
         </div>
         <div class="blog-hero-bg" data-speed="1">

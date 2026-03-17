@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Danono's Doughnuts and Brownies | Home";
-$metaDesc = "Welcome to Danono's! Home of the best brioche doughnuts and brownies in Angeles City. Freshly baked daily.";
+$pageTitle = "Danono's Donuts | Best Brioche Donuts in Pampanga & Philippines";
+$metaDesc = "Experience the fluffiest artisan brioche donuts in Pampanga. Danono's offers freshly made gourmet donuts near Angeles City and San Fernando. Order your favorites online!";
 $customCss = "index.css";
 ?>
 <?php include 'includes/header.php'; ?>
@@ -8,10 +8,16 @@ $customCss = "index.css";
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <section class="hero">
+    <div class="floating-shape shape-1" data-speed="-2"></div>
+    <div class="floating-shape shape-2" data-speed="3"></div>
+    <div class="floating-shape shape-3" data-speed="-1"></div>
+
     <div class="hero-text">
-        <h1 data-aos="fade-up">More Choices,<br><span class="pop-out-text">MORE VALUE.</span></h1>
-        <p data-aos="fade-up" data-aos-delay="100">Indulge in our famous Glazed Donuts and refreshing Spanish Latte.
-            Crafted fresh daily in Angeles City.</p>
+        <h1 data-aos="fade-up">Pampanga's Favorite <span class="pop-out-text">BRIOCHE DONUTS</span></h1>
+        <p data-aos="fade-up" data-aos-delay="100">Looking for the <strong>best donuts near you</strong>? Discover
+            <strong>Danono's Donuts</strong> — crafted daily with premium French brioche dough. Experience the softest,
+            most flavorful donuts in Angeles City, San Fernando, and Mabalacat.
+        </p>
         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
             <a href="menu" class="btn btn-orange"><i class="ph ph-bicycle"></i> Order Delivery</a>
             <a href="locations" class="btn btn-outline"><i class="ph ph-map-pin"></i> Find a branch</a>
@@ -21,15 +27,22 @@ $customCss = "index.css";
         </p>
     </div>
     <div class="hero-image" data-aos="zoom-in-left" data-aos-duration="1000">
-        <img src="assets/img/danonos.jpg" alt="Danono's Donuts" class="float-img">
+        <img src="assets/img/danonos.jpg" alt="Danono's Best Biscoff, Matcha, and Ube Brioche Donuts in Pampanga"
+            class="float-img" fetchpriority="high" loading="eager">
+    </div>
+
+    <!-- Centered Badge -->
+    <div class="creative-hero-badge" data-aos="fade-up" data-aos-delay="600">
+        <i class="ph-fill ph-seal-check"></i>
+        <span>The Best<br>Brioche Dough</span>
     </div>
 </section>
 
 <section class="treats-section">
     <div class="section-header" data-aos="fade-up">
         <span class="section-label">FEATURED FAVORITES</span>
-        <h2>Most Loved <span class="pop-out-text-sm">TREATS</span></h2>
-        <a href="menu" class="view-all">View full menu <span>→</span></a>
+        <h2>Our Signature <span class="pop-out-text-sm">DONUT FLAVORS</span> in Pampanga</h2>
+        <a href="menu" class="view-all">Explore Full Menu <span>→</span></a>
     </div>
     <div class="treats-carousel">
 
@@ -70,10 +83,12 @@ $customCss = "index.css";
             <img src="assets/img/Refreshers.jpg" alt="Danono's Refreshers">
         </div>
         <div class="drinks-text" data-aos="fade-up">
-            <span class="section-label">PERFECT PAIRING</span>
-            <h2>Refreshers & Choco Circles<br><span class="pop-out-text-sm">PERFECT MATCH</span></h2>
-            <p>Beat the heat with our ice-cold, sparkling Refreshers, crafted to pair flawlessly with the rich, velvety
-                indulgence of our signature Choco Circle doughnuts.</p>
+            <span class="section-label">THE DONUT CAFE EXPERIENCE</span>
+            <h2>Premium Spanish Latte & <span class="pop-out-text-sm">BISCOFF DONUTS</span></h2>
+            <p>Beat the heat with our ice-cold, sparkling Refreshers or a signature Spanish Latte. Perfectly paired with
+                the rich, velvety
+                indulgence of our <strong>premium flavored donuts</strong> like Biscoff, Crunchy Matcha, and Choco
+                Caviar.</p>
             <a href="menu" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
         </div>
         <div class="choco-image" data-aos="fade-left">
@@ -93,11 +108,15 @@ $customCss = "index.css";
         </div>
         <div class="story-text" data-aos="fade-left">
             <span class="section-label">OUR STORY</span>
-            <h2>From Nono's to<br><span class="pop-out-text-sm">DANONO'S</span></h2>
-            <p>What started as a small home kitchen project in 2018 has grown into Danono's Doughnuts. Our mission: to
-                create treats that bring happiness and sweetness in every bite.</p>
-            <p>Every morning at 6AM we'll be baking hand-cut donuts with pride, using, filling, and frying in small
-                batches.</p>
+            <h2>Why Danono's is <span class="pop-out-text-sm">PAMPANGA'S BEST</span> Donut Shop</h2>
+            <p>What started as a small home kitchen project in 2018 has grown into Danono's — the
+                <strong>fastest-growing donut brand in Pampanga</strong>. Our mission: to
+                create premium treats that bring happiness and sweetness in every bite.
+            </p>
+            <p>Every morning at 6AM we'll be baking hand-cut sourdough and brioche doughnuts with pride — filling and
+                frying in small
+                batches for that ultimate fluffy texture. Visit the <strong>top-rated donut shop in Angeles
+                    City</strong> today!</p>
             <a href="about" class="btn btn-orange">Read Our Full Story <span>→</span></a>
         </div>
     </div>
@@ -124,8 +143,9 @@ $customCss = "index.css";
 
 <section class="family-banner family-banner-centered">
     <div class="family-banner-content" data-aos="fade-up">
-        <h2>Be Part of Our <span class="family-highlight">FAMILY</span></h2>
-        <p>Ready to taste the handmade? Join a box today and make your day a little sweeter.</p>
+        <h2>Join the <span class="family-highlight">DANONO'S</span> Family</h2>
+        <p>Ready to experience the handmade difference? Grab a box of the best brioche donuts in the Philippines today.
+        </p>
         <div class="family-buttons">
             <a href="franchise" class="btn btn-white"><i class="ph ph-handshake"></i> Partner With Us</a>
             <a href="locations" class="btn btn-outline-white"><i class="ph ph-map-pin"></i> Find a Branch</a>

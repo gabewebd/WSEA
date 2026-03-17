@@ -20,42 +20,48 @@
 
 body {
     background-color: var(--cream);
-    background-image: radial-gradient(#EF7D32 0.5px, transparent 0.5px), radial-gradient(#EF7D32 0.5px, var(--cream) 0.5px);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
-    background-attachment: fixed;
-    /* Creates a subtle sprinkle texture */
+    /* Creates a subtle sprinkle texture - REMOVED */
     font-family: var(--font-main);
     color: #555;
+}
+/* --- GLOBAL OVERLAYS FIX --- */
+html, body {
+    width: 100%;
+    position: relative;
 }
 
 /* ---- HERO SECTION ---- */
 .franchise-hero {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 120px 8% 180px;
-    /* Extra bottom padding for the wave */
-    overflow: visible;
-    gap: 4rem;
+    justify-content: space-between;
+    padding: 80px 5% 100px;
+    overflow: hidden; /* CRITICAL: Prevent horizontal scroll from blobs */
+    gap: 40px;
+    background: #FFFAF5;
 }
 
 .hero-text {
     z-index: 2;
+    flex: 1.2;
+    max-width: 700px;
+    text-align: left;
 }
 
 .badge-pill {
     display: inline-block;
-    padding: 8px 16px;
-    background: rgba(239, 125, 50, 0.1);
-    color: var(--primary);
-    font-weight: 800;
+    padding: 8px 20px;
+    background: #FBEDD5; /* Soft peach */
+    color: #D8651E; /* Dark orange */
     border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(216, 101, 30, 0.05);
 }
 
 .franchise-hero h1 {
@@ -70,38 +76,48 @@ body {
     background: linear-gradient(135deg, var(--primary), #ffb347);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .franchise-hero p {
     font-size: 1.25rem;
     color: #6b5c55;
-    margin-bottom: 32px;
-    max-width: 500px;
+    margin: 0 auto 32px;
+    max-width: 600px;
 }
 
-/* Floating Shapes Decoration */
-.floating-shape {
+/* --- HERO SIDE IMAGES --- */
+.hero-side-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.image-blob-bg {
     position: absolute;
+    width: 120%;
+    height: 120%;
+    background: #FEE7C8;
     border-radius: 50%;
-    filter: blur(40px);
-    z-index: 0;
-    opacity: 0.6;
+    z-index: 1;
+    opacity: 0.8;
+    filter: blur(60px);
 }
 
-.shape-1 {
-    top: -10%;
-    left: -5%;
-    width: 300px;
-    height: 300px;
-    background: #ffe4d1;
+.premium-image-container {
+    position: relative;
+    z-index: 2;
 }
 
-.shape-2 {
-    bottom: 10%;
-    right: 40%;
-    width: 200px;
-    height: 200px;
-    background: #fff0e0;
+.floating-img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 30px;
+    display: block;
+    box-shadow: 0 40px 100px rgba(67, 20, 7, 0.15);
 }
 
 /* Buttons */
@@ -154,13 +170,16 @@ body {
 
 .image-blob-bg {
     position: absolute;
-    width: 120%;
-    height: 120%;
+    width: 100%;
+    height: 100%;
     background: #FFDcb8;
     z-index: -1;
     border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%;
     /* Organic blob shape */
     animation: blob-bounce 8s infinite ease-in-out alternate;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .floating-img {
@@ -211,11 +230,9 @@ body {
 /* ---- WHY FRANCHISE (Cards) ---- */
 .why-franchise-section {
     position: relative;
-    background: transparent;
-    /* Let body texture show */
+    background: var(--cream);
     z-index: 5;
-    margin-top: -80px;
-    /* Pull up to overlap SVG */
+    margin-top: 0;
 }
 
 .why-franchise-container {
@@ -342,15 +359,231 @@ body {
 
 /* ---- FORM SECTION ---- */
 .franchise-form-section {
-    padding: 80px 6% 120px;
+    padding: 80px 2% 120px;
     position: relative;
     z-index: 10;
 }
 
 .franchise-form-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+}
+
+.form-layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-sidebar {
+    position: sticky;
+    top: 120px;
+    position: relative; /* For pseudo elements */
+}
+
+/* Base Backplate for 3D Stack Effect */
+.sidebar-backplate {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    bottom: -10px;
+    left: 10px;
+    background: var(--cream);
+    border-radius: 30px;
+    border: 2px solid var(--primary);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+/* Subtle Animated Blob Background */
+.sidebar-blob-bg {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 300px;
+    height: 300px;
+    background: #FEE7C8;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+    opacity: 0.5;
+    animation: gentlePulse 8s infinite alternate ease-in-out;
+}
+
+@keyframes gentlePulse {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+    100% { transform: scale(1.1) translate(10px, 15px); opacity: 0.7; }
+}
+
+/* Main Card Front */
+.contact-sidebar-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08); /* Stronger shadow to lift it */
+    border: 1px solid rgba(67, 20, 7, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+/* Floating Donut Decal */
+.sidebar-floating-donut {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    animation: floatCard 4s infinite ease-in-out;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.contact-method-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+/* Interactive Mini Cards */
+.contact-method-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    padding: 15px;
+    background: #FAFAFA;
+    border-radius: 16px;
+    border: 1px solid #EEEEEE;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-method-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(239, 125, 50, 0.05), rgba(239, 125, 50, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-method-card:not(.no-hover):hover {
+    transform: translateY(-5px);
+    background: white;
+    border-color: rgba(239, 125, 50, 0.3);
+    box-shadow: 0 10px 20px rgba(239, 125, 50, 0.1);
+}
+
+.contact-method-card:not(.no-hover):hover::before {
+    opacity: 1;
+}
+
+.method-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.contact-method-card:not(.no-hover):hover .method-icon-wrap {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.method-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.method-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #999;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.method-value {
+    font-size: 15px;
+    color: var(--dark-brown);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.contact-method-card:not(.no-hover):hover .method-value {
+    color: var(--primary);
+}
+
+.contact-method-card.no-hover {
+    cursor: default;
+}
+
+
+.contact-socials-box {
+    padding-top: 30px;
+    border-top: 2px dashed rgba(67, 20, 7, 0.08); /* Thicker dash for playfulness */
+}
+
+.contact-socials-box p {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    color: #A1887F;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sidebar-social-link {
+    width: 44px;
+    height: 44px;
+    background: #FFF5EE; /* Matches cream theme */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sidebar-social-link:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 15px rgba(239, 125, 50, 0.3);
+}
+
+.sidebar-social-link:hover {
+    background: var(--primary);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px);
 }
 
 /* Header Styling */
@@ -697,10 +930,11 @@ textarea.form-input {
 
     /* Hero - Stack Layout */
     .franchise-hero {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
-        padding: 80px 5% 100px;
+        padding: 60px 5% 80px;
         gap: 2rem;
+        overflow: hidden;
     }
 
     .hero-text {
@@ -779,11 +1013,11 @@ textarea.form-input {
 
 /* --- MOBILE (max-width: 768px) --- */
 @media (max-width: 768px) {
-
-    /* Hero Section */
     .franchise-hero {
-        padding: 50px 4% 80px;
-        gap: 1.5rem;
+        padding: 0px 4% 30px;
+        gap: 20px;
+        min-height: auto;
+        height: auto;
     }
 
     .franchise-hero h1 {
@@ -987,6 +1221,20 @@ textarea.form-input {
 
     .form-header-desc {
         font-size: 1rem;
+    }
+
+    .form-layout-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-sidebar {
+        position: static;
+        order: 2;
+    }
+
+    .contact-sidebar-card {
+        padding: 30px;
     }
 
     .form-card-box {
