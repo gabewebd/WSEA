@@ -74,9 +74,9 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css?v=1.1">
   <?php if (isset($customCss)): ?>
-    <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/<?php echo $customCss; ?>">
+    <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/<?php echo $customCss; ?>?v=1.1">
   <?php endif; ?>
 
   <script type="application/ld+json">
