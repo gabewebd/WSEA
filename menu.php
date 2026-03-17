@@ -2,6 +2,7 @@
 $pageTitle = "Our Menu - Danono's Doughnuts and Brownies";
 $metaDesc = "Explore Danono's delicious menu of premium brioche doughnuts, brownies, and refreshing drinks.";
 $customCss = "menu.css";
+include 'includes/header.php';
 include 'includes/db_connect.php';
 ?>
 <!DOCTYPE html>
@@ -581,8 +582,6 @@ include 'includes/db_connect.php';
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
-
     <!-- Menu Hero Section -->
     <section class="menu-hero">
         <div class="floating-shape shape-1" data-speed="4"></div>
