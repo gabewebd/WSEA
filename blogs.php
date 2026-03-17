@@ -196,7 +196,7 @@ include 'includes/db_connect.php';
             border-radius: 24px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            border: 2px solid transparent;
+            border: 2px solid #F0DCCA;
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: flex;
             flex-direction: column;
@@ -204,7 +204,6 @@ include 'includes/db_connect.php';
             position: relative;
             opacity: 0;
             animation: cardLoad 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            overflow: visible;
         }
 
         @keyframes cardLoad {
@@ -271,7 +270,7 @@ include 'includes/db_connect.php';
             gap: 8px;
             font-size: 12px;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary-orange);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 12px;
@@ -279,7 +278,7 @@ include 'includes/db_connect.php';
         }
 
         .blog-card:hover .blog-card-meta {
-            color: var(--primary-dark);
+            color: var(--primary-orange);
             transform: translateX(4px);
         }
 
@@ -293,7 +292,7 @@ include 'includes/db_connect.php';
             color: var(--dark);
             margin-bottom: 14px;
             line-height: 1.3;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -301,7 +300,10 @@ include 'includes/db_connect.php';
         }
 
         .blog-card:hover h3 {
-            color: var(--primary);
+            background: linear-gradient(to right, #EF7D32 0%, #FFC107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .blog-card p {
@@ -322,7 +324,7 @@ include 'includes/db_connect.php';
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary);
+            color: var(--primary-orange);
             text-decoration: none;
             font-weight: 700;
             font-size: 13px;
@@ -330,7 +332,7 @@ include 'includes/db_connect.php';
             letter-spacing: 1px;
             padding: 12px 16px;
             border-radius: 50px;
-            background: linear-gradient(135deg, rgba(212, 148, 94, 0.1) 0%, rgba(232, 184, 141, 0.05) 100%);
+            background: rgba(239, 125, 50, 0.1);
             border: 2px solid transparent;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;

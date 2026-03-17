@@ -228,8 +228,8 @@ include 'includes/db_connect.php';
 
         @media (min-width: 1200px) {
             .grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 28px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
             }
         }
 
@@ -238,7 +238,7 @@ include 'includes/db_connect.php';
             background: white;
             border-radius: 24px;
             overflow: hidden;
-            border: 2px solid transparent;
+            border: 2px solid #F0DCCA;
             box-shadow: var(--shadow-md);
             transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: flex;
@@ -337,11 +337,14 @@ include 'includes/db_connect.php';
             color: var(--dark);
             margin-bottom: 10px;
             line-height: 1.2;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover h3 {
-            color: var(--primary);
+            background: linear-gradient(to right, #EF7D32 0%, #FFC107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .card p {
@@ -363,7 +366,7 @@ include 'includes/db_connect.php';
         }
 
         .price-tag {
-            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
+            background: var(--primary-orange);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -377,6 +380,7 @@ include 'includes/db_connect.php';
         }
 
         .card:hover .price-tag {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(212, 148, 94, 0.4);
         }
@@ -384,7 +388,7 @@ include 'includes/db_connect.php';
         .card-icon {
             width: 32px;
             height: 32px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(239, 125, 50, 0.1);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -392,10 +396,16 @@ include 'includes/db_connect.php';
             font-size: 16px;
             transition: all 0.3s ease;
             cursor: pointer;
+            color: var(--primary-orange);
+        }
+
+        .card-icon.active {
+            color: #e74c3c;
         }
 
         .card:hover .card-icon {
-            background: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--gold) 100%);
+            color: white;
             transform: rotate(20deg);
         }
 
