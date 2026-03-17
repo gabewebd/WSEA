@@ -6,9 +6,6 @@ include 'includes/header.php';
 include 'includes/db_connect.php';
 ?>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <!-- Blog Hero Section -->
 <section class="blog-hero">
     <div class="floating-shape shape-1" data-speed="4"></div>
