@@ -2,6 +2,7 @@
 $pageTitle = "Blogs - Danono's Doughnuts and Brownies";
 $metaDesc = "Read the latest news, recipes, and stories from Danono's Doughnuts & Brownies.";
 $customCss = "blogs.css";
+include 'includes/header.php';
 include 'includes/db_connect.php';
 ?>
 <!DOCTYPE html>
@@ -600,8 +601,6 @@ include 'includes/db_connect.php';
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
-
     <!-- Blog Hero Section -->
     <section class="blog-hero">
         <div class="floating-shape shape-1" data-speed="4"></div>
