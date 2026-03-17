@@ -1,8 +1,8 @@
 <?php
-// Start session
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
+ob_start();
 
 // --- 1. DYNAMIC URL SETUP (Fixes Favicon & SEO Links) ---
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
