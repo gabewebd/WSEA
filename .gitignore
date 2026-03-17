@@ -2,3 +2,5 @@
 Thumbs.db
 # uploads/*
 # !uploads/.gitkeep
+
+node_modules/

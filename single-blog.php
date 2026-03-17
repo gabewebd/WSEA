@@ -56,7 +56,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
 // --- ARTICLE SCHEMA START ---
 $schemaImage = !empty($post["featured_image"]) ? "/uploads/" . $post["featured_image"] : "/assets/img/danonos-hero.jpg";
-$schemaDate = date('c', strtotime($post['created_at'])); 
+$schemaDate = date('c', strtotime($post['created_at']));
 ?>
 
 <script type="application/ld+json">
@@ -139,7 +139,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-weight: 500;
     }
 
-    .blog-author strong { color: #431407; }
+    .blog-author strong {
+        color: #431407;
+    }
 
     .blog-content {
         max-width: 850px;
@@ -148,7 +150,10 @@ $schemaDate = date('c', strtotime($post['created_at']));
         line-height: 1.8;
     }
 
-    .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+    .blog-content h1,
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4 {
         font-family: 'Fredoka', sans-serif;
         color: #EF7D32;
         margin-top: 50px;
@@ -156,11 +161,27 @@ $schemaDate = date('c', strtotime($post['created_at']));
         line-height: 1.3;
     }
 
-    .blog-content h2 { font-size: 32px; }
-    .blog-content h3 { font-size: 26px; }
-    .blog-content p { margin-bottom: 24px; }
-    .blog-content ul, .blog-content ol { margin-bottom: 30px; padding-left: 20px; }
-    .blog-content li { margin-bottom: 12px; }
+    .blog-content h2 {
+        font-size: 32px;
+    }
+
+    .blog-content h3 {
+        font-size: 26px;
+    }
+
+    .blog-content p {
+        margin-bottom: 24px;
+    }
+
+    .blog-content ul,
+    .blog-content ol {
+        margin-bottom: 30px;
+        padding-left: 20px;
+    }
+
+    .blog-content li {
+        margin-bottom: 12px;
+    }
 
     .blog-content img {
         border-radius: 8px;
@@ -177,7 +198,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-weight: 600;
     }
 
-    .blog-content a:hover { color: #431407; }
+    .blog-content a:hover {
+        color: #431407;
+    }
 
     .blog-action-bar {
         max-width: 850px;
@@ -199,7 +222,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
         transition: color 0.2s;
     }
 
-    .back-link:hover { color: #EF7D32; }
+    .back-link:hover {
+        color: #EF7D32;
+    }
 
     .btn-share {
         background: transparent;
@@ -217,7 +242,10 @@ $schemaDate = date('c', strtotime($post['created_at']));
         font-size: 16px;
     }
 
-    .btn-share:hover { background: #EF7D32; color: white; }
+    .btn-share:hover {
+        background: #EF7D32;
+        color: white;
+    }
 
     .section-divider {
         max-width: 1000px;
@@ -247,7 +275,9 @@ $schemaDate = date('c', strtotime($post['created_at']));
     }
 
     @media (min-width: 768px) {
-        .post-navigation-cards { grid-template-columns: 1fr 1fr; }
+        .post-navigation-cards {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
     .nav-card {
@@ -270,77 +300,225 @@ $schemaDate = date('c', strtotime($post['created_at']));
         border-color: #E8B88D;
     }
 
-    .nav-card-img { height: 220px; position: relative; overflow: hidden; }
-    .nav-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); }
-    .nav-card:hover img { transform: scale(1.1); }
-
-    .nav-card-overlay {
-        position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5);
-        display: flex; align-items: center; justify-content: center;
-        opacity: 0; transition: opacity 0.3s ease; z-index: 10;
+    .nav-card-img {
+        height: 220px;
+        position: relative;
+        overflow: hidden;
     }
 
-    .nav-card:hover .nav-card-overlay { opacity: 1; }
+    .nav-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .nav-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+
+    .nav-card:hover .nav-card-overlay {
+        opacity: 1;
+    }
 
     .nav-card-overlay span {
-        color: white; font-weight: 700; font-size: 18px;
-        text-transform: uppercase; letter-spacing: 1px;
-        display: flex; align-items: center; gap: 10px;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .nav-card-label {
-        position: absolute; top: 10px; left: 10px;
-        background: rgba(239, 125, 50, 0.9); color: white;
-        padding: 5px 12px; border-radius: 5px; font-size: 12px; font-weight: 700;
-        text-transform: uppercase; z-index: 5;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(239, 125, 50, 0.9);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        z-index: 5;
     }
-    .nav-card.next-card .nav-card-label { left: auto; right: 10px; }
 
-    .nav-card-content { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-    .nav-date { font-size: 12px; color: #EF7D32; font-weight: 600; text-transform: uppercase; }
-    .nav-title { font-family: 'Fredoka', sans-serif; font-size: 20px; color: #431407; margin: 0; line-height: 1.3; }
+    .nav-card.next-card .nav-card-label {
+        left: auto;
+        right: 10px;
+    }
+
+    .nav-card-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-date {
+        font-size: 12px;
+        color: #EF7D32;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .nav-title {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 20px;
+        color: #431407;
+        margin: 0;
+        line-height: 1.3;
+    }
 
     .share-modal {
-        position: fixed; inset: 0; z-index: 9999;
-        display: flex; align-items: center; justify-content: center;
-        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
     }
-    .share-modal.active { opacity: 1; pointer-events: auto; }
-    .share-modal-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
+
+    .share-modal.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .share-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+    }
+
     .share-modal-content {
-        background: white; width: 90%; max-width: 450px; padding: 30px;
-        border-radius: 20px; position: relative; z-index: 2; text-align: center;
-        transform: translateY(20px); transition: transform 0.3s;
+        background: white;
+        width: 90%;
+        max-width: 450px;
+        padding: 30px;
+        border-radius: 20px;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        transform: translateY(20px);
+        transition: transform 0.3s;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     }
-    .share-modal.active .share-modal-content { transform: translateY(0); }
+
+    .share-modal.active .share-modal-content {
+        transform: translateY(0);
+    }
 
     .close-modal {
-        position: absolute; top: 15px; right: 15px; background: transparent; border: none;
-        font-size: 20px; color: #999; cursor: pointer; width: 30px; height: 30px;
-        display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
     }
-    .close-modal:hover { color: #EF7D32; background: #FFF9F3; }
 
-    .share-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-    .share-btn {
-        display: flex; align-items: center; justify-content: center; gap: 10px;
-        padding: 12px; border-radius: 10px; text-decoration: none; color: white;
-        font-weight: 600; font-size: 14px; transition: transform 0.2s; border: none; cursor: pointer;
+    .close-modal:hover {
+        color: #EF7D32;
+        background: #FFF9F3;
     }
-    .share-btn:hover { transform: translateY(-2px); opacity: 0.9; }
-    .share-btn.facebook { background: #1877F2; }
-    .share-btn.twitter { background: #1DA1F2; }
-    .share-btn.whatsapp { background: #25D366; }
-    .share-btn.copy-link { background: #4B5563; }
-    .share-btn.copy-link.copied { background: #10B981; }
+
+    .share-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .share-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .share-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    .share-btn.facebook {
+        background: #1877F2;
+    }
+
+    .share-btn.twitter {
+        background: #1DA1F2;
+    }
+
+    .share-btn.whatsapp {
+        background: #25D366;
+    }
+
+    .share-btn.copy-link {
+        background: #4B5563;
+    }
+
+    .share-btn.copy-link.copied {
+        background: #10B981;
+    }
 
     @media (max-width: 768px) {
-        .blog-wrapper { padding: 40px 20px; }
-        .blog-title { font-size: 36px; }
-        .blog-content { font-size: 18px; }
-        .blog-action-bar { flex-direction: column; gap: 25px; text-align: center; }
-        .share-options { grid-template-columns: 1fr; }
+        .blog-wrapper {
+            padding: 40px 20px;
+        }
+
+        .blog-title {
+            font-size: 36px;
+        }
+
+        .blog-content {
+            font-size: 18px;
+        }
+
+        .blog-action-bar {
+            flex-direction: column;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .share-options {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 
@@ -357,11 +535,11 @@ $schemaDate = date('c', strtotime($post['created_at']));
     </div>
 
     <div class="blog-content">
-        <?php 
-            $content = $post['content'];
-            // Fix local image paths if they missed the leading slash
-            $content = preg_replace('/src="uploads\//', 'src="/uploads/', $content);
-            echo $content; 
+        <?php
+        $content = $post['content'];
+        // Fix local image paths if they missed the leading slash
+        $content = preg_replace('/src="uploads\//', 'src="/uploads/', $content);
+        echo $content;
         ?>
     </div>
 
@@ -381,7 +559,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
     <h3 class="more-stories-title">More from the Kitchen</h3>
     <div class="post-navigation-cards">
 
-        <?php if ($prev_post): 
+        <?php if ($prev_post):
             $prev_img = !empty($prev_post["featured_image"]) ? "/uploads/" . $prev_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             ?>
             <a href="/blog/<?php echo urlencode($prev_post['slug']); ?>" class="nav-card prev-card">
@@ -399,7 +577,7 @@ $schemaDate = date('c', strtotime($post['created_at']));
             </a>
         <?php endif; ?>
 
-        <?php if ($next_post): 
+        <?php if ($next_post):
             $next_img = !empty($next_post["featured_image"]) ? "/uploads/" . $next_post["featured_image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop";
             ?>
             <a href="/blog/<?php echo urlencode($next_post['slug']); ?>" class="nav-card next-card">

@@ -1,184 +1,184 @@
 <?php
 $pageTitle = "Locations - Danono's Doughnuts and Brownies";
 $metaDesc = "Find a Danono's branch near you. Visit us in Angeles City, Magalang, and San Fernando.";
-$customCss = "locations.css";
 ?>
 <?php include 'includes/header.php'; ?>
 
-<div class="locations-container">
+<div class="max-w-[1400px] mx-auto px-5 p-[100px_0_80px] max-lg:p-[80px_0_60px] max-md:p-[60px_0_50px] max-sm:p-[50px_12px_40px]">
     <!-- Page Header -->
-    <div class="section-header">
-        <span class="section-label">Visit Us</span>
-        <h1 class="page-title">Find a <span>Branch</span></h1>
-        <p class="header-subtitle">Discover our delicious brioche doughnuts & brownies at multiple locations across
+    <div class="text-center mb-[100px] animate-fade-in-down max-lg:mb-20 max-md:mb-[60px] max-sm:mb-[45px]">
+        <span class="block text-[13px] font-extrabold tracking-[3px] text-[#EF7D32] uppercase mb-[15px] animate-slide-in-down max-md:text-[11px] max-sm:text-[10px]">Visit Us</span>
+        <h1 class="text-[64px] font-black text-[#431407] m-0 mb-5 leading-[1.1] tracking-tight max-lg:text-[52px] max-md:text-[40px] max-sm:text-[32px]">Find a <span class="bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] bg-clip-text text-transparent relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:right-0 after:h-[6px] after:bg-[linear-gradient(90deg,#EF7D32,transparent)] after:rounded-[3px] max-md:after:h-[4px] max-md:after:bottom-[-5px]">Branch</span></h1>
+        <p class="text-[18px] text-[#777] m-0 max-w-[700px] mx-auto leading-[1.8] font-medium max-lg:text-[17px] max-md:text-[15px] max-sm:text-[14px]">Discover our delicious brioche doughnuts & brownies at multiple locations across
             Pampanga and beyond</p>
     </div>
 
-    <!-- Locations Grid -->
-    <div class="locations-grid">
+    <!-- Locations Grid - Fixed to 3 columns on desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[35px] mb-[100px] justify-items-center max-lg:gap-7 max-md:mb-[60px] max-sm:mb-[50px]">
+        
         <!-- Mexico Branch -->
-        <div class="location-card premium">
-            <div class="card-badge">Popular</div>
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#FFFEF7_0%,#FFFBF3_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#EF7D32] shadow-[0_15px_50px_rgba(239,125,50,0.12)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="absolute top-5 right-5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[10px_20px] rounded-full text-[11px] font-black uppercase tracking-[1.5px] shadow-[0_6px_20px_rgba(239,125,50,0.4)] z-[2] animate-pop-in max-md:p-[8px_16px] max-md:text-[10px] max-md:top-[15px] max-md:right-[15px] max-sm:p-[6px_12px] max-sm:text-[9px] max-sm:top-3 max-sm:right-3">Popular</div>
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Mexico</h3>
-            <p class="category">Food & Drink</p>
-            <p class="distance"><i class="ph ph-map"></i> 10.8 mi</p>
-            <p class="address">Masangsang, Sto. Cristo, Mexico, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 3.6K followers</p>
-            <p class="description">Treat yourself to the finest delights at Nono's Doughnuts. Enjoy fresh, irresistibly
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Mexico</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Food & Drink</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 10.8 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">Masangsang, Sto. Cristo, Mexico, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 3.6K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Treat yourself to the finest delights at Nono's Doughnuts. Enjoy fresh, irresistibly
                 delicious brioche donuts made daily. Pasalubong for all occasions!</p>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- San Fernando Main Branch -->
-        <div class="location-card premium">
-            <div class="card-badge">Flagship</div>
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#FFFEF7_0%,#FFFBF3_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#EF7D32] shadow-[0_15px_50px_rgba(239,125,50,0.12)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="absolute top-5 right-5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[10px_20px] rounded-full text-[11px] font-black uppercase tracking-[1.5px] shadow-[0_6px_20px_rgba(239,125,50,0.4)] z-[2] animate-pop-in max-md:p-[8px_16px] max-md:text-[10px] max-md:top-[15px] max-md:right-[15px] max-sm:p-[6px_12px] max-sm:text-[9px] max-sm:top-3 max-sm:right-3">Flagship</div>
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - San Fernando</h3>
-            <p class="category">Donut Shop</p>
-            <p class="distance"><i class="ph ph-map"></i> 10.7 mi</p>
-            <p class="address">Mac Arthur Highway, Brgy. San Isidro, San Fernando, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 24K followers</p>
-            <p class="description">Started as Nono's. Still your favorite brioche doughnuts. Now growing — with more
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - San Fernando</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 10.7 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">Mac Arthur Highway, Brgy. San Isidro, San Fernando, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 24K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Started as Nono's. Still your favorite brioche doughnuts. Now growing — with more
                 treats on the way.</p>
-            <div class="status-badge open">Open Now</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#C8E6C9,#A5D6A7)] text-[#1B5E20] shadow-[0_4px_12px_rgba(76,175,80,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Open Now</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Angeles Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Angeles</h3>
-            <p class="category">Donut Shop</p>
-            <p class="distance"><i class="ph ph-map"></i> 6.3 mi</p>
-            <p class="address">372 McArthur Highway, Salapungan, Angeles City, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 2.5K followers</p>
-            <p class="description">Pasalubong from Pampanga! Take home joy and gift delight with Danono's Brioche
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Angeles</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 6.3 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">372 McArthur Highway, Salapungan, Angeles City, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 2.5K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Pasalubong from Pampanga! Take home joy and gift delight with Danono's Brioche
                 Doughnuts & Brownies!</p>
-            <div class="status-badge open">Open Now</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#C8E6C9,#A5D6A7)] text-[#1B5E20] shadow-[0_4px_12px_rgba(76,175,80,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Open Now</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Mabalacat Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Mabalacat</h3>
-            <p class="category">Donut Shop</p>
-            <p class="distance"><i class="ph ph-map"></i> 5.7 mi</p>
-            <p class="address">278 MacArthur Highway, Brgy. Dau, Mabalacat, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 418 followers</p>
-            <p class="description">Fluffy and flavorful, our delectable brioche doughnuts and fudgy brownies are an
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Mabalacat</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 5.7 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">278 MacArthur Highway, Brgy. Dau, Mabalacat, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 418 followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Fluffy and flavorful, our delectable brioche doughnuts and fudgy brownies are an
                 absolute must-try. Freshly made daily to satisfy your cravings.</p>
-            <div class="status-badge open">Open Now</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#C8E6C9,#A5D6A7)] text-[#1B5E20] shadow-[0_4px_12px_rgba(76,175,80,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Open Now</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Magalang Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Magalang</h3>
-            <p class="category">Donut Shop</p>
-            <p class="distance"><i class="ph ph-map"></i> 1.5 mi</p>
-            <p class="address">Lot 168-A-2-A, P. Luciano St., Sta Cruz, Magalang, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 793 followers</p>
-            <p class="description">Your neighborhood doughnut destination for fresh treats and happy moments.</p>
-            <p class="store-hours"><i class="ph ph-clock"></i> Mon-Sun: 8:00 AM - 11:30 PM</p>
-            <div class="status-badge open">Open Now</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Magalang</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 1.5 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">Lot 168-A-2-A, P. Luciano St., Sta Cruz, Magalang, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 793 followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Your neighborhood doughnut destination for fresh treats and happy moments.</p>
+            <p class="text-[13px] text-[#431407] font-bold m-[14px_0] flex items-center justify-center gap-2 max-md:text-[12px] max-sm:text-[11px]"><i class="ph ph-clock text-[#EF7D32] text-[18px]"></i> Mon-Sun: 8:00 AM - 11:30 PM</p>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#C8E6C9,#A5D6A7)] text-[#1B5E20] shadow-[0_4px_12px_rgba(76,175,80,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Open Now</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Porac Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Porac</h3>
-            <p class="category">Cafe</p>
-            <p class="distance"><i class="ph ph-map"></i> 11.9 mi</p>
-            <p class="address">Cangatba, Porac, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 1.9K followers</p>
-            <p class="description">Take home joy and gift delight with Nono's Brioche Doughnuts</p>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Porac</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Cafe</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 11.9 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">Cangatba, Porac, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 1.9K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Take home joy and gift delight with Nono's Brioche Doughnuts</p>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Apalit Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Apalit</h3>
-            <p class="category">Food & Drink</p>
-            <p class="distance"><i class="ph ph-map"></i> 19.8 mi</p>
-            <p class="address">600 Sampaloc, Apalit, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 1.4K followers</p>
-            <p class="description">Take home joy and gift delight with Nono's Brioche Doughnuts</p>
-            <div class="status-badge open">Open Now</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Apalit</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Food & Drink</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 19.8 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">600 Sampaloc, Apalit, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 1.4K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Take home joy and gift delight with Nono's Brioche Doughnuts</p>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#C8E6C9,#A5D6A7)] text-[#1B5E20] shadow-[0_4px_12px_rgba(76,175,80,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Open Now</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Capas Branch -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Capas</h3>
-            <p class="category">Donut Shop</p>
-            <p class="followers"><i class="ph ph-users"></i> 1.5K followers</p>
-            <p class="description">Fresh and irresistible delights brioche donuts! Get your favorites at our Capas
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Capas</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 1.5K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Fresh and irresistible delights brioche donuts! Get your favorites at our Capas
                 location.</p>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- NLEX MEGA Station -->
-        <div class="location-card">
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#ffffff_0%,#FFFDF9_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#FFE8D6] shadow-[0_10px_40px_rgba(67,20,7,0.08)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - NLEX MEGA</h3>
-            <p class="category">Donut Shop</p>
-            <p class="distance"><i class="ph ph-map"></i> 11.8 mi</p>
-            <p class="address">NLEX Mega Station, San Fernando, Philippines</p>
-            <p class="followers"><i class="ph ph-users"></i> 295 followers</p>
-            <p class="description">Always open! Stop by during your travels for your favorite brioche doughnuts.</p>
-            <div class="status-badge always-open">Always Open</div>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - NLEX MEGA</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Donut Shop</p>
+            <p class="text-[14px] text-[#666] m-[10px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-map text-[#EF7D32] text-[18px]"></i> 11.8 mi</p>
+            <p class="text-[15px] text-[#555] leading-[1.6] m-[14px_0] font-medium max-md:text-[14px] max-sm:text-[13px]">NLEX Mega Station, San Fernando, Philippines</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 295 followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Always open! Stop by during your travels for your favorite brioche doughnuts.</p>
+            <div class="inline-block p-[10px_20px] rounded-full text-[12px] font-extrabold uppercase tracking-[0.8px] m-[15px_0] bg-[linear-gradient(135deg,#B2DFDB,#80CBC4)] text-[#004D40] shadow-[0_4px_12px_rgba(0,150,136,0.2)] max-md:p-[8px_16px] max-md:text-[11px] max-sm:p-[7px_14px] max-sm:text-[10px]">Always Open</div>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
 
         <!-- Imus Branch (South) -->
-        <div class="location-card premium">
-            <div class="card-badge">New</div>
-            <div class="location-icon">
+        <div class="bg-[linear-gradient(135deg,#FFFEF7_0%,#FFFBF3_100%)] rounded-[28px] p-[45px_35px] text-center border-2 border-[#EF7D32] shadow-[0_15px_50px_rgba(239,125,50,0.12)] transition-all duration-400 cubic-bezier(0.25,0.8,0.25,1) flex flex-col min-h-[520px] overflow-hidden relative group hover:translate-y-[-15px] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(239,125,50,0.2)] hover:border-[#EF7D32] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] before:bg-[linear-gradient(90deg,#EF7D32,#FF8E43,transparent)] before:opacity-0 before:transition-opacity before:duration-400 hover:before:opacity-100 after:content-[''] after:absolute after:top-[-50%] after:right-[-50%] after:w-[200px] after:h-[200px] after:bg-[radial-gradient(circle,rgba(239,125,50,0.1)_0%,transparent_70%)] after:rounded-full after:opacity-0 after:transition-all after:duration-400 after:pointer-events-none hover:after:opacity-100 hover:after:top-[-20%] hover:after:right-[-20%] w-full max-w-[420px] max-lg:p-[38px_30px] max-lg:min-h-[480px] max-md:p-[32px_25px] max-md:min-h-auto max-sm:p-[26px_20px]">
+            <div class="absolute top-5 right-5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[10px_20px] rounded-full text-[11px] font-black uppercase tracking-[1.5px] shadow-[0_6px_20px_rgba(239,125,50,0.4)] z-[2] animate-pop-in max-md:p-[8px_16px] max-md:text-[10px] max-md:top-[15px] max-md:right-[15px] max-sm:p-[6px_12px] max-sm:text-[9px] max-sm:top-3 max-sm:right-3">New</div>
+            <div class="text-[56px] text-[#EF7D32] mb-[25px] animate-float relative z-[1] max-lg:text-[50px] max-md:text-[45px] max-md:mb-[18px] max-sm:text-[40px] max-sm:mb-[15px]">
                 <i class="ph ph-map-pin"></i>
             </div>
-            <h3>Danonos - Imus</h3>
-            <p class="category">Food & Drink</p>
-            <p class="followers"><i class="ph ph-users"></i> 1.5K followers</p>
-            <p class="description">Experience the famous doughnuts and the irresistible goodness of brioche doughnuts
+            <h3 class="text-[28px] text-[#431407] m-[0_0_10px_0] font-extrabold leading-[1.2] relative z-[1] max-lg:text-[25px] max-md:text-[23px] max-sm:text-[20px]">Danonos - Imus</h3>
+            <p class="inline-block text-[11px] font-bold tracking-[1px] text-[#EF7D32] bg-[linear-gradient(135deg,#FFF3E0,#FFE8D6)] p-[8px_18px] rounded-full m-[0_0_16px_0] uppercase border border-[#FFD6B3] w-fit mx-auto max-md:text-[10px] max-md:p-[6px_14px] max-sm:text-[9px] max-sm:p-[5px_12px]">Food & Drink</p>
+            <p class="text-[13px] text-[#888] m-[12px_0] flex items-center justify-center gap-2 font-semibold max-md:text-[13px] max-sm:text-[12px]"><i class="ph ph-users text-[#EF7D32] text-[18px]"></i> 1.5K followers</p>
+            <p class="text-[15px] text-[#666] leading-[1.7] m-[18px_0_25px_0] grow flex items-center justify-center font-medium max-md:text-[14px] max-md:m-[14px_0_20px_0] max-sm:text-[13px] max-sm:m-[12px_0_18px_0]">Experience the famous doughnuts and the irresistible goodness of brioche doughnuts
                 from Pampanga! THE FIRST EVER BRANCH IN THE SOUTH!</p>
-            <button class="btn btn-primary"><i class="ph ph-phone"></i> Contact</button>
+            <button class="flex items-center justify-center gap-2.5 bg-[linear-gradient(135deg,#EF7D32,#FF8E43)] text-white p-[14px_36px] rounded-full font-extrabold text-[15px] transition-all duration-300 shadow-[0_6px_20px_rgba(239,125,50,0.35)] mt-auto w-full uppercase tracking-[0.5px] hover:translate-y-[-3px] hover:shadow-[0_12px_30px_rgba(239,125,50,0.5)] active:translate-y-[-1px] relative z-[1] max-md:p-[13px_30px] max-md:text-[14px] max-sm:p-[12px_24px] max-sm:text-[13px]"><i class="ph ph-phone text-[18px]"></i> Contact</button>
         </div>
     </div>
 </div>
 
-<!-- CTA Section - Family Banner Style -->
-<section class="family-banner family-banner-centered">
-    <div class="family-banner-content" data-aos="fade-up">
-        <h2>Can't Find a Location <span class="family-highlight">Near You?</span></h2>
-        <p>Interested in bringing Danonos to your area? Explore our franchise opportunities and be part of our growing
+<!-- CTA BANNER - Unified with index/about -->
+<section class="py-24 px-5 text-center bg-[linear-gradient(90deg,#EF7D32_0%,#FFC107_25%,#D8651E_50%,#FFC107_75%,#EF7D32_100%)] bg-[length:300%_100%] animate-family-gradient text-white relative overflow-hidden flex flex-col items-center justify-center before:content-[''] before:absolute before:inset-0 before:bg-[url('data:image/svg+xml,%3Csvg_width=%2250%22_height=%2250%22_viewBox=%220_0_50_50%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg_fill=%22%23000000%22_fill-opacity=%220.05%22%3E%3Ccircle_cx=%2212%22_cy=%2212%22_r=%221.5%22/%3E%3Ccircle_cx=%2237%22_cy=%2212%22_r=%221%22/%3E%3Ccircle_cx=%2212%22_cy=%2237%22_r=%221%22/%3E%3Ccircle_cx=%2237%22_cy=%2237%22_r=%221.5%22/%3E%3Ccircle_cx=%2225%22_cy=%2225%22_r=%221%22/%3E%3C/g%3E%3C/svg%3E')] before:pointer-events-none before:z-0 max-sm:py-16">
+    <div class="relative z-[2] max-w-[750px]" data-aos="fade-up">
+        <h2 class="text-[32px] lg:text-[58px] font-bold leading-tight mb-6 tracking-tight [text-shadow:2px_2px_0_rgba(0,0,0,0.1)] max-sm:text-[26px]">Can't Find a Location <span class="text-white [text-shadow:2px_2px_0_rgba(255,255,255,0.15),-1px_-1px_0_rgba(0,0,0,0.1)]">Near You?</span></h2>
+        <p class="text-[18px] leading-relaxed opacity-95 mb-10 font-medium max-sm:text-[14px]">Interested in bringing Danonos to your area? Explore our franchise opportunities and be part of our growing
             family!</p>
-        <div class="family-buttons">
-            <a href="franchise" class="btn btn-white"><i class="ph ph-handshake"></i> Partner With Us</a>
-            <a href="#" class="btn btn-outline-white"><i class="ph ph-phone"></i> Contact Us</a>
+        <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <a href="franchise" class="bg-white text-[#EF7D32] px-10 py-4 rounded-full font-bold text-[15px] flex items-center gap-3 transition-all duration-300 border-2 border-white hover:translate-y-[-3px] hover:shadow-2xl max-sm:w-full max-sm:max-w-[280px] max-sm:justify-center"><i class="ph ph-handshake text-xl"></i> Partner With Us</a>
+            <a href="#" class="bg-transparent text-white px-10 py-4 rounded-full font-bold text-[15px] flex items-center gap-3 transition-all duration-300 border-2 border-white hover:bg-white hover:text-[#EF7D32] hover:translate-y-[-3px] hover:shadow-2xl max-sm:w-full max-sm:max-w-[280px] max-sm:justify-center"><i class="ph ph-phone text-xl"></i> Contact Us</a>
         </div>
     </div>
 </section>

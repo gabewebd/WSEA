@@ -1,0 +1,23 @@
+{
+  "name": "danonos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Josh-Aguiluz/WSEA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Josh-Aguiluz/WSEA/issues"
+  },
+  "homepage": "https://github.com/Josh-Aguiluz/WSEA#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

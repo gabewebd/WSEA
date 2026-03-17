@@ -1,11 +1,21 @@
 <?php
 // HOSTINGER PRODUCTION DATABASE CONFIGURATION
+// Check if we are running on localhost
+$is_local = in_array($_SERVER['HTTP_HOST'], ['localhost', '127.0.0.1']);
 
-// 1. Hostinger Credentials (Found in hPanel > Databases > MySQL)
-$servername = "localhost";
-$username = "u697443091_danonos"; // Hostinger DB Username
-$password = "r!GtK$|e0gy5"; // Hostinger DB Password
-$dbname = "u697443091_danonos"; // Hostinger DB Name
+if ($is_local) {
+    // Local Development (XAMPP)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "danonos";
+} else {
+    // Production (Hostinger)
+    $servername = "localhost";
+    $username = "u697443091_danonos";
+    $password = "r!GtK$|e0gy5";
+    $dbname = "u697443091_danonos";
+}
 
 // 2. Simple Connection (SSL is not needed for localhost connections)
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -51,15 +51,18 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies - Best Donuts in Angeles City"; ?></title>
-  <meta name="description" content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
+  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies - Best Donuts in Angeles City"; ?>
+  </title>
+  <meta name="description"
+    content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
   <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
   <meta property="og:title" content="<?php echo isset($pageTitle) ? $pageTitle : "Danono's Doughnuts and Brownies"; ?>">
-  <meta property="og:description" content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day."; ?>">
+  <meta property="og:description"
+    content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked donuts every day."; ?>">
   <meta property="og:image" content="<?php echo $socialImage; ?>">
 
   <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>apple-touch-icon.png">
@@ -70,7 +73,9 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css">
@@ -142,6 +147,82 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   </script>
 
   <meta name="google-site-verification" content="ICn4_I4gNkh5hC1Aqd3kYOm9DZhQAAJyXaCPgI9sMbM" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-orange': '#EF7D32',
+            'dark-brown': '#431407',
+            'cream': '#FFF9F3',
+            'gold': '#FFC107',
+          },
+          keyframes: {
+            shine: {
+              'to': { 'background-position': '200% center' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+            familyGradient: {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            containerPop: {
+              '0%': { opacity: '0', transform: 'translate(-50%, -50%) scale(0.9)', 'z-index': '1' },
+              '5%': { opacity: '1', transform: 'translate(-50%, -50%) scale(1)', 'z-index': '5' },
+              '33.33%': { opacity: '1', transform: 'translate(-50%, -50%) scale(1)', 'z-index': '5' },
+              '38%': { opacity: '0', transform: 'translate(-50%, -50%) scale(1.05)', 'z-index': '1' },
+              '100%': { opacity: '0', transform: 'translate(-50%, -50%) scale(0.9)', 'z-index': '0' },
+            },
+            fadeInDown: {
+              'from': { opacity: '0', transform: 'translateY(-30px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideInDown: {
+              'from': { opacity: '0', transform: 'translateY(-10px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            },
+            popIn: {
+              '0%': { opacity: '0', transform: 'scale(0) rotate(-180deg)' },
+              '100%': { opacity: '1', transform: 'scale(1) rotate(0)' },
+            },
+            blobBounce: {
+              '0%': { 'border-radius': '44% 56% 41% 59% / 54% 39% 61% 46%' },
+              '100%': { 'border-radius': '54% 46% 51% 49% / 44% 49% 51% 56%' },
+            },
+            cardLoad: {
+              'from': { opacity: '0', transform: 'translateY(40px) scale(0.92)' },
+              'to': { opacity: '1', transform: 'translateY(0) scale(1)' },
+            }
+          },
+          animation: {
+            'shine': 'shine 4s linear infinite',
+            'float': 'float 4s ease-in-out infinite',
+            'family-gradient': 'familyGradient 10s ease-in-out infinite',
+            'container-pop': 'containerPop 9s infinite ease-in-out',
+            'fade-in-down': 'fadeInDown 0.8s ease-out',
+            'slide-in-down': 'slideInDown 0.8s ease-out',
+            'pop-in': 'popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+            'blob-bounce': 'blobBounce 8s infinite ease-in-out alternate',
+            'card-load': 'cardLoad 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .pop-out-text, .pop-out-text-sm {
+        @apply font-black uppercase text-transparent bg-clip-text animate-shine;
+        background-image: linear-gradient(to right, #EF7D32 0%, #FFC107 50%, #EF7D32 100%);
+        background-size: 200% auto;
+      }
+    }
+  </style>
 
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="8bGj2TNE59261+17GxiipA" async></script>
 </head>
