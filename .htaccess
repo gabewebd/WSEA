@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /
+RewriteBase /danonos/
 
 # 0. Allow direct access to robots.txt and sitemap.xml without routing
 RewriteRule ^robots\.txt$ - [L]
