@@ -2,6 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /includes/
-Disallow: /*?listing/
 
 Sitemap: https://danonos.com/sitemap.xml

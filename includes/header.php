@@ -4,6 +4,13 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ob_start();
 
+// --- SEO SPAM FIX: Instantly kill "?listing" URLs ---
+if (strpos($_SERVER['REQUEST_URI'], '?listing') !== false) {
+  header("HTTP/1.1 410 Gone");
+  echo "<!DOCTYPE html><html><head><title>410 Gone</title></head><body style='text-align:center; padding:50px; font-family:sans-serif;'><h1>410 Gone</h1><p>This URL has been permanently removed.</p></body></html>";
+  exit();
+}
+
 // --- 1. DYNAMIC URL SETUP (Fixes Favicon & SEO Links) ---
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 $host = $_SERVER['HTTP_HOST'];
@@ -36,7 +43,8 @@ if ($requestPath != '/' && substr($requestPath, -1) == '/') {
 if (isset($_GET['slug']) && strpos($_SERVER['REQUEST_URI'], 'single-blog') !== false) {
   // If it's a blog post using the new or old structure, point to the "Pretty" version.
   $canonicalUrl = $protocol . "://" . $host . "/blog/" . $_GET['slug'];
-} else {
+}
+else {
   // Otherwise, use the strictly formatted request path
   $canonicalUrl = $protocol . "://" . $host . $requestPath;
 }
@@ -83,7 +91,8 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css?v=1.1">
   <?php if (isset($customCss)): ?>
     <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/<?php echo $customCss; ?>?v=1.1">
-  <?php endif; ?>
+  <?php
+endif; ?>
 
   <script type="application/ld+json">
     [
