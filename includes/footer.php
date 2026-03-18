@@ -51,7 +51,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 Danono's Donuts & Brownies. All rights reserved. | <a href="<?php echo $baseUrl; ?>privacy-policy"
+        <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="<?php echo $baseUrl; ?>privacy-policy"
                 style="color: inherit;">Privacy Policy and Terms of Service</a></p>
     </div>
 </footer>
