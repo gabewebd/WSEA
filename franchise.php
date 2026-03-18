@@ -469,6 +469,267 @@ $customCss = "franchise.css";
     </svg>
 </div>
 
+
+<!-- =========================================
+     FAQ SECTION (VISUAL SCHEMA VALIDATION)
+     ========================================= -->
+<section class="faq-premium-section">
+    <div class="container faq-container">
+        <div class="faq-header" data-aos="fade-up">
+            <span class="badge-pill">Have Questions?</span>
+            <h2 class="faq-main-title">Franchise <span class="pop-out-text-sm">FAQs</span></h2>
+            <p class="faq-subtitle">Everything you need to know about starting your Danono's journey.</p>
+        </div>
+
+        <div class="faq-staggered-grid">
+            <!-- Item 1 -->
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-question">
+                    <h3>How much does a Danono's franchise cost?</h3>
+                    <div class="faq-icon-wrap">
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Please contact us directly through our Franchise page for our updated package rates and inclusions for Central Luzon and beyond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question">
+                    <h3>Do you deliver donuts in Angeles City?</h3>
+                    <div class="faq-icon-wrap">
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Yes! We offer delivery within Angeles City, San Fernando, and Mabalacat. You can also find us on major food delivery apps.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-question">
+                    <h3>Are your donuts baked fresh daily?</h3>
+                    <div class="faq-icon-wrap">
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Absolutely. All Danono's brioche donuts and brownies are crafted and baked fresh every single morning across all our Pampanga branches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-premium-section {
+        padding: 100px 0;
+        background-color: var(--cream);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .faq-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .faq-main-title {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 3.5rem;
+        color: var(--dark-brown);
+        margin: 15px 0;
+        font-weight: 900;
+        line-height: 1.1;
+    }
+
+    .faq-subtitle {
+        font-family: 'Barlow', sans-serif;
+        font-size: 1.2rem;
+        color: #6D4C41;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Center Layout */
+    .faq-staggered-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center; /* Center the cards */
+    }
+
+    .faq-card {
+        width: 100%;
+        max-width: 800px; /* Limit width for better readability when centered */
+        background: #FFFFFF;
+        border-radius: 20px;
+        padding: 5px;
+        box-shadow: 0 10px 30px rgba(67, 20, 7, 0.05);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        cursor: pointer;
+        border: 1px solid rgba(239, 125, 50, 0.08);
+        position: relative;
+    }
+
+    .faq-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(67, 20, 7, 0.1);
+        border-color: var(--primary-orange);
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 28px;
+    }
+
+    .faq-question h3 {
+        font-family: 'Fredoka', sans-serif !important;
+        font-size: 1.4rem;
+        color: var(--dark-brown);
+        margin: 0;
+        font-weight: 700;
+        line-height: 1.3;
+        flex: 1;
+    }
+
+    .faq-icon-wrap {
+        width: 38px;
+        height: 38px;
+        background: var(--cream);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-orange);
+        font-size: 18px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
+        margin-left: 20px;
+    }
+
+    .faq-card.active {
+        border-color: var(--primary-orange);
+        box-shadow: 0 20px 40px rgba(239, 125, 50, 0.12);
+    }
+
+    .faq-card.active .faq-icon-wrap {
+        transform: rotate(180deg);
+        background: var(--primary-orange);
+        color: #FFFFFF;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+    }
+
+    .faq-card.active .faq-answer {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    .faq-answer-inner {
+        padding: 0 28px 25px;
+    }
+
+    .faq-answer p {
+        font-family: 'Barlow', sans-serif !important;
+        font-size: 1.15rem;
+        color: #5D4037;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    @media (max-width: 968px) {
+        .faq-premium-section {
+            padding: 80px 0;
+        }
+        .faq-main-title {
+            font-size: 3rem;
+        }
+        .faq-subtitle {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .faq-premium-section {
+            padding: 60px 0;
+        }
+        .faq-main-title {
+            font-size: 2.4rem;
+        }
+        .faq-question h3 {
+            font-size: 1.2rem;
+        }
+        .faq-question {
+            padding: 18px 22px;
+        }
+        .faq-icon-wrap {
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+        }
+        .faq-answer-inner {
+            padding: 0 22px 20px;
+        }
+        .faq-answer p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .faq-main-title {
+            font-size: 2rem;
+        }
+        .faq-question h3 {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqCards = document.querySelectorAll('.faq-card');
+        
+        faqCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const isActive = card.classList.contains('active');
+                
+                // Close all other cards for a clean accordion experience
+                faqCards.forEach(otherCard => {
+                    otherCard.classList.remove('active');
+                });
+                
+                // If the clicked card wasn't active, open it
+                if (!isActive) {
+                    card.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+
 <section id="apply" class="franchise-form-section">
     <div class="container franchise-form-container">
 

@@ -642,7 +642,7 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
 
     <div class="about-hero-content">
         <span class="section-subtitle" data-aos="fade-down">ESTABLISHED 2018</span>
-        <h1 data-aos="fade-up" data-aos-delay="100">Angeles City's Most Loved <br><span class="pop-out-text">BRIOCHE
+        <h1 data-aos="fade-up" data-aos-delay="100">Pampanga's Most Loved <br><span class="pop-out-text">BRIOCHE
                 DONUTS</span> & The Story of Danono's</h1>
     </div>
     <div class="about-hero-bg" data-speed="1">

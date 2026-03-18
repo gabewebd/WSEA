@@ -67,11 +67,11 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts every day. Best donuts in Pampanga."; ?>">
   <meta property="og:image" content="<?php echo $socialImage; ?>">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $baseUrl; ?>favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $baseUrl; ?>favicon-16x16.png">
-  <link rel="manifest" href="<?php echo $baseUrl; ?>site.webmanifest">
-  <link rel="shortcut icon" href="<?php echo $baseUrl; ?>favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $baseUrl; ?>assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $baseUrl; ?>assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="<?php echo $baseUrl; ?>assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="<?php echo $baseUrl; ?>assets/favicons/favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
