@@ -878,6 +878,52 @@ footer::before {
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.6);
     max-width: 350px;
+    margin: 20px 0 25px;
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.1);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon i {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    background: var(--primary-orange);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(239, 125, 50, 0.3);
+    border-color: transparent;
 }
 
 /* Footer Map Fix */
@@ -936,7 +982,7 @@ footer::before {
     }
 
     .footer-section.footer-about p {
-        margin: 0;
+        margin: 0 0 25px;
     }
 
     .social-icons {
