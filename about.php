@@ -642,7 +642,8 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
 
     <div class="about-hero-content">
         <span class="section-subtitle" data-aos="fade-down">ESTABLISHED 2018</span>
-        <h1 data-aos="fade-up" data-aos-delay="100">Angeles City's Most Loved <br><span class="pop-out-text">BRIOCHE DONUTS</span> & The Story of Danono's</h1>
+        <h1 data-aos="fade-up" data-aos-delay="100">Angeles City's Most Loved <br><span class="pop-out-text">BRIOCHE
+                DONUTS</span> & The Story of Danono's</h1>
     </div>
     <div class="about-hero-bg" data-speed="1">
         <img src="assets/img/danonos-hero.jpg" alt="Danonos Bakery Background"
@@ -667,8 +668,9 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
             <span class="section-label">OUR JOURNEY</span>
             <h2>The Best Donut Brand in Pampanga: From Nono's to <span class="pop-out-text-sm">DANONO'S</span>
             </h2>
-            <p>What started as a passionate home kitchen project has blossomed into <strong>Danono's Donuts
-                    Pampanga</strong>—Angeles City’s favorite destination
+            <p>What started as a passionate home kitchen project has blossomed into <strong>Danono's Doughnuts and
+                    Brownies
+                </strong>—Angeles City’s favorite destination
                 for <strong>premium brioche donuts in Pampanga</strong>. Some fans know us as <strong>Nono's</strong>
                 , but the mission remains the same: to elevate the
                 humble donut into a gourmet experience.</p>

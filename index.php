@@ -15,7 +15,8 @@ $customCss = "index.css";
     <div class="hero-text">
         <h1 data-aos="fade-up">Pampanga's Favorite <span class="pop-out-text">BRIOCHE DONUTS</span></h1>
         <p data-aos="fade-up" data-aos-delay="100">Looking for the <strong>best donuts near you</strong>? Discover
-            <strong>Danono's Donuts</strong> — crafted daily with premium French brioche dough. Experience the softest,
+            <strong>Danono's Doughnuts and Brownies</strong> — crafted daily with premium French brioche dough.
+            Experience the softest,
             most flavorful donuts in Angeles City, San Fernando, and Mabalacat.
         </p>
         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">

@@ -51,16 +51,20 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Donuts & Brownies - Best Donuts in Angeles City"; ?></title>
-  <meta name="description" content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
+  <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Donuts & Brownies - Best Donuts in Angeles City"; ?>
+  </title>
+  <meta name="description"
+    content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
   <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
-  <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.jpg" type="image/jpeg">
+  <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.jpg"
+    type="image/jpeg">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
   <meta property="og:title" content="<?php echo isset($pageTitle) ? $pageTitle : "Danono's Donuts & Brownies"; ?>">
-  <meta property="og:description" content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts every day. Best donuts in Pampanga."; ?>">
+  <meta property="og:description"
+    content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts every day. Best donuts in Pampanga."; ?>">
   <meta property="og:image" content="<?php echo $socialImage; ?>">
 
   <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>apple-touch-icon.png">
@@ -71,7 +75,9 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap"
+    rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css?v=1.1">
@@ -99,6 +105,11 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
             "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg",
             "url": "https://danonos.com/",
             "telephone": "+63 927 365 0789",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "156"
+            },
             "description": "Premium brioche donuts, brownies, and coffee in Angeles City, Pampanga. Best donuts in Mexico and San Fernando.",
             "servesCuisine": "Brioche Donuts, Coffee, Pastries",
             "address": {

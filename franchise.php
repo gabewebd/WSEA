@@ -7,13 +7,45 @@ $customCss = "franchise.css";
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How much does a Danono's franchise cost?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Please contact us directly through our Franchise page for our updated package rates and inclusions for Central Luzon and beyond."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Do you deliver donuts in Angeles City?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes! We offer delivery within Angeles City, San Fernando, and Mabalacat. You can also find us on major food delivery apps."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Are your donuts baked fresh daily?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Absolutely. All Danono's brioche donuts and brownies are crafted and baked fresh every single morning across all our Pampanga branches."
+    }
+  }]
+}
+</script>
+
 <style>
     /* =========================================
        FRANCHISE RESPONSIVE FIXES (HERO & FORM ONLY)
        ========================================= */
-    html, body {
-        overflow-x: visible !important; /* Allow sticky header */
+    html,
+    body {
+        overflow-x: visible !important;
+        /* Allow sticky header */
     }
+
     .franchise-hero {
         position: relative;
         min-height: 95vh;
@@ -211,7 +243,8 @@ $customCss = "franchise.css";
             height: auto !important;
             justify-content: flex-start !important;
             margin-top: 0 !important;
-            overflow: hidden; /* Extra safety for horizontal scroll */
+            overflow: hidden;
+            /* Extra safety for horizontal scroll */
         }
 
         .hero-text {
@@ -248,9 +281,11 @@ $customCss = "franchise.css";
         .floating-card {
             left: 50%;
             transform: translateX(-50%) !important;
-            bottom: -15px; /* Adjust to sit below image on mobile center */
+            bottom: -15px;
+            /* Adjust to sit below image on mobile center */
             animation: none !important;
-            position: relative; /* Switch to relative on mobile to prevent overlap */
+            position: relative;
+            /* Switch to relative on mobile to prevent overlap */
             margin: 20px auto 0;
         }
 
@@ -426,7 +461,8 @@ $customCss = "franchise.css";
 </section>
 
 <div style="background-color: var(--cream); margin-top: -2px; width: 100%; overflow: hidden;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width: 100%; height: auto; display: block; transform: rotate(180deg);">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+        style="width: 100%; height: auto; display: block; transform: rotate(180deg);">
         <path fill="#431407" fill-opacity="1"
             d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
@@ -489,8 +525,8 @@ $customCss = "franchise.css";
                         <div class="input-group">
                             <label for="location" class="form-label">Preferred Location <span
                                     class="required">*</span></label>
-                            <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga" required
-                                class="form-input">
+                            <input type="text" id="location" name="location" placeholder="San Fernando, Pampanga"
+                                required class="form-input">
                         </div>
 
                         <div class="input-group full-width">
@@ -517,12 +553,13 @@ $customCss = "franchise.css";
             <aside class="contact-sidebar" data-aos="fade-left" data-aos-delay="300">
                 <div class="sidebar-blob-bg"></div>
                 <div class="sidebar-backplate"></div>
-                
+
                 <div class="contact-sidebar-card">
-                    <img src="assets/img/mini-doughnut.png" alt="Danono's" class="sidebar-floating-donut" onerror="this.style.display='none'">
-                    
+                    <img src="assets/img/mini-doughnut.png" alt="Danono's" class="sidebar-floating-donut"
+                        onerror="this.style.display='none'">
+
                     <h3 class="pop-out-text-sm" style="font-size: 1.8rem; margin-bottom: 30px;">Direct Contact</h3>
-                    
+
                     <div class="contact-method-list">
                         <a href="tel:+639625585616" class="contact-method-card">
                             <div class="method-icon-wrap">
@@ -540,7 +577,8 @@ $customCss = "franchise.css";
                             </div>
                             <div class="method-info">
                                 <span class="method-label">DROP A MESSAGE</span>
-                                <strong class="method-value" style="font-size: 14px; word-break: break-all;">nonosdoughnuts@gmail.com</strong>
+                                <strong class="method-value"
+                                    style="font-size: 14px; word-break: break-all;">nonosdoughnuts@gmail.com</strong>
                             </div>
                         </a>
 
@@ -558,9 +596,12 @@ $customCss = "franchise.css";
                     <div class="contact-socials-box">
                         <p>Join the Family Online</p>
                         <div class="sidebar-social-icons">
-                            <a href="https://www.facebook.com/danonosdoughnuts" class="sidebar-social-link" target="_blank" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
-                            <a href="https://www.instagram.com/danonosdoughnuts" class="sidebar-social-link" target="_blank" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-                            <a href="https://www.tiktok.com/@danonosdoughnuts" class="sidebar-social-link" target="_blank" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                            <a href="https://www.facebook.com/danonosdoughnuts" class="sidebar-social-link"
+                                target="_blank" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="https://www.instagram.com/danonosdoughnuts" class="sidebar-social-link"
+                                target="_blank" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="https://www.tiktok.com/@danonosdoughnuts" class="sidebar-social-link"
+                                target="_blank" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
                         </div>
                     </div>
                 </div>
@@ -580,10 +621,10 @@ $customCss = "franchise.css";
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const franchiseForm = document.querySelector('form[action="admin/process_franchise.php"]');
         if (franchiseForm) {
-            franchiseForm.addEventListener('submit', function() {
+            franchiseForm.addEventListener('submit', function () {
                 if (typeof gtag === 'function') {
                     gtag('event', 'generate_lead', {
                         form_name: 'franchise_application'

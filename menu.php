@@ -1,9 +1,92 @@
 <?php
+// --- 1. INITIALIZE VARIABLES & DB ---
 $pageTitle = "Menu - Danono's Donuts | Best Flavored Brioche Donuts Pampanga";
 $metaDesc = "Explore Danono's menu: premium brioche donuts, Biscoff donuts, Ube donuts, and gourmet brownies. The best flavored donuts in the Philippines available now.";
 $customCss = "menu.css";
-include 'includes/header.php';
+
 include 'includes/db_connect.php';
+
+// --- 2. SETUP BASE URL FOR SCHEMA ---
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+$scriptDir = dirname($_SERVER['SCRIPT_NAME']);
+$baseUrl = $protocol . "://" . $host . ($scriptDir == '/' ? '' : $scriptDir);
+if (substr($baseUrl, -1) !== '/') {
+    $baseUrl .= '/';
+}
+
+// --- 3. FETCH MENU DATA & BUILD SCHEMA ---
+$sql = "SELECT * FROM menu_items WHERE (is_visible = 1 OR is_visible IS NULL) ORDER BY category, name";
+$result = $conn->query($sql);
+$hasDbItems = ($result && $result->num_rows > 0);
+
+$schemaItems = [];
+$position = 1;
+
+// Fallback items stored once to be used for both Schema and Grid if DB is empty
+$fallbackMenuItems = [
+    ["name" => "Sweet Bavarian Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Bavarian-filled brioche donut dipped in crispy, roasted sugar."],
+    ["name" => "Rainbow Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Brioche donut dipped in chocolate and topped with Froot Loops."],
+    ["name" => "Gleaming Glaze", "category" => "doughnuts", "price" => "30", "desc" => "Classic glazed brioche donut."],
+    ["name" => "Choco Gleaming Glaze", "category" => "doughnuts", "price" => "50", "desc" => "Classic glazed brioche donut with rich chocolate."],
+    ["name" => "Dusted Berry Dream", "category" => "doughnuts", "price" => "30", "desc" => "Strawberry jam-filled brioche donut coated in powdered sugar."],
+    ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
+    ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with chocolate cream filling."],
+    ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
+    ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Gourmet brioche donuts Mexico Pampanga spread with pistachio crunch and melted white chocolate."],
+    ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "A decadent combination of 5 kinds of premium chocolates in 1 artisan doughnut."],
+    ["name" => "Classic Fudge Brownie", "category" => "brownies", "price" => "45", "desc" => "Rich, dense chocolate fudge brownie with a moist center."],
+    ["name" => "Salted Caramel Brownie", "category" => "brownies", "price" => "55", "desc" => "Decadent brownie with salted caramel swirl and crushed sea salt."],
+    ["name" => "Nutella Dream", "category" => "brownies", "price" => "50", "desc" => "Chocolate brownie with Nutella filling and hazelnut bits."],
+    ["name" => "Double Chocolate Stack", "category" => "brownies", "price" => "60", "desc" => "Dark and milk chocolate layered brownie perfection."],
+    ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "100", "desc" => "Signature chocolate drink served hot with velvety texture."],
+    ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "110", "desc" => "Signature chocolate drink served refreshingly cold."],
+    ["name" => "Seasalt Latte", "category" => "beverages", "price" => "120", "desc" => "Smooth latte with a sophisticated touch of sea salt."],
+    ["name" => "White Mocha Latte", "category" => "beverages", "price" => "120", "desc" => "Creamy white chocolate mocha latte."],
+    ["name" => "Hot Cappuccino", "category" => "beverages", "price" => "100", "desc" => "Classic espresso with velvety steamed milk and thick foam."],
+    ["name" => "Iced Americano", "category" => "beverages", "price" => "100", "desc" => "Refreshing espresso with cold water over ice."],
+    ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "120", "desc" => "Freshly made lemonade with fresh strawberry juice."],
+    ["name" => "Matcha Latte", "category" => "beverages", "price" => "110", "desc" => "Premium specialty matcha in Angeles City - creamy latte with traditional green tea."]
+];
+
+if ($hasDbItems) {
+    while ($row = $result->fetch_assoc()) {
+        $imagePath = isset($row["image"]) && !empty($row["image"]) ? $baseUrl . "uploads/" . $row["image"] : "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop";
+        $schemaItems[] = [
+            "@type" => "MenuItem",
+            "position" => $position,
+            "name" => htmlspecialchars($row['name']),
+            "description" => isset($row['description']) ? htmlspecialchars(strip_tags($row['description'])) : "A delicious treat made fresh daily.",
+            "image" => $imagePath,
+            "offers" => [
+                "@type" => "Offer",
+                "price" => number_format((float) $row['price'], 2, '.', ''),
+                "priceCurrency" => "PHP"
+            ]
+        ];
+        $position++;
+    }
+    // Reset pointer so the grid loop below works
+    $result->data_seek(0);
+} else {
+    foreach ($fallbackMenuItems as $item) {
+        $schemaItems[] = [
+            "@type" => "MenuItem",
+            "position" => $position,
+            "name" => htmlspecialchars($item['name']),
+            "description" => htmlspecialchars($item['desc']),
+            "image" => "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop",
+            "offers" => [
+                "@type" => "Offer",
+                "price" => number_format((float) $item['price'], 2, '.', ''),
+                "priceCurrency" => "PHP"
+            ]
+        ];
+        $position++;
+    }
+}
+
+include 'includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +96,27 @@ include 'includes/db_connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $metaDesc; ?>">
     <title><?php echo $pageTitle; ?></title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Danono's Donuts & Brownies Menu",
+      "url": "<?php echo $baseUrl; ?>menu",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<?php echo $baseUrl; ?>menu"
+      },
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Full Menu",
+          "hasMenuItem": <?php echo json_encode($schemaItems, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -506,6 +610,7 @@ include 'includes/db_connect.php';
             .menu-hero {
                 height: 400px;
             }
+
             .menu-hero-content h1 {
                 font-size: 42px;
             }
@@ -515,24 +620,19 @@ include 'includes/db_connect.php';
             .menu-hero {
                 height: 380px;
             }
+
             .menu-hero-content h1 {
-                font-size: 38px;
+                font-size: 32px;
                 line-height: 1.2;
             }
+
             .menu-hero-content .section-subtitle {
                 font-size: 11px;
                 letter-spacing: 2px;
             }
-            .floating-shape { display: none; }
-        }
 
-        @media (max-width: 768px) {
-            .menu-hero {
-                height: 380px;
-            }
-
-            .menu-hero-content h1 {
-                font-size: 32px;
+            .floating-shape {
+                display: none;
             }
 
             .grid {
@@ -596,7 +696,6 @@ include 'includes/db_connect.php';
 </head>
 
 <body>
-    <!-- Menu Hero Section -->
     <section class="menu-hero">
         <div class="menu-hero-bg">
             <img src="assets/img/danonos-menu.jpg" alt="Best Biscoff and Matcha Donuts in Pampanga Philippines"
@@ -608,14 +707,13 @@ include 'includes/db_connect.php';
 
         <div class="menu-hero-content">
             <span class="section-subtitle" data-aos="fade-down">FRESH DAILY</span>
-            <h1 data-aos="fade-up">Discover our Premium <span
-                    class="pop-out-text">FLAVORED DONUTS</span> & Artisan Treats</h1>
+            <h1 data-aos="fade-up">Discover our Premium <span class="pop-out-text">FLAVORED DONUTS</span> & Artisan
+                Treats</h1>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- Filter Section -->
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterMenu('all', this)" data-filter="all">
                 <i class="fas fa-th"></i> All Items
@@ -631,16 +729,9 @@ include 'includes/db_connect.php';
             </button>
         </div>
 
-        <!-- Menu Grid -->
         <div class="grid" id="menuGrid">
             <?php
-            $sql = "SELECT * FROM menu_items WHERE (is_visible = 1 OR is_visible IS NULL) ORDER BY category, name";
-            $result = $conn->query($sql);
-
-            $hasItems = false;
-
-            if ($result && $result->num_rows > 0) {
-                $hasItems = true;
+            if ($hasDbItems) {
                 while ($row = $result->fetch_assoc()) {
                     $name = htmlspecialchars($row["name"]);
                     $price = number_format($row["price"], 2);
@@ -668,39 +759,7 @@ include 'includes/db_connect.php';
                     <?php
                 }
             } else {
-                // Fallback static menu items
-                $menuItems = [
-                    // Doughnuts
-                    ["name" => "Sweet Bavarian Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Bavarian-filled brioche donut dipped in crispy, roasted sugar."],
-                    ["name" => "Rainbow Crunch", "category" => "doughnuts", "price" => "30", "desc" => "Brioche donut dipped in chocolate and topped with Froot Loops."],
-                    ["name" => "Gleaming Glaze", "category" => "doughnuts", "price" => "30", "desc" => "Classic glazed brioche donut."],
-                    ["name" => "Choco Gleaming Glaze", "category" => "doughnuts", "price" => "50", "desc" => "Classic glazed brioche donut with rich chocolate."],
-                    ["name" => "Dusted Berry Dream", "category" => "doughnuts", "price" => "30", "desc" => "Strawberry jam-filled brioche donut coated in powdered sugar."],
-                    ["name" => "Coffee Crunch", "category" => "doughnuts", "price" => "40", "desc" => "Cappuccino-dipped brioche donut with chocolate and wafer toppings."],
-                    ["name" => "Double Choco Delight", "category" => "doughnuts", "price" => "40", "desc" => "Cocoa and chocolate powder-dusted brioche donut with chocolate cream filling."],
-                    ["name" => "Melty Marshmallow", "category" => "doughnuts", "price" => "40", "desc" => "Brioche donut dipped in chocolate and topped with roasted marshmallows."],
-                    ["name" => "Pistachio Crunch", "category" => "doughnuts", "price" => "65", "desc" => "Gourmet brioche donuts Mexico Pampanga spread with pistachio crunch and melted white chocolate."],
-                    ["name" => "Choco Haven Supreme", "category" => "doughnuts", "price" => "60", "desc" => "A decadent combination of 5 kinds of premium chocolates in 1 artisan doughnut."],
-
-                    // Brownies
-                    ["name" => "Classic Fudge Brownie", "category" => "brownies", "price" => "45", "desc" => "Rich, dense chocolate fudge brownie with a moist center."],
-                    ["name" => "Salted Caramel Brownie", "category" => "brownies", "price" => "55", "desc" => "Decadent brownie with salted caramel swirl and crushed sea salt."],
-                    ["name" => "Nutella Dream", "category" => "brownies", "price" => "50", "desc" => "Chocolate brownie with Nutella filling and hazelnut bits."],
-                    ["name" => "Double Chocolate Stack", "category" => "brownies", "price" => "60", "desc" => "Dark and milk chocolate layered brownie perfection."],
-
-                    // Beverages
-                    ["name" => "Danono's Chocolate (Hot)", "category" => "beverages", "price" => "100", "desc" => "Signature chocolate drink served hot with velvety texture."],
-                    ["name" => "Danono's Chocolate (Iced)", "category" => "beverages", "price" => "110", "desc" => "Signature chocolate drink served refreshingly cold."],
-                    ["name" => "Seasalt Latte", "category" => "beverages", "price" => "120", "desc" => "Smooth latte with a sophisticated touch of sea salt."],
-                    ["name" => "White Mocha Latte", "category" => "beverages", "price" => "120", "desc" => "Creamy white chocolate mocha latte."],
-                    ["name" => "Hot Cappuccino", "category" => "beverages", "price" => "100", "desc" => "Classic espresso with velvety steamed milk and thick foam."],
-                    ["name" => "Iced Americano", "category" => "beverages", "price" => "100", "desc" => "Refreshing espresso with cold water over ice."],
-                    ["name" => "Strawberry Lemonade", "category" => "beverages", "price" => "120", "desc" => "Freshly made lemonade with fresh strawberry juice."],
-                    ["name" => "Matcha Latte", "category" => "beverages", "price" => "110", "desc" => "Premium specialty matcha in Angeles City - creamy latte with traditional green tea."],
-                ];
-
-                $hasItems = true;
-                foreach ($menuItems as $item) {
+                foreach ($fallbackMenuItems as $item) {
                     $cat = strtolower($item['category']);
                     ?>
                     <div class="card" data-category="<?php echo $cat; ?>">
@@ -725,7 +784,6 @@ include 'includes/db_connect.php';
             ?>
         </div>
 
-        <!-- Empty State (hidden by default) -->
         <div class="empty-state" id="emptyState" style="display: none;">
             <div class="empty-state-icon">🍩</div>
             <h2>No Items Found</h2>
@@ -864,17 +922,17 @@ include 'includes/db_connect.php';
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuGrid = document.getElementById('menuGrid');
             if (menuGrid) {
-                menuGrid.addEventListener('click', function(e) {
+                menuGrid.addEventListener('click', function (e) {
                     const heartBtn = e.target.closest('.card-icon');
                     if (heartBtn) {
                         const card = heartBtn.closest('.card');
                         if (card) {
                             const itemName = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'Unknown Item';
                             const itemCategory = card.getAttribute('data-category') || 'Uncategorized';
-                            
+
                             if (typeof gtag === 'function') {
                                 gtag('event', 'add_to_wishlist', {
                                     item_name: itemName,
