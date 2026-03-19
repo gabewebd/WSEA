@@ -110,7 +110,7 @@ endif; ?>
         {
             "@context": "https://schema.org",
             "@type": "Bakery",
-            "name": "Danono's Donuts & Brownies",
+            "name": "Danono's Doughnuts & Brownies",
             "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg",
             "url": "https://danonos.com/",
             "telephone": "+63 927 365 0789",
