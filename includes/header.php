@@ -99,7 +99,7 @@ endif; ?>
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Danono's Donuts & Brownies",
+            "name": "Danono's Doughnuts & Brownies",
             "url": "https://danonos.com/",
             "potentialAction": {
                 "@type": "SearchAction",
