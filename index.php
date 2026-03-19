@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Danono's Doughnuts & Brownies| Best Brioche Donuts in Pampanga & Philippines";
+$pageTitle = "Danono's Doughnuts & Brownies | Best Brioche Donuts in Pampanga & Philippines";
 $metaDesc = "Experience the fluffiest artisan brioche donuts in Pampanga. Danono's offers freshly made gourmet donuts near Angeles City and San Fernando. Order your favorites online!";
 $customCss = "index.css";
 ?>
