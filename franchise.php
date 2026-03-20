@@ -348,7 +348,7 @@ $customCss = "franchise.css";
     <div class="hero-side-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
         <div class="image-blob-bg"></div>
         <div class="premium-image-container">
-            <img src="assets/img/franchise.jpg" alt="Danono's Franchise Opportunity" class="floating-img">
+            <img src="assets/img/franchise.webp" alt="Danono's Franchise Opportunity" class="floating-img">
             <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
                 <i class="ph-fill ph-trend-up"></i>
                 <div>
@@ -364,7 +364,7 @@ $customCss = "franchise.css";
     <div class="why-franchise-container">
         <div class="why-franchise-grid">
             <div data-aos="fade-right" data-aos-duration="800">
-                <img src="assets/img/perfect-spot.jpg" alt="Perfect Spot for your Franchise" class="floating-img"
+                <img src="assets/img/perfect-spot.webp" alt="Perfect Spot for your Franchise" class="floating-img"
                     style="transform: rotate(2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             </div>
 
@@ -449,7 +449,7 @@ $customCss = "franchise.css";
 
         <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800">
             <div class="testimonial-avatar">
-                <img src="assets/img/franchise.jpg" alt="Owner testimonial">
+                <img src="assets/img/franchise.webp" alt="Owner testimonial">
             </div>
             <div class="testimonial-content" style="text-align: left;">
                 <p class="quote">"Partnering with Danono's transformed my life. The support, training, and product
@@ -818,7 +818,7 @@ endif; ?>
                 <div class="sidebar-backplate"></div>
 
                 <div class="contact-sidebar-card">
-                    <img src="assets/img/mini-doughnut.png" alt="Danono's" class="sidebar-floating-donut"
+                    <img src="assets/img/mini-doughnut.webp" alt="Danono's" class="sidebar-floating-donut"
                         onerror="this.style.display='none'">
 
                     <h3 class="pop-out-text-sm" style="font-size: 1.8rem; margin-bottom: 30px;">Direct Contact</h3>

@@ -160,7 +160,7 @@ if (isset($_POST['submit_post'])) {
 
                         <label class="field-label" style="margin-top: 10px;">Or Image URL</label>
                         <input type="text" name="image_url" class="form-input"
-                            placeholder="https://example.com/image.jpg">
+                            placeholder="https://example.com/image.webp">
 
                         <label class="field-label" style="margin-top: 10px;">Alt Text (SEO)</label>
                         <input type="text" name="alt_text" class="form-input" placeholder="Describe the image...">

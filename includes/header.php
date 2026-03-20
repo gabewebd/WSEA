@@ -50,7 +50,7 @@ else {
 }
 
 // Fallback for social images
-$socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-hero.jpg";
+$socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-hero.webp";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
   <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
-  <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.jpg"
+  <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.webp"
     type="image/jpeg">
 
   <meta property="og:type" content="website">
@@ -75,9 +75,9 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts every day. Best donuts in Pampanga."; ?>">
   <meta property="og:image" content="<?php echo $socialImage; ?>">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>assets/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $baseUrl; ?>assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $baseUrl; ?>assets/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $baseUrl; ?>assets/favicons/apple-touch-icon.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $baseUrl; ?>assets/favicons/favicon-32x32.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $baseUrl; ?>assets/favicons/favicon-16x16.webp">
   <link rel="manifest" href="<?php echo $baseUrl; ?>assets/favicons/site.webmanifest">
   <link rel="shortcut icon" href="<?php echo $baseUrl; ?>assets/favicons/favicon.ico">
 
@@ -111,7 +111,7 @@ endif; ?>
             "@context": "https://schema.org",
             "@type": "Bakery",
             "name": "Danono's Doughnuts & Brownies",
-            "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg",
+            "image": "<?php echo $baseUrl; ?>assets/img/danonos-logo.webp",
             "url": "https://danonos.com/",
             "telephone": "+63 927 365 0789",
             "aggregateRating": {
@@ -172,7 +172,7 @@ endif; ?>
   <header>
     <div class="logo">
       <a href="<?php echo $baseUrl; ?>">
-        <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg" alt="Danono's">
+        <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.webp" alt="Danono's">
       </a>
     </div>
 

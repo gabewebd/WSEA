@@ -28,7 +28,7 @@ $customCss = "index.css";
         </p>
     </div>
     <div class="hero-image" data-aos="zoom-in-left" data-aos-duration="1000">
-        <img src="assets/img/danonos.jpg" alt="Danono's Best Biscoff, Matcha, and Ube Brioche Donuts in Pampanga"
+        <img src="assets/img/danonos.webp" alt="Danono's Best Biscoff, Matcha, and Ube Brioche Donuts in Pampanga"
             class="float-img" fetchpriority="high" loading="eager">
     </div>
 
@@ -47,28 +47,28 @@ $customCss = "index.css";
     <div class="treats-carousel">
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/choco-caviar.jpg" alt="Choco Caviar Creation">
+            <img src="assets/img/choco-caviar.webp" alt="Choco Caviar Creation">
             <h3>Choco Caviar Creation</h3>
             <p>Our ultimate choco-loaded treat that's rich, crunchy, and irresistibly indulgent.</p>
             <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/biscoff.jpg" alt="Biscoff Bite">
+            <img src="assets/img/biscoff.webp" alt="Biscoff Bite">
             <h3>Biscoff Bite</h3>
             <p>Fluffy brioche donut, rich peanut butter glaze, and a generous topping of Lotus Biscoff.</p>
             <a href="menu" class="btn btn-small">₱60</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="300">
-            <img src="assets/img/double-choco-delight.jpg" alt="Double Choco Delight">
+            <img src="assets/img/double-choco-delight.webp" alt="Double Choco Delight">
             <h3>Double Choco Delight</h3>
             <p>Double Choco Delight is here, and it's everything your chocolate dreams are made of.</p>
             <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="400">
-            <img src="assets/img/almond-amore.jpg" alt="Almond Amore">
+            <img src="assets/img/almond-amore.webp" alt="Almond Amore">
             <h3>Almond Amore</h3>
             <p>Light, fluffy, and loaded with almond love, this one's a certified heart-stealer.</p>
             <a href="menu" class="btn btn-small">₱40</a>
@@ -80,7 +80,7 @@ $customCss = "index.css";
 <section class="drinks-choco">
     <div class="drinks-content">
         <div class="drinks-image" data-aos="fade-right">
-            <img src="assets/img/Refreshers.jpg" alt="Danono's Refreshers">
+            <img src="assets/img/Refreshers.webp" alt="Danono's Refreshers">
         </div>
         <div class="drinks-text" data-aos="fade-up">
             <span class="section-label">THE DONUT CAFE EXPERIENCE</span>
@@ -92,7 +92,7 @@ $customCss = "index.css";
             <a href="menu" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
         </div>
         <div class="choco-image" data-aos="fade-left">
-            <img src="assets/img/choco-circle.jpg" alt="Choco Circle Donuts">
+            <img src="assets/img/choco-circle.webp" alt="Choco Circle Donuts">
         </div>
     </div>
 </section>
@@ -100,7 +100,7 @@ $customCss = "index.css";
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="assets/img/danonos-kitchen.jpg" alt="Danonos Kitchen">
+            <img src="assets/img/danonos-kitchen.webp" alt="Danonos Kitchen">
             <div class="story-badge">
                 <div class="story-badge-label">SINCE</div>
                 <div class="story-badge-year">2018</div>
@@ -125,14 +125,14 @@ $customCss = "index.css";
 <section class="nav-cards-section">
     <div class="nav-cards-container">
         <div class="nav-card" data-aos="zoom-in-up" data-aos-delay="100">
-            <img src="assets/img/danonos-branches.jpg" alt="Our Locations">
+            <img src="assets/img/danonos-branches.webp" alt="Our Locations">
             <div class="nav-card-overlay">
                 <h3>Our Locations</h3>
                 <a href="locations" class="btn btn-orange"><i class="ph ph-map-pin"></i> Find a Branch</a>
             </div>
         </div>
         <div class="nav-card focus-top" data-aos="zoom-in-up" data-aos-delay="300">
-            <img src="assets/img/three-girls-danonos.png" alt="The Danono's Team">
+            <img src="assets/img/three-girls-danonos.webp" alt="The Danono's Team">
             <div class="nav-card-overlay">
                 <h3>Our Blogs</h3>
                 <a href="blogs" class="btn btn-orange"><i class="ph ph-read-cv-logo"></i> Read Blogs</a>

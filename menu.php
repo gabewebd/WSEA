@@ -698,7 +698,7 @@ include 'includes/header.php';
 <body>
     <section class="menu-hero">
         <div class="menu-hero-bg">
-            <img src="assets/img/danonos-menu.jpg" alt="Best Biscoff and Matcha Donuts in Pampanga Philippines"
+            <img src="assets/img/danonos-menu.webp" alt="Best Biscoff and Matcha Donuts in Pampanga Philippines"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
         </div>
 

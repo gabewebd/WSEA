@@ -70,7 +70,7 @@ $_SESSION['last_activity'] = time();
 
     <div class="admin-nav">
         <div class="brand">
-            <img src="/assets/img/danonos-logo.jpg" alt="Danonos" class="rounded-circle"
+            <img src="/assets/img/danonos-logo.webp" alt="Danonos" class="rounded-circle"
                 style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
         </div>
         <div class="links">

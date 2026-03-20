@@ -56,7 +56,7 @@ $author_name = !empty($post['full_name']) ? $post['full_name'] : 'Danonos Team';
 
 // --- ARTICLE SCHEMA START ---
 // Ensure we use Absolute URLs for Google
-$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.jpg";
+$schemaImage = !empty($post["featured_image"]) ? $baseUrl . "uploads/" . $post["featured_image"] : $baseUrl . "assets/img/danonos-hero.webp";
 $schemaDate = date('c', strtotime($post['created_at']));
 // Clean up the description for JSON
 $schemaDesc = isset($post['excerpt']) ? htmlspecialchars(strip_tags($post['excerpt'])) : "";
@@ -85,7 +85,7 @@ $schemaDesc = isset($post['excerpt']) ? htmlspecialchars(strip_tags($post['excer
     "name": "Danono's Donuts & Brownies",
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo $baseUrl; ?>assets/img/danonos-logo.jpg"
+      "url": "<?php echo $baseUrl; ?>assets/img/danonos-logo.webp"
     }
   },
   "articleBody": "<?php echo htmlspecialchars(strip_tags($post['content'])); ?>"

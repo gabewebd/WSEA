@@ -196,7 +196,7 @@ if (isset($_POST['update_post'])) {
 
                         <label class="field-label" style="margin-top: 10px;">Or Image URL</label>
                         <input type="text" name="image_url" class="form-input"
-                            placeholder="https://example.com/image.jpg"
+                            placeholder="https://example.com/image.webp"
                             value="<?php echo (strpos($post['featured_image'], 'http') === 0) ? htmlspecialchars($post['featured_image']) : ''; ?>">
 
                         <label class="field-label" style="margin-top: 10px;">Alt Text (SEO)</label>

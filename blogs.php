@@ -603,7 +603,7 @@ include 'includes/db_connect.php';
                 flavor launches, and behind-the-scenes stories from the Danono's kitchen.</p>
         </div>
         <div class="blog-hero-bg" data-speed="1">
-            <img src="assets/img/danonos-craving.jpg" alt="Danono's Blog Background"
+            <img src="assets/img/danonos-craving.webp" alt="Danono's Blog Background"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
         </div>
     </section>
