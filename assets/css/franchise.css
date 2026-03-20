@@ -1,12 +1,19 @@
-/* ====================================
-   DANONO'S AESTHETIC REFRESH
-   ==================================== */
+/* =============================================
+   DANONO'S FRANCHISE PAGE — CSS
+   ============================================= */
 
+/* =============================================
+   ROOT VARIABLES
+   ============================================= */
 :root {
     --primary: #EF7D32;
+    --primary-orange: #EF7D32;
+    /* alias used by FAQ & form */
     --primary-dark: #d6641e;
     --accent: #FFAD72;
     --chocolate: #431407;
+    --dark-brown: #431407;
+    /* alias used by FAQ */
     --cream: #FFF9F2;
     --white: #ffffff;
     --glass: rgba(255, 255, 255, 0.7);
@@ -18,43 +25,55 @@
     --font-main: 'Barlow', sans-serif;
 }
 
+/* =============================================
+   BASE
+   ============================================= */
+html,
+body {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--cream);
-    /* Creates a subtle sprinkle texture - REMOVED */
     font-family: var(--font-main);
     color: #555;
 }
-/* --- GLOBAL OVERLAYS FIX --- */
-html, body {
-    width: 100%;
-    position: relative;
-}
 
-/* ---- HERO SECTION ---- */
+/* =============================================
+   1. HERO SECTION
+   ============================================= */
 .franchise-hero {
     position: relative;
+    min-height: 95vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 80px 5% 100px;
-    overflow: hidden; /* CRITICAL: Prevent horizontal scroll from blobs */
-    gap: 40px;
+    padding: 40px 5% 40px;
     background: #FFFAF5;
+    overflow: hidden;
+    gap: 15px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .hero-text {
-    z-index: 2;
     flex: 1.2;
     max-width: 700px;
+    z-index: 10;
     text-align: left;
+    padding: 0 5%;
 }
 
 .badge-pill {
-    display: inline-block;
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: max-content !important;
     padding: 8px 20px;
-    background: #FBEDD5; /* Soft peach */
-    color: #D8651E; /* Dark orange */
+    background: #FBEDD5;
+    color: #D8651E;
     border-radius: 50px;
     font-size: 11px;
     font-weight: 800;
@@ -64,12 +83,14 @@ html, body {
     box-shadow: 0 4px 10px rgba(216, 101, 30, 0.05);
 }
 
-.franchise-hero h1 {
-    font-size: 4.5rem;
+.hero-text h1 {
+    font-family: var(--font-heading), "Fredoka", sans-serif;
+    font-size: 68px;
     line-height: 1.1;
-    color: var(--chocolate);
-    margin-bottom: 24px;
+    color: #431407;
+    margin-bottom: 25px;
     font-weight: 900;
+    letter-spacing: -1.5px;
 }
 
 .text-gradient {
@@ -79,14 +100,79 @@ html, body {
     background-clip: text;
 }
 
-.franchise-hero p {
-    font-size: 1.25rem;
-    color: #6b5c55;
-    margin: 0 auto 32px;
-    max-width: 600px;
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #6D4C41;
+    margin: 0 0 40px;
+    max-width: 550px;
 }
 
-/* --- HERO SIDE IMAGES --- */
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: #EF7D32;
+    color: white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 0 10px 20px rgba(239, 125, 50, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(239, 125, 50, 0.4);
+    background: var(--primary-dark);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: #431407;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #EEE5DE;
+}
+
+.btn-secondary:hover {
+    background: #431407;
+    border-color: #431407;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Hero Side Images */
 .hero-side-wrapper {
     flex: 1;
     position: relative;
@@ -94,6 +180,7 @@ html, body {
     justify-content: center;
     align-items: center;
     z-index: 5;
+    padding-right: 5%;
 }
 
 .image-blob-bg {
@@ -110,124 +197,65 @@ html, body {
 .premium-image-container {
     position: relative;
     z-index: 2;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.premium-image-container:hover {
+    transform: scale(1.02);
 }
 
 .floating-img {
     width: 100%;
     max-width: 600px;
+    height: auto;
+    object-fit: cover;
     border-radius: 30px;
     display: block;
     box-shadow: 0 40px 100px rgba(67, 20, 7, 0.15);
 }
 
-/* Buttons */
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-}
-
-.btn {
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 800;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 10px 20px rgba(239, 125, 50, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(239, 125, 50, 0.4);
-    background: var(--primary-dark);
-}
-
-.btn-secondary {
-    background: white;
-    color: var(--chocolate);
-    border: 2px solid rgba(67, 20, 7, 0.05);
-}
-
-.btn-secondary:hover {
-    border-color: var(--chocolate);
-    background: var(--chocolate);
-    color: white;
-}
-
-/* Hero Image & Blob */
-.hero-image-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.image-blob-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #FFDcb8;
-    z-index: -1;
-    border-radius: 44% 56% 41% 59% / 54% 39% 61% 46%;
-    /* Organic blob shape */
-    animation: blob-bounce 8s infinite ease-in-out alternate;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.floating-img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 30px;
-    transform: rotate(-3deg);
-    box-shadow: var(--shadow-strong);
-    border: 8px solid white;
-}
-
-/* Floating Stat Pill */
+/* Floating Stat Card */
 .floating-card {
     position: absolute;
-    bottom: 40px;
-    left: -20px;
+    bottom: 20px;
+    left: -30px;
     background: white;
-    padding: 16px 24px;
+    padding: 15px 22px;
     border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(67, 20, 7, 0.12);
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: var(--shadow-strong);
-    animation: float 4s ease-in-out infinite;
+    gap: 15px;
+    z-index: 20;
+    animation: floatCard 4s infinite ease-in-out;
 }
 
 .floating-card i {
-    font-size: 24px;
-    color: var(--primary);
-    background: #fff0e6;
+    font-size: 28px;
+    color: #EF7D32;
+    background: #FFF5EE;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 12px;
 }
 
 .floating-card span {
     display: block;
-    font-size: 12px;
-    color: #888;
+    font-size: 10px;
+    font-weight: 800;
     text-transform: uppercase;
-    font-weight: 700;
+    color: #A1887F;
+    letter-spacing: 1px;
 }
 
 .floating-card strong {
-    color: var(--chocolate);
-    font-size: 16px;
+    font-size: 18px;
+    color: #431407;
+    font-weight: 900;
 }
 
-/* ---- WHY FRANCHISE (Cards) ---- */
+/* =============================================
+   2. WHY FRANCHISE SECTION
+   ============================================= */
 .why-franchise-section {
     position: relative;
     background: var(--cream);
@@ -290,7 +318,9 @@ html, body {
     font-size: 1.1rem;
 }
 
-/* ---- STATS & TESTIMONIALS ---- */
+/* =============================================
+   3. STATS & TESTIMONIALS
+   ============================================= */
 .franchise-stats-testimonials {
     background: var(--chocolate);
     padding: 80px 6%;
@@ -308,7 +338,6 @@ html, body {
 
 .stat-item {
     background: rgba(255, 255, 255, 0.05);
-    /* Glass dark mode */
     padding: 30px 20px;
     border-radius: 24px;
     backdrop-filter: blur(10px);
@@ -329,7 +358,6 @@ html, body {
     margin: 0 auto;
     padding: 40px;
     border-radius: var(--radius-xl) 0 var(--radius-xl) var(--radius-xl);
-    /* Fun uneven corner */
     display: flex;
     align-items: center;
     gap: 30px;
@@ -357,7 +385,9 @@ html, body {
     letter-spacing: 1px;
 }
 
-/* ---- FORM SECTION ---- */
+/* =============================================
+   4. FORM SECTION
+   ============================================= */
 .franchise-form-section {
     padding: 80px 2% 120px;
     position: relative;
@@ -377,13 +407,14 @@ html, body {
     align-items: start;
 }
 
+/* Contact Sidebar */
 .contact-sidebar {
     position: sticky;
-    top: 120px;
-    position: relative; /* For pseudo elements */
+    top: 100px;
+    /* FIX: relative positioning for pseudo/blob children */
+    isolation: isolate;
 }
 
-/* Base Backplate for 3D Stack Effect */
 .sidebar-backplate {
     position: absolute;
     top: 10px;
@@ -395,40 +426,52 @@ html, body {
     border: 2px solid var(--primary);
     z-index: 1;
     opacity: 0.3;
+    /* FIX: prevent bleed outside sidebar column */
+    pointer-events: none;
 }
 
-/* Subtle Animated Blob Background */
 .sidebar-blob-bg {
     position: absolute;
     top: -20%;
     left: -20%;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background: #FEE7C8;
     border-radius: 50%;
     filter: blur(40px);
     z-index: 0;
     opacity: 0.5;
     animation: gentlePulse 8s infinite alternate ease-in-out;
+    /* FIX: clip blob inside sidebar so it doesn't push layout */
+    pointer-events: none;
+    overflow: hidden;
 }
 
 @keyframes gentlePulse {
-    0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
-    100% { transform: scale(1.1) translate(10px, 15px); opacity: 0.7; }
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.1) translate(10px, 15px);
+        opacity: 0.7;
+    }
 }
 
-/* Main Card Front */
 .contact-sidebar-card {
     background: white;
     padding: 40px;
     border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08); /* Stronger shadow to lift it */
+    box-shadow: 0 20px 40px rgba(67, 20, 7, 0.08);
     border: 1px solid rgba(67, 20, 7, 0.05);
     position: relative;
     z-index: 10;
+    /* FIX: ensure it fills the grid column correctly */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Floating Donut Decal */
 .sidebar-floating-donut {
     position: absolute;
     top: -20px;
@@ -436,7 +479,7 @@ html, body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: floatCard 4s infinite ease-in-out;
     z-index: 20;
     pointer-events: none;
@@ -449,7 +492,6 @@ html, body {
     margin-bottom: 35px;
 }
 
-/* Interactive Mini Cards */
 .contact-method-card {
     display: flex;
     align-items: center;
@@ -467,7 +509,10 @@ html, body {
 .contact-method-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: linear-gradient(135deg, rgba(239, 125, 50, 0.05), rgba(239, 125, 50, 0));
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -494,10 +539,11 @@ html, body {
     justify-content: center;
     font-size: 24px;
     color: var(--primary);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .contact-method-card:not(.no-hover):hover .method-icon-wrap {
@@ -511,6 +557,8 @@ html, body {
     flex-direction: column;
     position: relative;
     z-index: 2;
+    min-width: 0;
+    /* FIX: prevent text overflow in flex */
 }
 
 .method-label {
@@ -523,9 +571,11 @@ html, body {
 
 .method-value {
     font-size: 15px;
-    color: var(--dark-brown);
+    color: var(--chocolate);
     font-weight: 700;
     transition: color 0.3s ease;
+    word-break: break-word;
+    /* FIX: long emails won't overflow */
 }
 
 .contact-method-card:not(.no-hover):hover .method-value {
@@ -536,10 +586,9 @@ html, body {
     cursor: default;
 }
 
-
 .contact-socials-box {
     padding-top: 30px;
-    border-top: 2px dashed rgba(67, 20, 7, 0.08); /* Thicker dash for playfulness */
+    border-top: 2px dashed rgba(67, 20, 7, 0.08);
 }
 
 .contact-socials-box p {
@@ -561,7 +610,7 @@ html, body {
 .sidebar-social-link {
     width: 44px;
     height: 44px;
-    background: #FFF5EE; /* Matches cream theme */
+    background: #FFF5EE;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -579,14 +628,7 @@ html, body {
     box-shadow: 0 8px 15px rgba(239, 125, 50, 0.3);
 }
 
-.sidebar-social-link:hover {
-    background: var(--primary);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-3px);
-}
-
-/* Header Styling */
+/* Form Header */
 .form-header {
     text-align: center;
     margin-bottom: 40px;
@@ -595,19 +637,16 @@ html, body {
 .form-header-title {
     font-size: 3rem;
     color: #431407;
-    /* Dark Chocolate */
     font-weight: 900;
     margin: 10px 0;
 }
 
 .text-highlight {
     color: #EF7D32;
-    /* Orange */
     position: relative;
     display: inline-block;
 }
 
-/* Underline decoration for "Journey" */
 .text-highlight::after {
     content: '';
     position: absolute;
@@ -627,7 +666,7 @@ html, body {
     font-size: 1.1rem;
 }
 
-/* ---- THE CARD ---- */
+/* Form Card */
 .form-card-box {
     background: #ffffff;
     padding: 40px 50px;
@@ -635,13 +674,11 @@ html, body {
     box-shadow:
         0 20px 60px rgba(67, 20, 7, 0.08),
         0 0 0 10px rgba(255, 255, 255, 0.5);
-    /* Double border effect */
     border: 2px solid #FFF0E0;
     position: relative;
     overflow: hidden;
 }
 
-/* Decorative "Doughnut" Circle in top right */
 .decoration-doughnut {
     position: absolute;
     top: -30px;
@@ -650,17 +687,16 @@ html, body {
     height: 120px;
     background: transparent;
     border: 25px solid #FFEDD5;
-    /* Light Peach Ring */
     border-radius: 50%;
     z-index: 0;
     opacity: 0.6;
+    pointer-events: none;
 }
 
-/* ---- GRID LAYOUT (Fixes alignment) ---- */
+/* Form Grid */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Two Columns */
     gap: 24px;
     position: relative;
     z-index: 1;
@@ -674,10 +710,8 @@ html, body {
 
 .full-width {
     grid-column: 1 / -1;
-    /* Spans both columns */
 }
 
-/* ---- INPUT STYLING (The Aesthetic Fix) ---- */
 .form-label {
     font-size: 0.85rem;
     font-weight: 800;
@@ -700,22 +734,17 @@ html, body {
 
 .form-input {
     background: #FFFBF5;
-    /* Very light cream/peach */
     border: 2px solid #F0DCCA;
-    /* Soft tan border */
     padding: 14px 18px;
     border-radius: 16px;
-    /* Bubbly rounded corners */
     font-size: 1rem;
     color: #555;
     font-family: inherit;
     transition: all 0.3s ease;
     width: 100%;
     box-sizing: border-box;
-    /* IMPORTANT for layout */
 }
 
-/* Input Focus State (Glow) */
 .form-input:focus {
     outline: none;
     background: #fff;
@@ -733,7 +762,6 @@ textarea.form-input {
     min-height: 120px;
 }
 
-/* ---- BUTTON ---- */
 .form-footer {
     margin-top: 32px;
     text-align: center;
@@ -756,6 +784,7 @@ textarea.form-input {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .form-submit-btn:hover {
@@ -777,23 +806,157 @@ textarea.form-input {
     gap: 6px;
 }
 
-/* Mobile Responsive for Form */
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-        /* Stack on mobile */
+/* =============================================
+   5. FAQ SECTION
+   ============================================= */
+.faq-premium-section {
+    padding: 100px 0;
+    background-color: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-main-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.5rem;
+    color: #431407 !important;
+    margin: 15px 0 !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+}
+
+.faq-subtitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2rem;
+    color: #6D4C41;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.faq-staggered-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+}
+
+.faq-card {
+    width: 100%;
+    max-width: 800px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 0 10px 30px rgba(67, 20, 7, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    border: 1px solid rgba(239, 125, 50, 0.08);
+    position: relative;
+}
+
+.faq-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(67, 20, 7, 0.1);
+    border-color: #EF7D32;
+}
+
+.faq-question {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 22px 28px !important;
+}
+
+.faq-question h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    color: #431407;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.faq-icon-wrap {
+    width: 38px;
+    height: 38px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EF7D32;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.faq-card.active {
+    border-color: #EF7D32;
+    box-shadow: 0 20px 40px rgba(239, 125, 50, 0.12);
+}
+
+.faq-card.active .faq-icon-wrap {
+    transform: rotate(180deg);
+    background: #EF7D32;
+    color: #FFFFFF;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.faq-card.active .faq-answer {
+    max-height: 500px !important;
+    opacity: 1 !important;
+}
+
+.faq-card.active .faq-answer {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.faq-answer-inner {
+    padding: 0 28px 25px;
+}
+
+.faq-answer p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.15rem;
+    color: #5D4037;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    .form-card-box {
-        padding: 30px 20px;
-    }
-
-    .form-header-title {
-        font-size: 2.2rem;
+    50% {
+        transform: translateY(-10px);
     }
 }
 
-/* ---- ANIMATIONS ---- */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -818,39 +981,45 @@ textarea.form-input {
     }
 }
 
-/* ============================================= */
-/* --- COMPREHENSIVE RESPONSIVE STYLES --- */
-/* ============================================= */
+@keyframes gentlePulse {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.4;
+    }
 
-/* --- TABLET (max-width: 1024px) --- */
+    100% {
+        transform: scale(1.1) translate(10px, 15px);
+        opacity: 0.7;
+    }
+}
+
+/* =============================================
+   RESPONSIVE — LARGE SCREEN (min-width: 1600px)
+   ============================================= */
+@media (min-width: 1600px) {
+    .franchise-hero {
+        padding: 100px 12% 80px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ============================================= */
 @media (max-width: 1024px) {
 
-    /* Hero Section */
     .franchise-hero {
         padding: 100px 6% 140px;
         gap: 3rem;
     }
 
-    .franchise-hero h1 {
+    .hero-text h1 {
         font-size: 3.5rem;
     }
 
-    .franchise-hero p {
+    .hero-text p {
         font-size: 1.15rem;
     }
 
-    /* Floating Shapes */
-    .shape-1 {
-        width: 250px;
-        height: 250px;
-    }
-
-    .shape-2 {
-        width: 150px;
-        height: 150px;
-    }
-
-    /* Hero Image */
     .floating-img {
         max-width: 420px;
     }
@@ -861,7 +1030,6 @@ textarea.form-input {
         left: -10px;
     }
 
-    /* Why Franchise Section */
     .why-franchise-container {
         padding: 0 5%;
     }
@@ -884,7 +1052,6 @@ textarea.form-input {
         font-size: 24px;
     }
 
-    /* Stats Section */
     .franchise-stats-testimonials {
         padding: 60px 5%;
     }
@@ -902,7 +1069,6 @@ textarea.form-input {
         font-size: 2.5rem;
     }
 
-    /* Testimonial */
     .testimonial-card {
         padding: 30px;
         gap: 25px;
@@ -912,7 +1078,6 @@ textarea.form-input {
         font-size: 1.1rem;
     }
 
-    /* Form Section */
     .franchise-form-section {
         padding: 60px 5% 100px;
     }
@@ -924,60 +1089,104 @@ textarea.form-input {
     .form-card-box {
         padding: 35px 40px;
     }
+
+    /* FAQ */
+    .faq-premium-section {
+        padding: 80px 0;
+    }
+
+    .faq-main-title {
+        font-size: 3rem;
+    }
+
+    .faq-subtitle {
+        font-size: 1.1rem;
+    }
 }
 
-/* --- TABLET/MOBILE (max-width: 900px) --- */
-@media (max-width: 900px) {
+/* =============================================
+   RESPONSIVE — TABLET/MOBILE (max-width: 968px)
+   ============================================= */
+@media (max-width: 968px) {
 
-    /* Hero - Stack Layout */
     .franchise-hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 5% 80px;
-        gap: 2rem;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 40px 20px 60px !important;
+        gap: 20px;
+        min-height: 0 !important;
+        height: auto !important;
+        justify-content: flex-start !important;
         overflow: hidden;
     }
 
     .hero-text {
+        text-align: center !important;
+        padding: 0;
         order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .hero-image-wrapper {
-        order: 2;
-        justify-content: center;
-        margin-top: 10px;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+    .hero-text .badge-pill {
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
-    .franchise-hero p {
-        max-width: 100%;
-        margin: 0 auto 28px;
+    .hero-text h1 {
+        font-size: 38px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        margin: 0 auto 30px;
     }
 
     .hero-buttons {
         justify-content: center;
-        flex-wrap: wrap;
+    }
+
+    .hero-side-wrapper {
+        order: 2;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .premium-image-container {
+        max-width: 450px;
     }
 
     .floating-card {
         left: 50%;
-        transform: translateX(-50%);
-        bottom: 10px;
+        transform: translateX(-50%) !important;
+        bottom: -15px;
+        animation: none !important;
+        position: relative;
+        margin: 20px auto 0;
     }
 
-    /* Form Section - Use More Space */
-    .franchise-form-container {
-        max-width: 100%;
-        padding: 0 2%;
+    .why-franchise-section {
+        padding-top: 60px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden;
     }
 
-    .form-card-box {
-        padding: 30px 25px;
+    .franchise-stats-testimonials {
+        overflow-x: hidden;
     }
 
-    /* Why Franchise - Stack Layout */
+    .franchise-form-section {
+        overflow-x: hidden;
+    }
+}
+
+/* =============================================
+   RESPONSIVE — TABLET STACK (max-width: 900px)
+   ============================================= */
+@media (max-width: 900px) {
+
     .why-franchise-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -996,12 +1205,10 @@ textarea.form-input {
         text-align: left;
     }
 
-    /* Stats - 2 Columns */
     .stats-row {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Testimonial - Stack */
     .testimonial-card {
         flex-direction: column;
         text-align: center;
@@ -1010,23 +1217,28 @@ textarea.form-input {
     .testimonial-content {
         text-align: center !important;
     }
-}
 
-/* --- MOBILE (max-width: 768px) --- */
-@media (max-width: 768px) {
-    .franchise-hero {
-        padding: 0px 4% 30px;
-        gap: 20px;
-        min-height: auto;
-        height: auto;
+    .franchise-form-container {
+        max-width: 100%;
+        padding: 0 2%;
     }
 
-    .franchise-hero h1 {
+    .form-card-box {
+        padding: 30px 25px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+    .hero-text h1 {
         font-size: 2.2rem;
         margin-bottom: 16px;
     }
 
-    .franchise-hero p {
+    .hero-text p {
         font-size: 0.95rem;
         margin-bottom: 20px;
         line-height: 1.6;
@@ -1038,52 +1250,15 @@ textarea.form-input {
         margin-bottom: 12px;
     }
 
-    .hero-image-wrapper {
+    .hero-side-wrapper {
         max-width: 320px;
     }
 
     .floating-img {
         border-radius: 20px;
-        border-width: 5px;
-    }
-
-    /* Floating Shapes */
-    .floating-shape {
-        filter: blur(30px);
-    }
-
-    .shape-1 {
-        width: 150px;
-        height: 150px;
-        top: -5%;
-        left: -8%;
-    }
-
-    .shape-2 {
-        width: 100px;
-        height: 100px;
-    }
-
-    /* Form Section - Utilize Full Width */
-    .franchise-form-section {
-        padding: 40px 3% 70px;
-    }
-
-    .franchise-form-container {
         max-width: 100%;
-        padding: 0;
     }
 
-    .form-card-box {
-        padding: 25px 20px;
-        border-radius: 20px;
-    }
-
-    .form-header-title {
-        font-size: 1.8rem;
-    }
-
-    /* Buttons */
     .hero-buttons {
         gap: 12px;
     }
@@ -1093,38 +1268,6 @@ textarea.form-input {
         font-size: 0.9rem;
     }
 
-    /* Hero Image */
-    .floating-img {
-        max-width: 100%;
-        border-radius: 20px;
-        border-width: 6px;
-    }
-
-    .floating-card {
-        padding: 12px 18px;
-        border-radius: 16px;
-    }
-
-    .floating-card i {
-        font-size: 20px;
-        padding: 8px;
-    }
-
-    .floating-card strong {
-        font-size: 14px;
-    }
-
-    .floating-card span {
-        font-size: 11px;
-    }
-
-    /* Image Blob */
-    .image-blob-bg {
-        width: 110%;
-        height: 110%;
-    }
-
-    /* Why Franchise Section */
     .why-franchise-section {
         margin-top: -40px;
     }
@@ -1163,7 +1306,6 @@ textarea.form-input {
         font-size: 0.9rem;
     }
 
-    /* Stats Section */
     .franchise-stats-testimonials {
         padding: 50px 4%;
     }
@@ -1186,7 +1328,6 @@ textarea.form-input {
         font-size: 0.85rem;
     }
 
-    /* Testimonial */
     .testimonial-card {
         padding: 25px 20px;
         border-radius: 24px 0 24px 24px;
@@ -1207,9 +1348,13 @@ textarea.form-input {
         font-size: 0.85rem;
     }
 
-    /* Form Section */
     .franchise-form-section {
         padding: 50px 4% 80px;
+    }
+
+    .franchise-form-container {
+        max-width: 100%;
+        padding: 0;
     }
 
     .form-header {
@@ -1252,6 +1397,7 @@ textarea.form-input {
     }
 
     .form-grid {
+        grid-template-columns: 1fr;
         gap: 18px;
     }
 
@@ -1272,31 +1418,59 @@ textarea.form-input {
     .form-submit-btn {
         padding: 14px 36px;
         font-size: 1rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
     }
 
     .privacy-notice {
         font-size: 0.8rem;
     }
+
+    /* FAQ */
+    .faq-premium-section {
+        padding: 60px 0;
+    }
+
+    .faq-main-title {
+        font-size: 2.4rem;
+    }
+
+    .faq-question {
+        padding: 18px 22px;
+    }
+
+    .faq-question h3 {
+        font-size: 1.2rem;
+    }
+
+    .faq-icon-wrap {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .faq-answer-inner {
+        padding: 0 22px 20px;
+    }
+
+    .faq-answer p {
+        font-size: 1rem;
+    }
 }
 
-/* --- SMALL MOBILE (max-width: 480px) --- */
+/* =============================================
+   RESPONSIVE — SMALL MOBILE (max-width: 480px)
+   ============================================= */
 @media (max-width: 480px) {
 
-    /* Hero Section */
     .franchise-hero {
         padding: 50px 4% 80px;
     }
 
-    .franchise-hero h1 {
+    .hero-text h1 {
         font-size: 2rem;
         line-height: 1.2;
     }
 
-    .franchise-hero p {
+    .hero-text p {
         font-size: 0.95rem;
     }
 
@@ -1305,18 +1479,6 @@ textarea.form-input {
         padding: 5px 12px;
     }
 
-    /* Floating Shapes */
-    .shape-1 {
-        width: 140px;
-        height: 140px;
-    }
-
-    .shape-2 {
-        width: 100px;
-        height: 100px;
-    }
-
-    /* Buttons - Stack */
     .hero-buttons {
         flex-direction: column;
         gap: 10px;
@@ -1329,23 +1491,10 @@ textarea.form-input {
         padding: 14px 20px;
     }
 
-    /* Hero Image */
     .floating-img {
         border-radius: 16px;
-        border-width: 5px;
     }
 
-    .floating-card {
-        padding: 10px 14px;
-        border-radius: 14px;
-    }
-
-    .floating-card i {
-        font-size: 18px;
-        padding: 6px;
-    }
-
-    /* Why Franchise Section */
     .why-franchise-section {
         margin-top: -30px;
     }
@@ -1383,7 +1532,6 @@ textarea.form-input {
         font-size: 0.85rem;
     }
 
-    /* Stats Section */
     .franchise-stats-testimonials {
         padding: 40px 3%;
     }
@@ -1407,7 +1555,6 @@ textarea.form-input {
         font-size: 0.75rem;
     }
 
-    /* Testimonial */
     .testimonial-card {
         padding: 20px 16px;
         border-radius: 20px 0 20px 20px;
@@ -1426,7 +1573,6 @@ textarea.form-input {
         font-size: 0.8rem;
     }
 
-    /* Form Section */
     .franchise-form-section {
         padding: 40px 3% 60px;
     }
@@ -1467,27 +1613,34 @@ textarea.form-input {
     }
 
     .form-submit-btn {
-        width: 100%;
         padding: 14px 24px;
         font-size: 0.95rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
     }
 
     .privacy-notice {
         font-size: 0.75rem;
     }
+
+    /* FAQ */
+    .faq-main-title {
+        font-size: 2rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1.1rem;
+    }
 }
 
-/* --- EXTRA SMALL MOBILE (max-width: 360px) --- */
+/* =============================================
+   RESPONSIVE — EXTRA SMALL (max-width: 360px)
+   ============================================= */
 @media (max-width: 360px) {
-    .franchise-hero h1 {
+
+    .hero-text h1 {
         font-size: 1.7rem;
     }
 
-    .franchise-hero p {
+    .hero-text p {
         font-size: 0.9rem;
     }
 
@@ -1510,10 +1663,5 @@ textarea.form-input {
     .form-submit-btn {
         font-size: 0.9rem;
         padding: 12px 20px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
     }
 }

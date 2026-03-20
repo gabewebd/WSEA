@@ -37,310 +37,6 @@ $lcpImage = "assets/img/franchise.webp";
 }
 </script>
 
-<style>
-    /* =========================================
-       FRANCHISE RESPONSIVE FIXES (HERO & FORM ONLY)
-       ========================================= */
-    html,
-    body {
-        overflow-x: visible !important;
-        /* Allow sticky header */
-    }
-
-    .franchise-hero {
-        position: relative;
-        min-height: 95vh;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 40px 5% 40px;
-        background: #FFFAF5;
-        overflow: hidden;
-        gap: 15px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-text {
-        flex: 1.2;
-        max-width: 700px;
-        z-index: 10;
-        text-align: left;
-        padding: 0 5%;
-    }
-
-    .badge-pill {
-        display: inline-flex !important;
-        width: fit-content !important;
-        max-width: max-content !important;
-    }
-
-    .hero-text h1 {
-        font-family: var(--font-heading), "Fredoka", sans-serif;
-        font-size: 68px;
-        line-height: 1.1;
-        color: #431407;
-        margin-bottom: 25px;
-        font-weight: 900;
-        letter-spacing: -1.5px;
-    }
-
-    .hero-text p {
-        font-size: 18px;
-        line-height: 1.7;
-        color: #6D4C41;
-        margin: 0 0 40px;
-        max-width: 550px;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    .btn-primary {
-        background: #EF7D32;
-        color: white !important;
-        padding: 16px 35px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 15px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border: none;
-        box-shadow: 0 10px 20px rgba(239, 125, 50, 0.3);
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(239, 125, 50, 0.4);
-    }
-
-    .btn-secondary {
-        background: white;
-        color: #431407 !important;
-        padding: 16px 35px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 15px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        border: 2px solid #EEE5DE;
-    }
-
-    .btn-secondary:hover {
-        background: #FDFBFA;
-        border-color: #431407;
-        transform: translateY(-3px);
-    }
-
-    /* --- HERO IMAGE & BLOB --- */
-    /* --- HERO SIDE IMAGES --- */
-    .hero-side-wrapper {
-        flex: 1;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 5;
-        padding-right: 5%;
-    }
-
-    .image-blob-bg {
-        position: absolute;
-        width: 120%;
-        height: 120%;
-        background: #FEE7C8;
-        border-radius: 50%;
-        z-index: 1;
-        opacity: 0.8;
-        filter: blur(60px);
-    }
-
-    .premium-image-container {
-        position: relative;
-        z-index: 2;
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .premium-image-container:hover {
-        transform: scale(1.02);
-    }
-
-    .floating-img {
-        width: 100%;
-        max-width: 600px;
-        border-radius: 30px;
-        display: block;
-        box-shadow: 0 40px 100px rgba(67, 20, 7, 0.15);
-    }
-
-    .floating-card {
-        position: absolute;
-        bottom: 20px;
-        left: -30px;
-        background: white;
-        padding: 15px 22px;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(67, 20, 7, 0.12);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        z-index: 20;
-        animation: floatCard 4s infinite ease-in-out;
-    }
-
-    @keyframes floatCard {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .floating-card i {
-        font-size: 28px;
-        color: #EF7D32;
-        background: #FFF5EE;
-        padding: 10px;
-        border-radius: 12px;
-    }
-
-    .floating-card span {
-        display: block;
-        font-size: 10px;
-        font-weight: 800;
-        text-transform: uppercase;
-        color: #A1887F;
-        letter-spacing: 1px;
-    }
-
-    .floating-card strong {
-        font-size: 18px;
-        color: #431407;
-        font-weight: 900;
-    }
-
-    .form-submit-btn:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-    }
-
-    /* --- MOBILE RESPONSIVE FIXES --- */
-    @media (max-width: 968px) {
-        .franchise-hero {
-            flex-direction: column !important;
-            text-align: center !important;
-            padding: 40px 20px 60px !important;
-            gap: 20px;
-            min-height: 0 !important;
-            height: auto !important;
-            justify-content: flex-start !important;
-            margin-top: 0 !important;
-            overflow: hidden;
-            /* Extra safety for horizontal scroll */
-        }
-
-        .hero-text {
-            text-align: center !important;
-            padding: 0;
-            order: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-text .badge-pill {
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        .hero-text h1 {
-            font-size: 38px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero-text p {
-            margin: 0 auto 30px;
-        }
-
-        .hero-buttons {
-            justify-content: center;
-        }
-
-        .hero-side-wrapper {
-            order: 2;
-            padding-right: 0;
-            width: 100%;
-        }
-
-        .premium-image-container {
-            transform: rotate(0deg);
-            max-width: 450px;
-        }
-
-        .floating-card {
-            left: 50%;
-            transform: translateX(-50%) !important;
-            bottom: -15px;
-            /* Adjust to sit below image on mobile center */
-            animation: none !important;
-            position: relative;
-            /* Switch to relative on mobile to prevent overlap */
-            margin: 20px auto 0;
-        }
-
-        /* Second section separation */
-        .why-franchise-section {
-            padding-top: 60px !important;
-            margin-top: 0 !important;
-            overflow-x: hidden;
-        }
-
-        .franchise-stats-testimonials {
-            overflow-x: hidden;
-        }
-
-        .franchise-form-section {
-            overflow-x: hidden;
-        }
-    }
-
-    @media (min-width: 1600px) {
-        .franchise-hero {
-            padding: 100px 12% 80px;
-        }
-    }
-
-    /* 4. Fix Submit Button */
-    .form-submit-btn {
-        width: 100% !important;
-        display: inline-flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 10px !important;
-    }
-
-    .form-grid {
-        display: flex;
-        flex-direction: column;
-    }
-    }
-</style>
 
 <section class="franchise-hero">
     <!-- <div class="floating-shape shape-1" data-speed="4"></div>
@@ -367,8 +63,9 @@ $lcpImage = "assets/img/franchise.webp";
     <div class="hero-side-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
         <div class="image-blob-bg"></div>
         <div class="premium-image-container">
-            <img src="assets/img/franchise.webp" alt="Danono's Franchise Opportunity" class="floating-img" 
-                fetchpriority="high" loading="eager" width="1000" height="1000">
+            <img src="assets/img/franchise.webp" alt="Partner with Danono's Donuts" title="Danono's Franchise Opportunity" class="floating-img" 
+                fetchpriority="high" loading="eager"
+                style="transform: rotate(-2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
                 <i class="ph-fill ph-trend-up"></i>
                 <div>
@@ -385,7 +82,6 @@ $lcpImage = "assets/img/franchise.webp";
         <div class="why-franchise-grid">
             <div data-aos="fade-right" data-aos-duration="800">
                 <img src="assets/img/perfect-spot.webp" alt="Perfect Spot for your Franchise" class="floating-img" loading="lazy"
-                    width="1000" height="1000"
                     style="transform: rotate(2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             </div>
 
@@ -494,6 +190,17 @@ $lcpImage = "assets/img/franchise.webp";
 <!-- =========================================
      FAQ SECTION (VISUAL SCHEMA VALIDATION)
      ========================================= -->
+<style>
+    /* Failsafe critical FAQ styles */
+    .faq-premium-section { background-color: #FFF9F2 !important; }
+    .faq-header { text-align: center !important; margin-bottom: 50px !important; }
+    .faq-main-title { font-family: 'Fredoka', sans-serif !important; color: #431407 !important; }
+    .faq-staggered-grid { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 20px !important; }
+    .faq-card { background: #FFFFFF !important; border-radius: 20px !important; width: 100% !important; max-width: 800px !important; box-shadow: 0 10px 30px rgba(67, 20, 7, 0.05) !important; }
+    .faq-question { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 22px 28px !important; }
+    .faq-answer { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s ease; }
+    .faq-card.active .faq-answer { max-height: 500px !important; opacity: 1 !important; padding-bottom: 25px !important; }
+</style>
 <section class="faq-premium-section">
     <div class="container faq-container">
         <div class="faq-header" data-aos="fade-up">
@@ -551,184 +258,6 @@ $lcpImage = "assets/img/franchise.webp";
     </div>
 </section>
 
-<style>
-    .faq-premium-section {
-        padding: 100px 0;
-        background-color: var(--cream);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .faq-container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .faq-header {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .faq-main-title {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 3.5rem;
-        color: var(--dark-brown);
-        margin: 15px 0;
-        font-weight: 900;
-        line-height: 1.1;
-    }
-
-    .faq-subtitle {
-        font-family: 'Barlow', sans-serif;
-        font-size: 1.2rem;
-        color: #6D4C41;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    /* Center Layout */
-    .faq-staggered-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center; /* Center the cards */
-    }
-
-    .faq-card {
-        width: 100%;
-        max-width: 800px; /* Limit width for better readability when centered */
-        background: #FFFFFF;
-        border-radius: 20px;
-        padding: 5px;
-        box-shadow: 0 10px 30px rgba(67, 20, 7, 0.05);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        cursor: pointer;
-        border: 1px solid rgba(239, 125, 50, 0.08);
-        position: relative;
-    }
-
-    .faq-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 35px rgba(67, 20, 7, 0.1);
-        border-color: var(--primary-orange);
-    }
-
-    .faq-question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 22px 28px;
-    }
-
-    .faq-question h3 {
-        font-family: 'Fredoka', sans-serif !important;
-        font-size: 1.4rem;
-        color: var(--dark-brown);
-        margin: 0;
-        font-weight: 700;
-        line-height: 1.3;
-        flex: 1;
-    }
-
-    .faq-icon-wrap {
-        width: 38px;
-        height: 38px;
-        background: var(--cream);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-orange);
-        font-size: 18px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        flex-shrink: 0;
-        margin-left: 20px;
-    }
-
-    .faq-card.active {
-        border-color: var(--primary-orange);
-        box-shadow: 0 20px 40px rgba(239, 125, 50, 0.12);
-    }
-
-    .faq-card.active .faq-icon-wrap {
-        transform: rotate(180deg);
-        background: var(--primary-orange);
-        color: #FFFFFF;
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-    }
-
-    .faq-card.active .faq-answer {
-        max-height: 300px;
-        opacity: 1;
-    }
-
-    .faq-answer-inner {
-        padding: 0 28px 25px;
-    }
-
-    .faq-answer p {
-        font-family: 'Barlow', sans-serif !important;
-        font-size: 1.15rem;
-        color: #5D4037;
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    @media (max-width: 968px) {
-        .faq-premium-section {
-            padding: 80px 0;
-        }
-        .faq-main-title {
-            font-size: 3rem;
-        }
-        .faq-subtitle {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .faq-premium-section {
-            padding: 60px 0;
-        }
-        .faq-main-title {
-            font-size: 2.4rem;
-        }
-        .faq-question h3 {
-            font-size: 1.2rem;
-        }
-        .faq-question {
-            padding: 18px 22px;
-        }
-        .faq-icon-wrap {
-            width: 32px;
-            height: 32px;
-            font-size: 16px;
-        }
-        .faq-answer-inner {
-            padding: 0 22px 20px;
-        }
-        .faq-answer p {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .faq-main-title {
-            font-size: 2rem;
-        }
-        .faq-question h3 {
-            font-size: 1.1rem;
-        }
-    }
-</style>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const faqCards = document.querySelectorAll('.faq-card');
@@ -754,15 +283,6 @@ $lcpImage = "assets/img/franchise.webp";
 <section id="apply" class="franchise-form-section">
     <div class="container franchise-form-container">
 
-        <div class="form-header" data-aos="fade-up">
-            <span class="badge-pill">Join Our Network</span>
-            <h2 class="form-header-title">Start Your <span class="pop-out-text-sm">Journey</span></h2>
-            <p class="form-header-desc">
-                Ready to take the next step? Fill out the form below and our franchise team will get in touch within 2
-                business days.
-            </p>
-        </div>
-
         <?php if (isset($_SESSION['franchise_success'])): ?>
             <div class="alert alert-success">
                 <i class="ph-fill ph-check-circle alert-icon"></i>
@@ -780,6 +300,14 @@ endif; ?>
             </div>
         <?php
 endif; ?>
+
+        <div class="form-header" data-aos="fade-up">
+            <span class="badge-pill">Join Our Network</span>
+            <h2 class="form-header-title">Start Your <span class="pop-out-text-sm">Journey</span></h2>
+            <p class="form-header-desc">
+                Ready to take the next step? Fill out the form below and our franchise team will get in touch within 2 business days.
+            </p>
+        </div>
 
         <div class="form-layout-wrapper">
             <div class="form-card-box" data-aos="fade-up" data-aos-delay="200">

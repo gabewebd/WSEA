@@ -71,9 +71,11 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
   <?php if (isset($lcpImage)): ?>
     <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl . $lcpImage; ?>" type="image/webp">
-  <?php else: ?>
+  <?php
+else: ?>
     <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.webp" type="image/webp">
-  <?php endif; ?>
+  <?php
+endif; ?>
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
@@ -93,9 +95,9 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css?v=1.1">
+  <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/style.css?v=1.2">
   <?php if (isset($customCss)): ?>
-    <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/<?php echo $customCss; ?>?v=1.1">
+    <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/<?php echo $customCss; ?>?v=1.2">
   <?php
 endif; ?>
 

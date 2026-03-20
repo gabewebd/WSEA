@@ -1,4 +1,6 @@
-/* --- GLOBAL VARIABLES & UTILITIES --- */
+/* =============================================
+   GLOBAL VARIABLES & UTILITIES
+   ============================================= */
 :root {
     --primary-orange: #EF7D32;
     --dark-brown: #431407;
@@ -11,7 +13,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Interactive Utilities */
 .highlight-orange {
     color: var(--primary-orange);
 }
@@ -30,10 +31,12 @@ body {
     margin-bottom: 10px;
 }
 
-/* --- 1. HERO SECTION --- */
+/* =============================================
+   1. HERO SECTION
+   ============================================= */
 .about-hero {
     position: relative;
-    height: 450px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +112,9 @@ body {
     font-weight: 700;
 }
 
-/* --- 2. STORY SECTION --- */
+/* =============================================
+   2. STORY SECTION
+   ============================================= */
 .story-section {
     padding: 100px 5%;
     background-color: transparent;
@@ -204,7 +209,9 @@ body {
     transform: rotate(-2deg);
 }
 
-/* --- 3. VALUES SECTION --- */
+/* =============================================
+   3. VALUES SECTION
+   ============================================= */
 .values-section {
     padding: 80px 5%;
     background-color: var(--bg-light);
@@ -258,7 +265,9 @@ body {
     line-height: 1.6;
 }
 
-/* --- 4. GALLERY SECTION (CONTAINER POPPING CAROUSEL) --- */
+/* =============================================
+   4. GALLERY SECTION (Container Popping Carousel)
+   ============================================= */
 .gallery-section {
     padding: 100px 5%;
     max-width: 1200px;
@@ -267,7 +276,6 @@ body {
     gap: 60px;
     align-items: center;
     justify-content: center;
-    /* Ensure nothing spills out during animation */
     overflow: visible;
 }
 
@@ -275,7 +283,6 @@ body {
     flex: 1;
     max-width: 450px;
     z-index: 10;
-    /* Ensure text stays on top */
 }
 
 .gallery-text h2 {
@@ -285,11 +292,9 @@ body {
     line-height: 1.1;
 }
 
-/* POP CAROUSEL WRAPPER (The Stage) */
 .pop-carousel-wrapper {
     flex: 1.2;
     position: relative;
-    /* Fixed height defines the area for the images */
     height: 550px;
     width: 100%;
     max-width: 650px;
@@ -298,51 +303,31 @@ body {
     justify-content: center;
 }
 
-/* THE SLIDE CONTAINER (The thing that pops) */
-/* This holds the border, shadow, and image */
 .slide-container {
     position: absolute;
-    /* Centers the container in the wrapper */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    /* Dimensions of the photo area */
     width: 90%;
-    /* Responsive width */
     height: 90%;
-    /* Responsive height */
     max-height: 500px;
-    /* Max height constraint */
-
-    /* The "Stroke" and shadow go here now */
     border: 8px solid white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(67, 20, 7, 0.2);
     background: white;
-    /* Ensures no transparency behind image */
-
     opacity: 0;
-    /* Hidden by default */
     z-index: 0;
-
-    /* The Animation applied to the WHOLE container */
     animation: containerPop 9s infinite ease-in-out;
 }
 
-/* The Image inside the container */
 .slide-container img {
     width: 100%;
     height: 100%;
-    /* KEY: Shows entire photo without trimming */
     object-fit: contain;
     border-radius: 12px;
-    /* Slightly smaller radius to fit inside border */
     display: block;
 }
 
-/* STAGGERED DELAYS */
-/* Total cycle 9s. Shows for 3s each. */
 .slide-1 {
     animation-delay: 0s;
 }
@@ -355,32 +340,27 @@ body {
     animation-delay: 6s;
 }
 
-/* THE CONTAINER POP ANIMATION */
 @keyframes containerPop {
     0% {
         opacity: 0;
-        /* Start slightly smaller and centered */
         transform: translate(-50%, -50%) scale(0.9);
         z-index: 1;
     }
 
     5% {
         opacity: 1;
-        /* Pop to full size, stay centered */
         transform: translate(-50%, -50%) scale(1);
         z-index: 5;
     }
 
     33.33% {
         opacity: 1;
-        /* Stay full size and centered */
         transform: translate(-50%, -50%) scale(1);
         z-index: 5;
     }
 
     38% {
         opacity: 0;
-        /* Fade out while expanding slightly, still centered */
         transform: translate(-50%, -50%) scale(1.05);
         z-index: 1;
     }
@@ -392,44 +372,9 @@ body {
     }
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .gallery-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 20px;
-        gap: 40px;
-    }
-
-    .gallery-text {
-        margin-bottom: 0;
-        max-width: 100%;
-    }
-
-    .pop-carousel-wrapper {
-        width: 100%;
-        height: 450px;
-        /* Adjust height for tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .pop-carousel-wrapper {
-        height: 350px;
-        /* Adjust height for mobile */
-    }
-
-    .gallery-text h2 {
-        font-size: 36px;
-    }
-
-    .slide-container {
-        /* On mobile, make the border slightly thinner */
-        border-width: 5px;
-    }
-}
-
-/* --- 5. CTA & BUTTONS --- */
+/* =============================================
+   5. BUTTONS
+   ============================================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -480,7 +425,9 @@ body {
     color: white;
 }
 
-/* --- TEXT EFFECTS --- */
+/* =============================================
+   6. TEXT EFFECTS
+   ============================================= */
 .pop-out-text,
 .pop-out-text-sm {
     font-weight: 900;
@@ -521,7 +468,9 @@ body {
     transform: translate(8px, 8px);
 }
 
-/* --- FAMILY BANNER --- */
+/* =============================================
+   7. FAMILY BANNER
+   ============================================= */
 .family-banner {
     background: linear-gradient(90deg, #EF7D32 0%, #FFC107 25%, #D8651E 50%, #FFC107 75%, #EF7D32 100%);
     background-size: 300% 100%;
@@ -580,6 +529,7 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 30px;
 }
 
@@ -590,12 +540,13 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
+    font-size: 15px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     border: 2px solid white;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .family-banner .btn-white:hover {
@@ -610,30 +561,33 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     border: 2px solid white;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-outline-white:hover {
     background: white;
     color: #EF7D32;
     transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================================= */
-/* --- RESPONSIVE STYLES --- */
-/* ============================================= */
-
-/* --- TABLET (max-width: 1024px) --- */
+/* =============================================
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ============================================= */
 @media (max-width: 1024px) {
 
-    /* Hero Section */
     .about-hero {
         height: 380px;
     }
 
     .about-hero-content h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
     .about-hero-content .section-subtitle {
@@ -641,7 +595,6 @@ body {
         letter-spacing: 3px;
     }
 
-    /* Story Section */
     .story-section {
         padding: 80px 5%;
     }
@@ -649,17 +602,14 @@ body {
     .story-content {
         flex-direction: column;
         gap: 50px;
+        text-align: center;
     }
 
     .story-image {
         min-width: unset;
-        max-width: 450px;
+        max-width: 500px;
         width: 100%;
         margin: 0 auto;
-    }
-
-    .story-text {
-        text-align: center;
     }
 
     .story-text h2 {
@@ -681,7 +631,6 @@ body {
         justify-content: center;
     }
 
-    /* Values Section */
     .values-section {
         padding: 60px 5%;
     }
@@ -695,11 +644,10 @@ body {
         margin-top: 40px;
     }
 
-    /* Gallery Section */
     .gallery-section {
         flex-direction: column;
         text-align: center;
-        padding: 60px 5%;
+        padding: 60px 20px;
         gap: 40px;
     }
 
@@ -718,7 +666,6 @@ body {
         height: 450px;
     }
 
-    /* Family Banner */
     .family-banner {
         padding: 60px 5%;
     }
@@ -728,12 +675,13 @@ body {
     }
 }
 
-/* --- MOBILE (max-width: 768px) --- */
+/* =============================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================= */
 @media (max-width: 768px) {
 
-    /* Hero Section */
     .about-hero {
-        height: 350px;
+        height: 320px;
     }
 
     .about-hero-content {
@@ -741,7 +689,7 @@ body {
     }
 
     .about-hero-content h1 {
-        font-size: 32px;
+        font-size: 38px;
         line-height: 1.2;
     }
 
@@ -768,17 +716,19 @@ body {
         bottom: -30px;
     }
 
-    /* Story Section */
     .story-section {
-        padding: 60px 5%;
+        padding: 60px 20px;
     }
 
     .story-content {
+        flex-direction: column !important;
         gap: 40px;
     }
 
     .story-image {
-        max-width: 100%;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
     }
 
     .story-image img {
@@ -786,9 +736,29 @@ body {
         border-radius: 20px;
     }
 
+    .story-badge {
+        width: 70px;
+        height: 70px;
+        border-width: 4px;
+        border-radius: 14px;
+        bottom: -15px;
+    }
+
+    .story-badge-year {
+        font-size: 20px;
+    }
+
+    .story-badge-label {
+        font-size: 9px;
+    }
+
+    .story-text {
+        text-align: center;
+    }
+
     .story-text h2 {
         font-size: 32px;
-        margin-bottom: 18px;
+        margin-bottom: 15px;
     }
 
     .story-text p {
@@ -800,34 +770,18 @@ body {
         font-size: 20px;
     }
 
-    .story-badge {
-        width: 70px;
-        height: 70px;
-        border-width: 4px;
-        border-radius: 14px;
-    }
-
-    .story-badge-year {
-        font-size: 20px;
-    }
-
-    .story-badge-label {
-        font-size: 9px;
-    }
-
-    /* Values Section */
     .values-section {
-        padding: 50px 5%;
+        padding: 50px 20px;
     }
 
     .values-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
         margin-top: 30px;
     }
 
     .value-card {
-        padding: 30px 25px;
+        padding: 30px 20px;
         border-radius: 16px;
     }
 
@@ -845,9 +799,8 @@ body {
         font-size: 14px;
     }
 
-    /* Gallery Section */
     .gallery-section {
-        padding: 50px 5%;
+        padding: 50px 20px;
         gap: 30px;
     }
 
@@ -861,21 +814,26 @@ body {
     }
 
     .pop-carousel-wrapper {
-        height: 350px;
+        height: 380px;
+        width: 100%;
+        max-width: 350px;
     }
 
     .slide-container {
         border-width: 5px;
         border-radius: 16px;
+        width: 95%;
+        height: 95%;
     }
 
     .slide-container img {
         border-radius: 10px;
     }
 
-    /* Family Banner */
     .family-banner {
-        padding: 50px 5%;
+        padding: 60px 20px;
+        flex-direction: column;
+        text-align: center;
     }
 
     .family-banner-content {
@@ -893,34 +851,34 @@ body {
     }
 
     .family-banner .family-buttons {
-        justify-content: center;
-        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
-        align-items: center;
-        gap: 12px; /* Slightly tighter gap for mobile */
-        margin-top: 25px;
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 25px auto 0;
+        gap: 15px;
     }
 
     .family-banner .btn-white,
     .family-banner .btn-outline-white {
-        width: auto; /* Ensure they don't fill width */
-        padding: 12px 24px; /* Slightly smaller padding for mobile */
+        width: 100%;
+        padding: 12px 24px;
         font-size: 14px;
         justify-content: center;
     }
 
-    /* Buttons */
     .btn {
         padding: 10px 24px;
         font-size: 14px;
     }
 }
 
-/* --- SMALL MOBILE (max-width: 480px) --- */
+/* =============================================
+   RESPONSIVE — SMALL MOBILE (max-width: 480px)
+   ============================================= */
 @media (max-width: 480px) {
 
-    /* Hero Section */
     .about-hero {
-        height: 300px;
+        height: 280px;
     }
 
     .about-hero-content {
@@ -946,7 +904,6 @@ body {
         height: 120px;
     }
 
-    /* Story Section */
     .story-section {
         padding: 40px 4%;
     }
@@ -958,15 +915,6 @@ body {
     .story-image img {
         border-width: 5px;
         border-radius: 16px;
-    }
-
-    .story-text h2 {
-        font-size: 26px;
-    }
-
-    .story-text p {
-        font-size: 14px;
-        line-height: 1.7;
     }
 
     .story-badge {
@@ -985,12 +933,20 @@ body {
         font-size: 8px;
     }
 
+    .story-text h2 {
+        font-size: 26px;
+    }
+
+    .story-text p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
     .story-signature {
         font-size: 18px;
         margin-top: 20px;
     }
 
-    /* Values Section */
     .values-section {
         padding: 40px 4%;
     }
@@ -1025,7 +981,6 @@ body {
         font-size: 13px;
     }
 
-    /* Gallery Section */
     .gallery-section {
         padding: 40px 4%;
         gap: 25px;
@@ -1048,7 +1003,6 @@ body {
         border-radius: 12px;
     }
 
-    /* Family Banner */
     .family-banner {
         padding: 40px 4%;
     }
@@ -1063,21 +1017,16 @@ body {
     }
 
     .family-banner .family-buttons {
-        justify-content: center;
-        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
-        align-items: center;
-        gap: 12px; /* Slightly tighter gap for mobile */
         margin-top: 20px;
+        gap: 12px;
     }
 
     .family-banner .btn-white,
     .family-banner .btn-outline-white {
-        width: auto; /* Ensure they don't fill width */
         padding: 11px 24px;
         font-size: 13px;
     }
 
-    /* Buttons */
     .btn {
         padding: 10px 20px;
         font-size: 13px;

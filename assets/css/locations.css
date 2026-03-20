@@ -110,12 +110,14 @@
     display: block;
     width: 100%;
     min-height: 450px;
-    filter: sepia(10%) contrast(100%) saturate(120%) hue-rotate(-10deg); /* Slight warm brand tint */
+    filter: sepia(10%) contrast(100%) saturate(120%) hue-rotate(-10deg);
+    /* Slight warm brand tint */
 }
 
 /* Map Search Below */
 .locations-map-wrapper {
-    margin-bottom: 25px; /* Reduced since search bar now sits below it */
+    margin-bottom: 25px;
+    /* Reduced since search bar now sits below it */
 }
 
 .map-search-below {
@@ -167,11 +169,12 @@
     .locations-map-wrapper iframe {
         min-height: 350px;
     }
-    
+
     .map-search-below {
-        padding: 0 15px; /* Prevent touching edges on very small screens */
+        padding: 0 15px;
+        /* Prevent touching edges on very small screens */
     }
-    
+
     .search-bar-wrapper {
         padding: 12px 20px;
     }
@@ -323,6 +326,54 @@
     z-index: 1;
 }
 
+/* Refined Action Bar Layout */
+.card-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.btn-primary.flex-main {
+    flex: 1;
+    justify-content: center;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    margin: 0;
+    /* Remove top margin from original w-full */
+}
+
+.secondary-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: #431407;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.action-icon:hover {
+    background: white;
+    color: #EF7D32;
+    border-color: #EF7D32;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(239, 125, 50, 0.15);
+}
+
 /* Card Meta Row (Category & Status) */
 .card-meta-row {
     display: flex;
@@ -330,7 +381,8 @@
     justify-content: center;
     gap: 10px;
     margin-bottom: 18px;
-    flex-wrap: wrap; /* In case screens get very narrow */
+    flex-wrap: wrap;
+    /* In case screens get very narrow */
 }
 
 /* Category Badge */
@@ -343,7 +395,8 @@
     background: linear-gradient(135deg, #FFF3E0, #FFE8D6);
     padding: 8px 18px;
     border-radius: 25px;
-    margin: 0; /* Reset margin since it's in a flex row */
+    margin: 0;
+    /* Reset margin since it's in a flex row */
     text-transform: uppercase;
     border: 1px solid #FFD6B3;
 }
@@ -424,13 +477,16 @@
 /* Status Badges */
 .status-badge {
     display: inline-block;
-    padding: 8px 16px; /* Slightly slimmed down to match category */
+    padding: 8px 16px;
+    /* Slightly slimmed down to match category */
     border-radius: 25px;
-    font-size: 11px; /* Match category font size */
+    font-size: 11px;
+    /* Match category font size */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    margin: 0; /* Reset margin since it's in a flex row */
+    margin: 0;
+    /* Reset margin since it's in a flex row */
 }
 
 .status-badge.open {
@@ -1054,7 +1110,8 @@
 .family-banner-centered .family-banner-content {
     flex: 0 0 auto;
     max-width: 700px;
-    margin: 0 auto; /* Force horizontal center */
+    margin: 0 auto;
+    /* Force horizontal center */
 }
 
 .family-banner-centered .family-buttons {
@@ -1076,15 +1133,19 @@
 
     .family-banner .family-buttons {
         justify-content: center;
-        flex-direction: row; /* Allow buttons to sit side-by-side or wrap naturally */
+        flex-direction: row;
+        /* Allow buttons to sit side-by-side or wrap naturally */
         align-items: center;
-        gap: 12px; /* Slightly tighter gap for mobile */
+        gap: 12px;
+        /* Slightly tighter gap for mobile */
     }
 
     .family-banner .btn-white,
     .family-banner .btn-outline-white {
-        width: auto; /* Ensure they don't fill width */
-        padding: 12px 24px; /* Slightly smaller padding for mobile */
+        width: auto;
+        /* Ensure they don't fill width */
+        padding: 12px 24px;
+        /* Slightly smaller padding for mobile */
         font-size: 14px;
     }
 }

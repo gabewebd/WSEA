@@ -5,55 +5,6 @@ $customCss = "locations.css";
 ?>
 <?php include 'includes/header.php'; ?>
 
-<style>
-    /* Refined Action Bar Layout */
-    .card-footer-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 20px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        width: 100%;
-    }
-
-    .btn-primary.flex-main {
-        flex: 1;
-        justify-content: center;
-        padding: 12px 15px;
-        font-size: 0.9rem;
-        margin: 0; /* Remove top margin from original w-full */
-    }
-
-    .secondary-actions {
-        display: flex;
-        gap: 8px;
-    }
-
-    .action-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: #f5f5f5;
-        color: #431407;
-        font-size: 18px;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        border: 1px solid transparent;
-    }
-
-    .action-icon:hover {
-        background: white;
-        color: #EF7D32;
-        border-color: #EF7D32;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(239, 125, 50, 0.15);
-    }
-</style>
-
 <div class="locations-container">
     <div class="section-header">
         <span class="section-label">Visit Us</span>
