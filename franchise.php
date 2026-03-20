@@ -387,7 +387,7 @@ $customCss = "franchise.css";
                             <i class="ph-fill ph-check-circle"></i>
                         </div>
                         <div>
-                            <h4 class="benefit-title">Proven Business Model</h4>
+                            <h3 class="benefit-title">Proven Business Model</h3>
                             <p class="benefit-desc">Operational systems tested and perfected across multiple locations.
                             </p>
                         </div>
@@ -398,7 +398,7 @@ $customCss = "franchise.css";
                             <i class="ph-fill ph-star"></i>
                         </div>
                         <div>
-                            <h4 class="benefit-title">Premium Quality Products</h4>
+                            <h3 class="benefit-title">Premium Quality Products</h3>
                             <p class="benefit-desc">Only the finest ingredients for our signature brioche doughnuts.</p>
                         </div>
                     </div>
@@ -408,7 +408,7 @@ $customCss = "franchise.css";
                             <i class="ph-fill ph-chart-line-up"></i>
                         </div>
                         <div>
-                            <h4 class="benefit-title">Growing Brand Recognition</h4>
+                            <h3 class="benefit-title">Growing Brand Recognition</h3>
                             <p class="benefit-desc">Leverage our established reputation and loyal customer base.</p>
                         </div>
                     </div>
@@ -818,8 +818,6 @@ endif; ?>
                 <div class="sidebar-backplate"></div>
 
                 <div class="contact-sidebar-card">
-                    <img src="assets/img/mini-doughnut.webp" alt="Danono's" class="sidebar-floating-donut"
-                        onerror="this.style.display='none'">
 
                     <h3 class="pop-out-text-sm" style="font-size: 1.8rem; margin-bottom: 30px;">Direct Contact</h3>
 

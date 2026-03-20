@@ -64,7 +64,7 @@ $customCss = "locations.css";
 
     <div class="locations-map-wrapper" data-aos="fade-up" data-aos-delay="100">
         <!-- Generic map search for Danono's Doughnuts Pampanga to show multiple locations -->
-        <iframe id="locationsMapFrame" src="https://maps.google.com/maps?q=Danono's+Doughnuts+Pampanga&t=&z=11&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe id="locationsMapFrame" src="https://maps.google.com/maps?q=Danono's+Doughnuts+Pampanga&t=&z=11&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps showing Danono's Doughnuts locations in Pampanga"></iframe>
     </div>
 
     <!-- Search Bar Below Map -->
@@ -80,7 +80,7 @@ $customCss = "locations.css";
         <div class="location-card premium">
             <div class="card-badge">Popular</div>
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Mexico</h3>
+            <h2>Danonos - Mexico</h2>
             <div class="card-meta-row">
                 <span class="category">Food & Drink</span>
             </div>
@@ -98,7 +98,7 @@ $customCss = "locations.css";
         <div class="location-card premium">
             <div class="card-badge">Flagship</div>
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - San Fernando</h3>
+            <h2>Danonos - San Fernando</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
                 <span class="status-badge open">Open Now</span>
@@ -116,7 +116,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Angeles</h3>
+            <h2>Danonos - Angeles</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop / Cafe</span>
                 <span class="status-badge open">Open Now</span>
@@ -135,7 +135,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Mabalacat</h3>
+            <h2>Danonos - Mabalacat</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
                 <span class="status-badge open">Open Now</span>
@@ -154,7 +154,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Magalang</h3>
+            <h2>Danonos - Magalang</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
                 <span class="status-badge open">Open Now</span>
@@ -172,7 +172,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Porac</h3>
+            <h2>Danonos - Porac</h2>
             <div class="card-meta-row">
                 <span class="category">Cafe</span>
             </div>
@@ -190,7 +190,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Apalit</h3>
+            <h2>Danonos - Apalit</h2>
             <div class="card-meta-row">
                 <span class="category">Food & Drink</span>
                 <span class="status-badge open">Open Now</span>
@@ -209,7 +209,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Capas</h3>
+            <h2>Danonos - Capas</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
             </div>
@@ -225,7 +225,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - NLEX MEGA</h3>
+            <h2>Danonos - NLEX MEGA</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
                 <span class="status-badge always-open">Always Open</span>
@@ -244,7 +244,7 @@ $customCss = "locations.css";
         <div class="location-card premium">
             <div class="card-badge">New</div>
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Imus</h3>
+            <h2>Danonos - Imus</h2>
             <div class="card-meta-row">
                 <span class="category">Food & Drink</span>
             </div>
@@ -260,7 +260,7 @@ $customCss = "locations.css";
 
         <div class="location-card">
             <div class="location-icon"><i class="ph ph-map-pin"></i></div>
-            <h3>Danonos - Guagua</h3>
+            <h2>Danonos - Guagua</h2>
             <div class="card-meta-row">
                 <span class="category">Donut Shop</span>
             </div>
@@ -309,7 +309,7 @@ $customCss = "locations.css";
         const searchTerm = e.target.value.toLowerCase().trim();
         
         locationCards.forEach(card => {
-            const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+            const title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : '';
             const address = card.querySelector('.address') ? card.querySelector('.address').textContent.toLowerCase() : '';
             const category = card.querySelector('.category') ? card.querySelector('.category').textContent.toLowerCase() : '';
             

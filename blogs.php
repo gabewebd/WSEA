@@ -271,7 +271,7 @@ include 'includes/db_connect.php';
             font-size: 14px;
         }
 
-        .blog-card h3 {
+        .blog-card h2 {
             font-size: 26px;
             font-weight: 700;
             color: var(--dark);
@@ -284,7 +284,7 @@ include 'includes/db_connect.php';
             overflow: hidden;
         }
 
-        .blog-card:hover h3 {
+        .blog-card:hover h2 {
             background: linear-gradient(to right, #EF7D32 0%, #FFC107 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -642,10 +642,10 @@ include 'includes/db_connect.php';
                             <p class="blog-card-meta">
                                 <i class="fas fa-calendar-alt"></i> <?php echo $date; ?>
                             </p>
-                            <h3><?php echo $title; ?></h3>
+                            <h2><?php echo $title; ?></h2>
                             <p><?php echo $excerpt; ?></p>
                             <a href="/blog/<?php echo urlencode($slug); ?>" class="btn-read-more" aria-label="Read the full article: <?php echo $title; ?>">
-                                Read More <i class="fas fa-arrow-right"></i>
+                                Read More <span class="sr-only">about <?php echo $title; ?></span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>

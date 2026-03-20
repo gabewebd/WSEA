@@ -421,7 +421,7 @@ include 'includes/header.php';
             z-index: 2;
         }
 
-        .card h3 {
+        .card h2 {
             font-size: 24px;
             font-weight: 700;
             color: var(--dark);
@@ -430,7 +430,7 @@ include 'includes/header.php';
             transition: all 0.3s ease;
         }
 
-        .card:hover h3 {
+        .card:hover h2 {
             background: linear-gradient(to right, #EF7D32 0%, #FFC107 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -746,7 +746,7 @@ include 'includes/header.php';
                                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop'">
                         </div>
                         <div class="card-content">
-                            <h3><?php echo $name; ?></h3>
+                            <h2><?php echo $name; ?></h2>
                             <p><?php echo $description; ?></p>
                             <div class="card-footer">
                                 <div class="price-tag">₱<?php echo $price; ?></div>
@@ -768,7 +768,7 @@ include 'includes/header.php';
                                 alt="<?php echo htmlspecialchars($item['name']); ?>">
                         </div>
                         <div class="card-content">
-                            <h3><?php echo htmlspecialchars($item['name']); ?></h3>
+                            <h2><?php echo htmlspecialchars($item['name']); ?></h2>
                             <p><?php echo htmlspecialchars($item['desc']); ?></p>
                             <div class="card-footer">
                                 <div class="price-tag">₱<?php echo $item['price']; ?></div>

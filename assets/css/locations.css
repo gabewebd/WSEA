@@ -312,7 +312,7 @@
 }
 
 /* Card Title */
-.location-card h3 {
+.location-card h2 {
     font-family: 'Fredoka', sans-serif;
     font-size: 28px;
     color: var(--dark-brown);
@@ -624,7 +624,7 @@
         border-radius: 24px;
     }
 
-    .location-card h3 {
+    .location-card h2 {
         font-size: 25px;
     }
 
@@ -700,7 +700,7 @@
         right: 15px;
     }
 
-    .location-card h3 {
+    .location-card h2 {
         font-size: 23px;
     }
 
