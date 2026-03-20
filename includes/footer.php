@@ -6,11 +6,11 @@
             <p>Spreading happiness one donut at a time. The home of <strong>premium brioche donuts</strong> in Angeles City.</p>
             <div class="social-icons">
                 <a href="https://www.facebook.com/danonosdoughnuts" class="social-icon" target="_blank"
-                    rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i></a>
+                    rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="ph ph-facebook-logo"></i></a>
                 <a href="https://www.instagram.com/danonosdoughnuts" class="social-icon" target="_blank"
-                    rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+                    rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <a href="https://www.tiktok.com/@danonosdoughnuts" class="social-icon" target="_blank"
-                    rel="noopener noreferrer"><i class="ph ph-tiktok-logo"></i></a>
+                    rel="noopener noreferrer" aria-label="Follow us on TikTok"><i class="ph ph-tiktok-logo"></i></a>
             </div>
         </div>
 
@@ -42,6 +42,7 @@
         <div class="footer-section footer-map">
             <h3>Visit Us</h3>
             <iframe
+                title="Google Maps showing Danono's Doughnuts location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.1983680897783!2d120.5943797!3d15.1474468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f24013020c15%3A0x3c7b1670185d73c2!2sNono&#39;s%20Doughnuts%20(Angeles%20Branch)!5e0!3m2!1sen!2sph!4v1773760746750!5m2!1sen!2sph"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -51,7 +52,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 Danono's Donuts & Brownies. All rights reserved. | <a href="<?php echo $baseUrl; ?>privacy-policy"
+        <p>© 2026 Danono's Doughnuts & Brownies. All rights reserved. | <a href="<?php echo $baseUrl; ?>privacy-policy"
                 style="color: inherit;">Privacy Policy and Terms of Service</a></p>
     </div>
 </footer>
