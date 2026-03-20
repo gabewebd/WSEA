@@ -2,3 +2,6 @@
 Thumbs.db
 # uploads/*
 # !uploads/.gitkeep
+tmp_img_opt/
+node_modules/
+package-lock.json

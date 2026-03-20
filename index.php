@@ -30,7 +30,8 @@ $lcpImage = "assets/img/danonos.webp";
     </div>
     <div class="hero-image" data-aos="zoom-in-left" data-aos-duration="1000">
         <img src="assets/img/danonos.webp" alt="Danono's Best Biscoff, Matcha, and Ube Brioche Donuts in Pampanga"
-            class="float-img" fetchpriority="high" loading="eager">
+            class="float-img" fetchpriority="high" loading="eager" width="721" height="899"
+            onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
     </div>
 
     <div class="creative-hero-badge" data-aos="fade-up" data-aos-delay="600">
@@ -48,28 +49,28 @@ $lcpImage = "assets/img/danonos.webp";
     <div class="treats-carousel">
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/choco-caviar.webp" alt="Choco Caviar Creation" loading="lazy">
+            <img src="assets/img/choco-caviar.webp" alt="Choco Caviar Creation" loading="lazy" width="604" height="604">
             <h3>Choco Caviar Creation</h3>
             <p>Our ultimate choco-loaded treat that's rich, crunchy, and irresistibly indulgent.</p>
             <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/biscoff.webp" alt="Biscoff Bite" loading="lazy">
+            <img src="assets/img/biscoff.webp" alt="Biscoff Bite" loading="lazy" width="604" height="604">
             <h3>Biscoff Bite</h3>
             <p>Fluffy brioche donut, rich peanut butter glaze, and a generous topping of Lotus Biscoff.</p>
             <a href="menu" class="btn btn-small">₱60</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="300">
-            <img src="assets/img/double-choco-delight.webp" alt="Double Choco Delight" loading="lazy">
+            <img src="assets/img/double-choco-delight.webp" alt="Double Choco Delight" loading="lazy" width="604" height="604">
             <h3>Double Choco Delight</h3>
             <p>Double Choco Delight is here, and it's everything your chocolate dreams are made of.</p>
             <a href="menu" class="btn btn-small">₱40</a>
         </div>
 
         <div class="treat-card" data-aos="fade-up" data-aos-delay="400">
-            <img src="assets/img/almond-amore.webp" alt="Almond Amore" loading="lazy">
+            <img src="assets/img/almond-amore.webp" alt="Almond Amore" loading="lazy" width="604" height="604">
             <h3>Almond Amore</h3>
             <p>Light, fluffy, and loaded with almond love, this one's a certified heart-stealer.</p>
             <a href="menu" class="btn btn-small">₱40</a>
@@ -81,7 +82,7 @@ $lcpImage = "assets/img/danonos.webp";
 <section class="drinks-choco">
     <div class="drinks-content">
         <div class="drinks-image" data-aos="fade-right">
-            <img src="assets/img/Refreshers.webp" alt="Danono's Refreshers" loading="lazy">
+            <img src="assets/img/Refreshers.webp" alt="Danono's Refreshers" loading="lazy" width="263" height="328">
         </div>
         <div class="drinks-text" data-aos="fade-up">
             <span class="section-label">THE DONUT CAFE EXPERIENCE</span>
@@ -93,7 +94,7 @@ $lcpImage = "assets/img/danonos.webp";
             <a href="menu" class="btn btn-dark"><i class="ph ph-cookie"></i> See Full Menu</a>
         </div>
         <div class="choco-image" data-aos="fade-left">
-            <img src="assets/img/choco-circle.webp" alt="Choco Circle Donuts" loading="lazy">
+            <img src="assets/img/choco-circle.webp" alt="Choco Circle Donuts" loading="lazy" width="263" height="328">
         </div>
     </div>
 </section>
@@ -101,7 +102,7 @@ $lcpImage = "assets/img/danonos.webp";
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="assets/img/danonos-kitchen.webp" alt="Danonos Kitchen" loading="lazy">
+            <img src="assets/img/danonos-kitchen.webp" alt="Danonos Kitchen" loading="lazy" width="473" height="473">
             <div class="story-badge">
                 <div class="story-badge-label">SINCE</div>
                 <div class="story-badge-year">2018</div>

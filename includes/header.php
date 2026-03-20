@@ -177,7 +177,7 @@ endif; ?>
   <header>
     <div class="logo">
       <a href="<?php echo $baseUrl; ?>">
-        <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.webp" alt="Danono's">
+        <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.webp" alt="Danono's" width="160" height="160">
       </a>
     </div>
 

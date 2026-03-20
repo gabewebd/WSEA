@@ -368,7 +368,7 @@ $lcpImage = "assets/img/franchise.webp";
         <div class="image-blob-bg"></div>
         <div class="premium-image-container">
             <img src="assets/img/franchise.webp" alt="Danono's Franchise Opportunity" class="floating-img" 
-                fetchpriority="high" loading="eager">
+                fetchpriority="high" loading="eager" width="1000" height="1000">
             <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
                 <i class="ph-fill ph-trend-up"></i>
                 <div>
@@ -385,6 +385,7 @@ $lcpImage = "assets/img/franchise.webp";
         <div class="why-franchise-grid">
             <div data-aos="fade-right" data-aos-duration="800">
                 <img src="assets/img/perfect-spot.webp" alt="Perfect Spot for your Franchise" class="floating-img" loading="lazy"
+                    width="1000" height="1000"
                     style="transform: rotate(2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             </div>
 

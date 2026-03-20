@@ -648,7 +648,7 @@ $lcpImage = "assets/img/danonos-hero.webp";
     </div>
     <div class="about-hero-bg" data-speed="1">
         <img src="assets/img/danonos-hero.webp" alt="Danonos Bakery Background"
-            fetchpriority="high" loading="eager"
+            fetchpriority="high" loading="eager" width="1200" height="500"
             onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
     </div>
@@ -657,7 +657,7 @@ $lcpImage = "assets/img/danonos-hero.webp";
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="assets/img/about-story.webp" alt="Danono's humble beginnings" loading="lazy"
+            <img src="assets/img/about-story.webp" alt="Danono's humble beginnings" loading="lazy" width="564" height="564"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
             <div class="story-badge">
@@ -736,15 +736,15 @@ $lcpImage = "assets/img/danonos-hero.webp";
     <div class="pop-carousel-wrapper" data-aos="zoom-in">
 
         <div class="slide-container slide-1">
-            <img src="assets/img/sans-rival-temptation.webp" alt="Sans Rival Temptation" loading="lazy">
+            <img src="assets/img/sans-rival-temptation.webp" alt="Sans Rival Temptation" loading="lazy" width="450" height="500">
         </div>
 
         <div class="slide-container slide-2">
-            <img src="assets/img/sweet-cherry-crave.webp" alt="Sweet Cherry Crave" loading="lazy">
+            <img src="assets/img/sweet-cherry-crave.webp" alt="Sweet Cherry Crave" loading="lazy" width="450" height="500">
         </div>
 
         <div class="slide-container slide-3">
-            <img src="assets/img/ube-bliss.webp" alt="Ube Bliss" loading="lazy">
+            <img src="assets/img/ube-bliss.webp" alt="Ube Bliss" loading="lazy" width="450" height="500">
         </div>
 
     </div>

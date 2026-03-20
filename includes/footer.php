@@ -3,6 +3,7 @@
     <div class="footer-content">
         <div class="footer-section footer-about">
             <img src="<?php echo $baseUrl; ?>assets/img/danonos-logo.webp" alt="Danono's Donuts Logo" class="footer-logo" 
+                width="80" height="80"
                 style="width: 80px; height: auto; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);">
             <p>Spreading happiness one donut at a time. The home of <strong>premium brioche donuts</strong> in Angeles City.</p>
             <div class="social-icons">

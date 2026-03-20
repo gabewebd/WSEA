@@ -605,7 +605,7 @@ include 'includes/db_connect.php';
         </div>
         <div class="blog-hero-bg" data-speed="1">
             <img src="assets/img/danonos-craving.webp" alt="Danono's Blog Background"
-                fetchpriority="high" loading="eager"
+                fetchpriority="high" loading="eager" width="1600" height="1040"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
         </div>
     </section>
