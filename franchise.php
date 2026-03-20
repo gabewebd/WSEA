@@ -746,17 +746,19 @@ $customCss = "franchise.css";
             <div class="alert alert-success">
                 <i class="ph-fill ph-check-circle alert-icon"></i>
                 <span><?php echo $_SESSION['franchise_success'];
-                unset($_SESSION['franchise_success']); ?></span>
+    unset($_SESSION['franchise_success']); ?></span>
             </div>
-        <?php endif; ?>
+        <?php
+endif; ?>
 
         <?php if (isset($_SESSION['franchise_error'])): ?>
             <div class="alert alert-error">
                 <i class="ph-fill ph-warning-circle alert-icon"></i>
                 <span><?php echo $_SESSION['franchise_error'];
-                unset($_SESSION['franchise_error']); ?></span>
+    unset($_SESSION['franchise_error']); ?></span>
             </div>
-        <?php endif; ?>
+        <?php
+endif; ?>
 
         <div class="form-layout-wrapper">
             <div class="form-card-box" data-aos="fade-up" data-aos-delay="200">
