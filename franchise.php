@@ -2,6 +2,7 @@
 $pageTitle = "Franchise Opportunities | Best Donut Franchise in the Philippines";
 $metaDesc = "Join the Danono's family! Learn about donut franchise opportunities in the Philippines and how to bring our premium brioche donuts to your community.";
 $customCss = "franchise.css";
+$lcpImage = "assets/img/franchise.webp";
 ?>
 <?php include 'includes/header.php'; ?>
 
@@ -67,6 +68,12 @@ $customCss = "franchise.css";
         z-index: 10;
         text-align: left;
         padding: 0 5%;
+    }
+
+    .badge-pill {
+        display: inline-flex !important;
+        width: fit-content !important;
+        max-width: max-content !important;
     }
 
     .hero-text h1 {
@@ -251,6 +258,14 @@ $customCss = "franchise.css";
             text-align: center !important;
             padding: 0;
             order: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-text .badge-pill {
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .hero-text h1 {
@@ -313,7 +328,11 @@ $customCss = "franchise.css";
 
     /* 4. Fix Submit Button */
     .form-submit-btn {
-        width: 100%;
+        width: 100% !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
     }
 
     .form-grid {
@@ -348,7 +367,8 @@ $customCss = "franchise.css";
     <div class="hero-side-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
         <div class="image-blob-bg"></div>
         <div class="premium-image-container">
-            <img src="assets/img/franchise.webp" alt="Danono's Franchise Opportunity" class="floating-img">
+            <img src="assets/img/franchise.webp" alt="Danono's Franchise Opportunity" class="floating-img" 
+                fetchpriority="high" loading="eager">
             <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
                 <i class="ph-fill ph-trend-up"></i>
                 <div>
@@ -364,7 +384,7 @@ $customCss = "franchise.css";
     <div class="why-franchise-container">
         <div class="why-franchise-grid">
             <div data-aos="fade-right" data-aos-duration="800">
-                <img src="assets/img/perfect-spot.webp" alt="Perfect Spot for your Franchise" class="floating-img"
+                <img src="assets/img/perfect-spot.webp" alt="Perfect Spot for your Franchise" class="floating-img" loading="lazy"
                     style="transform: rotate(2deg); width: 100%; max-width: 600px; border-radius: 25px; border: 12px solid white; box-shadow: 0 30px 60px rgba(67, 20, 7, 0.15);">
             </div>
 
@@ -449,7 +469,7 @@ $customCss = "franchise.css";
 
         <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800">
             <div class="testimonial-avatar">
-                <img src="assets/img/franchise.webp" alt="Owner testimonial">
+                <img src="assets/img/franchise.webp" alt="Owner testimonial" loading="lazy">
             </div>
             <div class="testimonial-content" style="text-align: left;">
                 <p class="quote">"Partnering with Danono's transformed my life. The support, training, and product

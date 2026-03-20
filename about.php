@@ -2,6 +2,7 @@
 $pageTitle = "About Danono's | The Best Donut Brand in Pampanga";
 $customCss = "about.css";
 $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut shop in Pampanga. Learn why our premium brioche donuts are the fluffiest in the Philippines.";
+$lcpImage = "assets/img/danonos-hero.webp";
 ?>
 <?php include 'includes/header.php'; ?>
 
@@ -647,6 +648,7 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
     </div>
     <div class="about-hero-bg" data-speed="1">
         <img src="assets/img/danonos-hero.webp" alt="Danonos Bakery Background"
+            fetchpriority="high" loading="eager"
             onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
     </div>
@@ -655,7 +657,7 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
 <section class="story-section">
     <div class="story-content">
         <div class="story-image" data-aos="fade-right">
-            <img src="assets/img/about-story.webp" alt="Danono's humble beginnings"
+            <img src="assets/img/about-story.webp" alt="Danono's humble beginnings" loading="lazy"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=500&fit=crop'">
 
             <div class="story-badge">
@@ -734,15 +736,15 @@ $metaDesc = "Discover the story behind Danono's, the top-rated artisan donut sho
     <div class="pop-carousel-wrapper" data-aos="zoom-in">
 
         <div class="slide-container slide-1">
-            <img src="assets/img/sans-rival-temptation.webp" alt="Sans Rival Temptation">
+            <img src="assets/img/sans-rival-temptation.webp" alt="Sans Rival Temptation" loading="lazy">
         </div>
 
         <div class="slide-container slide-2">
-            <img src="assets/img/sweet-cherry-crave.webp" alt="Sweet Cherry Crave">
+            <img src="assets/img/sweet-cherry-crave.webp" alt="Sweet Cherry Crave" loading="lazy">
         </div>
 
         <div class="slide-container slide-3">
-            <img src="assets/img/ube-bliss.webp" alt="Ube Bliss">
+            <img src="assets/img/ube-bliss.webp" alt="Ube Bliss" loading="lazy">
         </div>
 
     </div>

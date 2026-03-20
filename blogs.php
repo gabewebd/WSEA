@@ -2,6 +2,7 @@
 $pageTitle = "Blog - Danono's | Sweet Stories & Best Donuts in Pampanga News";
 $metaDesc = "Stay updated with the latest donut news and flavor launches in Pampanga. Read sweet stories from the Danono's kitchen and the local food scene.";
 $customCss = "blogs.css";
+$lcpImage = "assets/img/danonos-craving.webp";
 include 'includes/header.php';
 include 'includes/db_connect.php';
 ?>
@@ -604,6 +605,7 @@ include 'includes/db_connect.php';
         </div>
         <div class="blog-hero-bg" data-speed="1">
             <img src="assets/img/danonos-craving.webp" alt="Danono's Blog Background"
+                fetchpriority="high" loading="eager"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
         </div>
     </section>
@@ -636,7 +638,7 @@ include 'includes/db_connect.php';
                     $slug = isset($row["slug"]) ? $row["slug"] : $id;
                     ?>
                     <div class="blog-card">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
+                        <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" loading="lazy"
                             onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop'">
                         <div class="blog-card-content">
                             <p class="blog-card-meta">

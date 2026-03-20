@@ -3,6 +3,7 @@
 $pageTitle = "Menu - Danono's Donuts | Best Flavored Brioche Donuts Pampanga";
 $metaDesc = "Explore Danono's menu: premium brioche donuts, Biscoff donuts, Ube donuts, and gourmet brownies. The best flavored donuts in the Philippines available now.";
 $customCss = "menu.css";
+$lcpImage = "assets/img/danonos-menu.webp";
 
 include 'includes/db_connect.php';
 
@@ -699,6 +700,7 @@ include 'includes/header.php';
     <section class="menu-hero">
         <div class="menu-hero-bg">
             <img src="assets/img/danonos-menu.webp" alt="Best Biscoff and Matcha Donuts in Pampanga Philippines"
+                fetchpriority="high" loading="eager"
                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&h=600&fit=crop'">
         </div>
 
@@ -742,7 +744,7 @@ include 'includes/header.php';
                     ?>
                     <div class="card" data-category="<?php echo $cat; ?>">
                         <div class="card-image-wrapper">
-                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>"
+                            <img src="<?php echo $image; ?>" alt="<?php echo $altText; ?>" loading="lazy"
                                 onerror="this.src='https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop'">
                         </div>
                         <div class="card-content">
@@ -765,7 +767,7 @@ include 'includes/header.php';
                     <div class="card" data-category="<?php echo $cat; ?>">
                         <div class="card-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop"
-                                alt="<?php echo htmlspecialchars($item['name']); ?>">
+                                alt="<?php echo htmlspecialchars($item['name']); ?>" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h2><?php echo htmlspecialchars($item['name']); ?></h2>

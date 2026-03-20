@@ -58,6 +58,10 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <?php include_once 'critical-css.php'; ?>
 
   <title><?php echo isset($pageTitle) ? $pageTitle : "Danono's Donuts & Brownies - Best Donuts in Angeles City"; ?>
   </title>
@@ -65,8 +69,11 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
     content="<?php echo isset($metaDesc) ? $metaDesc : "Freshly baked brioche donuts and treats every day. Order online or visit us in Angeles City!"; ?>">
 
   <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
-  <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.webp"
-    type="image/jpeg">
+  <?php if (isset($lcpImage)): ?>
+    <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl . $lcpImage; ?>" type="image/webp">
+  <?php else: ?>
+    <link rel="preload" fetchpriority="high" as="image" href="<?php echo $baseUrl; ?>assets/img/danonos.webp" type="image/webp">
+  <?php endif; ?>
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
@@ -81,8 +88,6 @@ $socialImage = isset($pageImage) ? $pageImage : $baseUrl . "assets/img/danonos-h
   <link rel="manifest" href="<?php echo $baseUrl; ?>assets/favicons/site.webmanifest">
   <link rel="shortcut icon" href="<?php echo $baseUrl; ?>assets/favicons/favicon.ico">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Fredoka+One&display=swap"
     rel="stylesheet">
@@ -195,6 +200,7 @@ endif; ?>
 
     <div class="nav-overlay"></div>
   </header>
+  <main>
 
   <script>
     const mobileToggle = document.querySelector('.mobile-toggle');

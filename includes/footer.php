@@ -1,3 +1,4 @@
+</main>
 <footer>
     <div class="footer-content">
         <div class="footer-section footer-about">
